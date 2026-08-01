@@ -1,0 +1,54 @@
+---
+description: 后端 main.py 契约与合规硬约束
+globs: main.py
+alwaysApply: false
+---
+
+# 唯一事实来源
+
+响应结构以 [docs/schema.md](../../docs/schema.md) 为准，**禁止发明字段**。成功响应必含八个字段，缺一即 AC1 失败：
+
+`status` `hpo_terms` `comparisons` `vus_reassurance` `next_steps` `disclaimer` `mcp_translation` `retrieved_chunks`
+
+# disclaimer 必须硬填充
+
+靠 prompt 祈使模型输出免责声明不可靠。这是 Non-Device CDS 定位的结构性保障：
+
+```python
+# 错误：交给 LLM 生成
+disclaimer = llm_result["disclaimer"]
+
+# 正确：读桶 C 原文逐字填充
+from config import official_disclaimer
+disclaimer = official_disclaimer()
+```
+
+验收脚本用的是同一个函数，走这条路就不可能对不上。**任何执行路径（含 LLM 解析失败的降级路径）都必须填充它。**
+
+# MCP 会话必须常驻
+
+每请求重启 stdio 子进程会累积 1-2 秒冷启动，逐词查询能拖到十几秒。会话在 `lifespan` 内建立并复用：
+
+```python
+async with stdio_client(params) as (read, write):
+    async with ClientSession(read, write) as session:
+        await session.initialize()
+        app.state.hpo = session
+        yield
+```
+
+HPO API 只索引英文，链路必须是「M3 中译英抽关键词 → `search_hpo_terms` → M3 回填中文名」两段式。
+
+# 错误按状态码分流
+
+| 场景 | HTTP | `error_code` |
+|---|---|---|
+| `symptoms` 或 `gene_report` 为空/全空白 | 422 | `INVALID_INPUT` |
+| 未读到 `MINIMAX_API_KEY` | 500 | `MISSING_API_KEY` |
+| Minimax 非 200、超时或响应无法解析 | 502 | `MINIMAX_API_ERROR` |
+
+禁止「一律 200 + status 字段」的信封模式。禁止把 LLM 原始文本透传给前端。
+
+# 收尾
+
+改完必须跑 `python scripts/run_acceptance.py`，退出码 0 才算完成。

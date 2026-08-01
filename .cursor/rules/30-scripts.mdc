@@ -1,0 +1,47 @@
+---
+description: scripts/ 下灌库与验收脚本的合规闸门与导入约定
+globs: scripts/*.py
+alwaysApply: false
+---
+
+# 两道合规闸门不得绕过
+
+GeneReviews 每篇都含 Management / Treatment 章节，里面有明确的药名与剂量方案。
+一旦进入向量库就可能被检索并被大模型引用，直接击穿 Non-Device CDS 定位。
+
+`scripts/rag_builder.py` 的两道防线**不得删除、不得放宽、不得加白名单例外**：
+
+1. **章节过滤**：`SECTION_ALLOW` 只放行描述性章节；`Management`、`Treatment`、`Surveillance`、
+   `Agents and Circumstances to Avoid` 等一律强制丢弃。
+2. **用药词兜底扫描**：逐切片扫描药名与剂量关键词，命中即丢弃并计数告警。
+
+验证方式（有原文语料时两个计数**必须大于 0**，为 0 说明章节标题丢失、过滤未生效）：
+
+```bash
+python scripts/rag_builder.py --dry-run
+```
+
+# 导入约定
+
+`scripts/` 不在包路径上，必须先把项目根加入 `sys.path` 再 `import config`：
+
+```python
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from config import COLLECTION_NAME, EMBEDDING_MODEL  # noqa: E402
+```
+
+**禁止**在脚本里另写 collection 名或 embedding 模型的默认值——两端漂移会让检索静默失准，
+现场几乎无法定位。所有常量一律从 `config` 取。
+
+# 中文模型
+
+知识库是中文，必须用 `BAAI/bge-small-zh-v1.5`。禁用纯英文的 `all-MiniLM-L6-v2`。
+换模型后必须重新灌库。
+
+# 执行位置
+
+两个脚本都在**项目根目录**执行，从别处调用相对路径会失效。

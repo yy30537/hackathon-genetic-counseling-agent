@@ -1,0 +1,49 @@
+---
+description: 项目宪法：根目录单体架构、文件所有权与目录禁令
+alwaysApply: true
+---
+
+# 架构基线
+
+根目录单体，**不是 monorepo**。后端 `main.py`、前端 `app.py`、共享配置 `config.py` 全部在根目录。
+前后端边界由 `POST /api/screen` 的 HTTP 契约承载，**不由目录承载**。
+
+# 目录禁令
+
+**禁止创建任何新的顶层目录。** 现存 6 个即全部：`docs/` `data/` `scripts/` `.cursor/` `.githooks/` `HPO-MCP-Server/`。
+
+以下名字出现即架构漂移，一律拒绝：
+
+```
+frontend/  backend/  src/  app/  api/  components/  utils/  lib/  tests/  common/  shared/
+```
+
+前端是 Streamlit（Python），后端是 FastAPI（Python），**不要套用 JS 生态惯例**。
+
+`.cursor/hooks/guard-write.py` 会在工具层拒绝白名单外的写入。需要新文件时先改
+`.cursor/hooks/allowlist.json` 并向人类说明理由，不要试图绕过。
+
+# 文件所有权
+
+| 路径 | 属主 |
+|---|---|
+| `main.py` | 后端智能体 |
+| `app.py` | 前端智能体 |
+| `scripts/*.py` | RAG / 验收智能体 |
+| `config.py` `docs/**` `data/**` `.env*` `.gitignore` `requirements.txt` | 人类，只读 |
+
+需要改他人文件时**停下来报告**，不要自行动手。完整表格见 [AGENTS.md](../../AGENTS.md)。
+
+# 配置收口
+
+`config.py` 是全项目**唯一**读 `.env` 的地方。`main.py` 与 `app.py` 里禁止出现 `os.getenv`：
+
+```python
+# 错误
+CHROMA_PATH = os.getenv("CHROMA_DB_PATH", "./chroma_db")
+
+# 正确
+from config import CHROMA_PATH
+```
+
+灌库与检索若用了不同的 embedding 模型或 collection 名，检索**不会报错**，只会静默返回噪声。

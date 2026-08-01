@@ -1,0 +1,48 @@
+---
+description: 前端 app.py 渲染骨架与边界约束
+globs: app.py
+alwaysApply: false
+---
+
+# 唯一视觉来源
+
+[docs/UI_BLUEPRINT.md](../../docs/UI_BLUEPRINT.md) 为准。§8 已定义完整函数清单与调用顺序，
+**函数名不得改、不得增删**。骨架已落在 `app.py` 里，按签名填实现即可。
+
+产物是**单文件** `app.py`。不要拆出 `components/`、`views/` 或任何辅助模块。
+
+# 前端不碰模型与向量库
+
+```python
+# 禁止
+import chromadb
+from sentence_transformers import SentenceTransformer
+requests.post("https://api.minimax.io/v1/chat/completions", ...)
+
+# 唯一允许的出口
+requests.post(f"{BACKEND_URL}/api/screen", json={...})
+```
+
+一切 MCP、RAG 与大模型调用都发生在后端（PRD 第 33 行断言）。
+
+# 禁止硬编码免责声明
+
+`disclaimer` 一律来自后端响应；非成功态从 `data/knowledge/bucket_c_compliance.json` 中
+`is_disclaimer == true` 的条目读 `text`，启动时读一次缓存。
+
+全文搜索「本系统提供的信息比对」在 `app.py` 中必须**零命中**（验收项 V2）。
+读取失败时渲染一行提示，**绝不静默隐藏免责条**。
+
+# 渲染硬约束
+
+- `disclaimer` 四种状态（idle / loading / success / error）下都必须出现在页面底部，且在 `st.columns` 之外
+- 页面上不得出现任何纯红色像素，`st.warning` 已覆盖为琥珀
+- `comparisons` 为空数组时渲染 C-16 静默态，**不得出现任何推测性病名**
+- 两输入框任一为空时 `st.warning` 拦截，**不向后端发请求**（AC8）
+- `confidence_level` 字段缺失时**静默不渲染**该行
+- 请求与 JSON 解析全程 `try/except`，不白屏、不崩溃、不把 traceback 打到页面
+
+# 独立开发
+
+后端未就绪时置 `USE_MOCK = True`，读 `data/fixtures/mock_response.success.json` 与
+`mock_response.error.json` 即可跑通全部渲染分区。

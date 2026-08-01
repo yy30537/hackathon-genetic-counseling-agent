@@ -1,0 +1,40 @@
+{
+  "_comment": "智能体可写文件的唯一白名单。guard-write.py 依此裁决：writable 放行，confirm 弹人工确认，其余一律拒绝。新增条目须由人类审核。",
+
+  "writable": [
+    "main.py",
+    "app.py",
+    "scripts/*.py",
+    ".cursor/rules/*.mdc",
+    ".githooks/*",
+    ".cursorindexingignore"
+  ],
+
+  "confirm": [
+    "AGENTS.md",
+    "README.md",
+    "config.py",
+    "requirements.txt",
+    ".gitignore",
+    ".env",
+    ".env.example",
+    "docs/**",
+    "data/**",
+    ".cursor/hooks.json",
+    ".cursor/mcp.json",
+    ".cursor/hooks/**"
+  ],
+
+  "forbidden_dirs": [
+    "frontend",
+    "backend",
+    "src",
+    "api",
+    "components",
+    "utils",
+    "lib",
+    "tests",
+    "common",
+    "shared"
+  ]
+}

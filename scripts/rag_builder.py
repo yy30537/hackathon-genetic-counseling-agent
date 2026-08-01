@@ -85,6 +85,10 @@ RAW_FILE_META = {
 # PubMed 与 AAP 属于科普/证据类，归入桶 B；GeneReviews 属于鉴别规则，归入桶 A。
 RAW_BUCKET = {"genereviews": "A", "pubmed": "B", "aap": "A"}
 
+# 占位文件哨兵。data/knowledge/raw/ 下预置了同名空壳文件用于提示下载，
+# 内容含此标记即视为尚未填充，直接跳过，避免把说明文字灌进向量库。
+PLACEHOLDER_MARK = "RAG_CORPUS_PLACEHOLDER"
+
 
 def is_heading(line: str) -> bool:
     """GeneReviews 章节标题：独立成行、较短、无句末标点。"""
@@ -168,7 +172,10 @@ def load_curated():
 def load_raw():
     """读取并过滤原文语料。返回 (docs, 统计信息)。"""
     docs = []
-    stats = {"files": 0, "denied_sections": 0, "skipped_sections": 0, "drug_blocked": 0}
+    stats = {
+        "files": 0, "placeholders": 0,
+        "denied_sections": 0, "skipped_sections": 0, "drug_blocked": 0,
+    }
     if not RAW_DIR.exists():
         return docs, stats
 
@@ -177,12 +184,19 @@ def load_raw():
         if meta is None:
             print(f"  [跳过] {path.name} 不在 SOURCES.md 清单中，文件名需完全一致")
             continue
+
+        text = path.read_text(encoding="utf-8")
+        if PLACEHOLDER_MARK in text:
+            stats["placeholders"] += 1
+            print(f"  [待填充] {path.name} 仍是占位文件，尚未粘贴原文")
+            continue
+
         condition, gene, origin = meta
         bucket = RAW_BUCKET[origin]
         stats["files"] += 1
         kept = 0
 
-        for title, body in split_sections(path.read_text(encoding="utf-8")):
+        for title, body in split_sections(text):
             verdict = section_verdict(title)
             if verdict == "deny":
                 stats["denied_sections"] += 1
@@ -225,12 +239,14 @@ def main():
     print("读取原文语料...")
     raw, stats = load_raw()
     if stats["files"] == 0:
-        print("  未发现原文语料。仅使用精编切片。")
+        print("  未发现已填充的原文语料。仅使用精编切片。")
         print("  如需完整 RAG，请按 data/knowledge/SOURCES.md 下载文档至 data/knowledge/raw/")
     else:
         print(f"  原文文件 {stats['files']} 份 -> {len(raw)} 条切片")
         print(f"  合规过滤：丢弃干预/用药章节 {stats['denied_sections']} 个，"
               f"无关章节 {stats['skipped_sections']} 个，用药词拦截 {stats['drug_blocked']} 条")
+    if stats["placeholders"]:
+        print(f"  仍有 {stats['placeholders']} 份占位文件待填充（上方标记为「待填充」）")
 
     docs = curated + raw
     # 按 id 去重，精编优先
