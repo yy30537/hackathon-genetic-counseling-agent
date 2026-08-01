@@ -56,6 +56,7 @@ Pydantic 模型：`ScreeningResponse`。允许一层「数组套简单对象」�
 | `disclaimer` | String | Required | 桶 C 免责声明逐字原文，**后端硬编码填充，不经 LLM** |
 | `mcp_translation` | String | Required | MCP 标准化过程原始输出，供前端调试面板展示 |
 | `retrieved_chunks` | Array\<Chunk\> | Required | RAG 命中切片，供前端调试面板展示 |
+| `confidence_level` | Integer | Optional | 0–100 整数，**仅在本次 MVP 后的迭代版本（PRD C6）支持**。代表筛查系统自身匹配结果的可信度（基于 HPO 匹配数 × 文献命中数 × 变异与表型对齐度的综合评分），**不代表用户确诊的可能性**。当前 MVP 阶段后端可不返回该字段；前端必须以字段缺失时不渲染该行为准。 |
 
 ### 子对象定义
 
@@ -91,6 +92,9 @@ Pydantic 模型：`ScreeningResponse`。允许一层「数组套简单对象」�
 ### Pydantic 声明
 
 ```python
+from typing import List, Literal, Optional
+
+
 class HpoTerm(BaseModel):
     hpo_id: str
     name: str
@@ -121,6 +125,7 @@ class ScreeningResponse(BaseModel):
     disclaimer: str
     mcp_translation: str
     retrieved_chunks: List[Chunk]
+    confidence_level: Optional[int] = None  # 0–100；见 PRD C6，仅 Roadmap 阶段使用
 ```
 
 ---
@@ -175,6 +180,7 @@ class ErrorResponse(BaseModel):
 |---|---|---|
 | I7 | `comparisons[].explanation` 的每个论断都必须能回溯到 `retrieved_chunks` 中的某个切片 | RAG 照本宣科原则。在 system prompt 中要求模型只依据给定切片作答，路演前人工抽查 |
 | I8 | 检索无命中时 `comparisons` 返回**空数组**，且 `vus_reassurance` 明确说明未匹配到相关指南 | 宁可少说也不编造。后端在切片为空时应短路，不要把空上下文丢给模型自由发挥 |
+| I9 | `confidence_level` 字段（0–100 整数，仅 PRD C6 Roadmap 阶段出现）**不得**在任何 UI 文案、提示语或 `vus_reassurance` / `next_steps` 中被表述为「得病概率」「患病概率」「发病概率」「可能性」「几率」或同义表达。Confidence Level 专指**筛查系统自身匹配结果的可信度**（HPO 标准化准确度 × 文献覆盖度 × 变异与表型对齐度），与「用户是否患病」无任何数学对应关系。前端展示文案须使用「筛查可信度」「匹配可信度」等中性表述，不得加颜色梯度暗示「数值越高越可能得病」 | 这是产品的护城河。一旦该数字被任何用户、评委或评审理解为「得病概率」，产品就跨过了 Non-Device CDS 红线 |
 
 ---
 
@@ -212,7 +218,8 @@ class ErrorResponse(BaseModel):
       "source": "GeneReviews_MECP2",
       "text": "MECP2 相关疾病的典型病程为早期发育基本正常，6 至 18 月龄后出现已获得的语言与手部功能倒退……"
     }
-  ]
+  ],
+  "confidence_level": 78
 }
 ```
 

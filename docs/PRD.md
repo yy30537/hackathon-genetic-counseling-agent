@@ -59,6 +59,7 @@
 - **C3** 扩充更多单基因病数据桶。
 - **C4** HPO 术语置信度评分与人工纠偏（当前取 top hit，不做多候选排序）。
 - **C5** 基因报告文件上传（当前契约 `gene_report` 为文本粘贴）。
+- **C6** 筛查报告整体置信度评估（Confidence Level）。在 `ScreeningResponse` 顶层新增可选字段 `confidence_level: int`（0–100 整数），由后端基于「HPO 匹配数 × 文献命中数 × 变异与表型对齐度」综合评分，反映的是**本次筛查系统自身匹配结果的可信程度**——而非「用户确诊的可能性」。前端在 C-08 之后、C-11 之前渲染一行弱化标签（如「本次筛查可信度：78 / 100」），不得使用任何让人联想到「得病概率」的措辞（如「概率」「可能性」「几率」）。**保留在 Could Have**：本次不交付评分算法实现，但 schema 字段与 UI 渲染位预留，便于赛后迭代；后端可暂不返回该字段，前端需在缺失时回退为不渲染此行。
 
 ### 1.4 Won't Have — Out of Scope（严禁开发）
 
@@ -119,7 +120,8 @@ flowchart TD
       "next_steps": ["..."],
       "disclaimer": "（桶 C 逐字原文，后端硬编码）",
       "mcp_translation": "...",
-      "retrieved_chunks": [{ "bucket": "A", "origin": "curated", "source": "GeneReviews_MECP2", "text": "..." }]
+      "retrieved_chunks": [{ "bucket": "A", "origin": "curated", "source": "GeneReviews_MECP2", "text": "..." }],
+      "confidence_level": 78
     }
     ```
   - `ErrorResponse`（HTTP 4xx/5xx）：`{ status: "error", error_code: "INVALID_INPUT"|"MISSING_API_KEY"|"MINIMAX_API_ERROR", error_message: str }`

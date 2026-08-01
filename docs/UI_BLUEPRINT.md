@@ -149,6 +149,7 @@ flowchart TD
   Quote --> Hpo["C-06 HpoTable"]
   Hpo --> Cmp["C-07 ComparisonCard xN"]
   Cmp --> Steps["C-08 NextStepsList"]
+  Steps --> Conf["C-17 ConfidenceLine (字段存在时)"]
   Left --> Form["C-03 IntakeForm (常驻底部)"]
   Form --> Example["C-04 ExampleFillButton (可选)"]
   Right --> Mcp["C-09 McpTranslationCard"]
@@ -187,7 +188,7 @@ stateDiagram-v2
 | 区域 | idle | loading | success | error |
 |---|---|---|---|---|
 | C-01 HeaderBar | 渲染 | 渲染 | 渲染 | 渲染 |
-| 左栏结果区 | C-13 空态引导语 | C-14 加载态 | C-05→C-06→C-07→C-08 | C-12 错误卡 |
+| 左栏结果区 | C-13 空态引导语 | C-14 加载态 | C-05→C-06→C-07→C-08→C-17(可选) | C-12 错误卡 |
 | C-03 IntakeForm | 可编辑 | 全部控件 `disabled=True` | 可编辑，**保留上次输入内容** | 可编辑，**保留上次输入内容** |
 | 右栏证据面板 | C-15 面板占位说明 | C-15 面板占位说明 | C-09 + C-10×N | C-15 面板占位说明 |
 | C-11 DisclaimerBar | 渲染（回退文案源） | 渲染（回退文案源） | 渲染（响应 `disclaimer`） | 渲染（回退文案源） |
@@ -215,6 +216,7 @@ stateDiagram-v2
 | `comparisons[].explanation` | C-07 | 卡片正文 | `body`，**全文渲染，禁止截断或折叠** | 缺失则整卡不渲染 |
 | `comparisons[].source` | C-07 | 卡片右下角 | `small` + mono + `--text-muted-strong`，格式 `来源：{source} ①`，编号规则见 §5 | 无匹配切片时只显示来源、不显示编号 |
 | `next_steps[]` | C-08 | 左 · 4 | 有序清单，每项一行，行首方形序号块 | 长度 0 时整块不渲染（但这违反 I2，属后端 Bug，前端不掩盖：额外渲染一行琥珀提示「就诊建议缺失」） |
+| `confidence_level` | C-17 | 左 · 5 | 弱化标签行，单行 `small` + `--text-muted-strong`，文案「本次筛查可信度：{n} / 100」，不带边框/卡片 | 字段缺失或不在 0–100 范围则整行不渲染（符合 PRD C6 Roadmap 阶段定义） |
 | `disclaimer` | C-11 | 全宽 · 页面末 | 见 §6.11 | 见 §3 回退文案源 |
 | `mcp_translation` | C-09 | 右 · 1 | 面板首卡，`body`，标题「术语标准化过程」 | 空字符串则渲染卡片外壳 + `—` |
 | `retrieved_chunks[]` | C-10 | 右 · 2..N | 每切片一卡，**按数组顺序编号 ①②③…** | 长度 0 时渲染「本次未检索到知识库切片」 |
@@ -402,8 +404,22 @@ match(comparison, chunks):
 
 ### C-16 无比对静默态（`comparisons == []`）
 
-- 一块无卡片的弱提示：`本次未匹配到相关指南条目。`，其下 `small` 灰字：`这不代表没有问题，也不代表有问题，只说明知识库里没有可比对的文献特征。请以医生面诊为准。`
+- 一块无卡片的弱提示：`本次未匹配到相关指南条目。`，其下 `small` 灰字：`这不代表有问题，也不代表有问题，只说明知识库里没有可比对的文献特征。请以医生面诊为准。`
 - **绝对禁止**在此处渲染任何推测性内容、"可能的方向"或让模型补写的兜底文案。这是 AC3 / I8 的前端落点。
+
+### C-17 ConfidenceLine ← `confidence_level`（仅 PRD C6 Roadmap 阶段）
+
+- 位置：左栏结果区**第 5 块**，在 C-08 NextStepsList 之后、C-11 DisclaimerBar 之前。
+- 触发条件：响应体含 `confidence_level`，且为 0–100 整数（含两端）。任一条件不满足则**整行不渲染**——MVP 阶段后端不返回该字段，前端必须自动静默回退。
+- 视觉：单行 `small`（13px / 1.6 / 400） + `--text-muted-strong`；**不带边框、不带背景、不带图标**；左对齐，置于 C-08 下方 16px 间距。
+- 文案（**逐字模板，禁止改写**）：`本次筛查可信度：{n} / 100`
+- 数字部分使用 `--font-mono`，与正文做最小对比区分。
+- **措辞护栏**（schema I9 的前端落点）：
+  - 禁止使用「概率」「可能性」「几率」「概率」「风险」等同义表达；
+  - 禁止使用「确诊概率」「患病概率」「发病概率」；
+  - 禁止将数字与色阶绑定（不得用红/黄/绿暗示「数字越高越可能患病」）；
+  - 禁止添加任何解释性副标题（如「数字越高说明匹配越好，越可能是 XX 病」）。
+- **禁止在 `vus_reassurance` 或 `next_steps` 中提及该数字**——前端渲染器需要主动规避，不要把它注入到 RAG 引用的回填位置。
 
 ---
 
@@ -540,6 +556,7 @@ div[data-baseweb="notification"]{ background:var(--bucket-c-soft) !important;
   render_hpo_table(hpo_terms)           # C-06
   render_comparisons(comparisons, refs) # C-07 / C-16
   render_next_steps(steps)              # C-08
+  render_confidence_line(value)         # C-17 (可选, 字段缺失时静默)
   render_error(err)                     # C-12
   render_intake_form(disabled)          # C-03 / C-04
   render_evidence_panel(payload)        # C-09 / C-10 / C-15
@@ -549,7 +566,7 @@ main 调用顺序
   set_page_config → inject CSS → init session_state
   render_header()
   left, right = st.columns([62, 38], gap="large")
-  with left:  按 stage 分发结果区 → render_intake_form()
+  with left:  按 stage 分发结果区（C-13/C-14/C-05..C-08/C-17/C-12）→ render_intake_form()
   with right: render_evidence_panel()
   render_disclaimer()                   # 必须在 columns 之外
 ```
@@ -574,3 +591,4 @@ main 调用顺序
 - **V12** 强制 OS 深色模式后刷新，配色不变、文字可读（验证 `.streamlit/config.toml` 生效）。
 - **V13** 窗口宽度拉到 1000px 与 1440px，双栏比例保持 62/38，卡片不溢出、不出现横向滚动条。
 - **V14** 加载态没有任何逐步点亮的假进度（§6 C-14 诚实性约束）。
+- **V15** `confidence_level` 缺失时左栏不渲染 C-17；存在时渲染单行文案「本次筛查可信度：{n} / 100」，数字部分为 mono 字体，无边框、无背景、无色阶。全文搜索「概率」「可能性」「几率」「患病概率」「确诊概率」在该行渲染输出中**零命中**。C-17 数字不得出现在 `vus_reassurance` / `next_steps` / `disclaimer` 渲染输出中。
