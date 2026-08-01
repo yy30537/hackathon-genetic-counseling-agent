@@ -1,0 +1,18 @@
+{
+  "id": "tc_04_tsc",
+  "title": "结节性硬化：皮肤白斑 + 婴儿期点头样抽搐（非典型入口）/ TSC2 VUS",
+  "note": "合成数据。此例的入口线索是皮肤而非行为，用于验证系统能否处理非行为学的表型输入。",
+  "input": {
+    "symptoms": "宝宝现在1岁8个月。他身上有好几块白色的斑，形状有点像柳树叶子，后背和大腿上加起来能数出五六块，出生没多久就有了，一直没消。大概7个月大的时候开始一阵一阵地点头、两只胳膊往前抱，一次连着好几十下，我们一开始以为他是困了。最近发现他会的东西变少了，本来会拍手再见，现在不会了，叫名字也不太理人。",
+    "gene_report": "全外显子组测序：TSC2 基因杂合变异 c.4375C>T (p.Arg1459Trp)，临床意义未明（VUS）。"
+  },
+  "expect": {
+    "http_status": 200,
+    "min_hpo_terms": 3,
+    "expect_conditions_any": ["结节性硬化", "Tuberous", "TSC"],
+    "expect_buckets": ["A", "B", "C"],
+    "require_disclaimer": true,
+    "require_next_steps_departments": ["儿童发育行为科", "医学遗传科"],
+    "banned_words": ["确诊", "患有", "即为", "需服用", "建议用药"]
+  }
+}

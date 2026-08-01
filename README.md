@@ -1,6 +1,13 @@
 
 # 🧬 垂直自闭症辅助问诊 AI Chatbot (MVP)
 
+产品名称：ASD-GenDecoder (ASD 基因解码器)
+产品名称备选：AutisMap (Autism 自闭症 + Map 导航图)
+
+标语 (Slogan)：
+
+“让晦涩的基因报告说人话，终结自闭症的诊断漫游。” / “精准定位自闭症与罕见基因病的边界。”
+
 > 一款专为自闭症 (ASD) 及高相似度基因病设计的 AI 筛查与基因报告解读工具。
 
 ![Hackathon MVP](https://img.shields.io/badge/Status-Hackathon_MVP-brightgreen)
@@ -61,11 +68,17 @@ cd autism-ai-screener
 # 2. 安装依赖包
 pip install -r requirements.txt
 
-# 3. 配置环境变量 (Minimax API Key)
+# 3. 搭建 HPO-MCP-Server（未纳入本仓库，需自行 clone 并编译）
+git clone https://github.com/Augmented-Nature/HPO-MCP-Server.git
+cd HPO-MCP-Server && npm install && cd ..
+# 仓库已内置 .cursor/mcp.json，编译完成后重载 Cursor 窗口即可连接
+# 详见 docs/env-setup.md 阶段二
+
+# 4. 配置环境变量 (Minimax API Key)
 # 请在根目录下创建 .env 文件，并填入以下内容：
 # MINIMAX_API_KEY=your_api_key_here
 
-# 4. 启动应用
+# 5. 启动应用
 streamlit run app.py
 
 

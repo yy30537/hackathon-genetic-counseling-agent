@@ -1,0 +1,5 @@
+{
+  "status": "error",
+  "error_code": "MINIMAX_API_ERROR",
+  "error_message": "调用 Minimax M3 失败：接口返回状态码 429（请求过于频繁）。请稍后重试；若持续失败，请检查 .env 中的 MINIMAX_API_KEY 额度。"
+}

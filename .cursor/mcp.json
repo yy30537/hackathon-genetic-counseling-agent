@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "hpo-server": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${workspaceFolder}/HPO-MCP-Server/build/index.js"]
+    }
+  }
+}

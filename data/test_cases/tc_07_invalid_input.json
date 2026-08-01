@@ -1,0 +1,13 @@
+{
+  "id": "tc_07_invalid_input",
+  "title": "错误路径：基因报告为空，应被 422 拦截",
+  "note": "验证 AC6 的 INVALID_INPUT 分支与 AC8 的前端拦截。后端即使被绕过前端直接调用，也必须拒绝。",
+  "input": {
+    "symptoms": "孩子不太爱说话。",
+    "gene_report": "   "
+  },
+  "expect": {
+    "http_status": 422,
+    "error_code": "INVALID_INPUT"
+  }
+}

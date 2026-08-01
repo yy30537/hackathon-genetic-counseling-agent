@@ -1,0 +1,18 @@
+{
+  "id": "tc_05_negative_control",
+  "title": "阴性对照：典型 ASD 表现 + 基因报告未见明确致病变异",
+  "note": "验证系统不会为了给答案而硬凑罕见单基因病。期望走桶 A 的 AAP 基础筛查路径与桶 B 的安抚话术，comparisons 不应牵强附会到 Rett / 安格曼等特定综合征。",
+  "input": {
+    "symptoms": "孩子3岁半，不太跟小朋友玩，别人叫他名字经常没反应，但听到广告音乐就会跑过来。喜欢把小汽车排成一长排，谁动一下就大哭。说话会说，但常常是重复别人的话，你问他要不要吃苹果，他就跟着说要不要吃苹果。喜欢转圈圈，也喜欢盯着洗衣机看很久。身体上没什么特别的，个子体重都正常，没抽过筋。",
+    "gene_report": "全外显子组测序（WES）报告：未检出与临床表型相关的致病性或可能致病性变异。检出 3 个临床意义未明变异（VUS），均位于目前与神经发育疾病无明确关联的基因。"
+  },
+  "expect": {
+    "http_status": 200,
+    "min_hpo_terms": 3,
+    "forbid_conditions_any": ["Rett", "安格曼", "Angelman", "结节性硬化"],
+    "expect_buckets": ["A", "B", "C"],
+    "require_disclaimer": true,
+    "require_next_steps_departments": ["儿童发育行为科", "医学遗传科"],
+    "banned_words": ["确诊", "患有", "即为", "需服用", "建议用药"]
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "a_asd_aap_baseline",
+    "bucket": "A",
+    "condition": "孤独症谱系障碍 (ASD) 基础标准与初级保健",
+    "gene": "",
+    "source": "AAP 临床指南",
+    "url": "https://publications.aap.org/pediatrics/article/145/1/e20193447/36917/Identification-Evaluation-and-Management-of",
+    "anchors": ["跨情境社交沟通缺陷", "局限重复的行为模式", "18个月与24个月标准化筛查"],
+    "text": "孤独症谱系障碍（ASD）基础标准与初级保健。美国儿科学会（AAP）临床指南规定，在儿童 18 个月和 24 个月必须进行标准化筛查。核心表现为跨情境的社交沟通缺陷，以及局限、重复的行为模式。预警机制：如果患儿伴发新发的攻击性或严重的自伤行为，干预的首要原则并非盲目使用精神药物，必须首先全面排除隐匿性躯体疼痛（如隐匿的牙痛或胃肠道痉挛）。"
+  },
+  {
+    "id": "a_rett_mecp2",
+    "bucket": "A",
+    "condition": "Rett 综合征 / MECP2 相关疾病",
+    "gene": "MECP2",
+    "source": "GeneReviews: MECP2-Related Disorders",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1497/",
+    "anchors": ["已获得技能倒退", "手部刻板动作", "搓手绞手", "后天性小头畸形", "步态共济失调", "呼吸节律异常"],
+    "text": "Rett 综合征（MECP2 相关疾病）。由 X 连锁的 MECP2 基因致病变异引起，以女性患儿为主。鉴别特征：早期发育基本正常，通常在 6 至 18 月龄后出现已获得的语言与手部功能倒退，这一「先获得后丧失」的病程是与原发性 ASD 最重要的区分点。核心鉴别锚点：特征性的手部刻板动作（持续搓手、绞手、洗手样动作、将手放入口中），伴随手部有目的性使用能力的丧失；后天性小头畸形（头围增长速率在出生后逐渐落后）；步态共济失调与躯干失用；清醒期呼吸节律异常（过度换气、屏气、吞气）。临床重合：社交退缩、眼神交流减少与语言缺失在早期极易被误判为孤独症谱系障碍。"
+  },
+  {
+    "id": "a_fragile_x_fmr1",
+    "bucket": "A",
+    "condition": "脆性 X 综合征 (Fragile X Syndrome, FXS)",
+    "gene": "FMR1",
+    "source": "GeneReviews: FMR1-Related Disorders",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1384/",
+    "anchors": ["长脸", "突出前额", "大耳廓", "社会回避", "缺乏眼神交流", "持续拍手", "ADHD 症状", "难以控制的焦虑"],
+    "text": "脆性 X 综合征（Fragile X Syndrome, FXS）。由 FMR1 基因 CGG 三核苷酸异常扩增引起，是最常见的导致 ASD 的单基因突变。鉴别特征：高达 50%-70% 的男性患者完全符合自闭症诊断，表现为社会回避、缺乏眼神交流、持续拍手。核心鉴别锚点：患者常伴有明显的颅面特征（长脸、突出前额、大耳廓），且超过 80% 会合并强烈的 ADHD 症状及难以控制的焦虑。"
+  },
+  {
+    "id": "a_angelman_ube3a",
+    "bucket": "A",
+    "condition": "安格曼综合征 (Angelman Syndrome)",
+    "gene": "UBE3A",
+    "source": "GeneReviews: Angelman Syndrome",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1144/",
+    "anchors": ["快乐木偶行为", "频繁爆发的大笑", "极易被激惹的微笑", "宽基底步态", "手臂高举屈曲", "癫痫", "睡眠节律紊乱", "几乎无语言"],
+    "text": "安格曼综合征（Angelman Syndrome）。由 15q11.2-q13 区域母源 UBE3A 基因表达缺失引起。临床重合：言语功能严重剥夺（几乎无语言）、刻板行为、重度智力障碍，这些与 ASD 高度重合。核心鉴别锚点：标志性的「快乐木偶」行为（频繁爆发、极易被激惹的大笑和微笑）；明显的步态共济失调（宽基底、手臂高举屈曲）；极高发的癫痫以及严重睡眠节律紊乱。"
+  },
+  {
+    "id": "a_tsc_tsc1_tsc2",
+    "bucket": "A",
+    "condition": "结节性硬化症 (Tuberous Sclerosis Complex, TSC)",
+    "gene": "TSC1/TSC2",
+    "source": "GeneReviews: Tuberous Sclerosis Complex",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1220/",
+    "anchors": ["叶状色素减退斑", "白蜡树叶斑", "面部血管纤维瘤", "婴儿痉挛症", "难治性癫痫", "皮质结节"],
+    "text": "结节性硬化症（Tuberous Sclerosis Complex, TSC）。由 TSC1 或 TSC2 基因突变导致。核心鉴别锚点：皮肤提供至关重要的线索，包括 3 片以上的叶状色素减退斑（白蜡树叶斑）、面部血管纤维瘤。神经系统中由于皮质结节的存在，常表现为婴儿痉挛症或难治性癫痫，这些常被误认为是退化型 ASD。"
+  },
+  {
+    "id": "a_sotos_nsd1",
+    "bucket": "A",
+    "condition": "Sotos 综合征",
+    "gene": "NSD1",
+    "source": "GeneReviews: Sotos Syndrome",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1479/",
+    "anchors": ["过度生长", "身高超98百分位", "巨头畸形", "骨龄提前", "缺乏社交感知"],
+    "text": "Sotos 综合征。属于伴有 ASD 表型的过度生长综合征。核心鉴别锚点：表现为过度生长（儿童期身高常超过 98 百分位）、巨头畸形、骨龄提前。患儿常因缺乏社交感知而被误诊为原发性 ASD。"
+  },
+  {
+    "id": "a_prader_willi",
+    "bucket": "A",
+    "condition": "Prader-Willi 综合征 (小胖威利)",
+    "gene": "15q11.2-q13 父源片段",
+    "source": "GeneReviews: Prader-Willi Syndrome",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK1330/",
+    "anchors": ["婴儿期极度肌张力低下", "喂养困难", "无可遏制的暴食", "极度固执", "强迫行为模式"],
+    "text": "Prader-Willi 综合征（小胖威利）。由 15q11.2-q13 父源片段缺失引起。核心鉴别锚点：婴儿期存在极度肌张力低下和喂养困难，但在儿童期后会爆发无可遏制的暴食症及极度固执、强迫的行为模式。这种阶段性反转的病程是与原发性 ASD 的重要区分线索。"
+  }
+]

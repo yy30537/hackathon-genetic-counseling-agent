@@ -1,0 +1,18 @@
+{
+  "id": "tc_03_fragile_x",
+  "title": "脆性 X：不敢看人 + 一直拍手 + 长脸大耳 + 极度多动 / FMR1 CGG 扩增",
+  "note": "合成数据，症状文本由桶 A 脆性 X 锚点去医学化改写而成，不含任何真实病例。",
+  "input": {
+    "symptoms": "我儿子6岁，从小就不肯看人的眼睛，你跟他说话他就把头扭开，有生人来家里他能躲到桌子底下不出来。高兴或者紧张的时候就使劲拍手，一拍好几分钟。他脸比别的孩子长一些，耳朵也特别大，额头挺凸的。老师说他一节课都坐不住，屁股像长了钉子，写两个字就要站起来跑。而且特别容易焦虑，换个座位、走另一条路回家都能让他崩溃大哭。",
+    "gene_report": "FMR1 基因检测：CGG 三核苷酸重复次数 > 200 次，呈全突变范围，伴异常甲基化。"
+  },
+  "expect": {
+    "http_status": 200,
+    "min_hpo_terms": 3,
+    "expect_conditions_any": ["脆性 X", "脆性X", "Fragile X", "FMR1"],
+    "expect_buckets": ["A", "C"],
+    "require_disclaimer": true,
+    "require_next_steps_departments": ["儿童发育行为科", "医学遗传科"],
+    "banned_words": ["确诊", "患有", "即为", "需服用", "建议用药"]
+  }
+}

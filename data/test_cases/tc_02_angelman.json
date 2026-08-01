@@ -1,0 +1,18 @@
+{
+  "id": "tc_02_angelman",
+  "title": "安格曼：停不下来的傻笑 + 几乎不说话 + 走路晃 / UBE3A 缺失",
+  "note": "合成数据，症状文本由桶 A 安格曼锚点去医学化改写而成，不含任何真实病例。",
+  "input": {
+    "symptoms": "孩子4岁了，一个字都不会说，只会啊啊叫。他特别爱笑，一天到晚咯咯咯地笑，有时候一点小事就笑得停不下来，谁看了都说这孩子真开心，但我们知道不对劲。走路的时候两条腿分得特别开，手老是举得高高的、胳膊肘弯着，看着像小木偶。晚上几乎不睡，折腾到凌晨两三点。上个月还抽过一次，眼睛往上翻，手脚僵硬。",
+    "gene_report": "基因检测报告：15q11.2-q13 区域母源片段缺失，UBE3A 基因表达缺失。甲基化分析异常。"
+  },
+  "expect": {
+    "http_status": 200,
+    "min_hpo_terms": 3,
+    "expect_conditions_any": ["安格曼", "Angelman", "UBE3A"],
+    "expect_buckets": ["A", "C"],
+    "require_disclaimer": true,
+    "require_next_steps_departments": ["儿童发育行为科", "医学遗传科"],
+    "banned_words": ["确诊", "患有", "即为", "需服用", "建议用药"]
+  }
+}
