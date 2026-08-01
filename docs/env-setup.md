@@ -186,78 +186,95 @@ npx @modelcontextprotocol/inspector node ./build/index.js
 ### 3.1 安装核心 Python 库
 确认已激活虚拟环境（终端提示符含 `(.venv)`，见 [1.4 节](#14-创建并激活-python-虚拟环境-强烈推荐)），然后运行：
 ```bash
-pip install chromadb sentence-transformers langchain
+pip install chromadb sentence-transformers
 ```
 
-### 3.2 准备与清洗“数据桶” (构建本地向量库)
-在 Cursor 项目目录中创建 `rag_builder.py` 并运行：
+> **为什么不装 langchain**：本项目的切分逻辑用标准库几十行就能实现，而 langchain 依赖极重、安装耗时长，在 36 小时冲刺里性价比很低，故不引入。
+
+> **Embedding 模型选择（重要）**：我们的知识库是**中文**，因此必须使用中文或多语言向量模型。项目统一采用 `BAAI/bge-small-zh-v1.5`（约 95MB）。切勿使用 `all-MiniLM-L6-v2` —— 它是纯英文模型，对中文文本的向量化效果接近随机，检索会完全失准。**灌库与检索两端必须使用同一个模型**，换模型后必须重新运行 `scripts/rag_builder.py`。模型名统一由根目录 `config.py` 提供（见 3.4 节），两端都从那里读，不要各写一份默认值。
+
+### 3.2 知识库语料：双来源
+
+语料已结构化落盘，不再硬编码在脚本里：
+
+* **精编切片**（已就位）：`data/knowledge/bucket_a_differential.json`、`bucket_b_vus.json`、`bucket_c_compliance.json`，共 10 条，内容逐条对应 [后端知识库架构与数据字典](./后端知识库架构与数据字典.md)。这是合规安全的核心，**即使不下载原文也能跑通全链路**。
+* **原文切片**（需手动下载）：按 [data/knowledge/SOURCES.md](../data/knowledge/SOURCES.md) 的清单，把 6 篇 GeneReviews 与 2 篇 PubMed 摘要存为 txt 放进 `data/knowledge/raw/`。灌库脚本会自动切分。
+
+> **合规红线（必读）**：GeneReviews 每篇都含 **Management / Treatment** 章节，里面有明确的药名与剂量方案。这些内容一旦进入向量库，就可能被检索并被大模型引用，直接击穿本项目 Non-Device CDS 的立身之本。因此 `scripts/rag_builder.py` 内置两道防线：按章节标题**强制丢弃**干预类章节；以及对每个切片做用药词兜底扫描，命中即丢弃。**请勿绕过这两道过滤。**
+
+### 3.3 灌库脚本 `scripts/rag_builder.py`
+
+脚本已就位，核心逻辑：
+
+1. 读取 `data/knowledge/*.json` 精编切片，全部入库，标记 `origin=curated`。
+2. 读取 `data/knowledge/raw/*.txt` 原文，按章节标题过滤（白名单保留 Clinical Characteristics、Differential Diagnosis 等描述性章节；黑名单丢弃 Management、Treatment、Surveillance、Agents and Circumstances to Avoid 等）。
+3. 对保留章节做滑窗切分（约 500 字，重叠 80 字），逐片扫描用药关键词，命中即丢弃并告警。
+4. 合并去重后写入 ChromaDB，collection 名 `autism_genetics_knowledge`，metadata 含 `bucket` / `source` / `condition` / `gene` / `origin`。
+
+运行：
+
+```bash
+python scripts/rag_builder.py --dry-run   # 先干跑，检查切分与过滤统计，不写库
+python scripts/rag_builder.py             # 确认无误后正式灌库
+```
+
+> 两条命令都在**项目根目录**执行。脚本会把根目录加入 `sys.path` 后 `import config`，从别处调用相对路径会失效。
+
+干跑输出示例（尚未下载原文时）：
+
+```text
+读取精编切片...
+  精编切片 10 条
+读取原文语料...
+  未发现原文语料。仅使用精编切片。
+合计入库 10 条切片（桶 A 7，桶 B 2，桶 C 1）
+```
+
+下载原文后会额外打印每份文件的收录条数，以及 `合规过滤：丢弃干预/用药章节 N 个 ... 用药词拦截 M 条`。**务必确认这两个数字大于 0**，否则说明章节标题在复制粘贴时丢失，过滤未生效。
+
+### 3.4 共享配置 `config.py`
+
+根目录的 `config.py` 是全项目唯一读取 `.env` 的地方，向灌库脚本、后端与验收脚本提供同一份常量：
+
+| 常量 | 用途 |
+|---|---|
+| `COLLECTION_NAME` | ChromaDB collection 名，**不走环境变量**，两端必须字面相同 |
+| `EMBEDDING_MODEL` / `CHROMA_PATH` | 向量模型与持久化目录 |
+| `KNOWLEDGE_DIR` / `RAW_DIR` / `TEST_CASE_DIR` / `FIXTURES_DIR` | 各数据目录的绝对路径，与当前工作目录无关 |
+| `BACKEND_URL` | 前端与验收脚本访问后端的地址 |
+| `MINIMAX_API_KEY` / `MINIMAX_BASE_URL` / `MINIMAX_MODEL` | 大模型调用参数 |
+| `official_disclaimer()` | 读取桶 C 免责声明原文，后端与验收脚本共用同一入口 |
+
+> **为什么要有这个文件**：灌库与检索若用了不同的 embedding 模型或 collection 名，检索**不会报错**，只会返回一堆语义无关的切片。这种故障在演示现场几乎不可能当场定位。把常量收在一处，物理上消除这种漂移。
+
+根目录模块直接 `import config`；`scripts/` 下的脚本需先把项目根加入 `sys.path`：
 
 ```python
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from config import COLLECTION_NAME, EMBEDDING_MODEL
+```
+
+### 3.5 检索逻辑
+
+检索由后端 `main.py` 内部完成，查询键为「标准化症状 + 基因变异名」，因知识库为中文，查询串也必须是中文。若要单独验证检索质量，可用（注意它同样从 `config` 取模型名与 collection，避免手写造成不一致）：
+
+```bash
+python -c "
 import chromadb
 from chromadb.utils import embedding_functions
-
-# 1. 初始化 ChromaDB
-chroma_client = chromadb.PersistentClient(path="./chroma_db")
-
-# 2. 使用本地开源 Embedding 模型
-sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
-
-# 3. 创建 Collection
-collection = chroma_client.get_or_create_collection(
-    name="autism_genetics_knowledge",
-    embedding_function=sentence_transformer_ef
-)
-
-# 4. 准备数据桶内容 (A/B/C)
-documents = [
-    "在儿童18个月和24个月必须进行标准化筛查。如果患儿伴发新发的攻击性或严重的自伤行为，干预的首要原则并非盲目使用精神药物，必须首先全面排除隐匿性躯体疼痛（如隐匿的牙痛或胃肠道痉挛）。",
-    "脆性X综合征（Fragile X Syndrome, FXS）：最常见的导致 ASD 的单基因突变（FMR1基因 CGG 异常扩增）。患者常伴有明显的颅面特征（长脸、突出前额、大耳廓），且超过80%会合并强烈的 ADHD 症状及难以控制的焦虑。",
-    "VUS 极其常见：在进行广泛基因组检测的人群中，高达 41% 的个体都会收到至少一个 VUS 报告，这是科学技术发展过程中的正常现象。它绝不是确诊书，不要过度恐慌。",
-    "本系统不可替代执业医师的面诊，绝不作为任何疾病的确诊结论，亦不提供任何具体的干预或用药建议。强烈建议前往医学遗传科评估。"
-]
-
-metadatas = [
-    {"source": "AAP_Guidelines", "bucket": "A"},
-    {"source": "GeneReviews_FMR1", "bucket": "A"},
-    {"source": "ACMG_VUS", "bucket": "B"},
-    {"source": "FDA_Disclaimer", "bucket": "C"}
-]
-ids = ["doc_a1", "doc_a2", "doc_b1", "doc_c1"]
-
-# 5. 灌入数据
-collection.add(
-    documents=documents,
-    metadatas=metadatas,
-    ids=ids
-)
-print("✅ 知识库已成功灌入 ChromaDB 本地向量库！")
+from config import CHROMA_PATH, COLLECTION_NAME, EMBEDDING_MODEL
+ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name=EMBEDDING_MODEL)
+col = chromadb.PersistentClient(path=CHROMA_PATH).get_collection(COLLECTION_NAME, embedding_function=ef)
+r = col.query(query_texts=['症状: 频繁大笑 步态不稳 无语言 基因: UBE3A 缺失'], n_results=3)
+[print('-', d[:80], m) for d, m in zip(r['documents'][0], r['metadatas'][0])]
+"
 ```
-运行：`python rag_builder.py`
 
-### 3.3 编写检索函数
-创建 `rag_retriever.py` 以测试检索逻辑：
-
-```python
-import chromadb
-from chromadb.utils import embedding_functions
-
-chroma_client = chromadb.PersistentClient(path="./chroma_db")
-sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
-collection = chroma_client.get_collection(name="autism_genetics_knowledge", embedding_function=sentence_transformer_ef)
-
-def query_medical_guidelines(standardized_symptoms: str, gene_report: str):
-    query_text = f"症状: {standardized_symptoms} 基因: {gene_report}"
-    results = collection.query(
-        query_texts=[query_text],
-        n_results=3
-    )
-    retrieved_docs = results['documents'][0]
-    return "\n".join(retrieved_docs)
-
-if __name__ == "__main__":
-    context = query_medical_guidelines("严重智力障碍，频繁大笑，步态不稳", "UBE3A 缺失")
-    print("检索到的医学背景知识：\n", context)
-```
+预期首条命中安格曼综合征相关切片。
 
 ---
 
@@ -268,108 +285,99 @@ if __name__ == "__main__":
 ### 4.1 安装后端依赖
 （同样在已激活的虚拟环境下运行）
 ```bash
-pip install fastapi uvicorn requests python-dotenv
+pip install fastapi uvicorn requests python-dotenv mcp
 ```
 
-### 4.2 配置 API 密钥环境变量 (.env)
-后端通过 `python-dotenv` 从项目根目录的 `.env` 文件读取密钥。在项目根目录创建 `.env`，填入 [第三步](#第三步获取-minimax-api-密钥) 获取的密钥：
+其中 `mcp` 是 MCP 官方 Python SDK，后端用它以 stdio 方式调用 HPO-MCP-Server。
+
+### 4.2 配置环境变量 (.env)
+项目根目录已提供模板 [.env.example](../.env.example)，复制后填入真实值：
+
 ```bash
-MINIMAX_API_KEY=你的_MiniMax_密钥
+cp .env.example .env
 ```
-> **安全提示**：务必将 `.env` 加入 `.gitignore`（`echo ".env" >> .gitignore`），严禁将密钥提交到 GitHub。
 
-### 4.3 编写后端 API (main.py)
-在项目根目录创建 `main.py`：
+必填两项：
+
+| 变量 | 说明 |
+|---|---|
+| `MINIMAX_API_KEY` | [第三步](#第三步获取-minimax-api-密钥) 获取的 MiniMax 密钥，形如 `sk-cp-...` |
+| `HPO_MCP_SERVER_PATH` | `HPO-MCP-Server/build/index.js` 的**绝对路径**，每台机器不同 |
+
+其余（`MINIMAX_BASE_URL`、`MINIMAX_MODEL`、`CHROMA_DB_PATH`、`EMBEDDING_MODEL`、`BACKEND_URL`）留空即用代码内默认值。
+
+> **安全提示**：`.env` 已在根目录 [.gitignore](../.gitignore) 中被忽略，严禁将密钥提交到 GitHub。`.env.example` 只放占位符，可以安全提交。
+
+### 4.3 MCP 集成：中译英两段式
+
+HPO 官方 API 只索引英文术语，而家长输入是中文，因此标准化必须分两段走：
+
+```mermaid
+flowchart TD
+  Raw["家长中文白话"] --> Extract["M3 抽取: 中文原话 + 英文关键词"]
+  Extract --> Session["MCP stdio 会话 (lifespan 内常驻)"]
+  Session --> Tool["search_hpo_terms(query=英文关键词)"]
+  Tool --> Pick["取 top hit: hpo_id + name_en"]
+  Pick --> Zh["M3 回填中文名 -> hpo_terms[]"]
+  Zh --> RagQuery["中文检索键: 原话 + 中文名 + 基因"]
+```
+
+**性能要点**：MCP 会话必须在 FastAPI 的 `lifespan` 内建立并复用，**不要每个请求都重启子进程**（每次冷启动约 1-2 秒，逐词查询会累积成十几秒的等待）。骨架如下：
 
 ```python
-import os
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-import requests
-import chromadb
-from chromadb.utils import embedding_functions
-from dotenv import load_dotenv
+from contextlib import asynccontextmanager
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
 
-load_dotenv()
-MINIMAX_API_KEY = os.getenv("MINIMAX_API_KEY")
+from config import HPO_MCP_SERVER_PATH
 
-app = FastAPI(title="SpectrumX Backend API", version="1.0")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    params = StdioServerParameters(
+        command="node",
+        args=[HPO_MCP_SERVER_PATH],
+    )
+    async with stdio_client(params) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            app.state.hpo = session          # 全局复用
+            yield
 
-chroma_client = chromadb.PersistentClient(path="./chroma_db")
-sentence_transformer_ef = embedding_functions.SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
-collection = chroma_client.get_or_create_collection(
-    name="autism_genetics_knowledge",
-    embedding_function=sentence_transformer_ef
-)
+app = FastAPI(title="ASD-GenDecoder Backend", lifespan=lifespan)
 
-class ScreeningRequest(BaseModel):
-    symptoms: str
-    gene_report: str
-
-def mcp_translate_symptoms(raw_symptoms: str) -> str:
-    # MVP阶段：模拟MCP翻译结果。生产环境应调用之前测试通的 HPO-MCP-Server 工具
-    return f"标准化表型代码 -> 原始描述: {raw_symptoms} (已映射至标准 HPO 词条)"
-
-def retrieve_rag_context(standardized_symptoms: str, gene_report: str) -> str:
-    query_text = f"症状: {standardized_symptoms} 基因: {gene_report}"
-    results = collection.query(query_texts=[query_text], n_results=2)
-    return "\n- ".join(results['documents'][0])
-
-@app.post("/api/screen")
-def run_screening_pipeline(data: ScreeningRequest):
-    try:
-        # Step 1 & 2
-        hpo_standardized = mcp_translate_symptoms(data.symptoms)
-        rag_knowledge = retrieve_rag_context(hpo_standardized, data.gene_report)
-        
-        # Step 3: 合规与护栏 Prompt (包含数据桶 C)
-        system_prompt = (
-            "你是一个专业的罕见病与自闭症前置筛查科普助手。请严格根据提供的【权威参考资料】回答用户问题，"
-            "绝对不能主观臆造或给出确诊结论。\n\n"
-            f"【权威参考资料 (RAG)】:\n- {rag_knowledge}\n\n"
-            "【合规硬性要求】:\n"
-            "无论风险高低，严禁出现'您确诊了XXX'或'建议服用XXX'。在报告最末尾，"
-            "必须强制附带以下免责声明：\n"
-            "'本系统提供的信息比对与基因知识科普均基于权威医学文献检索生成。本报告仅用于帮助家长梳理日常生活中的前置症状线索，"
-            "并翻译晦涩的基因术语。本系统不可替代执业医师的面诊，绝不作为任何疾病的确诊结论。强烈建议您携带此信息整理单，"
-            "前往正规三甲医疗机构的儿童发育行为科及医学遗传科，由专业医生进行最终临床评估。'"
-        )
-        user_prompt = f"患儿症状描述：{data.symptoms}\n标准化表型：{hpo_standardized}\n基因测序报告/VUS：{data.gene_report}"
-
-        # Step 4: 调用 MiniMax M3
-        url = "https://api.minimax.io/v1/chat/completions"
-        headers = {
-            "Authorization": f"Bearer {MINIMAX_API_KEY}",
-            "Content-Type": "application/json"
-        }
-        payload = {
-            "model": "MiniMax-M3",
-            "messages": [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ],
-            "temperature": 0.3,
-            "stream": False
-        }
-        
-        response = requests.post(url, json=payload, headers=headers)
-        if response.status_code != 200:
-            raise HTTPException(status_code=500, detail=f"Minimax API Error: {response.text}")
-            
-        ai_reply = response.json()['choices'][0]['message']['content']
-        
-        return {
-            "status": "success",
-            "mcp_translation": hpo_standardized,
-            "retrieved_knowledge": rag_knowledge,
-            "screening_report": ai_reply
-        }
-        
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+# 调用方式
+result = await app.state.hpo.call_tool("search_hpo_terms", {"query": "inappropriate laughter", "max": 3})
 ```
-**启动后端**: `uvicorn main:app --reload --port 8000`  
+
+### 4.4 编写后端 API (main.py)
+
+响应结构以 [docs/schema.md](./schema.md) 为唯一事实来源，**不要自行发明字段**。实现时必须满足的四条硬约束：
+
+1. **响应八字段**：`status`、`hpo_terms`、`comparisons`、`vus_reassurance`、`next_steps`、`disclaimer`、`mcp_translation`、`retrieved_chunks`。
+2. **`disclaimer` 由后端硬填充**：调用 `config.official_disclaimer()` 取桶 C 原文直接赋值，**不经大模型生成**。靠 prompt 祈使模型输出免责声明是不可靠的，这一条是 AC4 的结构性保障。验收脚本用的是同一个函数，所以只要走这条路就不可能对不上。
+3. **要求 M3 返回结构化 JSON**：system prompt 中明确输出 schema，后端解析后填充 `hpo_terms` 之外的业务字段；解析失败时抛 `MINIMAX_API_ERROR`，禁止把原始文本透传给前端。
+4. **错误契约按 HTTP 状态码分流**：
+
+| 场景 | HTTP | `error_code` |
+|---|---|---|
+| `symptoms` 或 `gene_report` 为空/全空白 | 422 | `INVALID_INPUT` |
+| 未读取到 `MINIMAX_API_KEY` | 500 | `MISSING_API_KEY` |
+| Minimax 非 200、超时或返回无法解析 | 502 | `MINIMAX_API_ERROR` |
+
+错误响应体统一为 `{"status": "error", "error_code": ..., "error_message": ...}`，建议用 FastAPI 的 `exception_handler` 统一收口，避免每个分支各写一遍。
+
+**启动后端**: `uvicorn main:app --reload --port 8000`
 *(可通过 `http://127.0.0.1:8000/docs` 访问 Swagger UI 测试 API)*
+
+### 4.5 验收自检
+
+后端跑起来后，用现成的验收脚本一次性检查 PRD 的 AC1-AC8：
+
+```bash
+python scripts/run_acceptance.py
+```
+
+它会把 `data/test_cases/` 下的 7 个用例逐条 POST 给后端，校验字段完整性、HPO 编码格式、免责声明逐字一致、就诊科室、禁用词、错误码等。全通过退出码为 0。
 
 ---
 
@@ -379,6 +387,8 @@ def run_screening_pipeline(data: ScreeningRequest):
 ```python
 import streamlit as st
 import requests
+
+from config import BACKEND_URL
 
 st.title("🧬 SpectrumX - 自闭症与基因筛查助手")
 
@@ -392,24 +402,51 @@ if st.button("生成筛查比对与前置就诊单"):
         with st.spinner("MCP 翻译官正在转换表型，RAG 正在检索教科书..."):
             try:
                 response = requests.post(
-                    "http://127.0.0.1:8000/api/screen",
+                    f"{BACKEND_URL}/api/screen",
                     json={"symptoms": symptoms_input, "gene_report": gene_input}
                 )
                 
                 if response.status_code == 200:
-                    res_data = response.json()
+                    d = response.json()
                     st.success("分析完成！")
-                    st.subheader("📋 最终筛查与前置就诊建议报告")
-                    st.markdown(res_data["screening_report"])
-                    
-                    with st.expander("🔍 查看底层黑盒架构运行日志 (MCP + RAG)"):
-                        st.text(f"【MCP 标准化结果】:\n{res_data['mcp_translation']}")
-                        st.text(f"【RAG 检索到的医学知识切片】:\n{res_data['retrieved_knowledge']}")
+
+                    st.subheader("🧬 症状标准化结果 (HPO)")
+                    st.table([
+                        {"家长原话": t["matched_text"], "标准表型": t["name"], "HPO 编码": t["hpo_id"]}
+                        for t in d["hpo_terms"]
+                    ])
+
+                    st.subheader("🔎 症状与基因比对")
+                    for c in d["comparisons"]:
+                        with st.container(border=True):
+                            st.markdown(f"**{c['condition']}**　`{c['gene']}`")
+                            st.caption("命中锚点：" + "、".join(c["matched_anchors"]))
+                            st.write(c["explanation"])
+                            st.caption(f"来源：{c['source']}")
+
+                    st.subheader("💬 关于 VUS，请先别慌")
+                    st.info(d["vus_reassurance"])
+
+                    st.subheader("📋 建议的下一步")
+                    for s in d["next_steps"]:
+                        st.markdown(f"- {s}")
+
+                    st.warning(d["disclaimer"])   # 合规免责，固定置底
+
+                    with st.expander("🔍 查看底层黑盒运行日志 (MCP + RAG)"):
+                        st.text(f"【MCP 标准化过程】:\n{d['mcp_translation']}")
+                        st.markdown("**【RAG 命中的知识切片】**")
+                        for ch in d["retrieved_chunks"]:
+                            st.caption(f"[桶 {ch['bucket']} · {ch['origin']}] {ch['source']}")
+                            st.text(ch["text"])
                 else:
-                    st.error(f"调用失败: {response.text}")
+                    err = response.json()
+                    st.error(f"{err.get('error_code', '未知错误')}：{err.get('error_message', response.text)}")
             except Exception as ex:
                 st.error(f"连接后端服务出错: {ex}")
 ```
+
+> 渲染字段必须与 [docs/schema.md](./schema.md) 一致。`disclaimer` 用 `st.warning` 固定置底，确保任何情况下都在视觉上强提示。
 **启动前端**: `streamlit run app.py`（需保持阶段四的后端 `uvicorn` 进程处于运行状态）
 
 此时，一套打通 MCP + RAG + FastAPI + Streamlit 的本地化全链路 MVP 就已成功跑通。
@@ -418,17 +455,31 @@ if st.button("生成筛查比对与前置就诊单"):
 
 ## 附录：requirements.txt
 
-在项目根目录创建 `requirements.txt`，一次性锁定所有 Python 依赖，激活虚拟环境后执行 `pip install -r requirements.txt` 即可：
+仓库根目录已提供 [requirements.txt](../requirements.txt)，一次性锁定所有 Python 依赖，激活虚拟环境后执行 `pip install -r requirements.txt` 即可。内容如下：
 
 ```text
+# 向量库与中文向量化
 chromadb
 sentence-transformers
-langchain
+
+# 后端
 fastapi
 uvicorn
+mcp
+
+# 前端
+streamlit
+
+# 通用
 requests
 python-dotenv
-streamlit
 ```
 
-> 运行顺序回顾：`source .venv/bin/activate` → `pip install -r requirements.txt` → `python rag_builder.py`（灌库）→ `uvicorn main:app --reload --port 8000`（后端）→ 新开终端并再次激活虚拟环境 → `streamlit run app.py`（前端）。
+> 运行顺序回顾：
+> 1. `source .venv/bin/activate`
+> 2. `pip install -r requirements.txt`
+> 3. `cp .env.example .env` 并填入 `MINIMAX_API_KEY` 与 `HPO_MCP_SERVER_PATH`
+> 4. `python scripts/rag_builder.py`（灌库，首次会下载约 95MB 的向量模型）
+> 5. `uvicorn main:app --reload --port 8000`（后端）
+> 6. 新开终端并再次激活虚拟环境，`streamlit run app.py`（前端）
+> 7. `python scripts/run_acceptance.py`（验收自检）

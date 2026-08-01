@@ -1,0 +1,15 @@
+# 向量库与中文向量化
+chromadb
+sentence-transformers
+
+# 后端
+fastapi
+uvicorn
+mcp
+
+# 前端
+streamlit
+
+# 通用
+requests
+python-dotenv

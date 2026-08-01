@@ -36,15 +36,19 @@
 *   **📚 RAG (权威教科书)：** 基于 ChromaDB 搭建。负责根据标准化症状去查阅内置的 AAP (美国儿科学会) 和 GeneReviews 最新临床指南，严格照本宣科输出。
 
 > **📖 详细项目文档导航：**
-> *   👉 [点击查看《后端知识库架构与数据字典 (MCP & RAG)》](./docs/后端知识库架构与数据字典.md)
-> *   👉 [点击查看《竞品分析与深度市场调研报告》](./docs/market-research.md)
+> *   👉 [《产品需求文档 (PRD)》](./docs/PRD.md) —— 功能优先级、验收标准与合规红线
+> *   👉 [《API 数据契约》](./docs/schema.md) —— 前后端唯一事实来源，动手写代码前必读
+> *   👉 [《环境搭建指南》](./docs/env-setup.md) —— 从虚拟环境到全链路跑通的完整步骤
+> *   👉 [《后端知识库架构与数据字典 (MCP & RAG)》](./docs/后端知识库架构与数据字典.md)
+> *   👉 [《data/ 数据资产地图》](./data/README.md) —— 语料、测试用例与前端 Mock 的分工
+> *   👉 [《竞品分析与深度市场调研报告》](./docs/market-research.md)
 
 ## 👤 4. 目标用户与极简旅程 (User Journey)
 
 **目标画像：** 手持基因测序报告、发现孩子有发育异常，且处于高焦虑状态的家长。
 
 **无分叉的极简交互流 (The Straight Line)：**
-1.  **双输入 (Input)：** 用户输入“大白话异常症状描述” + 上传“基因分析报告 (VUS片段)”。
+1.  **双输入 (Input)：** 用户输入“大白话异常症状描述” + 粘贴“基因分析报告 (VUS片段)”文本。
 2.  **黑盒处理 (Process)：** MCP 标准化翻译 -> RAG 指南检索与比对 -> 提取科普安抚话术。
 3.  **单输出 (Output)：** 生成一份结构化的《症状与基因筛查比对报告》，附带强警示性免责声明与明确的专科复诊建议。
 
@@ -58,27 +62,47 @@
 
 ## 🚀 6. 快速启动 (Quick Start)
 
-在本地环境中运行此 MVP 需确保已安装 Python 3.9+ 环境。
+需要 Python 3.9+ 与 Node.js 18+（后者用于 HPO-MCP-Server）。完整说明见 [docs/env-setup.md](./docs/env-setup.md)。
 
 ```bash
 # 1. 克隆项目仓库
-git clone [https://github.com/your-repo/autism-ai-screener.git](https://github.com/your-repo/autism-ai-screener.git)
+git clone https://github.com/your-repo/autism-ai-screener.git
 cd autism-ai-screener
 
-# 2. 安装依赖包
+# 2. 创建并激活虚拟环境
+python3 -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+
+# 3. 安装 Python 依赖
 pip install -r requirements.txt
 
-# 3. 搭建 HPO-MCP-Server（未纳入本仓库，需自行 clone 并编译）
+# 4. 搭建 HPO-MCP-Server（未纳入本仓库，需自行 clone 并编译）
 git clone https://github.com/Augmented-Nature/HPO-MCP-Server.git
-cd HPO-MCP-Server && npm install && cd ..
-# 仓库已内置 .cursor/mcp.json，编译完成后重载 Cursor 窗口即可连接
-# 详见 docs/env-setup.md 阶段二
+cd HPO-MCP-Server && npm install && npm run build && cd ..
+# 记下 HPO-MCP-Server/build/index.js 的绝对路径，下一步要填
 
-# 4. 配置环境变量 (Minimax API Key)
-# 请在根目录下创建 .env 文件，并填入以下内容：
-# MINIMAX_API_KEY=your_api_key_here
+# 5. 配置环境变量
+cp .env.example .env
+# 编辑 .env，至少填入两项必填变量：
+#   MINIMAX_API_KEY      —— Minimax 控制台生成，形如 sk-cp-...
+#   HPO_MCP_SERVER_PATH  —— 上一步 build/index.js 的绝对路径
 
-# 5. 启动应用
+# 6. 构建 RAG 向量库（首次运行会下载约 95MB 的中文向量模型）
+python scripts/rag_builder.py
+
+# 7. 启动后端
+uvicorn main:app --reload --port 8000
+
+# 8. 另开一个终端，激活同一虚拟环境后启动前端
+source .venv/bin/activate
 streamlit run app.py
+```
 
+启动后可选做一次验收自检，它会把 [data/test_cases/](./data/test_cases/) 下的 7 个用例逐条打给后端，校验字段完整性、免责声明与合规红线：
+
+```bash
+python scripts/run_acceptance.py
+```
+
+> **注意**：第 7、8 步是**两个独立进程**，需各占一个终端。前端只做渲染，所有 MCP、RAG 与大模型调用都发生在后端。
 
