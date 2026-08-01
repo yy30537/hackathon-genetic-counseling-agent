@@ -1,0 +1,13 @@
+#!/bin/sh
+# 轨道所有权校验。启用方式（人类手动执行一次，智能体不得代劳）：
+#
+#     chmod +x .githooks/pre-commit
+#     git config core.hooksPath .githooks
+#
+# 确需绕过时用 git commit --no-verify。
+
+if command -v python3 >/dev/null 2>&1; then
+    python3 scripts/check_ownership.py || exit 1
+else
+    echo "pre-commit: 未找到 python3，跳过所有权校验。"
+fi

@@ -124,7 +124,7 @@ npm run build
 ### 2.2 注册 MCP 服务器（编辑 mcp.json）
 当前版本的 Cursor 已取消旧的 `Settings -> Features -> MCP -> + Add New MCP Server` 表单，自定义 MCP 服务器统一通过 `mcp.json` 配置文件管理。
 
-本项目采用**项目级配置**：仓库根目录下的 [`.cursor/mcp.json`](../.cursor/mcp.json)（已随仓库提交，clone 下来即生效，无需每人手动添加）：
+本项目采用**项目级配置**：仓库根目录下的 [`.cursor/mcp.json`](../.cursor/mcp.json)（已随仓库提交）。**注意：写进仓库 ≠ Agent Chat 立刻能调工具。** `mcp.json` 只负责注册；Cursor 还必须成功启动并启用该服务器，工具才会出现在 Chat 的 Available Tools 里。
 
 ```json
 {
@@ -140,14 +140,28 @@ npm run build
 
 其中 `${workspaceFolder}` 是 Cursor 官方支持的插值变量，指向包含 `.cursor/mcp.json` 的项目根目录。用它而不是绝对路径，团队每个人的机器都能直接复用同一份配置。
 
+**写完 / 改完配置后必做（缺一不可）：**
+
+1. 确认 `HPO-MCP-Server/build/index.js` 已存在（见 2.1）。
+2. **重启 Cursor**，或至少 `Cmd + Shift + P` → `Developer: Reload Window`。
+3. 打开侧边栏 **Customize → MCP**，确认 `hpo-server` **已启用且显示已连接**，并能展开看到 12 个工具。若开关是关的，打开；若状态异常，关掉再打开一次。
+4. 在 Chat 输入框旁的工具列表里确认 HPO 相关工具未被单独关掉。
+
+> **可选：全局配置**。若你希望在所有项目中都能用这台服务器，改为编辑 `~/.cursor/mcp.json`，此时 `${workspaceFolder}` 不再适用，`args` 必须填写绝对路径。项目级与用户级配置会合并，同名时**项目级优先**；空的 `~/.cursor/mcp.json`（`"mcpServers": {}`）不会覆盖项目配置。
+
 **在 Cursor 界面里打开该文件的方式**：点击侧边栏的 **Customize** -> 找到 MCP 区域 -> 点击 **New MCP Server**，Cursor 会直接打开 `mcp.json` 供编辑（而不是弹出表单）。
 
-> **可选：全局配置**。若你希望在所有项目中都能用这台服务器，改为编辑 `~/.cursor/mcp.json`，此时 `${workspaceFolder}` 不再适用，`args` 必须填写绝对路径，例如 `["/Users/yourname/Desktop/hackathon-genetic-counseling-agent/HPO-MCP-Server/build/index.js"]`。
+### 2.3 验证服务是否正常（三层，别混为一谈）
 
-配置保存后，需要重新加载 Cursor 窗口（`Cmd + Shift + P` -> `Developer: Reload Window`），或在 Customize 面板把 `hpo-server` 开关关掉再打开，服务器才会连接。
+这三层测的不是同一件事。**命令行通了只说明二进制可用，不等于 Chat 里能调。**
 
-### 2.3 验证服务是否正常
-**方式一：命令行自检（推荐，无需浏览器）**。在项目根目录执行，直接与服务器做一次 MCP 握手并列出工具：
+| 层 | 测什么 | 通过标准 |
+|---|---|---|
+| A. 命令行握手 | `node build/index.js` 本身能否跑、能否列工具 | stderr 有 `HPO MCP server running on stdio`，stdout 含 12 个工具名 |
+| B. Cursor 已加载 | IDE 是否把服务器拉起来并启用 | Customize → MCP 里 `hpo-server` 已连接，能展开 12 个工具 |
+| C. Agent Chat 可调用 | 当前对话能否真正 `tools/call` | Chat 里让 Agent 调 `search_hpo_terms` 返回 `HP:0001250` |
+
+**方式一：命令行自检（层 A，推荐先做）**。在项目根目录执行：
 ```bash
 cd HPO-MCP-Server
 printf '%s\n' \
@@ -158,24 +172,34 @@ printf '%s\n' \
 ```
 预期：stderr 输出 `HPO MCP server running on stdio`，stdout 返回两条 JSON，其中包含 `"name":"hpo-server"` 以及 12 个工具名（`search_hpo_terms`、`get_hpo_term`、`get_hpo_ancestors`、`get_hpo_parents`、`get_hpo_children`、`get_hpo_descendants`、`validate_hpo_id`、`get_hpo_term_path`、`compare_hpo_terms`、`get_hpo_term_stats`、`batch_get_hpo_terms`、`get_all_hpo_terms`）。
 
-**方式二：在 Cursor 内确认**。打开侧边栏 **Customize**，`hpo-server` 应显示为已连接并列出 12 个工具。若连接失败，打开输出面板（`Cmd + Shift + U`）在下拉框中选择 **MCP Logs** 查看启动报错。
+**方式二：在 Cursor 内确认（层 B）**。打开侧边栏 **Customize → MCP**，`hpo-server` 应显示为已连接并列出 12 个工具。若连接失败，打开输出面板（`Cmd + Shift + U`）在下拉框中选择 **MCP Logs** 查看启动报错。常见原因：`build/index.js` 不存在、Node 不在 Cursor 可见的 PATH、服务器开关被关掉。
 
-**方式三：图形化排查（可选）**。用官方 Inspector 交互式调用工具：
+**方式三：图形化排查（可选，仍属层 A）**。用官方 Inspector 交互式调用工具：
 ```bash
 npx @modelcontextprotocol/inspector node ./build/index.js
 ```
 
-### 2.4 冒烟测试（确认端到端可用）
-在 Cursor 的 Chat 中输入：
+### 2.4 冒烟测试（层 C：确认 Chat 端到端可用）
+在 Cursor 的 Agent Chat 中输入：
 ```
 用 search_hpo_terms 搜索 seizure
 ```
-预期返回 `HP:0001250 Seizure` 及其定义。该服务器直连公开 API `https://ontology.jax.org/api/hp`，**无需任何 API Key**，但需要联网。
+预期：Agent **通过 MCP 工具调用**返回 `HP:0001250 Seizure` 及其定义（不是自己编造，也不是改去跑命令行握手）。该服务器直连公开 API `https://ontology.jax.org/api/hp`，**无需任何 API Key**，但需要联网。
 
-> **重要：语言限制**。HPO 官方 API 只索引英文术语，直接拿中文白话（如“整天傻笑”）去查会检索不到。因此本项目的调用链必须是：先由 MiniMax M3 把家长口语描述翻译成英文医学关键词（如 `inappropriate laughter`），再交给 `search_hpo_terms` 换取标准 HPO 编码 —— 这正是 PRD 中「MCP 翻译官」这一角色的落地方式。
+若 Agent 回复「当前会话没有加载任何 MCP 服务器」或改去跑 `node build/index.js` 握手，说明**层 A 可能已通，但层 B/C 未通**。按下面顺序排查，不要重复 clone：
+
+1. Customize → MCP：`hpo-server` 是否已启用且已连接？
+2. `Cmd + Shift + P` → `Developer: Reload Window`（或直接重启 Cursor）。
+3. 打开 **Output → MCP Logs** 看启动报错。
+4. 新开一个 Agent Chat 再试一次（旧会话有时仍拿不到刚连上的工具）。
+5. Chat 工具列表里确认 HPO 工具未被关掉。
+
+> **重要：语言限制**。HPO 官方 API 只索引英文术语。实测中文查询（如「抽搐」「整天傻笑」）会直接收到上游 `400 Bad Request`，不是「搜不到」而是「请求非法」。因此本项目的调用链必须是：先由 MiniMax M3 把家长口语描述翻译成英文医学关键词（如 `inappropriate laughter`），再交给 `search_hpo_terms` 换取标准 HPO 编码 —— 这正是 PRD 中「MCP 翻译官」这一角色的落地方式。后端实现时建议在调用前加一道「查询串须为 ASCII」兜底，避免中文透传把整条流水线打成异常。
 
 ### 2.5 注意事项：队友首次拉取项目
 `HPO-MCP-Server/` 已被根目录 `.gitignore` 忽略（内含体积巨大的 `node_modules`，不纳入本仓库）。因此**每位成员 clone 本仓库后都必须自行执行一次 2.1 的 clone + `npm install`**，否则 `.cursor/mcp.json` 指向的 `build/index.js` 不存在，Cursor 会报服务器启动失败。
+
+另外：后端产品路径（`main.py` → `mcp` Python SDK → `node $HPO_MCP_SERVER_PATH`）**不依赖** Cursor 是否加载了 MCP。Cursor 的 MCP 面板只服务于开发期在 Chat 里手工探测术语；路演与验收走的是后端进程内的 stdio 会话。两套通道彼此独立，一边通不代表另一边通。
 
 ---
 

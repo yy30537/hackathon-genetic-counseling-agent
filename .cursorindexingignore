@@ -1,0 +1,23 @@
+# 排除在 Cursor 代码库索引之外的路径。
+# 用 indexingignore 而非 cursorignore：这些目录不进索引（避免污染检索与补全），
+# 但智能体在明确需要时仍可读取。
+
+# Python 虚拟环境：数万个第三方文件，进索引会把检索结果全部淹没
+.venv/
+__pycache__/
+*.pyc
+
+# 向量库二进制产物，由 scripts/rag_builder.py 重新生成
+chroma_db/
+
+# 外部克隆的 MCP 服务器，含 node_modules 与编译产物。
+# 它是黑盒依赖，接口以 docs/env-setup.md 阶段二为准，不需要索引其实现。
+HPO-MCP-Server/
+
+# 下载的 GeneReviews / PubMed 原文语料。
+# 体积大且含 Management/Treatment 等用药章节，索引后可能被智能体当成可引用的上下文，
+# 绕过 scripts/rag_builder.py 的合规过滤。语料的正确入口是向量库，不是代码检索。
+data/knowledge/raw/
+
+# macOS
+.DS_Store
