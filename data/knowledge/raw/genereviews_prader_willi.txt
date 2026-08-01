@@ -1,0 +1,28 @@
+=== RAG_CORPUS_PLACEHOLDER 待填充：本文件尚未粘贴原文，灌库时会被跳过 ===
+
+来源：GeneReviews - Prader-Willi Syndrome
+NBK ID：NBK1330
+链接：https://www.ncbi.nlm.nih.gov/books/NBK1330/
+入库归属：桶 A（鉴别诊断）｜condition = Prader-Willi 综合征｜gene = 15q11.2-q13
+
+无专属测试用例。与安格曼综合征同属 15q11.2-q13 区域但亲本来源相反，
+是解释印记机制时的有用对照。
+
+--- 操作步骤 ---
+
+1. 打开上面的链接，在网页正文区全选复制。
+2. 删除本文件的全部内容（含本行说明），把原文粘贴进来，以 UTF-8 保存。
+3. 回到项目根目录运行 python scripts/rag_builder.py --dry-run 检查切分统计。
+
+--- 三条硬要求 ---
+
+1. 必须保留章节标题行，例如 Clinical Characteristics、Clinical Description、
+   Diagnosis、Differential Diagnosis、Management。灌库脚本靠这些独立成行的标题
+   做章节过滤，标题丢失会导致整篇内容落入 preamble 而被全部跳过。
+
+2. 不要手动删除 Management / Treatment / Surveillance 章节。脚本会自动识别并
+   强制丢弃，保留原样才能在日志里算出准确的过滤条数，这是 PRD 中 AC10 的校验依据。
+
+3. 不要改文件名。脚本按文件名推断来源、病种与所属数据桶。
+
+完整清单与合规说明见 ../SOURCES.md

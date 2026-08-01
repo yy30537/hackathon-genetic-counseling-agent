@@ -11,8 +11,8 @@ chroma_db/
 
 # 下载的原文语料。GeneReviews 版权归 University of Washington，
 # 允许本地使用但限制再分发，故不纳入版本控制。
-data/knowledge/raw/*
-!data/knowledge/raw/.gitkeep
+# data/knowledge/raw/*
+#!data/knowledge/raw/.gitkeep
 
 # 外部克隆的 MCP 服务器（含 node_modules，不纳入本仓库）
 HPO-MCP-Server/

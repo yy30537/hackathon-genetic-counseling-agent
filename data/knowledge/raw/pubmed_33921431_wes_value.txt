@@ -1,0 +1,30 @@
+=== RAG_CORPUS_PLACEHOLDER 待填充：本文件尚未粘贴原文，灌库时会被跳过 ===
+
+来源：PubMed 摘要 - 全外显子测序在 ASD 中的诊断价值
+PMID：33921431
+链接：https://pubmed.ncbi.nlm.nih.gov/33921431/
+入库归属：桶 B（VUS 科普与循证数据）｜condition = 全外显子测序的诊断价值
+
+支撑 vus_reassurance 字段中「测序的价值在于解释机制而非判定绝症」这一论点。
+
+--- 操作步骤 ---
+
+1. 打开上面的链接，复制 Abstract 部分的正文。
+2. 删除本文件的全部内容（含本行说明），按下面的格式粘贴，以 UTF-8 保存。
+3. 回到项目根目录运行 python scripts/rag_builder.py --dry-run 检查切分统计。
+
+--- 格式要求（与 GeneReviews 不同，务必注意）---
+
+PubMed 摘要没有 GeneReviews 那样的章节标题，而灌库脚本只收录带白名单标题的章节。
+因此必须自己把 Abstract 作为独立的一行写在最前面，否则整篇会落入 preamble 被跳过，
+灌库结果是 0 条切片。填好后应形如：
+
+Abstract
+Autism spectrum disorder (ASD) is ...（摘要正文，可多段）
+
+--- 其他要求 ---
+
+- 不要改文件名。脚本按文件名推断来源与所属数据桶。
+- 摘要若含药名或剂量，脚本的用药词兜底扫描会丢弃对应切片，属预期行为。
+
+完整清单与合规说明见 ../SOURCES.md

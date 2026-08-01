@@ -1,0 +1,30 @@
+=== RAG_CORPUS_PLACEHOLDER 待填充：本文件尚未粘贴原文，灌库时会被跳过 ===
+
+来源：AAP 临床指南摘要 - Identification, Evaluation, and Management of Children With ASD
+链接：https://publications.aap.org/pediatrics/article/145/1/e20193447/36917/
+入库归属：桶 A（鉴别诊断）｜condition = ASD 初级保健指南
+
+本篇为可选项。全文位于付费墙后，只需保存摘要即可；
+即使完全缺失也不影响灌库，桶 A 的精编切片里已收录该指南的核心要点。
+
+--- 操作步骤 ---
+
+1. 打开上面的链接，复制 Abstract 部分的正文。
+2. 删除本文件的全部内容（含本行说明），按下面的格式粘贴，以 UTF-8 保存。
+3. 回到项目根目录运行 python scripts/rag_builder.py --dry-run 检查切分统计。
+
+--- 格式要求 ---
+
+摘要没有 GeneReviews 那样的章节标题，而灌库脚本只收录带白名单标题的章节。
+因此必须自己把 Abstract 作为独立的一行写在最前面，否则整篇会落入 preamble 被跳过。
+填好后应形如：
+
+Abstract
+Autism spectrum disorder (ASD) is a common neurodevelopmental ...（摘要正文）
+
+--- 其他要求 ---
+
+- 不要改文件名。脚本按文件名推断来源与所属数据桶。
+- 本指南含大量 Management 内容，若粘贴了正文部分，脚本会按章节过滤丢弃，属预期行为。
+
+完整清单与合规说明见 ../SOURCES.md
