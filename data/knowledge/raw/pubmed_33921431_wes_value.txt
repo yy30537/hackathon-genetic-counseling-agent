@@ -1,30 +1,542 @@
-=== RAG_CORPUS_PLACEHOLDER 待填充：本文件尚未粘贴原文，灌库时会被跳过 ===
-
-来源：PubMed 摘要 - 全外显子测序在 ASD 中的诊断价值
-PMID：33921431
-链接：https://pubmed.ncbi.nlm.nih.gov/33921431/
-入库归属：桶 B（VUS 科普与循证数据）｜condition = 全外显子测序的诊断价值
-
-支撑 vus_reassurance 字段中「测序的价值在于解释机制而非判定绝症」这一论点。
-
---- 操作步骤 ---
-
-1. 打开上面的链接，复制 Abstract 部分的正文。
-2. 删除本文件的全部内容（含本行说明），按下面的格式粘贴，以 UTF-8 保存。
-3. 回到项目根目录运行 python scripts/rag_builder.py --dry-run 检查切分统计。
-
---- 格式要求（与 GeneReviews 不同，务必注意）---
-
-PubMed 摘要没有 GeneReviews 那样的章节标题，而灌库脚本只收录带白名单标题的章节。
-因此必须自己把 Abstract 作为独立的一行写在最前面，否则整篇会落入 preamble 被跳过，
-灌库结果是 0 条切片。填好后应形如：
-
+genes
+G C A T
+T A C G
+G C A T
+Article
+Towards a Change in the Diagnostic Algorithm of Autism
+Spectrum Disorders: Evidence Supporting Whole Exome
+Sequencing as a First-Tier Test
+Ana Arteche-López 1,* , Maria José Gómez Rodríguez 1,2 , Maria Teresa Sánchez Calvin 1 ,
+Juan Francisco Quesada-Espinosa 1 , Jose Miguel Lezana Rosales 1 , Carmen Palma Milla 1 ,
+Irene Gómez-Manjón 1 , Irene Hidalgo Mayoral 1 , Rubén Pérez de la Fuente 1 , Arancha Díaz de Bustamante 3,
+María Teresa Darnaude 3, Belén Gil-Fournier 4, Soraya Ramiro León 4, Patricia Ramos Gómez 1,
+Olalla Sierra Tomillo 1, Alexandra Juárez Ruﬁ án 1, Maria Isabel Arranz Cano 1, Rebeca Villares Alonso 5,
+Pablo Morales-Pérez 6, Alejandro Segura-T udela6, Ana Camacho 7, Noemí Nuñez 7, Rogelio Simón 7,
+Marta Moreno-García 1 and Maria Isabel Alvarez-Mora 1,8
+/gid00030/gid00035/gid00032/gid00030/gid00038/gid00001/gid00033/gid00042/gid00045/gid00001
+/gid00048/gid00043/gid00031/gid00028/gid00047/gid00032/gid00046
+Citation: Arteche-López, A.; Gómez
+Rodríguez, M.J.; Sánchez Calvin,
+M.T.; Quesada-Espinosa, J.F.; Lezana
+Rosales, J.M.; Palma Milla, C.;
+Gómez-Manjón, I.; Hidalgo Mayoral,
+I.; Pérez de la Fuente, R.; Díaz de
+Bustamante, A.; et al. Towards a
+Change in the Diagnostic Algorithm of Autism Spectrum Disorders:
+Evidence Supporting Whole Exome
+Sequencing as a First-Tier Test. Genes 2021, 12, 560. https://doi.org/ 10.3390/genes12040560
+Academic Editor:
+Marc Woodbury-Smith
+Received: 25 February 2021
+Accepted: 7 April 2021
+Published: 12 April 2021
+Publisher’s Note:MDPI stays neutral with regard to jurisdictional claims in published maps and institutional afﬁliations.
+Copyright: © 2021 by the authors.
+Licensee MDPI, Basel, Switzerland.
+This article is an open access article distributed under the terms and conditions of the Creative Commons
+Attribution (CC BY) license (https:// creativecommons.org/licenses/by/ 4.0/).
+1 Genetics Department, 12 de Octubre University Hospital, 28041 Madrid, Spain;
+mariajose.gomezr@salud.madrid.org (M.J.G.R.); mscalvin@salud.madrid.org (M.T.S.C.);
+juanf.quesada@salud.madrid.org (J.F.Q.-E.); josemiguel.lezana@salud.madrid.org (J.M.L.R.);
+carmen.palma@salud.madrid.org (C.P .M.); igomez@salud.madrid.org (I.G.-M.);
+irene.hidalgo@salud.madrid.org (I.H.M.); rpfuente@salud.madrid.org (R.P .d.l.F.);
+pramosg@salud.madrid.org (P .R.G.); olalla.sierra@salud.madrid.org (O.S.T.);
+alexandra.juarez@salud.madrid.org (A.J.R.); marranzcano@gmail.com (M.I.A.C.);
+m.moreno@salud.madrid.org (M.M.-G.); mialvarez@clinic.cat (M.I.A.-M.) 2 Cancer Research Network (CIBERONC), 28029 Madrid, Spain 3 Genetics Department, Móstoles University Hospital, 28935 Madrid, Spain;
+adiazb@salud.madrid.org (A.D.d.B.); mariateresa.darnaude@salud.madrid.org (M.T.D.) 4 Genetics Department, Getafe University Hospital, 28905 Madrid, Spain;
+belen.gilfournier@salud.madrid.org (B.G.-F.); soraya.ramiroleon@salud.madrid.org (S.R.L.) 5 Neuropediatrics Unit, Móstoles University Hospital, 28935 Madrid, Spain; rebeca.villares@salud.madrid.org 6 Inmunology Department, 12 de Octubre University Hospital, 28041 Madrid, Spain;
+pmorales@h12o.es (P .M.-P .); alejandro.segura@salud.madrid.org (A.S.-T.) 7 Child Neurology Unit, Neurology Department, 12 de Octubre University Hospital, 28041 Madrid, Spain;
+acamacho@salud.madrid.org (A.C.); noemi.nunez@salud.madrid.org (N.N.); rogeliosimon@gmail.com (R.S.) 8 Biochemistry and Molecular Genetics Department, Hospital Clinic of Barcelona and Fundació Clínic per la
+Recerca Biomèdica, 08036 Barcelona, Spain
+* Correspondence: anarosa.arteche@salud.madrid.org
 Abstract
-Autism spectrum disorder (ASD) is ...（摘要正文，可多段）
+Autism spectrum disorder (ASD) is a prevalent and extremely heterogeneous neurodevelopmental disorder (NDD) with a strong genetic component. In recent years, the clinical relevance of de novo mutations to the aetiology of ASD has been demonstrated. Current guidelines recommend chromosomal microarray (CMA) and a FMR1 testing as ﬁrst-tier tests, but there is increasing evidence that support the use of NGS for the diagnosis of NDDs. Speciﬁcally in ASD, it has not been extensively evaluated and, thus, we performed and compared the clinical utility of CMA, FMR1 testing, and/or whole exome sequencing (WES) in a cohort of 343 ASD patients. We achieved a global diagnostic rate of 12.8% (44/343), the majority of them being characterised by WES (33/44; 75%) compared to CMA (9/44; 20.4%) or FMR1 testing (2/44; 4.5%). Taking into account the age at which genetic testing was carried out, we identiﬁed a causal genetic alteration in 22.5% (37/164) of patients over 5 years old, but only in 3.9% (7/179) of patients under this age. Our data evidence the higher diagnostic power of WES compared to CMA in the study of ASD and support the implementation of
+WES as a ﬁrst-tier test for the genetic diagnosis of this disorder, when there is no suspicion of fragile
+X syndrome.
+Keywords: autism spectrum disorder; diagnostic yield; exome sequencing; chromosomal microarray;
+FMR1 testing; copy number variations
+Genes 2021, 12, 560. https://doi.org/10.3390/genes12040560 https://www.mdpi.com/journal/genes
 
---- 其他要求 ---
+Genes 2021, 12, 560 2 of 16
+1. Introduction
+Autism spectrum disorder (ASD) is one of the most prevalent groups of neurodevelopmental disorders (NDD), with a prevalence of one in 160 children worldwide [1] and a strong male bias (ratio ~4:1) [2]. According to the last version of the Diagnostic and Statistical
+Manual of Mental Disorders (DSM-5), it is characterised by early onset abnormalities in social and language communication and interactions, and by atypically restricted and repetitive behaviours and interests that can persist throughout life [3,4]. The phenotype of ASD is extremely heterogeneous, and patients often present other co-occurring clinical conditions including variable intellectual disability (ID) (~31%) [4], dysmorphic features, abnormalities in the electroencephalogram with or without epilepsy (~20–37%) [5], and/or other psychiatric and medical conditions such as anxiety or attention deﬁcit hyperactivity disorders [6].
+The aetiology of ASD is very heterogeneous. However, a strong genetic role is widely accepted [6,7] and thus, genetic testing is recommended. Fragile X syndrome (FXS) is considered the ﬁrst monogenic familial cause of ASD and ID, representing 1–2% of ASD cases [8]. Copy number variants (CNVs) are observed in 5–10% of idiopathic ASD cases and are described in 8–21% of ASD individuals causing syndromic disease [9]. Therefore, current guidelines recommend chromosomal microarray (CMA) and FMR1 testing for the diagnosis of FXS as ﬁrst-tier tests for individuals with ASD, developmental delay/ID, and/or multiple congenital anomalies [ 10,11]. However, recent data show the majority of FXS cases have clinical features or family history suggestive of the disorder, proposing
+FMR1 testing as a second-tier test for NDDs in the absence of FXS suspicion [12]. On the other hand, the use of next generation sequencing (NGS) has evidenced the contribution of de novo mutations to the aetiology of ASD [13]. Moreover, since the improvement of NGS in detecting large CNVs, recent data supports that NGS is more suitable for the diagnosis of NDDs compared to CMA [14–16]. Speciﬁcally in ASD, the reported diagnostic yield by
+NGS ranges from 3 to 28%—depending on the complexity of the ASD phenotype—[ 17,18] whereas it ranges from 7 to 9% by CMA [19].
+Here, we retrospectively study the genetic diagnostic yield in 343 ASD patients with and without other co-occurring clinical conditions by using different genetic approaches
+(FMR1 testing, CMA, and/or whole exome sequencing (WES)). We extensively describe and compare the diagnosis and clinical utility of WES, CMA, andFMR1 testing and describe the causal identiﬁed genes in a large cohort of ASD patients. We also highlight the importance of considering the phenotype and the age of the patient when ordering genetic testing. Our results support the implementation of WES as the ﬁrst-tier approach in the diagnosis of
+ASD patients, when there is no suspicion of FXS.
+2. Materials and Methods 2.1. Patients and Samples
+All patients included in this study were referred for genetic testing to the Genetic
+Service of the Hospital Universitario 12 de Octubre from January 2017 to November 2020 with the clinical suspicion of ASD. Depending on the age of the patient and prior the analysis, all patients underwent clinical examination by the Neurology or Neuropediatry
+Department of the Hospital Universitario 12 de Octubre, the Hospital Universitario de
+Getafe or the Hospital Universitario de Mostoles. Likewise, all patients received adequate pre- and post-test genetic counselling.
+ASD diagnosis was performed according to DSM-5 clinical criteria. All the patients showed persistent deﬁcits in social communication and interaction as well as restricted, repetitive behaviours. Data on sex, age, and available previous genetic testing were retrospectively collected. A total of 343 patients were analysed, including 258 males (75.2%) and 85 females (24.3%) with a mean of age (±SD) at diagnosis of 6.0 ± 5.4 years, ranging from 1 to 45 years old. Heterogeneous co-occurring conditions were referred in ~40% of patients (137/343), being the presence of developmental delay/ID the most frequent
+(57%; 78/137). Other less frequent clinical co-occurring conditions included attention
 
-- 不要改文件名。脚本按文件名推断来源与所属数据桶。
-- 摘要若含药名或剂量，脚本的用药词兜底扫描会丢弃对应切片，属预期行为。
+Genes 2021, 12, 560 3 of 16 deﬁcit hyperactivity, epilepsy, micro/macrocephaly, and the presence of any dysmorphic features/malformations. For analytic purposes, patients were classiﬁed in two groups according to the age of the patient at which the analysis was requested (before or after 5 years old) (Table 1). This threshold was chosen because at that age a clinical diagnosis of cognitive impairment can be established.
+From the 343 patients, there were (i) 106 patients in which FMR1 testing, CMA and
+WES were performed (FMR1 + CMA + WES); (ii) 83 patients studied by CMA and WES
+(CMA + WES); (iii) 118 patients with a CMA of whom 72 had also aFMR1 testing performed
+(CMA ± FMR1) and iv); 36 patients with a WES performed, of whom 27 were also studied for FXS (WES ± FMR1) (Table 1).
+Table 1. Demographics and genetic tests performed in each group of autism spectrum disorder (ASD) patients.
+Patients < 5 Years Old (N = 179) Patients ≥ 5 Years Old (N = 164) Total (N = 343)
+Gender (male/female) 133/46 125/39 258/85
+Age at diagnosis, mean (min–max) 2.82 (1–4) 9.46 (5–45) 6.0 (1–45)
+Genetic testing, n
+FMR1 + CMA + WES 53 53 106 (30.9%)
+CMA + WES 37 46 83 (24.2%)
+CMA (±FMR1) 65 53 118 (34.4%)
+WES (±FMR1) 24 12 36 (10.5%)
+Total 179 164 343 (100%)
+FMR1 = FMR1 testing, CMA = chromosomal microarray; WES = whole exome sequencing.
+From January 2017 until September 2018, the algorithm used for the genetic diagnosis of ASD patients included a CMA analysis for all cases together with a FMR1 testing in the majority of cases (CMA + FMR1). In October 2018, WES was implemented in the
+Genetic Service of the Hospital Universitario 12 de Octubre including both single nucleotide variants (SNVs) and CNV detection. Since then, WES was performed to ASD patients with a previous negative genetic test (FMR1, CMA, or CMA+FMR1). In some patients, especially in those with other co-occurring clinical conditions, WES was ﬁrstly performed.
+All patients or their guardians provided written informed consent for testing and for the use of their clinical and genetic data. The study was approved by the Ethics Committee of the University Hospital 12 Octubre. The study was carried out in accordance with the
+Declaration of Helsinki (2013).
+Whole peripheral blood samples from probands and all available relatives were collected in EDTA tubes. Genomic DNA extraction was further performed, following standard procedures.
+2.2. Molecular Genetics 2.2.1. Chromosomal Microarray
+Among the total 307 CMA, 173 (56.3%) were outsourced and performed by using a 180 K CMA (180 K KaryoNIM®, NIMGenetics, Madrid, Spain). This platform is speciﬁcally designed for ASD patients (Agilent Tech, Santa Clara, CA, USA) with a resolution of 15 kb for the currently known 140 ASD-related genes and 100 kb for the rest of the genome. In 69 patients (22.5%), a 60K CMA was performed in our laboratory. This platform provides a resolution of 350 kb in the backbone and of 100 kb in targeted regions (60 K KaryoNIM®,
+NIMGenetics, Madrid, Spain). Standard procedures were followed in both approaches.
+The hg19 and the ADM-2 algorithm (Aberration Detection Method-2) were used. Analysis and interpretation were performed using Cytogenomics (v.4.0.3.12, Agilent) software.
+A threshold of ≥5 consecutive probes was established to consider a CNV .
+No information regarding the speciﬁc outsourced platform used was available in the remaining 65 patients (21.2%).
 
-完整清单与合规说明见 ../SOURCES.md
+Genes 2021, 12, 560 4 of 16
+Segregation analysis was performed when applicable by using a 60 K or 180 K CMA, following manufacturer’s instructions. A karyotype was performed in one patient to conﬁrm the CMA results.
+CNVs detected were classiﬁed following previous CMA recommendations for clinical practice [20,21]. “Characterised cases” were deﬁned as those with pathogenic (P) or likely pathogenic (LP) CNV associated with phenotype. “Indeterminate cases” were deﬁned as those patients with a CNV whose pathogenicity or contribution to disease was not totally certain. “Unsolved or negative cases” included those with polymorphic and/or no reported CNVs.
+2.2.2. Whole Exome Sequencing
+WES was performed in our laboratory using the kit xGen Exome Panel v1.0 (IDT—
+Integrated DNA Technologies, San Diego, NJ, USA). Paired-end sequencing (2 × 75 bp) was carried out on a NextSeq 550 (Illumina) and bioinformatics analysis was conducted using a custom pipeline (Karma) that followed the recommendation of the Association for
+Molecular Pathology and the College of American Pathologists [22]. Reads were aligned to the reference human genome (hg19) using BWA MEM (v0.7.17) and Bowtie2 (v.2.4.1)
+The variant calling process was performed using GATK (Haplotype Caller from Genome
+Analysis Toolkit, v.4.1) and VarDict (AstraZeneca, v1.7.0) [23]. Annovar (v2018Apr16) [24] was used for the annotation of variants. ExomeDepth R package (v1.10) was used for CNV identiﬁcation and AnnotSV (v2.4) for CNV annotation.
+Variants that did not fulﬁl the established quality criteria were ﬁltered out. In addition, those with a frequency ≥3% in gnomAD population database (v2.1.1), variants classiﬁed as benign or probably benign by multiple subscribers in ClinVar database (March 2020 release), synonymous variants within ±20 bp from the canonical splicing site, and intronic variants localised more than 15 nucleotides from the exon/intron junction were also ﬁltered out. Sequence variants and copy number variants were prioritised.
+Data analysis was based on a custom panel that included 293 genes related to ASD.
+Variant ﬁltering was conducted according to quality parameters, variant type, pathogenicity predictor scores, and variant frequencies in population control databases such as allelic frequencies in Genome Aggregation Database (v2.1.1) and frequencies in our in-house database of variants (12OVar).
+Variants were classiﬁed following the American College of Medical Genetics (ACMG) criteria [25]. “Characterised cases” were deﬁned as the presence of one or two diseasecausing variants (P or LP). “Indeterminate cases” included those cases with at least one variant of uncertain signiﬁcance (VUS) in which additional required studies to conﬁrm/discard their possible clinical implications were unavailable. “Negative cases” were deﬁned as those in which no relevant disease-causing variants were reported.
+Segregation analysis of detected disease-related variants and CNVs was performed by
+Sanger sequencing or either a multiplex ligation-dependent probe ampliﬁcation (MLPA) or a 60 k CMA, depending on the availability of the MLPA technique and the size of the CNV .
+2.2.3. FMR1 Testing
+Patients derived from the Neuropediatry Service of the Hospital 12 de Octubre were referred to the Immunology Service for FMR1 testing using the Amplidex kit PCR/CE
+FMR1 (Asuragen, TX, USA) following manufacturer’s recommendations. In patients derived from the Hospital Universitario de Mostoles or Hospital Universitario de Getafe, the FMR1 testing was outsourced to external/private laboratories.
+2.3. Statistical Data Analysis
+Statistical analyses were performed using commercially available software (SPSS-PC, version 23.0; SPSS Inc., Chicago, IL, USA). The Chi-square test of frequencies and Fisher’s exact test were applied to the contingency tables. Signiﬁcance was accepted for exact asymptotic bilateral p-values below 0.05.
+
+Genes 2021, 12, 560 5 of 16
+3. Results
+Genetic testing was performed in 343 patients with a clinical indication of ASD, including FMR1 testing, CMA, and/or WES. The number of characterised, indeterminate, and negative ASD cases according to the age of the patients at diagnosis is summarised in
+Table 2. The total genetic approach performed in each group is indicated. Only characterised patients were considered to determinate the diagnostic yield.
+Table 2. Main results of the genetic test performed. Characterised, indeterminate, and negative ASD cases according to the age of the patient at which the analysis was requested are shown. Percentages are calculated from the total row. CMA = chromosomal microarray; WES = whole exome sequencing.
+Characterised
+Cases
+Indeterminate
+Cases
+Negative
+Cases Total
+Patients < 5 years old 7 (3.9%) 28 (15.7%) 144 (80.4%) 179 (100%)
+WES 5/114 13/114 96/114
+CMA 2/155 17/155 136/155
+FMR1 testing 0/116 0/116 116/116
+Patients ≥ 5 years old 37 (22.5%) 31 (19%) 96 (58.5%) 164 (100%)
+WES 28/111 12/111 71/111
+CMA 7/152 19/152 126/152
+FMR1 testing 2/90 0/90 88/90
+Total general 44 (12.8%) 59 (17.2%) 240 (70%) 343 (100%)
+We have identiﬁed causative variants in 44 patients (12.8%) of our ASD cohort. Among them, WES identiﬁed 75% of causative variants (33/44) whereas CMA and FMR1 testing respectively identiﬁed 20.4% (9/44) and 4.5% (2/44). In addition, VUS were observed in 61 patients (17.8%), 34 of them detected by CMA and 26 detected by WES.
+Statistical analysis found signiﬁcant differences when comparing overall diagnostic yields by WES (14.7%; 33/225) to either CMA (2.9%; 9/307) or FMR1 testing (0.9%; 2/206)
+(p < 0.001).
+In order to assess the diagnostic yield of patients diagnosed when less than 5 years old from those diagnosed when over 5 years old, the percentages of characterised cases were determined in each group. Statistically signiﬁcant differences were observed between groups (p < 0.001). While 22.5% (37/164) of patients over 5 years old were characterised, only 3.9% (7/179) of patients under 5 years old were found to carry a causative genetic alteration. Indeed, among the characterised patients, 84% (37/44) were older than 5 years old, whereas 15.9% (7/44) were diagnosed when less than 5 years old.
+3.1. Patients Characterised by CMA
+From the 307 patients in whom a CMA was performed, pathogenic CNVs were found in 9 cases (~3%) including (i) 6 deletions that consisted of a 3.76 Mb deletion in 8p23.13 associated to 8p23.13 deletion syndrome (ORPHA251071), a 0.59 Mb deletion affecting the RBFOX1 gene, a 0.02 Mb deletion encompassing part of the MBD5 gene associated to autosomal dominant mental retardation (#156200), a 2.98 Mb deletion in 22q11.21 associated with DiGeorge syndrome (#188400), and two deletions of 1.7 and 0.4
+Mb size in chromosome 15 that respectively correspond to 15q13 (#612001) and 15q11
+(#615655) microdeletion syndrome; (ii) 2 duplications of 6.19 and 4.78 Mb in 15q11.2q13.1 and 1q21.1–q21.2 that respectively were associated with 15q11–q13 (#608636) and 1q21 duplication syndrome (#612475); and (iii) a duplication of the entire chromosome Y for which a 47,XYY[121]/46,XY[32] mosaic was further conﬁrmed by karyotype (Table 3).
+The two largest CNVs were of de novo origin whereas the deletion of 0.59 Mb size involving the RBFOX1 gene, the deletions in 15q13.2 and 15q11.2 of respectively 1.7 and 0.4 Mb size, and the duplication of 4.78 Mb size in 1q21.1 were inherited from an apparently asymptomatic parent. All of them presented with incomplete penetrance
+
+Genes 2021, 12, 560 6 of 16 and variable expression. No information regarding the origin of the deletion of 0.02 Mb size encompassing part of the gen MBD5 neither the origin of the 22q11.21 deletion was available (Table 3).
+All patients characterised by CMA were males with the exception of one female that was diagnosed with DiGeorge syndrome. All males carrying a pathogenic deletion presented with psychomotor delay; one of them also had congenital heart disease and dysmorphic features. The patient with the 15q11–q13 duplication syndrome was an autistic patient that also manifested with epilepsy. Finally, the 47,XYY[121]/46,XY[32] mosaic ASD patient was referred with language difﬁculties (Table 3).
+Among patients analysed by CMA, we found 11% (34/307) of indeterminate cases in whom a deﬁnitive diagnosis could not be established. Speciﬁcally, we detected 36 CNVs classiﬁed as VUS (Supplementary Table S1).
+Table 3. Characteristics of cases identiﬁed by chromosomal microarray (CMA).
+ID Sex
+Age of
+Diagnosis
+(Years)
+Clinical
+Indication for the Study
+CMA
+Platform
+CMA
+Results
+(Coordinates)
+Size
+(Mb)
+Genetic
+Diagnosis
+(OMIM # if
+Available)
+Included
+OMIM
+Genes
+Origin 19AC29 M 6
+Attention deﬁcit, developmental delay, congenital heart disease, and dysmorphic features 60 K 8p23.13.4
+(8,100,384– 11,860,230)X1 3.76 8p23.1 deletion syndrome 21 genes Dn 17AC33 M 8
+ASD and psychomotor delay 180 K 16p13.3
+(5,874,625– 6,466,890)X1 0.59
+RBFOX1
+(exons 1–2)
+Pat asym 19AC272 M 13
+ASD and psychomotor delay 180 K 2q23.1
+(149,135,883– 149,154,803)X1 0.020 2q23.1 syndrome or autosomal dominant mental retardation
+(MIM
+#156200)
+MBD5
+(intron 5–6) n/a 5867 M 0.8
+ASD and psychomotor delay 180 K 15q13.2
+(30921917– 32618383)
+X1 1.7
+Microdeletion 15q13 syndrome
+(MIM
+#612001) 7 genes:
+ARHGAP11A,
+F AN1,
+MTMR10,
+TRPM1,
+KLF13, 0TUD7A, and
+CHRNA7
+Mat asym 6210 M 5 ASD 180 K 15q11.2
+(22759178– 23155311)
+X1 0.4
+Microdeletion 15q11 syndrome
+MIM
+#615656) 4 genes:
+TUBGCP5,
+CYFIP1,
+NIP A1, and
+NIP A2
+Pat asym 17AC114 M 5 ASD and epilepsy 180 K 15q11.2q13.1
+(22,668,852– 28,859,449)
+X3 6.19
+Duplication syndrome 15q11–q13
+(MIM
+#608636) 23 genes Dn
+
+Genes 2021, 12, 560 7 of 16
+Table 3. Cont.
+ID Sex
+Age of
+Diagnosis
+(Years)
+Clinical
+Indication for the Study
+CMA
+Platform
+CMA
+Results
+(Coordinates)
+Size
+(Mb)
+Genetic
+Diagnosis
+(OMIM # if
+Available)
+Included
+OMIM
+Genes
+Origin 5700 M 7
+ASD and dysmorphic features 180 K 1q21.1– q21.2
+(144,895,322– 149,680,340)
+X3 4.78 1q21
+Duplication syndrome
+(MIM#612475) 33 genes Pat asym 6356 F 10
+Intellectual disability, ASD, and dysmorphic features 180 K 22q11.21
+(18,729,74421,705,113)
+X1 2.98
+DiGeorge syndrome
+(MIM
+#188400) 45 genes n/a 20AC133 M 1 ASD 60 K
+Yp11.32p11.2
+(2,184,259– 10,029,472)
+X2;
+Yq11.21q12
+(13,675,923– 28,804,541)
+X2 7.8 15 47,XYY/16,XY syndrome n/a
+ASD = autism spectrum disorder; CMA = chromosomal microarray;Dn = de novo; ID: identiﬁcation, Pat asym = asymptomatic father; n/a
+= not available. M = male; F = female.
+3.2. Patients Characterised by WES
+From the 225 patients in whom a WES was performed, pathogenic or likely pathogenic variants were found in 33 cases (14.6%) (Table 4).
+Segregation analysis revealed that approximately 75% (25/33) of the cases were associated to de novo variation, including four cases in which the presence of the variant could only be discarded in one progenitor. Remarkably, a de novo deletion of 1.89 Mb size involving the NAGA, CYB5R3, and TCF20 genes (chr22:42,264,616–44,068,185) was detected by WES and further conﬁrmed by 60K CMA.
+Interestingly, in the genes ANKRD11, MECP2, and MED13L, we found two unrelated patients harbouring a de novo causing variant: (i) 2 loss-of-function (LOF) variants p.(Thr2362Profs*38) and p.(Tyr2469*) in the ANKRD11 gene in a female and a male, both older than 4 years old and presenting with developmental delay and peculiar facial features; (ii) 2 causative variants p.(Arg20Glufs*30) and p.(Arg145Cys) in the MECP2 gene (NM_00111079) in two females referred with ASD, psychomotor retardation, and seizures; and (iii) 2 de novo LOF variants c.1280+1G>T and p.(Q704*) in the MED13L gene (NM_015335.4) in a 14-year-old patient referred with ASD features and in 11-year-old patient with ASD traits, absence of language, cutis marmorata, and hypospadias (Table 4).
+In our cohort, 9% of patients (3/33) carried biallelic variants in genes associated to neurodevelopmental disorders with autosomic recessive inheritance. Speciﬁcally, biallelic mutations were detected (i) in the PIGG gene in an 11-year-old male with ASD Aspergertype; (ii) in the PMM2 gene in a 14-year-old female with ASD, hearing loss, and ptosis; and
+(iii) in the CEP290 gene in a 13-year-old male with ID and attention deﬁcit (Table 4).
+
+Genes 2021, 12, 560 8 of 16
+Table 4. Characteristics of ASD cases identiﬁed by WES.
+ID Sex
+Age of
+Diagnosis
+(Years)
+Clinical Indication for the Study CMA CMA
+Results Gene Gene NM_ Cigosity Coding
+Change
+Protein
+Change Origin
+Patients under 5 years old 18AC0044 F 1 Psychomotor delay,
+ASD, and epilepsy. 180 K 2q23.1del mat MECP2 NM_001110792.1 het c.433C>T p.Arg145Cys Dn 20NG0674 M 2 Psychomotor delay and language delay. ≥60 K Normal FGD1 NM_004463.2 hem c.1327C>T p.Arg443Cys Mat asym 20NG0517 M 1
+Psychomotor retardation delay, and behavioural problems.
+Rough face.
+60 K 8p23.1dup IQSEC2 NM_001111125.2 hem c.2278G>A p.Gly760Ser Dn 20NG0002 M 2
+Psychomotor and language delay.
+Sotos-like conduct disorder.
+60 K Normal NSD1 NM_022455.4 het c.1953del p.Ile652Ter Dn 19NG0815 M 3 Psychomotor delay and ASD. ≥60 K 15q13.2del, 15q13.3dup CUL3 NM_003590.4 het c.802delC p.L268Sfs*5 No pat
+Patients of 5 years-old or older 19NG0707 M 11
+No language. ASD traits. Cutis marmorata and hypospadias.
+≥60 K Normal MED13L NM_015335.4 het c.2110C>T p.Gln704Ter Dn 19NG0592 M 14 ASD features. n/a n/a MED13L NM_015335.4 het c.1280+1G>T p.? Dn 20NG0744 F 19
+Psychomotor delay,
+ASD traits, and dysmorphic appearance.
+180 K Normal KAT6A NM_006766.4 het c.3768_3769del p.Asp1256GlufsTer4 Dn 20NG0567 M 24
+ID with predominance in language, epilepsy, and ASD traits.
+≥60 K Normal TCF4 NM_001083962.1 het c.1732C>G p.Arg578Gly n/a
+
+Genes 2021, 12, 560 9 of 16
+Table 4. Cont.
+ID Sex
+Age of
+Diagnosis
+(Years)
+Clinical Indication for the Study CMA CMA
+Results Gene Gene NM_ Cigosity Coding
+Change
+Protein
+Change Origin 19NG0182 F 14 ASD, hearing loss, and ptosis ≥60 K Normal PMM2 NM_000303.2 het c.91T>C p.Phe31Leu Pat asym
+PMM2 NM_000303.2 het c.368G>A p.Arg123Gln Mat asym 20NG0520 M 5 ID, autistic traits, and facial dysmorphias. 60 K Normal ASXL3 NM_030632.2 het c.3039+2T>C - Dn 20NG0214 M 11 High capacities. Poor social skills. 60 K Normal PIGG NM_001127178.2 hom c.1515G>A p.Trp505* Trans 20NG0515 M 13 ID. ADHD. 180 K Normal CEP290 NM_025114.3 hom c.2423A>G p.Tyr808Cys Trans 20NG0377 M 12
+Psychomotor delay, hearing loss, and ASD traits
+≥60 K Normal ANKRD11 NM_001256183.1 het c.7407C>G p.Tyr2469Ter Dn 20NG0334 F 11 ASD and ID. 180 K Normal SYNGAP1 NM_006772.2 het c.3778A>T p.Lys1260Ter Dn 20NG0237 M 12
+Intellectual disability.
+Behaviour problems.
+Aggressiveness.
+≥60 K Normal CLTC NM_004859.3 het c.3554_3555del p.Glu1185
+ValfsTer10 Mat asym 19NG0460 M 6
+ASD. Normal CI.
+Language delay.
+Epileptic encephalopathy.
+180 K Normal GRIN2A NM_001134407.2 het c.1592C>T p.Thr531Met Dn 20NG0184 M 10
+Psychomotor delay.
+No language.
+Stereotypes.
+≥60 K Normal IFIH1 NM_022168.3 het c.716dup p.Met240HisfsTer4 n/a 20NG0113 M 8
+Psychomotor delay and peculiar phenotype. ASD. No language.
+≥60 K Normal GABBR2 NM_005458.7 het c.493G>T p.Asp165Tyr Dn 20NG0082 F 6 ASD and ADHD.
+Facial dysmorphia. ≥60 K Normal HUWE1 NM_031407.6 het c.7204+5G>A Dn 20NG0080 M 14 Language disorder.
+Psychomotor delay. 60 K Normal CACNA1A NM_001127221.1 het c.1638C>G p.Tyr546Ter Dn
+TCN2 NM_000355.3 hom c.185G>A p.Ser62Asn
+
+Genes 2021, 12, 560 10 of 16
+Table 4. Cont.
+ID Sex
+Age of
+Diagnosis
+(Years)
+Clinical Indication for the Study CMA CMA
+Results Gene Gene NM_ Cigosity Coding
+Change
+Protein
+Change Origin 20NG0003 F 5 ID with stereotypies.
+Epileptic seizures. ≥60 K 6q26del, 12p13.33dup MECP2 NM_001110792.2 het c.41_57dup p.Arg20Glufs
+Ter30 Dn 19NG1270 F 13 ASD. Subclinical epileptogenic activity. ≥60 K Normal SHANK3 NM_033517.1 het c.3525delG p.Asp1176
+ThrfsTer4 n/a 19NG1178 M 10
+ASD. Intellectual disability, especially in language. ADHD.
+Short stature.
+≥60K Normal SOX11 NM_003108.3 het c.155C>A p.Phe52Gln No mat 19NG1126 F 5
+Psychomotor delay.
+No language.
+Microcephaly, seizures. Peculiar phenotype.
+180 K Normal FOXG1 NM_005249.4 het c.553A>G p.Ser185Gly Dn 19NG1096 M 19
+Major conduct disorder.
+Encephalopathy.
+Epilepsy.
+60 K Normal SETD1B NM_015048.1 het c.4906A>G p.Thr1636Ala No mat 19NG1081 F 7
+ID and ASD. No other malformations or distinctive features.
+≥60 K 8q24.3dup, 19p12dup,
+Xp22.23dup, 2p22.3del
+WASF1 NM_001024936.1 het c.1516C>T p.Arg506Ter Dn 19NG1029 F 5
+Psychomotor delay,
+ADHD, and macrocephaly 60 K Normal ANKRD11 NM_001256183.1 het c.7083delC p.Thr2362
+ProfsTer38 No mat 19NG0950 M 5
+ASD with ID, no language, and macrocephaly 180 K Normal KMT2E NM_018682.3 het c.71+1G>T - Dn 19NG0781 M 6
+Psychomotor delay and ASD. Dysgenesis corpus callosum.
+Dental alterations and macrocephaly.
+≥60 K Normal HIST1H1E NM_005321.2 het c.446_447insT p.Lys149Aspfs
+Ter46 Dn
+
+Genes 2021, 12, 560 11 of 16
+Table 4. Cont.
+ID Sex
+Age of
+Diagnosis
+(Years)
+Clinical Indication for the Study CMA CMA
+Results Gene Gene NM_ Cigosity Coding
+Change
+Protein
+Change Origin 19NG1312 F 11
+ID. Low set hair, epicantus, anteverted nostrils, low set ears.
+Hearing loss.
+60 K Normal SETD5 NM_001080517.2 het c.2003C>G p.Ser668Ter Dn 20NG0006 M 13 ASD with ID. Peculiar phenotype. Myopia. 60 K chr22q13.2
+(42,264,616– 44,068,185)X1
+NAGA,
+CYB5R3
+TCF20 het Deletion - Dn 19NG0502 F 13
+Language delay and learning difﬁculties.
+Short stature and bulbous nose.
+np np SRCAP NM_006662.2 het c.7300G>T p.Glu2434Ter Dn
+ASD: autism spectrum disorder; CMA = chromosomal microarray; Dn: de novo; ID: identiﬁcation; Pat asym: asymptomatic father; Mat asym: asymptomatic mother; Pat sym: symptomatic father; No mat: no maternal; No pat: no paternal; n/a: not available; M: male; F: female; Het: heterozygous; Hem: hemizygous; Hom: homozygous. ID: intellectual disability; ADHD: attention deﬁcit hyperactivity disorder; CI:
+intellectual coefﬁcient; np: not performed; WES: Whole exome sequencing.
+
+Genes 2021, 12, 560 12 of 16
+In addition, in 2 cases (2/33) the following likely pathogenic causative variants were also inherited: (i) a variant maternally inherited in the FGD1 gene associated to recessive Xlinked syndromic mental retardation 16 (#305400) and (ii) a frameshift variant in the CLTC gene inherited from the apparently unaffected mother associated to autosomal dominant mental retardation 56 (#617854), a disorder with highly variable severity. In the remaining 3 cases (3/33), segregation analysis of the variants detected in the genes TCF4, IFIH1, and
+SHANK3 could not be performed but as they were classiﬁed as pathogenic, cases were considered to be characterised (Table 4).
+Among the 33 patients characterised by WES, the vast majority of patients were more than 5 years old at the time of diagnosis (28/33; 84.8%). Only 5 patients under 5 years old were characterised by WES (5/33; 15.15%).
+Finally, WES identiﬁed 44 VUS in 26 patients (26/224; 11.6%). Segregation analysis or functional data were not available for these variants. Intriguingly, in two unrelated patients, two different missense (classiﬁed as VUS without segregation analysis) were detected in the MED13 gene, a gene associated to intellectual developmental disorder
+(#618009) (Supplementary Table S2).
+3.3. FMR1 T esting
+FMR1 testing was performed to 206 patients as a ﬁrst-tier diagnostic test. Patients not screened consisted of patients with no clinical manifestations suggestive of FMR1-related pathologies or in whom this result could not be collected. Among the 206 patients analysed, all patients carried normal alleles (<45 repeats) with the exception of 2 males (0.97%; 2/206) that were carriers of premutation alleles (61 and 72 CGG repeats). Additional genetic alterations were discarded by CMA and WES in both patients, supporting the involvement of the premutation in the clinical manifestations of these patients.
+4. Discussion
+It has been more than ten years since current guidelines about genetic testing in
+NDDs were reported [11]. The introduction of NGS technologies has revolutionised the ﬁeld of genetic diagnosis and there is an ongoing debate about whether high-throughput technologies should be performed as a ﬁrst-tier test for the diagnosis of NDDs, especially since NGS has overcome the limitations of CNV detection. Accumulating evidence suggests that NGS technologies are more promising compared to CMA [14–16,26]; however, they have not been extensively evaluated in ASD to date [ 17,18]. Regarding the FMR1 gene, the FMR1 expansion is considered the most common form of monogenic ASD [27] and is currently included in the algorithms for studying NDDs. Nevertheless, either full mutation or premutation alleles only explain 2–4% of ASD cases [28,29], and recent data show the majority of FXS cases have clinical features or family history suggestive of the disorder [12].
+We report the diagnostic yield comparisons obtained in 343 ASD patients by using different genetic approaches (FMR1 testing, CMA, and WES).
+Our report supports that WES should be considered as ﬁrst-tier test in the genetic diagnosis of ASD since a greater diagnostic yield was statistically signiﬁcant when compared to either CMA or FMR1 testing. Speciﬁcally, WES identiﬁed 14.6% of causative variants in ASD patients whereas diagnostic yield of CMA and FMR1 testing was 2.9% and 0.9%, respectively. In fact, 75% (33/44) of the characterised patients were diagnosed by
+WES, demonstrating the superiority of WES over CMA and FMR1 testing. Accordingly, a recent meta-analysis has analysed the genetic diagnostic yields of WES and CMA in patients with global developmental delay, ID, and/or ASD [26]. Based on this analysis, the authors propose a diagnostic algorithm placing WES at the beginning for the evaluation of unexplained NDDs. If no genetic alteration is observed and CNV detection is not available, they recommend CMA as the second genetic test [26].
+In this report, we overall characterise ~13% of our cohort (44/343), since not all cases were tested by the three genetic approaches (Table 1), a percentage similar to the diagnostic yield reported in other ASD series [17]. Most related-ASD genes interact within the context
+
+Genes 2021, 12, 560 13 of 16 of gene networks, synaptic function, and signalling pathways [30], and de novo mutations have been described to be strongly associated with autism [ 13,31,32] Accordingly, the vast majority of the genetic alterations in our cohort had a de novo origin, speciﬁcally 2
+CNVs and 25 SNVs from the total 44 characterised cases. The majority of the identiﬁed causal genes was unique and had been previously described in the Simons Foundation
+Autism Research Initiative (SFARI) database associated with ASD, with the exception of 7 genes (CLTC, FGD1, HIST1H1E, IFIH1, PIGG, PMM2, and SOX11) associated with other disorders in which ASD-like symptoms could also be present. Only three genes (ANKRD11,
+MECP2, and MED13L) were found to be altered twice in non-related patients. Interestingly,
+~7% (3/44) of characterised ASD patients had biallelic disruptive variants in CEP290,
+PMM2, and PYGG genes associated with an autosomal recessive pattern of inheritance.
+In concordance, Doan et al. (2019) have demonstrated that approximately 5% of ASD cases correspond to recessive gene disruptions [33] In addition, 2 cases with SNVs associated to Xlinked disorders and 4 inherited CNV with incomplete penetrance were found. Finally, we also identiﬁed a male with a Y-chromosome aneuploidy (47,XYY[121]/46,XY[32] mosaic), which has been described to be 20 times more likely in ASD males than in the general population [34]. Segregation was not available in ﬁve cases (2 CNV and 3 SNVs) nor in the 2 premutation males.
+The introduction of WES as ﬁrst-tier test might provide several advantages without implying a signiﬁcant increase in the turnaround time and costs when compared to CMA.
+Firstly, it might lead to the detection of the SNV variants in monogenic forms of ASD that correspond to 75% (33/44) of the genetic alterations detected in our studied cohort.
+Secondly, improvements of bioinformatics pipelines have led to the accurate detection of
+CNVs by NGS data as reﬂected by the identiﬁcation of a de novo 1.89 Mb CNV that was further conﬁrmed by CMA. Indeed, it is likely that all the 9 CNVs detected by CMA, even the 47,XYY[121]/46,XY[32] mosaicism, would have also been detected by WES in optimal conditions, since all CNVs encompassed at least one gene included in the custom ASD panel and enough probes to possibly detect them by WES. Therefore, the sensibility of the diagnosis would not have changed if WES had been used in the ﬁrst place. However, this technology is not the gold standard for CNV detection [21] and it is currently recommended to validate this type of genetic alteration by other technology such as CMA or MLPA.
+Finally, WES offers the possibility to reanalyse negative cases adding new genes, which are continually increasing in ASD [35].It has been reported that NGS reanalysis may increase the diagnosis yield up to ~30%, albeit that this rate is not speciﬁc for ASD [36,37].
+On the other hand, the broad phenotypic spectrum of ASD makes even more challenging to reach a genetic diagnosis. The term autism spectrum disorder includes a wide range of clinical manifestations that varies in the type and severity of symptoms, ranging from patients fully able to perform all daily activities to others requiring substantial support for basic activities. In the literature, a higher diagnostic yield (up to 30%) has been reported in ASD patients presenting with other clinical features compared to those who manifest an “isolated” ASD form (3%) [17,18]. We observed that the majority of the characterised patients in our cohort corresponded to ASD cases in which other co-occurring conditions were also referred, being psychomotor delay and/or ID the most frequent (in 69% of patients (29/42; Tables 3 and 4). As previously reported by Tammimies et al. 2015, it is reasonable that the diagnostic rate in these patients is closer to the 30–50% reported in the literature [26,38,39] and to the 35–40% obtained in our laboratory for NDDs (data not shown). Recently, a clinical correlation between CNVs and ASD has been suggested [40].
+The authors showed that the presence of dimorphisms and microcephaly is signiﬁcantly overrepresented in patients with causative CNVs. Interestingly, we ﬁnd that the presence of dysmorphic features/ peculiar phenotype was more frequent in patients with causal
+CNVs (5/10; 44%) than in patients with causal SNVs/indels (9/32; 28%) (Tables 3 and 4).
+The age at which patients should be offered genetic testing is also controversial.
+Interestingly, 84% (37/44) of characterised patients were 5 years old or more. Overall, the genetic diagnostic yield in the younger patients was ~4% (7/179). Only 7 patients
+
+Genes 2021, 12, 560 14 of 16 under 5 years old were characterised, suggesting the genetic analysis in these patients is a challenge.
+Regardless the genetic approach, approximately ~70% (238/343) of our ASD patients remain undiagnosed since no candidate genetic alterations were detected. This large percentage might be explained by the multi-factorial origin of ASD as both common and rare genetic variants contribute to autism risk [ 41]. A recent study has deﬁned 102 high conﬁdence genes, of which 53 seem to have more inﬂuence on social behaviour [ 42].
+However, insufﬁcient evidence to determinate “autism-speciﬁc” genes based on largeeffect rare-variant has been recently suggested [43] and it is likely that there is no single cause (genetic, environmental or cognitive) deﬁning autism [44]. Even when a variant is identiﬁed, other multiple rare and common genetic variants contribute to the psychiatric traits in ASD patients and, thus, to the clinical and genetic heterogeneity of the disorder. It might be interesting to reanalyse the indeterminate cases (61/343) with VUS in order to shed light on this issue.
+We are aware about the limitations of our study, including the limited sample size and the lack of functional/segregation analysis in indeterminate cases and the absence of a detailed cost-effectiveness assessment.
+ASD is highly heritable but clinical and genetically heterogeneous with both common and rare genetic variants collaborating to predispose individuals to the disorder. The discovery of new related genes has clariﬁed the genetic architecture of ASD. Our study provides further evidence supporting the implementation of WES as the ﬁrst-tier test for the diagnostic of ASD patients. Genetic diagnosis has a direct beneﬁt not only for the clinical management of the patient but also in their relatives, which can beneﬁt from genetic counselling and prenatal diagnosis. The current challenge is to translate the better knowledge of the molecular basis of ASD into an understanding of pathological mechanisms, as a step toward the development of more effective treatments.
+Supplementary Materials: The following are available online at https://www.mdpi.com/article/10
+.3390/genes12040560/s1, Table S1: Characteristic of indeterminate ASD-cases identiﬁed by Chromosomal microarray (CMA), Table S2: Characteristic of indeterminate ASD-cases identiﬁed by Whole
+Exome Sequencing (WES).
+Author Contributions: Wrote the ﬁrst draft of the manuscript: A.A.-L. Contribution to data preparation and acquisition: A.A.-L., M.J.G.R., B.G.-F., S.R.L., A.D.d.B., M.T.D., A.S.-T. Contribution to the design of the study and analysis of data: A.A.-L., M.J.G.R., M.I.A.-M. Critical review of the manuscript for important intellectual content: All authors. Agreement with manuscript results and conclusions: All authors. Supervision: M.I.A.-M., M.J.G.R. All authors have read and agreed to the published version of the manuscript.
+Funding: This work was not supported by any speciﬁc funding.
+Institutional Review Board Statement: Not applicable.
+Informed Consent Statement: Informed consent was obtained from all subjects involved in the study.
+Acknowledgments: The authors would like to thank Ángeles Delgado Martín and the clinical staff who made this study possible. We also thank Genycell BioTech España for the supply of WES reagents. This work was supported by Fundación Mútua Madrileña (FundMM 2019), the Fundación
+Alicia Koplowitz (AKOPLOWITZ18_001) and AGAUR from the Autonomous Catalan Government
+(2017SGR1134).
+Conﬂicts of Interest: The authors declare no conﬂict of interest.
+References
+1. Autism Spectrum Disorders. Available online: https://www.who.int/news-room/fact-sheets/detail/autism-spectrum-disorders
+(accessed on 7 December 2020).
+2. Elsabbagh, M.; Divan, G.; Koh, Y.-J.; Kim, Y.S.; Kauchali, S.; Marcín, C.; Montiel-Nava, C.; Patel, V .; Paula, C.S.; Wang, C.; et al.
+Global Prevalence of Autism and Other Pervasive Developmental Disorders. Autism Res. 2012, 5, 160–179. [CrossRef]
+
+Genes 2021, 12, 560 15 of 16
+3. American Psychiatric Association. Diagnostic and Statistical Manual of Mental Disorders ; American Psychiatric Association:
+Washington, DC, USA, 2013.
+4. Baio, J.; Wiggins, L.; Christensen, D.L.; Maenner, M.J.; Daniels, J.; Warren, Z.; Kurzius-Spencer, M.; Zahorodny, W.; Rosenberg, C.R.;
+White, T.; et al. Prevalence of autism spectrum disorder among children aged 8 Years—Autism and developmental disabilities monitoring network, 11 Sites, United States, 2014. MMWR Surveill. Summ. 2018, 67, 1–23. [CrossRef]
+5. Yasuhara, A. Correlation between EEG abnormalities and symptoms of autism spectrum disorder (ASD). Brain Dev.
+2010, 32, 791–798. [CrossRef] [PubMed]
+6. Genovese, A.; Butler, M.G. Clinical Assessment, Genetics, and Treatment Approaches in Autism Spectrum Disorder (ASD).Int. J.
+Mol. Sci. 2020, 21, 4726. [CrossRef]
+7. Tick, B.; Bolton, P .; Happé, F.; Rutter, M.; Rijsdijk, F. Heritability of autism spectrum disorders: A meta-analysis of twin studies.
+J. Child Psychol. Psychiatry 2016, 57, 585–595. [CrossRef] [PubMed]
+8. Persico, A.M.; Napolioni, V . Autism genetics. Behav. Brain Res. 2013, 251, 95–112. [CrossRef]
+9. Vicari, S.; Napoli, E.; Cordeddu, V .; Menghini, D.; Alesi, V .; Loddo, S.; Novelli, A.; Tartaglia, M. Copy number variants in autism spectrum disorders. Prog. Neuro-Psychopharmacol. Biol. Psychiatry 2019, 92, 421–427. [CrossRef] [PubMed]
+10. Schaefer, G.B.; Mendelsohn, N.J. Clinical genetics evaluation in identifying the etiology of autism spectrum disorders. Genet. Med.
+2008, 10, 301–305. [CrossRef] [PubMed]
+11. Miller, D.T.; Adam, M.P .; Aradhya, S.; Biesecker, L.G.; Brothman, A.R.; Carter, N.P .; Church, D.M.; Crolla, J.A.; Eichler, E.E.;
+Epstein, C.J.; et al. Consensus Statement: Chromosomal Microarray Is a First-Tier Clinical Diagnostic Test for Individuals with
+Developmental Disabilities or Congenital Anomalies. Am. J. Hum. Genet. 2010, 86, 749–764. [CrossRef] [PubMed]
+12. Borch, L.A.; Parboosingh, J.; Thomas, M.A.; Veale, P . Re-evaluating the ﬁrst-tier status of fragile X testing in neurodevelopmental disorders. Genet. Med. 2020, 22, 1036–1039. [CrossRef] [PubMed]
+13. Sanders, S.J.; Murtha, M.T.; Gupta, A.R.; Murdoch, J.D.; Raubeson, M.J.; Willsey, A.J.; Ercan-Sencicek, A.G.; DiLullo, N.M.;
+Parikshak, N.N.; Stein, J.L.; et al. De novo mutations revealed by whole-exome sequencing are strongly associated with autism.
+Nature 2012, 485, 237–241. [CrossRef] [PubMed]
+14. Lindstrand, A.; Eisfeldt, J.; Pettersson, M.; Carvalho, C.M.B.; Kvarnung, M.; Grigelioniene, G.; Anderlid, B.-M.; Bjerin, O.; Gustavsson, P .; Hammarsjö, A.; et al. From cytogenetics to cytogenomics: Whole-genome sequencing as a ﬁrst-line test comprehensively captures the diverse spectrum of disease-causing genetic variation underlying intellectual disability. Genome Med. 2019, 11, 1–23.
+[CrossRef]
+15. Lee, J.S.; Hwang, H.; Kim, S.Y.; Kim, K.J.; Choi, J.S.; Woo, M.J.; Choi, Y.M.; Jun, J.K.; Lim, B.C.; Chae, J.-H. Chromosomal
+Microarray With Clinical Diagnostic Utility in Children With Developmental Delay or Intellectual Disability. Ann. Lab. Med.
+2018, 38, 473–480. [CrossRef] [PubMed]
+16. Jang, W.; Kim, Y.; Han, E.; Park, J.; Chae, H.; Kwon, A.; Choi, H.; Kim, J.; Son, J.-O.; Lee, S.-J.; et al. Chromosomal Microarray
+Analysis as a First-Tier Clinical Diagnostic Test in Patients With Developmental Delay/Intellectual Disability, Autism Spectrum
+Disorders, and Multiple Congenital Anomalies: A Prospective Multicenter Study in Korea. Ann. Lab. Med. 2019, 39, 299–310.
+[CrossRef] [PubMed]
+17. Tammimies, K.; Marshall, C.R.; Walker, S.; Kaur, G.; Thiruvahindrapuram, B.; Lionel, A.C.; Yuen, R.K.C.; Uddin, M.; Roberts, W.;
+Weksberg, R.; et al. Molecular Diagnostic Yield of Chromosomal Microarray Analysis and Whole-Exome Sequencing in Children
+With Autism Spectrum Disorder. JAMA 2015, 314, 895–903. [CrossRef]
+18. Rossi, M.; El-Khechen, D.; Black, M.H.; Hagman, K.D.F.; Tang, S.; Powis, Z. Outcomes of Diagnostic Exome Sequencing in Patients
+With Diagnosed or Suspected Autism Spectrum Disorders. Pediatr. Neurol. 2017, 70, 34–43. [CrossRef]
+19. McGrew, S.G.; Peters, B.R.; Crittendon, J.A.; Weele, J.V .-V . Diagnostic Yield of Chromosomal Microarray Analysis in an Autism
+Primary Care Practice: Which Guidelines to Implement? J. Autism Dev. Disord. 2011, 42, 1582–1591. [CrossRef]
+20. Hanemaaijer, N.M.; Sikkema-Raddatz, B.; Van Der Vries, G.; Dijkhuizen, T.; Hordijk, R.; Van Essen, A.J.; Veenstra-Knol, H.E.;
+Kerstjens-Frederikse, W.S.; Herkert, J.C.; Gerkes, E.H.; et al. Practical guidelines for interpreting copy number gains detected by high-resolution array in routine diagnostics. Eur. J. Hum. Genet. 2011, 20, 161–165. [CrossRef]
+21. Riggs, E.R.; Andersen, E.F.; Cherry, A.M.; Kantarci, S.; Kearney, H.; Patel, A.; Raca, G.; Ritter, D.I.; South, S.T.; Thorland, E.C.;
+et al. Technical standards for the interpretation and reporting of constitutional copy-number variants: A joint consensus recommendation of the American College of Medical Genetics and Genomics (ACMG) and the Clinical Genome Resource
+(ClinGen). Genet Med. 2020, 22, 245–257. [CrossRef] [PubMed]
+22. Roy, S.; Coldren, C.; Karunamurthy, A.; Kip, N.S.; Klee, E.W.; Lincoln, S.E.; Leon, A.; Pullambhatla, M.; Temple-Smolkin, R.L.;
+Voelkerding, K.V .; et al. Standards and Guidelines for Validating Next-Generation Sequencing Bioinformatics Pipelines: A
+Joint Recommendation of the Association for Molecular Pathology and the College of American Pathologists. J. Mol. Diagn.
+2018, 20, 4–27. [CrossRef]
+23. Lai, Z.; Markovets, A.; Ahdesmaki, M.; Chapman, B.; Hofmann, O.; McEwen, R.; Johnson, J.; Dougherty, B.; Barrett, J.C.; Dry, J.R.
+VarDict: A novel and versatile variant caller for next-generation sequencing in cancer research. Nucleic Acids Res. 2016, 44, e108.
+[CrossRef] [PubMed]
+24. Wang, K.; Li, M.; Hakonarson, H. ANNOVAR: Functional annotation of genetic variants from high-throughput sequencing data.
+Nucleic Acids Res. 2010, 38, e164. [CrossRef]
+
+Genes 2021, 12, 560 16 of 16
+25. Richards, S.; Aziz, N.; Bale, S.; Bick, D.; Das, S.; Gastier-Foster, J.; Grody, W.W.; Hegde, M.; Lyon, E.; Spector, E.; et al. Standards and guidelines for the interpretation of sequence variants: A joint consensus recommendation of the American College of Medical
+Genetics and Genomics and the Association for Molecular Pathology. Genet. Med. 2015, 17, 405–423. [CrossRef] [PubMed]
+26. Srivastava, S.; Love-Nichols, J.A.; Dies, K.A.; Ledbetter, D.H.; Martin, C.L.; Chung, W.K.; Firth, H.V .; Frazier, T.; Hansen, R.L.;
+Prock, L.; et al. Meta-analysis and multidisciplinary consensus statement: Exome sequencing is a ﬁrst-tier clinical diagnostic test for individuals with neurodevelopmental disorders. Genet Med. 2019, 21, 2413–2421. [CrossRef]
+27. Hagerman, R.J.; Protic, D.; Rajaratnam, A.; Salcedo-Arellano, M.J.; Aydin, E.Y.; Schneider, A. Fragile X-Associated Neuropsychiatric Disorders (FXAND). Front. Psychiatry 2018, 9, 564. [CrossRef] [PubMed]
+28. Reddy, K.S. Cytogenetic abnormalities and fragile-x syndrome in Autism Spectrum Disorder. BMC Med Genet. 2005, 6, 3.
+[CrossRef]
+29. Winarni, T.I.; Utari, A.; Mundhoﬁr, F.E.P .; Hagerman, R.J.; Faradz, S.M.H. Fragile X syndrome: Clinical, cytogenetic and molecular screening among autism spectrum disorder children in Indonesia. Clin. Genet. 2013, 84, 577–580. [CrossRef]
+30. Iakoucheva, L.M.; Muotri, A.R.; Sebat, J. Getting to the Cores of Autism. Cell 2019, 178, 1287–1298. [CrossRef]
+31. Levy, D.; Ronemus, M.; Yamrom, B.; Lee, Y.; Leotta, A.; Leotta, A.; Kendall, J.; Marks, S.; Lakshmi, B.; Pai, D.; et al. Rare De Novo and Transmitted Copy-Number Variation in Autistic Spectrum Disorders. Neuron 2011, 70, 886–897. [CrossRef]
+32. Chen, S.; Wang, J.; Cicek, E.; Roeder, K.; Yu, H.; Devlin, B. De novo missense variants disrupting protein-protein interactions affect risk for autism through gene co-expression and protein networks in neuronal cell types. Mol. Autism 2020, 11, 76. [CrossRef]
+33. Doan, R.N.; Lim, E.T.; De Rubeis, S.; Betancur, C.; Cutler, D.J.; Chiocchetti, A.G.; Overman, L.M.; Soucy, A.; Goetze, S.;
+Freitag, C.M.; et al. Recessive gene disruptions in autism spectrum disorder. Nat Genet. 2019, 51, 1092–1098. [CrossRef] [PubMed]
+34. Tartaglia, N.R.; Wilson, R.; Miller, J.S.; Rafalko, J.; Cordeiro, L.; Davis, S.; Hessl, D.; Ross, J. Autism Spectrum Disorder in
+Males with Sex Chromosome Aneuploidy: XXY/Klinefelter Syndrome, XYY, and XXYY.J. Dev. Behav. Pediatr. 2017, 38, 197–207.
+[CrossRef]
+35. Butler, M.G.; Raﬁ, S.K.; Manzardo, A.M. High-Resolution Chromosome Ideogram Representation of Currently Recognized Genes for Autism Spectrum Disorders. Int. J. Mol. Sci. 2015, 16, 6464–6495. [CrossRef] [PubMed]
+36. Liu, P .; Meng, L.; Normand, E.A.; Xia, F.; Song, X.; Ghazi, A.; Rosenfeld, J.; Magoulas, P .L.; Braxton, A.; Ward, P .; et al. Reanalysis of Clinical Exome Sequencing Data. N. Engl. J. Med. 2019, 20, 2478–2480. [CrossRef] [PubMed]
+37. Costain, G.; Jobling, R.; Walker, S.; Reuter, M.S.; Snell, M.; Bowdin, S.; Cohn, R.D.; Dupuis, L.; Hewson, S.; Mercimek-Andrews, S.;
+et al. Periodic reanalysis of whole-genome sequencing data enhances the diagnostic advantage over standard clinical genetic testing. Eur. J. Hum. Genet. 2018, 26, 740–744. [CrossRef]
+38. Stefanski, A.; Calle-López, Y.; Leu, C.; Pérez-Palma, E.; Pestana-Knight, E.; Lal, D. Clinical sequencing yield in epilepsy, autism spectrum disorder, and intellectual disability: A systematic review and meta-analysis. Epilepsia 2021, 62, 143–151. [CrossRef]
+[PubMed]
+39. Gieldon, L.; Mackenroth, L.; Kahlert, A.-K.; Lemke, J.R.; Porrmann, J.; Schallner, J.; Von Der Hagen, M.; Markus, S.; Weidensee,
+S.; Novotna, B.; et al. Diagnostic value of partial exome sequencing in developmental disorders. PLoS ONE 2018, 13, e0201041.
+[CrossRef]
+40. Barone, R.; Gulisano, M.; Amore, R.; Domini, C.; Milana, M.C.; Giglio, S.; Madia, F.; Mattina, T.; Casabona, A.; Fichera, M.; et al.
+Clinical correlates in children with autism spectrum disorder and CNVs: Systematic investigation in a clinical setting. Int. J.
+Dev. Neurosci. 2020, 80, 276–286. [CrossRef]
+41. Thapar, A.; Rutter, M. Genetic Advances in Autism. J. Autism Dev. Disord. 2020, 1–12. [CrossRef]
+42. Satterstrom, F.K.; Kosmicki, J.A.; Wang, J.; Breen, M.S.; De Rubeis, S.; An, J.-Y.; Peng, M.; Collins, R.L.; Grove, J.; Klei, L.; et al.
+Large-Scale Exome Sequencing Study Implicates Both Developmental and Functional Changes in the Neurobiology of Autism.
+Cell 2020, 180, 568–584.e23. [CrossRef]
+43. Myers, S.M.; Challman, T.D.; Bernier, R.; Bourgeron, T.; Chung, W.K.; Constantino, J.N.; Eichler, E.E.; Jacquemont, S.; Miller,
+D.T.; Mitchell, K.J.; et al. Insufﬁcient Evidence for “Autism-Speciﬁc” Genes. Am. J. Hum. Genet. 2020, 106, 587–595. [CrossRef]
+[PubMed]
+44. Happé, F.; Ronald, A.; Plomin, R. Time to give up on a single explanation for autism. Nat. Neurosci. 2006, 9, 1218–1220. [CrossRef]
+[PubMed]

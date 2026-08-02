@@ -1,27 +1,1002 @@
-=== RAG_CORPUS_PLACEHOLDER 待填充：本文件尚未粘贴原文，灌库时会被跳过 ===
+NLM Citation: Hunter JE, Berry-Kravis E, Hipp H, et al. FMR1
+Disorders. 1998 Jun 16 [Updated 2024 May 16]. In: Adam MP , Bick S,
+Mirzaa GM, et al., editors. GeneReviews® [Internet]. Seattle (WA):
+University of Washington, Seattle; 1993-2026.
+Bookshelf URL: https://www.ncbi.nlm.nih.gov/books/
+Jessica Ezzell Hunter, PhD,1 Elizabeth Berry-Kravis, MD, PhD,2 Heather Hipp, MD,3 and Peter K Todd, MD, PhD4
+Created: June 16, 1998; Revised: May 16, 2024.
+Summary
+Clinical characteristics
+FMR1 disorders include fragile X syndrome (FXS), fragile X-associated tremor/ataxia syndrome (FXTAS), and fragile X-associated primary ovarian insufficiency (FXPOI).
+Fragile X syndrome occurs in individuals with an FMR1 full mutation or other loss-of-function variant and is nearly always characterized in affected males by developmental delay and intellectual disability along with a variety of behavioral issues. Autism spectrum disorder is present in 50%-70% of individuals with FXS. Affected males may have characteristic craniofacial features (which become more obvious with age) and medical problems including hypotonia, gastroesophageal reflux, strabismus, seizures, sleep disorders, joint laxity, pes planus, scoliosis, and recurrent otitis media. Adults may have mitral valve prolapse or aortic root dilatation. The physical and behavioral features seen in males with FXS have been reported in females heterozygous for the
+FMR1 full mutation, but with lower frequency and milder involvement.
+FXTAS occurs in individuals who have an FMR1 premutation and is characterized by late-onset, progressive cerebellar ataxia and intention tremor followed by cognitive impairment. Psychiatric disorders are common. Age of onset is typically between 60 and 65 years and is more common among males who are hemizygous for the premutation (40%) than among females who are heterozygous for the premutation (16%-20%).
+FXPOI, defined as hypergonadotropic hypogonadism before age 40 years, has been observed in 20% of women who carry a premutation allele compared to 1% in the general population.
+Diagnosis/testing
+The diagnosis of an FMR1 disorder is established through the use of specialized molecular genetic testing to detect CGG trinucleotide repeat expansion in the 5' UTR of FMR1 with abnormal gene methylation for most alleles with >200 repeats. Typically, a definite diagnosis of FXS requires the presence of a full-mutation repeat
+Author Affiliations: 1 Center for Health Research, Kaiser Permanente Northwest, Portland, Oregon; Email:
+jessica.e.hunter@kpchr.org. 2 Departments of Pediatrics, Neurological Sciences, and Biochemistry, Rush University
+Medical Center, Chicago, Illinois; Email: elizabeth_berry-kravis@rush.edu. 3 Division of Reproductive Endocrinology and
+Infertility, Emory University School of Medicine, Atlanta, Georgia; Email: hhipp@emory.edu. 4 Department of Neurology,
+University of Michigan Medical School, Ann Arbor, Michigan; Email: petertod@med.umich.edu.
+Copyright © 1993-2026, University of Washington, Seattle. GeneReviews is a registered trademark of the University of
+Washington, Seattle. All rights reserved. Test.
 
-来源：GeneReviews - FMR1 Disorders (Fragile X Syndrome)
-NBK ID：NBK1384
-链接：https://www.ncbi.nlm.nih.gov/books/NBK1384/
-入库归属：桶 A（鉴别诊断）｜condition = 脆性 X 综合征｜gene = FMR1
+size (>200 CGG repeats) while the diagnosis of FXTAS or FXPOI is associated with a premutation-sized repeat
+(55-200 CGG repeats). It should be noted that typical multigene panels and comprehensive genomic testing
+(exome or genome sequencing) are useful only when no CGG repeat expansion is detected but FXS is still suspected.
+Management
+Treatment of manifestations: Fragile X syndrome: supportive and symptom-based therapy for children and adults typically consisting of a dual approach of psychopharmacologic treatment of symptoms as needed in conjunction with therapeutic services, such as behavioral intervention, speech and language therapy, occupational therapy, and individualized educational support; routine treatment of medical problems. FXTAS:
+symptomatic and supportive and should be tailored to the individual. FXPOI: Gynecologic or reproductive endocrinologic evaluation can provide appropriate treatment and counseling for reproductive considerations and hormone replacement.
+Agents/circumstances to avoid: FXTAS: typical and atypical antipsychotics with significant anti-dopaminergic effects and metoclopramide, which can exacerbate parkinsonism; anticholinergic agents, which can exacerbate cognitive complaints; excessive alcohol, which can enhance cerebellar dysfunction and postural instability;
+agents with known cerebellar toxicity or side effects. FXPOI: tobacco use as this decreases ovarian reserve and the age of onset of FXPOI.
+Genetic counseling
+FMR1 disorders are inherited in an X-linked manner. All mothers of individuals with an FMR1 full mutation
+(expansion >200 CGG trinucleotide repeats and abnormal methylation) are heterozygous for an FMR1 pathogenic variant. Mothers and their female relatives who are heterozygous for a premutation are at increased risk for FXTAS, FXPOI, and fragile X-associated neuropsychiatric disorders (FXAND); those with a full mutation may have findings of fragile X syndrome. All are at increased risk of having offspring with fragile X syndrome, FXTAS, FXPOI, or FXAND. Males with premutations are at increased risk for FXTAS. Males with
+FXTAS will transmit their FMR1 premutation expansion to all of their daughters, who will be heterozygous for a premutation and at increased risk for FXTAS, FXPOI, and FXAND. Males with FXTAS do not transmit their
+FMR1 premutation to sons. Prenatal testing for a pregnancy at increased risk and preimplantation genetic testing are possible once an expanded (or altered) FMR1 allele has been identified in a family member.
+GeneReview Scope
+FMR1 Disorders: Included Phenotypes 1
+• Fragile X syndrome (FXS)
+• Fragile X-associated tremor/ataxia syndrome (FXTAS)
+• FMR1 primary ovarian insufficiency (FXPOI)
+For synonyms and outdated names see Nomenclature.
+1. For other genetic causes of these phenotypes see Differential Diagnosis.
+Diagnosis
+Suggestive Findings
+FMR1 disorders should be considered in individuals with the following clinical and associated findings.
+Fragile X syndrome (FXS)
+• Males and females with intellectual disability or developmental delay of unknown cause
 
-对应测试用例 tc_03。
+• Males with unexplained autism spectrum disorder and females with unexplained autism spectrum disorder and the presence of an additional indicator: phenotype compatible with FXS; family history of Xlinked neurodevelopmental disorders; or premature ovarian failure, ataxia, or tremors in close relatives
+Fragile X-associated tremor/ataxia syndrome (FXTAS)
+• Males and females who are experiencing late-onset intention tremor and cerebellar ataxia of unknown cause. Men and women with dementia may also be considered, if ataxia, parkinsonism, or tremor are also present.
+• Males and females with multiple system atrophy, cerebellar subtype (especially if a prolonged course)
+Fragile X-associated primary ovarian insufficiency (FXPOI). Females with unexplained primary ovarian insufficiency or failure (hypergonadotropic hypogonadism) before age 40 years
+Establishing the Diagnosis
+The diagnosis of an FMR1 disorder is established through the use of specialized molecular genetic testing. It should be noted that typical multigene panels and comprehensive genomic testing (exome or genome sequencing) are useful only when no CGG repeat expansion is detected but FXS is still suspected.
+FMR1 related disorders are caused by CGG trinucleotide repeat expansion in the 5' UTR of FMR1 with abnormal gene methylation for most alleles with more than 200 repeats. Typically, a definite diagnosis of FXS requires the presence of a full-mutation repeat size (>200 CGG repeats) while the diagnosis of FXTAS or FXPOI is associated with a premutation-sized repeat (55-200 CGG repeats).
+Allele Size
+FMR1 alleles are categorized according to the number of 5' UTR CGG trinucleotide repeats and the methylation status of the repeat region. However, the distinction between allele categories is not absolute and must be made by considering both family history and repeat instability. The size boundary between intermediate and premutation categories listed below is not precise and caution is advised. See Table 3 for a summary of the types of FMR1 alleles and clinical status of individuals with expanded alleles.
+Stability of alleles of fewer than 90 repeats is heavily influenced by the number of AGG interspersions within the
+CGG repeat sequence, both with respect to risk for size change in intermediate alleles and small premutations and expansion to a full mutation in premutation alleles larger than about 60 repeats [Nolin et al 2013, Nolin et al 2019]. This information should be utilized when appropriate for counseling families about expansion risk.
+See Anticipation for detailed information on factors such as AGGs that influence FMR1 CGG repeat stability.
+Normal alleles. Approximately 5-44 repeats
+• Alleles of this size have little meiotic or mitotic instability and are typically transmitted without any increase or decrease in repeat number. However, some instability in normal repeats has been reported, with alleles that contain no AGG interspersions having a greater likelihood to be unstable [Nolin et al 2019].
+• The population distribution of FMR1 repeat alleles shows the highest percentage of individuals with approximately 29-31 repeats; smaller but significant percentages cluster around 20 and 40 repeats.
+Intermediate alleles (also termed "gray zone" or "borderline"). Approximately 45-54 repeats
+• Intermediate alleles do not cause FXS. However, about 14% of intermediate alleles are unstable and may expand into the premutation range when transmitted by the mother [Nolin et al 2011]. They are not known to expand to full mutations; therefore, offspring are not at increased risk for FXS.
 
---- 操作步骤 ---
+• Historically, the largest repeat included in the intermediate range has been 54; the use of 54 as the upper limit for normal alleles is a conservative estimate reflecting observations that transmission of alleles with 54 or fewer repeats from mothers to their offspring has not resulted in an affected individual to date. The conservative nature of the estimate also reflects potential imprecision (usually stated as ±2-3 repeats) in laboratory measurement of repeat number during diagnostic testing; however, to date no transmission of alleles with 55 or fewer repeats is known to have resulted in an affected individual [Nolin et al 2015, Nolin et al 2019].
+Note: Clinical laboratories performing FMR1 analysis typically state their estimated precision range when measuring intermediate alleles and usually report their estimates as ±2-3 repeats. Thus, it may be prudent to consider reported test results with 55 repeats as potential premutations. If the repeat precision estimate is not on the laboratory report, the laboratory should be contacted in order to determine if a result should be considered as a potential premutation.
+Premutation alleles. Approximately 55-200 repeats
+• Alleles of this size are not associated with FXS but do convey increased risk for FXTAS and FXPOI (Table 3). Because of potential repeat instability upon transmission of premutation alleles, women with alleles in this range are considered to be at risk of having children with FXS, although this risk is heavily dependent on the number of AGG interspersions for small premutation alleles [Nolin et al 2013, Nolin et al 2019].
+Note: The upper limit of the premutation range is sometimes noted as approximately 230. Both numbers
+(200 and 230) are estimates derived from Southern blot analysis, in which repeat size can only be roughly estimated.
+Full-mutation alleles. More than 200 CGG repeats, with several hundred to several thousand repeats being typical and, in most cases, associated with aberrant hypermethylation of the FMR1 promoter. Almost always, extensive somatic variation of repeat number is observed in a peripheral blood specimen of an individual with a full mutation. As a result, clinical laboratories may report this somatic variation as a range of several hundred repeats.
+Clinical Criteria
+The clinical criteria for diagnosis of FXTAS or FXPOI in individuals with a premutation allele are as follows.
+FXTAS
+Three levels are used to indicate the confidence of a diagnosis of FXTAS in individuals with an FMR1 premutation based on symptom manifestation at the time of the evaluation [Jacquemont et al 2003, Berry-Kravis et al 2007, Hagerman & Hagerman 2016, National Fragile X Foundation FXTAS Guideline]. The three diagnostic categories:
+• Definite. Presence of one major radiologic sign plus one major clinical sign, or presence of FXTAS inclusions (characteristic ubiquitin-positive intranuclear inclusions within the nuclei of neurons and astrocytes)
+• Probable. Presence of either one major radiologic sign plus one minor clinical sign, or two major clinical signs
+• Possible. Presence of one minor radiologic sign plus one major clinical sign
+Radiologic signs
+• Major. MRI white matter lesions in middle cerebellar peduncles (MCP sign)
+• Minor
+⚬ MRI white matter lesions in cerebral white matter
 
-1. 打开上面的链接，在网页正文区全选复制。
-2. 删除本文件的全部内容（含本行说明），把原文粘贴进来，以 UTF-8 保存。
-3. 回到项目根目录运行 python scripts/rag_builder.py --dry-run 检查切分统计。
+⚬ Moderate-to-severe generalized brain atrophy
+⚬ MRI white matter lesions in the splenium of the corpus callosum
+Clinical signs
+• Major
+⚬ Intention tremor
+⚬ Cerebellar gait ataxia
+• Minor
+⚬ Parkinsonism
+⚬ Moderate-to-severe short-term memory deficiency
+⚬ Executive function deficit
+⚬ Neuropathy in lower extremities
+Neuropathologic signs. A major criterion is FXTAS intranuclear eosinophilic inclusions that are ubiquitin positive.
+FXPOI
+Diagnostic criteria are based on hypergonadotropic hypogonadism in women younger than age 40 who carry a premutation allele. POI is diagnosed when a woman has (1) experienced four to six months of amenorrhea
+(absent menses) and (2) has two serum menopausal level FSH values obtained at least one month apart [Nelson 2009, Fink et al 2018].
+See Published Guidelines / Consensus Statements.
+Targeted Analysis for Pathogenic Variants
+Polymerase chain reaction (PCR) is used to size the CGG trinucleotide repeat region of FMR1 with high sensitivity. Although early PCR techniques for FMR1-specific PCR were less sensitive to larger premutations and failed to amplify full mutations, PCR techniques now exist to identify virtually all sizes of FMR1 expansion mutations.
+Repeat-primed PCR allows detection and location of AGG interspersions.
+Southern blot analysis detects all FMR1 alleles including normal, larger-sized premutations, and full mutations and in addition determines methylation status of the FMR1 promoter region. Southern blot may not resolve intermediate alleles well. Abnormal hypermethylation of FMR1 is the cause of transcriptional silencing and is critical to assess for full-mutation alleles.
+Note: PCR with newer and more sensitive assays is now adequate for diagnosis and size determination for the premutation, as well as for identification of the full mutation. Southern blot is currently only used to determine the methylation status for the full mutation and the X-inactivation ratio for females with a premutation or full mutation. As PCR methods for determining methylation gain acceptance in diagnostic testing, the need for
+Southern blot analysis for determination of methylation of the full mutation and activation ratios of women may decrease [Chen et al 2010, Chen et al 2011, Nahhas et al 2012, Orpana et al 2012, Hadd et al 2016, Hayward et al 2016, Hayward et al 2017].
+Methylation status of a full mutation or activation ratio in female heterozygotes can be assessed by PCR-based methods independent of measuring the number of CGG repeats [Grasso et al 2014].
 
---- 三条硬要求 ---
+Additional Testing
+Fewer than 1% of individuals with FXS have a sequence variant, a partial deletion, or a full deletion of FMR1
+(reviewed in Sitzmann et al [2018]).
+When no CGG repeat expansion is detected but FXS is still suspected, the options are either a multigene panel or comprehensive genomic testing:
+• A multigene panel that includes FMR1 and other genes of interest (see Differential Diagnosis) is most likely to identify the genetic cause of the condition while limiting identification of variants of uncertain significance and pathogenic variants in genes that do not explain the underlying phenotype. Note: (1) The genes included in the panel and the diagnostic sensitivity of the testing used for each gene vary by laboratory and are likely to change over time. (2) Some multigene panels may include genes not associated with the condition discussed in this GeneReview. (3) In some laboratories, panel options may include a custom laboratory-designed panel and/or custom phenotype-focused exome analysis that includes genes specified by the clinician. (4) Methods used in a panel may include sequence analysis, deletion/duplication analysis, and/or other non-sequencing-based tests. For this disorder a multigene panel that also includes deletion/duplication analysis is recommended (see Table 1).
+For an introduction to multigene panels click here. More detailed information for clinicians ordering genetic tests can be found here.
+• Comprehensive genomic testing involves either exome sequencing or genome sequencing. If exome sequencing is not diagnostic, exome array (when clinically available) needs be considered to detect
+(multi)exon deletions or duplications that cannot be detected by exome sequencing.
+For an introduction to comprehensive genomic testing click here. More detailed information for clinicians ordering genomic testing can be found here.
 
-1. 必须保留章节标题行，例如 Clinical Characteristics、Clinical Description、
-   Diagnosis、Differential Diagnosis、Management。灌库脚本靠这些独立成行的标题
-   做章节过滤，标题丢失会导致整篇内容落入 preamble 而被全部跳过。
+Table 1. Molecular Genetic Testing Used in FMR1 Disorders
+Gene 1 Method Pathogenic Variants Detected 2 Variant Detection Frequency by
+Method 3
+FMR1
+Targeted analysis for pathogenic variants
+PCR. CGG expansion in FMR1 4
+>99%
+Southern blot. CGG expansion in
+FMR1 (all repeat ranges);
+methylation status for fullmutation alleles and to determine
+X-inactivation ratio in women 4, 5
+Methylation analysis Methylation of FMR1 promoter region 6 100% of alleles with this modification
+Deletion/duplication analysis 7 Large (partial- or whole-gene)
+FMR1 deletions/duplications <1%
+Sequence analysis 8 FMR1 sequence variants 4 <1%
+1. See Table A. Genes and Databases for chromosome locus and protein.
+2. See Molecular Genetics for information on variants detected in this gene.
+3. The ability of the test method used to detect a variant that is present in the indicated gene
+4. Sequence analysis, targeted analysis for pathogenic variants using PCR, and in some instances Southern blot analysis cannot detect an exon or whole-gene deletion on the X chromosome in heterozygous females.
+5. As newer and more sensitive PCR methods gain acceptance in diagnostic testing, the need for Southern blot analysis may decrease
+[Chen et al 2010, Chen et al 2011, Orpana et al 2012, Nahhas et al 2012, Hayward et al 2016, Hayward et al 2017].
+6. Methylation status can be determined by either Southern blot or methylation-specific PCR; the latter may offer a more rapid test turnaround time [Hayward et al 2017].
+7. Gene-targeted deletion/duplication analysis detects intragenic deletions or duplications. Methods used may include a range of techniques such as quantitative PCR, long-range PCR, multiplex ligation-dependent probe amplification (MLPA), and a gene-targeted microarray designed to detect single-exon deletions or duplications.
+8. Sequence analysis detects variants that are benign, likely benign, of uncertain significance, likely pathogenic, or pathogenic. Variants may include missense, nonsense, and splice site variants and small intragenic deletions/insertions; typically, exon or whole-gene deletions/duplications are not detected. For issues to consider in interpretation of sequence analysis results, click here.
+Note: (1) If the clinical phenotype is strongly suggestive of FXS and molecular genetic testing of DNA extracted from leukocytes is normal, molecular genetic testing of a second tissue type (e.g., skin fibroblasts) should be considered as mosaicism has been reported [MacKenzie et al 2006]. (2) For intermediate and small premutation alleles in heterozygous females, AGG trinucleotide genotyping may be useful to assess risk of allele expansion upon transmission. See Anticipation.
+Clinical Characteristics
+Clinical Description
+Males with Fragile X Syndrome (Full-Mutation Alleles)
+The phenotypic features of males with fragile X syndrome (FXS) vary in relation to puberty [Kidd et al 2014].
+Prepubertal features
+• Medical problems in infancy and childhood include hypotonia, gastroesophageal reflux, strabismus, seizures, sleep disorders, joint laxity, pes planus, scoliosis, and recurrent otitis media. Excessive softness and smoothness of the skin also have been noted.
+• Normal growth is typical but large occipitofrontal head circumference (>50th percentile) is often seen.
+• Delayed attainment of motor milestones and speech is apparent in the first several years of life.
+Developmental milestones (usual age of attainment in boys):
+⚬ Sit alone (10 months)
 
-2. 不要手动删除 Management / Treatment / Surveillance 章节。脚本会自动识别并
-   强制丢弃，保留原样才能在日志里算出准确的过滤条数，这是 PRD 中 AC10 的校验依据。
+⚬ Walk (20.6 months)
+⚬ First clear words (20 months)
+• Intellectual disability. The mean IQ has been reported as 40-45 with a range from less than 10 to within the normal range [Sansone et al 2014].
+• Behavior is a prominent issue in males and some females with FXS of all ages. Behavior issues can include attention-deficit/hyperactivity disorder (ADHD) symptoms: hyperactivity, problems with impulse control, distractibility stereotypies such as hand flapping, tactile defensiveness, anxiety, shyness, poor eye contact
+(gaze aversion), perseverative speech, temper tantrums, irritability, aggression, and self-injurious behavior such as hand biting. The behaviors tend to evolve over time, becoming more obvious, with reduced responsiveness and activity sometimes seen in children before age two years, and then progressively increasing hyperactivity and ADHD symptoms with anxiety and irritable behaviors emerging (to varying degrees) during childhood [Berry-Kravis et al 2012].
+• Autism spectrum disorder (ASD) is present in 50%-70% of individuals with FXS and when present, tends to be associated with more severe behavioral issues and an increased rate of seizures [Kidd et al 2020].
+• Physical features involving the craniofacies (long face, prominent forehead, large ears, and prominent jaw) not readily recognizable in the preschool-age child become more obvious with age. Only a subset of affected individuals have typical physical features of FXS and presence of these is not reliable for diagnosis.
+Postpubertal features
+• Medical problems including mitral valve prolapse and aortic root dilatation have been noted, most commonly in adults with FXS.
+• Anxiety and irritable/aggressive behavior may increase during or after puberty. Anxiety, including social phobia and specific phobias, anticipatory anxiety, performance anxiety, and separation anxiety, as well as generalized anxiety, is very common in FXS and often disabling, having been reported by caregivers as the most disabling problem for individuals with FXS [Weber et al 2019].
+• Macroorchidism may be obvious earlier in childhood but is identified in essentially all males after completion of puberty.
+Females with FXS (Heterozygous for Full-Mutation Alleles)
+The physical and behavioral features seen in males with FXS have been reported in females heterozygous for the full mutation, but with lower frequency and milder involvement [Bartholomay et al 2019].
+Fragile X-Associated Tremor/Ataxia Syndrome (FXTAS)
+FXTAS is characterized by late-onset progressive cerebellar ataxia and intention tremor in persons who have an
+FMR1 premutation [Hagerman & Hagerman 2016].
+Onset is typically between ages 60 and 65 years. The age of onset and progression of symptoms of FXTAS vary significantly among individuals. Both age of onset and disease severity are related to repeat length, sex, and other features.
+The first sign of FXTAS is typically tremor followed by ataxia and cognitive impairment [Bourgeois 2016, Hall &
+Berry-Kravis 2018].
+• Ataxia can lead to gait and postural instability with most individuals needing a walking aid within ten years of diagnosis.
+• Cognitive impairment typically starts with executive function impairment and expands to other domains such as working memory and information processing speed. Almost half of individuals with FXTAS meet criteria for dementia.
 
-3. 不要改文件名。脚本按文件名推断来源、病种与所属数据桶。
+Other findings include short-term memory loss, parkinsonism, peripheral neuropathy and neuropathic pain, lower-limb proximal muscle weakness, and autonomic dysfunction [Hagerman & Hagerman 2016, Hall et al 2016].
+Psychiatric disorders are common and include anxiety, irritability, agitation, hostility, obsessive-compulsive disorder, apathy, and depression [Seritan et al 2013].
+Both males and females with a premutation are at risk for FXTAS. Increasing premutation repeat lengths correlate with increasing likelihood of developing FXTAS [Tassone et al 2007, Leehey et al 2008]. The penetrance in individuals older than age 50 years is lower in females (16.5%) than in males (45.5%) [Rodriguez-Revenga et al 2009].
+Males. The prevalence of FXTAS is estimated at approximately 40% overall for males with a premutation who are older than age 50 years [Hagerman & Hagerman 2016]. Penetrance in males is related to age (see Table 2) and repeat length.
+Table 2. Risk for FXTAS by Age in Males with an FMR1 Premutation
+Age in Y ears Risk 50-59 17% 60-69 38% 70-79 47%
+≥80 75%
+Adapted from Grigsby et al [2005]
+Females. While FXTAS is more difficult to ascertain in females because of milder clinical presentation, prevalence estimates range from approximately 16% to 20% of female premutation heterozygotes [Hagerman &
+Hagerman 2016].
+Fragile X-Associated Primary Ovarian Insufficiency (FXPOI)
+FXPOI, defined as hypergonadotropic hypogonadism before age 40 years, has been observed in 20% of women who carry a premutation allele compared to 1% in the general population [Sherman 2000].
+• Ovarian insufficiency has occurred as early as age 11 years and can present with primary amenorrhea and delayed puberty.
+• Women with FXPOI have high rates of infertility and menopausal-type symptoms, including vasomotor symptoms, mood changes, and vaginal dryness.
+⚬ In contrast to menopause, ovarian function in women with POI is more erratic and unpredictable, so that some women continue to have irregular ovulation and menses for years after diagnosis.
+Some women are completely amenorrheic.
+⚬ The diagnosis of POI does not eliminate the possibility of subsequent conception. It is estimated that up to 12.6% of women conceive after a diagnosis of FXPOI [Hipp et al 2016]. See Fink et al
+[2018] for a review.
+• Women with FXPOI are at risk of long-term health sequelae from a hypoestrogenic environment. These include osteoporosis and cardiovascular disease.
+• Women with POI (including those with FXPOI) are at increased risk of developing thyroid disease.
+The earlier findings that alleles in the high normal and intermediate range conferred an increased risk for FXPOI
+[Bretherick et al 2005, Bodega et al 2006] have not been supported by more recent robust studies [Voorhuis et al 2014, Schufreider et al 2015].
 
-完整清单与合规说明见 ../SOURCES.md
+Women with full-mutation alleles are not at increased risk for FXPOI, nor do they have signs of diminished ovarian reserve [Avraham et al 2017].
+Other Fragile X-Associated Phenotypes
+In addition to FXTAS and FXPOI, the following have been reported in the literature (see Wheeler et al [2017] for a review):
+• Cognitive and behavioral challenges. Preliminary studies of the correlation of FMR1 allele size variations in the normal and premutation range suggested a possible relationship to mild intellectual disability in females [Allen et al 2005] and males [Loat et al 2006, Hagerman et al 2009]. Evidence also suggested an increased risk for autism spectrum disorder [Farzin et al 2006, Hagerman et al 2009] and neurodevelopmental diagnoses in individuals with a premutation [Bailey et al 2008, Renda et al 2014].
+However, findings across studies have been contradictory, with some studies biased by assessment of individuals who had been clinically referred. Thus, additional studies are needed.
+• Neuropsychiatric issues. Increased rates of anxiety, depression, and ADHD have been reported. Social phobia and social anxiety have also been reported. However, many studies on mental health outcomes are limited to women with a premutation who are mothers of children with FXS; thus, findings are likely confounded by the impact of elevated maternal stress on mental health [Wheeler et al 2017], though some studies have indicated that the premutation confers a heightened susceptibility to stress and dysregulation of the hypothalamic-pituitary axis [Hartley et al 2012, Seltzer et al 2012].
+The term "fragile X-associated neuropsychiatric disorders" (FXAND) has been proposed to promote research into fully characterizing neuropsychiatric outcomes associated with the premutation allele
+[Hagerman et al 2018].
+• Medical findings. Some studies have reported elevated rates of hypertension, hypothyroidism, fibromyalgia, migraines, insomnia, sleep apnea, restless leg syndrome, central pain sensitivity syndrome, and autoimmune disorders in individuals with a premutation compared to those without a premutation
+[Hagerman & Hagerman 2016]. However, these findings differ by investigator (reviewed in Wheeler et al
+[2014]). Unfortunately, most studies have been focused on women with a premutation and are based on questionnaires and chart reviews rather than objective medical examinations, which has created inconsistencies between research groups. Thus, the generalizability of these findings is unclear.
+Elevated rates of neurologic findings, such as tremor and ataxia, have been reported in individuals with premutations who do not meet diagnostic criteria of FXTAS. A study of 110 daughters of men with FXTAS demonstrated an increased incidence of neurologic and psychiatric symptoms compared to controls, providing more evidence for such an association [Chonchaiya et al 2010].
+Genotype-Phenotype Correlations
+The phenotype of males with an FMR1 pathogenic variant depends almost entirely on the nature of the variant;
+the phenotype of females with an FMR1 pathogenic variant depends on both the nature of the FMR1 variant and random X-chromosome inactivation (see Table 3).
+
+Table 3. Types of FMR1 Repeat Expansion Pathogenic Variants
+Variant Type # of CGG
+Trinucleotide Repeats
+Methylation Status of
+FMR1
+Clinical Status
+Male Female
+Premutation ~55-200 Unmethylated At risk for FXTAS 1
+• At risk for FXPOI &
+FXTAS
+• Potential ↑ risk of other fragile X-assoc disorders 1
+Full mutation >200 Completely methylated 100% have ID. ~50% w/ID, ~50% normal intellect
+Repeat size mosaicism
+Varies between premutation & full mutation in different cell lines
+Partial: unmethylated in premutation cell line; methylated in full-mutation cell line
+Nearly 100% have ID; may be higher functioning 2 than males w/full mutation.
+Highly variable: ranges from normal intellect to affected
+Methylation mosaicism >200
+Partial: mixture of methylated & unmethylated cell lines
+Unmethylated full mutation >200 Unmethylated
+• ID, if present, is typically high functioning.
+• May have anxiety
+&/or behavioral issues even w/out ID
+ID = intellectual disability
+1. Both males and females with premutations have been reported to have slightly elevated rates of some manifestations of fragile X syndrome, such as facial features, behavioral problems, learning disabilities, ADHD, and anxiety [Riddle et al 1998, Bourgeois et al 2009, Hunter et al 2009, Chonchaiya et al 2010]. Some studies also indicate an increased rate of additional outcomes, such as depression, pain disorders, autoimmune disorders, and other health outcomes [Wheeler et al 2017, Hagerman et al 2018].
+2. FMR1 pathogenic variants are complex alterations involving nonclassic gene-inactivating variants (trinucleotide repeat expansion) and abnormal gene methylation. This complexity at the gene level affects production of the FMR1 protein (FMRP) and may result in an atypical presentation in which affected individuals occasionally have an IQ above 70, the traditional demarcation denoting intellectual disability (previously referred to as mental retardation).
+Premutation. Males and females who have an FMR1 premutation have normal intellect and appearance. As noted in Table 3, footnote 1, a subset of individuals with a premutation may have subtle intellectual or behavioral symptoms including learning difficulties or social anxiety. It is currently unclear whether these reported symptoms result from the premutation or are the product of an ascertainment bias toward identification of individuals with premutations who manifest intellectual or behavioral symptoms. The symptoms are usually not socially debilitating.
+• For FXTAS, repeat size is correlated with severity: higher repeat size is associated with greater motor impairment (tremor, ataxia, and parkinsonism), more severe peripheral neuropathy, higher number of intranuclear inclusions in the brain, MRI abnormalities (reduced cerebellar volume and increased ventricular volume and whole-brain white matter hyperintensity), and earlier age of onset [Hall & Berry-
+Kravis 2018].
+• It is estimated that 21% of women who carry a premutation develop FXPOI [Sherman 2005]. The association between repeat size of the premutation allele and FXPOI is nonlinear; women with 80-99 repeats are at greatest risk for FXPOI [Sherman 2005] (see Table 4).
+• Additional studies indicate other vulnerabilities for the mid-repeat ranges of the premutation in women, such as an increased risk of psychological symptoms [Loesch et al 2015] and vulnerability to stress [Seltzer
+
+et al 2012]. It is unclear whether these relationships are due to the premutation itself or to the higher level of hormonal dysfunction in FXPOI seen in the mid-repeat ranges.
+Table 4. Odds Ratios for FXPOI by Premutation Size
+Premutation Size in CGG Repeats Odds Ratio for FXPOI 59-79 6.9 80-99 25.1
+>100 16.4
+Sherman [2005]
+Full mutation. Males who have a full FMR1 mutation generally have moderate-to-severe intellectual disability and may or may not have a distinctive appearance.
+Approximately 50% of females who have a full FMR1 mutation are intellectually disabled; however, they are usually less severely affected than males with a full mutation. Conversely, approximately 50% of females who are heterozygous for the full mutation are intellectually normal. However, many of those with IQ in the normal range will have substantial issues with learning disability, ADHD, anxiety, and/or social-emotional dysfunction.
+The variability among females is believed to result from the ratio in the brain of active X chromosomes with the
+FMR1 full mutation to inactive X chromosomes with the normal FMR1 allele.
+Mosaicism. Mosaicism of FMR1 variants is common. Such mosaicism may be (1) "repeat size mosaicism," in which both full mutations and premutations are present (also termed "full-mutation/premutation mosaicism"), or (2) methylation mosaicism, in which full mutations have varying degrees of methylation.
+Although some data suggest that individuals with repeat size mosaicism or methylation mosaicism perform at a higher intellectual level than those with completely methylated full mutations, such individuals are usually intellectually disabled.
+Rarely, individuals with methylation mosaicism or completely unmethylated full mutations and normal intellect have been reported. The milder phenotype appears to be related to FMR1 protein (FMRP) production arising from transcription of unmethylated alleles [Tassone et al 1999]. Presumably, these individuals produce at least some FMRP because FMR1 is unmethylated. The existence of these exceptional individuals suggests that repeat expansion and methylation of the gene are not absolutely coupled. Han et al [2006] reported a male with complex FMR1 mosaicism (full mutation, premutation, and deletion) with only learning disability, which raises issues concerning gene and protein expression in FMR1-related phenotypes.
+Anticipation
+Fragile X syndrome (FXS) is a trinucleotide repeat disorder that may demonstrate anticipation in some families.
+Typically, anticipation occurs when less severely affected individuals with a premutation or mosaic mutation transmit unstable FMR1 alleles to their offspring (e.g., transmission from a grandfather who carries a premutation to his daughter, whose premutation expands into a full mutation when she transmits it to her son, who has intellectual disability as a result). However, the anticipation found in families with members affected with FXS is not classic, as is that found in, for example, myotonic dystrophy type 1, where the disease itself becomes worse and with earlier age at onset with advancing generations. Many families transmit premutation
+FMR1 alleles for generations with little or no presentation of clinical symptoms until a full mutation is produced, resulting in an individual with a diagnosis of FXS. The form of anticipation in FXS is increasing numbers of individuals with FXS with advancing generations.
+AGG trinucleotide repeat genotyping. In stable, normal alleles, the CGG region is interrupted by an AGG triplet at every nine to ten CGG repeats. AGG genotyping may be performed to determine the number and
+
+location of AGG trinucleotide interruptions within the CGG repeat. The number and position of AGG trinucleotide repeats are known to be important in the overall stability of the CGG repeat sequence. Recent results have linked the presence of an AGG interruption with a reduced risk of transmission to a full mutation in
+CGG repeat ranges below 100 [Yrigollen et al 2012, Yrigollen et al 2014, Nolin et al 2015]. Direct testing for the
+AGG triplets is available clinically, though it is not routinely performed, and its clinical usefulness is not yet fully understood. It may help predict risk of expansions from premutations of fewer than 100 repeats [Yrigollen et al 2012, Nolin et al 2015].
+The impact of AGG interruptions on clinical outcomes in individuals with a premutation is unknown.
+Conflicting results regarding AGG interruptions and FXPOI have been published [Allen et al 2018, Lekovich et al 2018].
+Nomenclature
+Fragile X syndrome has also been referred to as FXS, fragile X mental retardation, marker X syndrome, and
+Martin-Bell syndrome.
+FMR1 primary ovarian insufficiency has also been referred to as FMR1-related premature ovarian failure.
+Prevalence
+Fragile X syndrome. Prevalence estimates of males with fragile X syndrome (FXS) have been revised downward since the isolation of FMR1 in 1991. Original estimates of 80:100,000 males were based on detection of fragile sites on cytogenetic studies and resulted in an overestimate because fragile sites other than the one associated with FMR1 (FRAXA) were detected and included in the estimate. More recent studies using molecular genetic testing of FMR1 have estimated a prevalence of 16 to 25 per 100,000 males with FXS (using intellectual disability as the hallmark clinical finding) [de Vries et al 1997]. In an analysis of 36,124 newborn males, Coffee et al [2009] determined that the incidence of a full mutation (and hence, FXS) was approximately 19:100,000 males. A metaanalysis estimated prevalence of the full mutation as 14:100,000 [Hunter et al 2014].
+The prevalence of females with FXS is presumed to be approximately one half the male prevalence due to reduced penetrance.
+FXS is the most common known single-gene cause of autism spectrum disorder (ASD) and accounts for about 2%-3% of all ASD cases [Kaufmann et al 2017].
+FMR1 premutation. A meta-analysis estimated the prevalence of the premutation allele at 117:100,0000 males and 344:100,000 females [Hunter et al 2014]. However, a study of a population-based sample of 19,996 males and females resulted in higher prevalence estimates for the premutation: 345:100,000 males and 677:100,000 females
+[Maenner et al 2013].
+FXTAS. After accounting for the prevalence of the premutation allele among males, the frequency of up to 70 repeat alleles, and penetrance of FXTAS in males with larger premutation alleles (33%), the prevalence of FXTAS in males in the US has been estimated at 1:4,848 [Hantash et al 2011]. The prevalence in women is more difficult to calculate given the variable presentation.
+An estimated 2%-4% of men with adult-onset cerebellar ataxia who represent simplex cases (i.e., a single occurrence in a family) have a premutation in FMR1 [Brussino et al 2005, Cellini et al 2006]. There have been no similar studies of women with adult-onset cerebellar ataxia.
+FXPOI. The prevalence of FXPOI in women in the US has been estimated at 1:3,560 based on the prevalence of the premutation allele and penetrance of FXPOI in women with the premutation (20%) [Hantash et al 2011].
+
+The FMR1 premutation accounts for approximately 3.2% of isolated cases of POI and 11% of familial cases
+(reviewed in Fink et al [2018]).
+Genetically Related (Allelic) Disorders
+No phenotypes other than FXS, FXTAS, FXPOI, and the other fragile X-associated phenotypes discussed in this
+GeneReview are known to be associated with pathogenic variants in FMR1.
+Differential Diagnosis
+Developmental delay / intellectual disability (DD/ID). The signs of fragile X syndrome (FXS) in early childhood are nonspecific, with DD being an almost universal manifestation among affected individuals. Any child (male or female) with delay of speech, language, or motor development of unknown etiology should be considered for fragile X testing, especially in the presence of a family history of ID and a consistent physical and behavioral phenotype, and the absence of structural abnormalities of the brain or other birth defects [Curry et al 1997, Moeschler et al 2006]. When fragile X molecular genetic testing is used regularly in this large and loosely defined group of unselected males with ID, the yield of positive test results is relatively low (~3%-6%) [Curry et al 1997, Shevell et al 2003]. In a more recent study, Rauch et al [2006] found the yield to be 1.2%.
+Because chromosome abnormalities and copy number variants have been identified as frequently or more frequently than FMR1 pathogenic variants in individuals with DD or ID who are referred for fragile X testing, microarray testing should be performed as a part of the laboratory evaluation [Manning & Hudgins 2010, Miller et al 2010].
+Conditions to be considered in the differential diagnosis of FXS include those summarized in Table 5.
+Table 5. Disorders to Consider in the Differential Diagnosis of Fragile X Syndrome
+Disorder Gene /
+Genetic Mechanism MOI
+Clinical Features of Differential Diagnosis Disorder
+Overlapping w/FXS Distinguishing from FXS
+Sotos syndrome NSD1 AD
+• Typical facial appearance
+• Mild-to-severe learning disability
+• Behavior problems
+• Seizures
+• Overgrowth
+• Congenital cardiac anomalies
+• Neonatal jaundice
+• Renal anomalies
+• Scoliosis
+Prader-Willi syndrome (PWS) See footnote 1. See footnote 2.
+• A small subset of those w/FXS have the hyperphagia & obesity characteristic of PWS 3
+• DD & cognitive impairment
+• Temper tantrums, stubbornness, manipulative behavior, & obsessive-compulsive traits
+• Hypogonadism (genital hypoplasia, incomplete puberty &, in most, infertility)
+• Characteristic PWS facial appearance
+• Short stature
+Autism spectrum disorder
+See footnote 4.
+AR
+AD
+XL
+Mu
+Autistic-like behavior Absence of cognitive & physical features of FXS
+ADHD See footnote 5. AD
+Mu Hyperactivity Absence of cognitive & physical features of FXS
+
+Table 5. continued from previous page.
+Disorder Gene /
+Genetic Mechanism MOI
+Clinical Features of Differential Diagnosis Disorder
+Overlapping w/FXS Distinguishing from FXS
+Fragile XE syndrome (FRAXE)
+(OMIM 309548)
+AFF2 6
+(FMR2) XL Mild ID (not as severe as is typically seen in FXS)
+Absence of physical features characteristic of FXS
+AD = autosomal dominant; ADHD = attention-deficit/hyperactivity disorder; AR = autosomal recessive; DD = developmental delay;
+FXS = fragile X syndrome; MOI = mode of inheritance; Mu = multifactorial; XL = X-linked
+1. PWS is caused by an absence of expression of imprinted genes in the paternally derived PWS/Angelman syndrome (AS) region (i.e., 15q11.2-q13) of chromosome 15 by one of several genetic mechanisms (paternal deletion, maternal uniparental disomy 15, and rarely an imprinting defect).
+2. The risk to the sibs of an affected child of having PWS depends on the genetic mechanism that resulted in the absence of expression of the paternally contributed 15q11.2-q13 region.
+3. PWS is characterized by severe infantile hypotonia and feeding difficulties, followed by early-childhood onset of excessive eating and development of morbid obesity unless controlled.
+4. See OMIM PS209850 for a list of genes associated with this phenotype in OMIM.
+5. See OMIM 143465 for discussion of multiple loci associated with susceptibility to ADHD.
+6. FRAXA and FRAXE are distinct fragile sites, albeit in close proximity on the X chromosome. The genes spanning the two fragile sites are designated FMR1 (FRAXA) and AFF2 (FRAXE). However, the genes do not have any detectable similarity at the DNA level and the associated clinical entities are discrete.
+Adult-onset neurologic disorders. The differential diagnosis for FXTAS is broad. One group of 56 individuals had 98 different diagnoses prior to the diagnosis of FXTAS. Most of these were in the following categories:
+parkinsonism, tremor, ataxia, dementia, autonomic dysfunction, and stroke [Biancalana et al 2005, Hall et al 2005]. Neuronal intranuclear inclusion disease is associated with a CGG repeat in NOTCH2NLC and is similar in morphology and clinical presentation to FXTAS [Sone et al 2016, Ishiura et al 2019, Sone et al 2019, Tian et al 2019]. See also Hereditary Ataxia Overview.
+Premature ovarian failure. Differential diagnosis for irregular menstrual cycles beyond primary ovarian insufficiency (POI) can include polycystic ovary syndrome, thyroid disorders, and high prolactin. Once POI is diagnosed, there are other causes beyond the FMR1 premutation to consider including autoimmune disorders, past chemotherapy treatment, and genetic disorders such as Turner syndrome, ovarioleukodystrophies (e.g.,
+AARS2-related progressive leukoencephalopathy with ovarian failure [see AARS2-Related Disorder] and leukoencephalopathy vanishing white matter), and Perrault syndrome.
+Management
+Evaluations Following Initial Diagnosis
+To establish the extent of disease and needs in an individual diagnosed with an FMR1 disorder, the evaluations summarized in phenotype-specific Tables 6, 7, and 8 (if not performed as part of the evaluation that led to diagnosis) are recommended. For all phenotypes, consultation with a clinical geneticist and/or genetic counselor is recommended.
+Table 6. Fragile X Syndrome: Recommended Evaluations Following Initial Diagnosis
+System/Concern Evaluation Comment
+Development
+Complete developmental & educational assessments for educational planning
+• Incl motor, adaptive, cognitive, & speech-language eval
+• Eval for early intervention / special education
+OT eval Evaluate fine motor skills, motor planning, sensory issues, selfregulation skills, adaptive functioning, & daily life skills.
+
+Table 6. continued from previous page.
+System/Concern Evaluation Comment
+Psychiatric/
+Behavioral
+Comprehensive behavioral & neuropsychiatric eval
+Evaluate for concentration/attention issues, anxiety, OCD, aggression, depression, &/or findings suggestive of ASD.
+Musculoskeletal Orthopedics / physical medicine & rehab / PT eval
+Evaluate for joint hyperextensibility, pes planus, scoliosis, & hypotonia.
+Neurologic Neurology eval if history of spells that may represent seizures Evaluate for seizures.
+Gastrointestinal/
+Feeding
+Gastroenterology / nutrition / feeding team evaluation if issues are present
+Evaluate for infant feeding issues incl attn to possible gastroesophageal reflux.
+Eyes Ophthalmology eval To assess for strabismus
+Ears/Hearing Otolaryngology/audiology eval Assess for evidence of recurrent otitis media & assoc hearing loss.
+Cardiac Baseline eval w/cardiologist Incl echocardiogram for mitral valve prolapse & aortic root dilatation
+Sleep Sleep study if sleep issues are present Evaluate for sleep apnea.
+ASD = autism spectrum disorder; OCD = obsessive-compulsive disorder; OT = occupational therapy; PT = physical therapy
+Table 7. Fragile X-Associated Tremor/Ataxia Syndrome (FXTAS): Recommended Evaluations Following Initial Diagnosis
+System/Concern Evaluation Comment
+Neurologic Neurologic eval w/movement disorder specialist
+Motor PT Plan should be to maintain gait & assist w/optimal support equipment, if needed.
+Fine motor OT Manage tremor, work on assisted daily living, & obtain adaptive devices, if needed.
+Psychiatric/
+Behavioral Neuropsychiatric eval Identify & treat any comorbid psychiatric conditions.
+OT = occupational therapy; PT = physical therapy
+Table 8. FMR1 Primary Ovarian Insufficiency (FXPOI): Recommended Evaluations Following Initial Diagnosis
+System/Concern Evaluation Comment
+Genitourinary Gynecologic eval Assess ovarian reserve hormonal markers
+& perform transvaginal ultrasound.
+Psychiatric Psychological referral Evaluate for anxiety & depression.
+Skeletal DXA scan Evaluate for low bone mineral density.
+Endocrine Thyroid testing Evaluate for hypothyroidism.
+DXA = dual-energy x-ray absorptiometry
+Treatment of Manifestations – FXS
+No specific treatment is available. Supportive and symptom-based therapy for children and adults with fragile X syndrome (FXS) is currently provided by the Fragile X Clinical and Research Consortium (FXCRC). The
+National Fragile X Foundation has established and collaborates with the FXCRC, which currently consists of 32 clinics that specialize in FXS, performing evaluations and providing recommendations to local practitioners on management of a child or adult with FXS. The providers at the FXCRC clinics have generated and continue to update FXS treatment guidelines and recommendations (see fragilex.org).
+
+Treatment is typically a dual approach: psychopharmacologic treatment of symptoms as needed in conjunction with therapeutic services, such as behavioral intervention, speech and language therapy, occupational therapy, and individualized educational support.
+Medications used to treat symptoms in FXS are often the same medications used in the general population.
+However, individuals with FXS are more sensitive to the adverse effects of psychotropic medications. Thus, these medications should start at low doses and gradually increase to the optimal dosage to avoid adverse effects.
+Early educational intervention, special education, and vocational training should be aimed specifically at the known impediments to learning. Parents and teachers of children with FXS have recognized the need for individual attention, small class size, and the avoidance of sudden change. More specific guidelines are available through education resources (see Resources). See also Developmental Delay / Intellectual Disability
+Management Issues.
+Routine medical management of strabismus, otitis media, gastroesophageal reflux, cardiac issues, musculoskeletal concerns, and seizures is appropriate.
+Developmental Delay / Intellectual Disability (DD/ID) Management Issues
+The following information represents typical management recommendations for individuals with DD/ID in the
+United States; standard recommendations may vary from country to country. In terms of specific elements to consider in developmental and educational evaluations of individuals with FXS, expert consensus documents written by members of the FXCRC provide general guidelines as well as specific recommendations at each age level from preschool to high school and transition programs. These are posted on the National Fragile X
+Foundation website.
+Ages 0-3 years. Referral to an early intervention program is recommended for access to occupational, physical, speech, and feeding therapy as well as infant mental health services, special educators, and sensory impairment specialists. In the US, early intervention is a federally funded program available in all states and provides inhome services to target individual therapy needs.
+Ages 3-5 years. In the US, developmental preschool through the local public school district is recommended.
+Before placement, an evaluation is made to determine needed services and therapies and an individualized education plan (IEP) is developed for those who qualify based on established motor, language, social, or cognitive delay. The early intervention program typically assists with this transition. Developmental preschool is center based; for children too medically unstable to attend, home-based services are provided.
+All ages. Consultation with a developmental pediatrician is recommended to ensure the involvement of appropriate community, state, and educational agencies and to support parents in maximizing quality of life.
+Some issues to consider:
+• IEP services:
+⚬ An IEP provides specially designed instruction and related services for those who qualify.
+⚬ IEP services will be reviewed annually to determine whether any changes are needed.
+⚬ Special education law requires that children participating in an IEP be in the least restrictive environment feasible at school and included in general education as much as possible, when and where appropriate.
+⚬ Vision and hearing consultants should be a part of the child's IEP team to support access to academic material.
+⚬ PT, OT, and speech services will be provided in the IEP to the extent that the need affects the child's access to academic material. Beyond that, private supportive therapies based on the affected individual's needs may be considered. Specific recommendations regarding type of therapy can be made by a developmental pediatrician.
+
+⚬ As a child enters the teen years, a transition plan should be discussed and incorporated in the IEP .
+For those receiving IEP services, the public school district is required to provide services until age 21.
+• A 504 plan (Section 504: a US federal statute that prohibits discrimination based on disability) can be considered for those who require accommodations or modifications such as front-of-class seating, assistive technology devices, classroom scribes, extra time between classes, modified assignments, and enlarged text.
+• Developmental Disabilities Administration (DDA) enrollment is recommended. DDA is a US public agency that provides services and support to qualified individuals. Eligibility differs by state but is typically determined by diagnosis and/or associated cognitive/adaptive disabilities.
+• Families with limited income and resources may also qualify for supplemental security income (SSI) for their child with a disability.
+Motor Dysfunction
+Gross motor dysfunction
+• Physical therapy is recommended to maximize mobility and to reduce the risk for later-onset orthopedic complications (e.g., contractures, scoliosis, hip dislocation).
+• Consider use of durable medical equipment and positioning devices as needed (e.g., wheelchairs, walkers, bath chairs, orthotics, adaptive strollers).
+• For muscle tone abnormalities including hypertonia or dystonia, consider involving appropriate specialists to aid in management of baclofen, tizanidine, Botox®, anti-parkinsonian medications, or orthopedic procedures.
+Fine motor dysfunction. Occupational therapy is recommended for difficulty with fine motor skills that affect adaptive function such as feeding, grooming, dressing, and writing.
+Oral motor dysfunction should be assessed at each visit and clinical feeding evaluations and/or radiographic swallowing studies should be obtained for choking/gagging during feeds, poor weight gain, frequent respiratory illnesses, or feeding refusal that is not otherwise explained. Assuming that the individual is safe to eat by mouth, feeding therapy (typically from an occupational or speech therapist) is recommended to help improve coordination or sensory-related feeding issues. Feeds can be thickened or chilled for safety. When feeding dysfunction is severe, an NG-tube or G-tube may be necessary. Feeding therapy can be helpful to improve coordination or sensory-related feeding issues. A nutritionist or dietician may be helpful in addressing issues such a picky eating and weight concerns.
+Communication issues. Consider evaluation for alternative means of communication (e.g., augmentative and alternative communication [AAC]) if speech is very delayed. An AAC evaluation can be completed by a speechlanguage pathologist who has expertise in the area. The evaluation will consider cognitive abilities and sensory impairments to determine the most appropriate form of communication. AAC devices can range from low-tech, such as picture exchange communication, to high-tech, such as voice-generating devices. Contrary to popular belief, AAC devices do not hinder verbal development of speech, but rather support optimal speech and language development.
+Social/Behavioral Concerns
+Behavior challenges. Management of behavior can involve a multidisciplinary clinical team that includes a psychologist, a clinician to prescribe and manage medication treatment (psychiatrist, neurologist, or developmental pediatrician), occupational therapist, speech-language therapist, and behavioral analyst. A functional behavioral assessment (FBA) may be helpful. Children with FXS should be evaluated for autism spectrum disorder (ASD). If they meet clinical criteria for ASD, children may qualify for and benefit from
+
+interventions used in treatment of ASD, including applied behavior analysis (ABA). ABA therapy is targeted to the individual child's behavioral, social, and adaptive strengths and weaknesses and is typically performed one on one with a board-certified behavior analyst.
+Hyperarousal. An occupational therapist can be helpful to guide the implementation of accommodations to avoid overstimulation as well as provide self-regulation skills to manage hyperarousal in individuals with FXS.
+Sensory issues. An occupational therapist can be helpful to identify interventions for sensory issues, which may include desensitization or accommodations.
+ADHD. Medications may include psychostimulants (such as methylphenidate- or dextroamphetamine-based medications), atomoxetine (a selective norepinephrine reuptake inhibitor), alpha-agonists, and alternative pharmacologic treatments (folic or folinic acid, L-acetylcarnitine). Medications can be used in conjunction with behavioral therapy and accommodations to avoid distractions.
+Aggression and/or self-injurious behavior. Medications can include selective serotonin reuptake inhibitors
+(SSRIs) if aggression and self-injury are due to anxiety, and antipsychotic medications (risperidone and aripiprazole) if behaviors are severe. Aripriprazole has also been shown to be effective in FXS [Erickson et al 2011, Berry-Kravis et al 2012]. Therapy could also include the recognition of triggers and accommodations to avoid them. In children, a crisis intervention plan can be part of an IEP . For adults, a plan could be applied in the home, work, or community setting.
+Irritability. Medication can include SSRIs (if irritability is due to anxiety or perseveration) or antipsychotics such as aripiprazole or risperidone.
+Anxiety. Medications can include SSRIs or other medications used to treat anxiety in the general population.
+Medication should be used in conjunction with behavioral therapy, such as recognition and avoidance of triggers, development of self-regulation and coping skills, accommodations, and cognitive behavioral therapy.
+Sleep problems. Management of sleep problems can include behavioral approaches such as the development of a sleep schedule, bedtime routine, and calming strategies. If needed, medication can include melatonin, clonidine, guanfacine, trazodone, and quetiapine.
+Treatment of Manifestations – FXTAS and FXPOI
+FXTAS
+No specific treatment is available. Treatment of FXTAS is currently symptomatic and supportive and should be tailored to the individual. Current recommendations are based on anecdotal evidence in individuals with FXTAS and evidence from disorders that are similar to FXTAS.
+Treatment should be multidisciplinary and include medications; specialty care in neurology and psychiatry; and therapy such as psychological counseling, speech therapy, occupational therapy, physical therapy, and gait training.
+Table 9. Treatment of Manifestations in Individuals with FXTAS
+Manifestation/
+Concern Treatment Considerations/Other
+Tremor
+Primidone, beta-blockers, or levotriacetam
+Deep brain stimulation may be considered for those w/debilitating tremor w/little ataxia or white matter disease.
+Has been shown to improve tremor but worsen ataxia
+& speech
+
+Table 9. continued from previous page.
+Manifestation/
+Concern Treatment Considerations/Other
+Ataxia / Cerebellar dysfunction
+Medications incl amantadine, buspirone, varenicline, riluzole, or ampyra can be considered.
+No evidence for efficacy in FXTAS
+Neuropathic pain Gabapentin, pregabalin, duloxetine, or topical lidocaine patches Avoid opioids.
+Cognitive decline Supportive treatment only
+Evaluate & treat for clinical conditions assoc w/ cognitive decline that may compound the cognitive decline in FXTAS: vitamin deficiencies (e.g., vitamin D, folate, B12 deficiencies), thyroid deficiency, hypertension, sleep apnea, & psychiatric problems.
+Depression/
+Anxiety
+Psychiatric referral
+SSRIs or selective serotonin-noradrenaline reuptake inhibitors Monitor for balance issues.
+FXPO
+No specific treatment is available. Gynecologic or reproductive endocrinologic evaluation can provide appropriate treatment and counseling for reproductive considerations and hormone replacement.
+Table 10. Treatment of Manifestations in Individuals with FXPOI
+Manifestation/Concern Treatment Considerations/Other
+Infertility Referral to gynecologist or reproductive endocrinologist
+Discuss contraception & fertility treatment options incl spontaneous conception, donor oocyte, & donor embryo in vitro fertilization.
+Ovarian insufficiency Hormone replacement Due to risk of low bone mineral density & osteoporosis
+Depression/Anxiety Referral to psychologist
+Reproductive considerations. Some women can have sporadic ovulation, which carries an associated chance
+(or risk) of spontaneous conception. There is currently no fertility treatment available to increase these spontaneous conception rates. Preliminary studies, however, indicate that ethinyl estradiol may be helpful
+[Check et al 2004,Tartagni et al 2007].
+• Women who are not preventing pregnancy should be referred for genetic counseling to discuss the risks of transmission of the premutation or full mutation to a child.
+• If women do not wish to conceive, reliable contraception is necessary. This includes long-acting contraceptives (e.g., intrauterine device or implant), tubal ligation, or vasectomy. Combined contraceptives (e.g., oral contraceptives, vaginal ring) may have a higher failure rate.
+• For women who desire fertility treatment to increase the chance of conception, both donor oocyte and donor embryo in vitro fertilization (IVF) are reasonable options. IVF in women with POI using autologous oocytes has very low success rates.
+Hormone replacement therapy (HRT). At the time of diagnosis, women with FXPOI are recommended to start
+HRT and continue until the median age of menopause to decrease development of low bone mineral density / osteoporosis, menopausal symptoms, and earlier cardiovascular disease [North American Menopause Society 2012].
+• HRT can reverse the negative effects of a hypoestrogenic environment on bone mineral density. It can be administered through many routes, but transdermal estradiol with cyclic progesterone (or a progestinreleasing intrauterine device) mimics physiologic hormone levels.
+
+• There is evidence from smaller trials that this physiologic replacement is superior to combined contraception for bone mineral density [Crofton et al 2010, Cartwright et al 2016]. In addition, a transdermal route minimizes the associated risk for thromboembolism. Women should maintain adequate calcium and vitamin D intake, either through food or sunlight, respectively, or via supplements. Weightbearing exercises are also recommended.
+Psychological concerns. The diagnosis of POI and its fertility implications in combination with its associated menopausal symptoms can be very difficult. In addition, women with FXPOI have higher rates of anxiety and depression. Referral for psychological support may be helpful.
+Surveillance
+Table 11. Recommended Surveillance for Individuals with Fragile X Syndrome
+System/Concern Evaluation Frequency
+Eyes Comprehensive ophthalmologic exam by age 4 yrs to evaluate for strabismus & emergence of farsightedness 2-yr follow up
+Ears Visualize tympanic membranes. At each visit
+Dental Dental exam Annually
+Cardiovascular
+Children: assess for murmur or click; if present, refer to cardiologist. At each visit
+Adults: clinical exam, EKG, & echocardiogram; refer to cardiologist if needed (e.g., if murmur is heard). Annually
+Respiratory Assess for signs of obstructive sleep apnea & perform sleep study if needed.
+At each visit
+Gastrointestinal Assess for symptoms of gastroesophageal reflux disease; refer to GI specialist if needed.
+Musculoskeletal
+Children: physical exam at birth; refer to orthopedics, physiotherapy, & orthotics if needed. Every 4 mos
+Adults: physical exam; refer to orthopedics, physiotherapy if needed.
+At each visitNeurologic
+Children: assess history for signs of seizures; refer for EEG & neurology consult if needed.
+Adults: assess for atypical seizures if suspicious symptoms exist or intellectual function decreases;
+refer for EEG & neurology consult if needed.
+Psychiatric Adults: assess for anxiety, depression, & mood lability. Consider a serotonin agent for severe symptoms.
+Table 12. Recommended Surveillance for Individuals with FXTAS
+System/Concern Evaluation Frequency
+Cardiovascular Age-appropriate blood pressure & cholesterol monitoring
+Ongoing aggressive management of CV risk factors recommended, given diffuse white matter injuries in
+FXTAS.
+Cognition MOCA survey 1 Annual
+Psychiatric features Beck Depression
+Inventory or similar Annual
+CV = cardiovascular
+1. Montreal Cognitive Assessment (MOCA) survey is a screening instrument for mild cognitive impairment.
+Table 13. Recommended Surveillance for Individuals with FXPOI
+System/Concern Evaluation Frequency
+Genitourinary Referral to gynecologist or reproductive endocrinologist for discussion of initiating/continuing HRT & fertility options Annually
+
+Table 13. continued from previous page.
+System/Concern Evaluation Frequency
+Skeletal DXA scan (only if history of low bone mineral density on initial evaluation &/or not taking adequate HRT) Every 2 yrs
+Psychiatric Referral to psychologist as needed
+DXA = dual-energy x-ray absorptiometry
+Agents/Circumstances to Avoid
+FXTAS. Affected individuals should avoid the following:
+• Typical and atypical antipsychotics with significant anti-dopaminergic effects, which can exacerbate parkinsonism
+• Metoclopramide, which can exacerbate parkinsonism
+• Anticholinergic agents, which can exacerbate cognitive complaints
+• Excessive alcohol, which can increase cerebellar dysfunction and postural instability
+• Agents with known cerebellar toxicity or side effects (use with caution)
+FXPOI. Affected individuals should avoid tobacco products. Tobacco use decreases ovarian reserve and the age of onset of FXPOI. Women who are smokers have, on average, POI onset five years earlier than nonsmokers
+[Allen et al 2007].
+Evaluation of Relatives at Risk
+See Genetic Counseling for issues related to testing of at-risk relatives for genetic counseling purposes.
+Pregnancy Management
+Women with FXPOI who conceive have not been reported to have more pregnancy-related complications [Hipp et al 2016]. If donor oocyte in vitro fertilization is used, these pregnancies in general carry higher risks for hypertensive disorders of pregnancy (e.g., preeclampsia), prematurity, and small-for-gestational-age babies [Jeve et al 2016].
+Therapies Under Investigation
+There are multiple ongoing trials of medication for behavior or drugs targeting the underlying neurobiological mechanism of fragile X syndrome (FXS) based on animal model studies. For example:
+• Metformin is a drug that is widely used to treat type 2 diabetes and has been shown to improve outcomes
+(including circadian rhythm and memory) in mouse and fly models of FXS [Gantois et al 2017, Monyak et al 2017]. Several trials are under way in children and adults with FXS to assess the efficacy of metformin on a variety of outcomes, including behavior problems, cognition, language deficits, and obesity/excessive appetite.
+• Mavoglurant targets neural plasticity through negatively regulating mGluR5 signaling that becomes enhanced in the absence of FMRP in FXS. Efficacy is being tested by assessing language outcomes following an intensive language intervention in young children with FXS [Gomez-Mancilla et al 2014].
+Additional interventions under investigation for FXS include behavioral therapies, such as behavior analytic treatment to address disruptive behaviors and social gaze training to improve social gaze and shape social skills.
+
+Allopregnanolone is a naturally occurring neurosteroid that has shown promise in ameliorating the neuronal impairments of FXTAS in animal models [Cao et al 2012]. Studies in humans are in the early stages [Wang et al 2017, Napoli et al 2019].
+Search ClinicalTrials.gov in the US and EU Clinical Trials Register in Europe for access to information on clinical studies for a wide range of diseases and conditions.
+Genetic Counseling
+Genetic counseling is the process of providing individuals and families with information on the nature, mode(s) of inheritance, and implications of genetic disorders to help them make informed medical and personal decisions. The following section deals with genetic risk assessment and the use of family history and genetic testing to clarify genetic status for family members; it is not meant to address all personal, cultural, or ethical issues that may arise or to substitute for consultation with a genetics professional. —ED.
+Mode of Inheritance
+FMR1 disorders – including fragile X syndrome (FXS), fragile X-associated tremor/ataxia syndrome (FXTAS), and FMR1 primary ovarian insufficiency (FXPOI) – are inherited in an X-linked manner.
+Risk to Family Members
+Parents of a Male Proband
+Mother
+• If a male proband has an FMR1 full mutation, the mother is heterozygous for a premutation or full mutation.
+• If a male proband has a premutation, the mother is heterozygous for an intermediate allele (~45-54 CGG repeats) or premutation allele.
+• If the mother of the proband is heterozygous for an FMR1 expansion with >54 CGG repeats, she may or may not have associated clinical findings:
+⚬ Premutation (~55-200 CGG repeats). Women with premutations are at risk for FXPOI, FXTAS, and other fragile X-associated disorders.
+Note: If the mother of the proband is heterozygous for a premutation: (1) her father may be hemizygous for a premutation (i.e., a "transmitting male") and may be at risk for FXTAS or (2) her mother may be heterozygous for an intermediate or premutation allele.
+⚬ Full mutation (>200 CGG repeats). Approximately 50% of females who have a full FMR1 mutation are intellectually disabled; however, they are usually less severely affected than males with a full mutation.
+Father. The father of a male proband will not have an FMR1 disorder nor will he be hemizygous for an FMR1
+CGG expansion; therefore, he does not require further evaluation/testing.
+Parents of a Female Proband
+A female proband may have inherited an FMR1 expansion from either a heterozygous mother or a father with a premutation.
+Molecular genetic testing of the father (if the proband is heterozygous for a premutation) and the mother is recommended.
+
+Sibs of a Proband
+If the mother of the proband is heterozygous for an FMR1 expansion, the chance of transmitting it in each pregnancy is 50%.
+If the father of the proband is hemizygous for a premutation (i.e., a "transmitting male"), he will transmit it to all of his daughters and none of his sons.
+For sibs who inherit an FMR1 expansion, the risk for an FMR1 disorder depends on their sex, the sex of the transmitting parent, and the size of the expanded allele in the transmitting parent (see Table 14).
+Table 14. Risk for an FMR1 Disorder in Sibs Who Inherit an FMR1 CGG Expansion
+Transmitting
+Parent
+Risk to Sibs Who Inherit an FMR1 CGG Expansion
+Comment
+Hemizygous male Heterozygous female
+Mother w/ intermediate allele (~4554 CGG repeats)
+If allele remains < ~55 repeats:
+not at risk for an FMR1 disorder
+• ~16% of maternal transmissions of an intermediate allele may result in a minor variation (i.e., 1 or 2 CGG repeats) in repeat size. 1
+• Intermediate alleles of ~50-54 repeats may be more unstable than alleles of <50 repeats. 2
+If allele expands into premutation range:
+At risk for FXTAS At risk for FXPOI, FXTAS, & psychiatric disorders
+Mother w/ premutation allele (~55200 CGG repeats)
+If allele remains in premutation range: • In general, the risk of a maternal premutation becoming a full mutation on transmission to offspring correlates w/number of
+CGG repeats in the premutation. 3, 4
+• For premutations w/<100 repeats, the interruption of the CGG repeats by occasional AGG repeats may help evaluate risk of expansion.
+At risk for FXTAS At risk for FXPOI, FXTAS, & psychiatric disorders
+If allele expands into full mutation range: 5
+Affected w/FXS ~50% risk of ID & ~50% likelihood of normal intellect
+Mother w/ full-mutation allele (>200
+CGG repeats)
+Affected w/FXS ~50% risk of ID & ~50% likelihood of normal intellect 5
+
+Table 14. continued from previous page.
+Transmitting
+Parent
+Risk to Sibs Who Inherit an FMR1 CGG Expansion
+Comment
+Hemizygous male Heterozygous female
+Father w/ premutation allele
+("transmitting male"; ~55200 CGG repeats)
+NA At risk for FXPOI, FXTAS, & psychiatric disorders
+• Premutations transmitted by the father may result in small ↑s in trinucleotide repeat number, but not in full mutations.
+• Premutations transmitted from father to daughter may often regress slightly in repeat number.
+FXPOI = fragile X-associated primary ovarian insufficiency; FXS = fragile X syndrome; FXTAS = fragile X-associated tremor/ataxia syndrome; ID = intellectual disability
+1. Intermediate alleles may infrequently contract by a few repeats, and rarely by sufficiently large number of repeats to be in the normal range [Nolin et al 2011].
+2. Nolin et al [2011]
+3. Rarely, contraction of trinucleotide repeat number occurs, though this appears to be more frequent in paternal transmissions than maternal transmissions, with the highest frequency of contractions in the 70-90 repeat range [Nolin et al 2015].
+4. Nolin et al [2011] compared the risk of expanding to a full mutation relative to the size of the premutation allele (N=95). In some categories, risks were significantly different if the premutation was carried by women with a family history of fragile X. For example, maternal premutation alleles with 70-79 CGG repeats had a 54% risk for expansion if there was a family history of fragile X vs an 18% risk in the absence of a family history. Risk of expansion is also increased with fewer AGG trinucleotide repeat interruptions [Nolin et al 2015].
+5. The physical and behavioral features seen in males with fragile X syndrome have been reported in females heterozygous for the full mutation, but with lower frequency and milder involvement.
+Offspring of an Individual with a Premutation
+Males who are hemizygous for a premutation are considered "transmitting males." The premutation is inherited by all of their daughters and none of their sons. When premutations are transmitted by the father, small increases in trinucleotide repeat number may occur but do not result in full mutations. All daughters of transmitting males are heterozygous for a premutation and at risk for FXTAS, FXPOI, and other fragile Xassociated disorders.
+Females who are heterozygous for a premutation have a 50% risk of transmitting an abnormal (premutation or full-mutation) allele in each pregnancy.
+Offspring of an Individual with a Full Mutation
+Males with a full mutation have intellectual disability and generally do not reproduce.
+Females who inherit the full mutation are at an approximately 50% risk for intellectual disability. Whether or not a female has phenotypic manifestations, her offspring are at a 50% risk of inheriting the full mutation.
+Other Family Members
+The maternal aunts (and their offspring) of a proband with fragile X syndrome may be at risk of being heterozygotes or being affected (depending on their sex and family relationship).
+Population-Based Fragile X Syndrome Screening
+Newborn screening for FXS has been piloted, but is not currently standard practice [Bailey et al 2017].
+
+Related Genetic Counseling Issues
+Family history. The presence of individuals with premutations within families leads to pedigrees with generation-skipping or seemingly spontaneous occurrences of fragile X syndrome with no previous family history of the disorder.
+Grandchildren of transmitting males. The daughters of transmitting males are heterozygous for a premutation;
+thus, their offspring are at risk for fragile X syndrome.
+Early diagnosis of fragile X syndrome. The first indication of fragile X syndrome within a family is usually the diagnosis in an affected child. A survey to assess the timing of a diagnosis in an affected child and genetic counseling for the family indicated that in approximately half of the families surveyed, the diagnosis was made more than a year after the child's development or behavior first raised concerns. Half of the surveyed families reported having subsequent pregnancies before diagnosis of the first affected child. These findings emphasize the importance of increased opportunities for early diagnosis so that children and families can receive all possible benefits, including genetic counseling and intervention services [Centers for Disease Control and Prevention 2002].
+Fragile X-associated tremor/ataxia syndrome (FXTAS) in males with premutation alleles. When a child is diagnosed with fragile X syndrome and his mother is found to have a premutation allele, his maternal grandfather is then known to be at risk of developing FXTAS. Females who are heterozygous for a premutation are also at increased risk for neurologic and psychiatric problems [Chonchaiya et al 2010].
+Fragile X-associated primary ovarian insufficiency (FXPOI) in females with premutation alleles. The increased risk for FXPOI (i.e., ovarian insufficiency before age 40 years) in females with premutations should be taken into account when providing genetic counseling.
+Note: The diagnosis of FXPOI does not eliminate the possibility of subsequent conception. There are reports of women who carry a premutation having a child with fragile X syndrome after being diagnosed with FXPOI
+[Corrigan et al 2005, Nelson et al 2005].
+For additional information regarding genetic counseling and cascade testing see Finucane et al [2012].
+Gamete donation. Transmission of a fragile X premutation has occurred via sperm donation [Wirojanan et al 2008]. Many oocyte and sperm donors from anonymous banks are now screened for FMR1 expansions with extended carrier screening.
+Family planning
+• The optimal time for determination of genetic risk, clarification of genetic status, and discussion of the availability of prenatal/preimplantation genetic testing is before pregnancy.
+• It is appropriate to offer genetic counseling (including discussion of potential risks to offspring and reproductive options) to young adults who are known to have an FMR1 expansion or who are at risk of having an FMR1 expansion.
+Prenatal Testing and Preimplantation Genetic Testing
+Once an expanded (or altered) FMR1 allele has been identified in a family member, prenatal testing and preimplantation genetic testing (PGT) are possible.
+Preimplantation Genetic Testing
+If a woman with an FMR1 expansion chooses to proceed with PGT, she must undergo in vitro fertilization (IVF) with gonadotropin stimulation for ovarian stimulation. Women with FXPOI have extremely low or absent
+
+ovarian reserve, and oocyte recruitment to obtain the necessary accumulation of embryos for biopsy and testing is very difficult. One case report of a woman with a FSH level of 33 IU/L delivered an unaffected child after undergoing 20 separate oocyte retrievals to accumulate 15 embryos for biopsy [Nayot et al 2013].
+Women who are heterozygous for a premutation who do not have primary ovarian insufficiency have better success rates. However, they tend to need higher gonadotropin stimulation with fewer oocytes retrieved than unaffected women [Avraham et al 2017]. There is a correlation of higher levels of FMR1 mRNA in granulosa cells with lower oocyte yield [Elizur et al 2014]. Women with mid-range CGG repeats (e.g., 70-100) also have lower oocyte and embryo yields even excluding those with FXPOI [Bibi et al 2010]. This results in a lower number of embryos available for PGT with higher cancellation rates [Fernández et al 2015].
+Interpretation of Preimplantation and Prenatal Genetic Test Results
+Importantly, PGT cannot currently be used in clinical practice to determine if a premutation has expanded into the full mutation range, though there are research initiatives in progress to reliably determine repeat expansion from an embryo biopsy [Rajan-Babu et al 2017].
+In addition, PGT is considered a screening test. The trophectoderm layer, which is biopsied for the testing, is at risk of mosaicism [Capalbo et al 2017] and discordance from the inner cell mass [Lawrenz et al 2019]. If a couple chooses to transfer an embryo with the affected gene, they should be offered early prenatal screening with chorionic villus sampling (CVS) or amniocentesis.
+CVS can be used for prenatal testing to determine the presence of a premutation or full mutation during pregnancy. Follow-up amniocentesis may be needed to confirm the methylation status of a full-mutation allele, given that the methylation status of FMR1 is not established in placental tissue until 10-12 weeks' gestation
+[Finucane et al 2012]. Information regarding fetal sex can be obtained prenatally as well, which may be helpful since female fetuses with an expanded full mutation typically have a less severe phenotype [Gutiérrez et al 2013].
+Full phenotypic information for fetuses diagnosed prenatally with a premutation is difficult to determine, given the variable expressivity of FXPOI and FXTAS. The same unknowns are present when a female fetus is found to have a full mutation, given the variable phenotype [Finucane et al 2017]. Families should have pretest counseling regarding these potential results and the inherent unknowns prior to undergoing the invasive prenatal procedures.
+Resources
+GeneReviews staff has selected the following disease-specific and/or umbrella support organizations and/or registries for the benefit of individuals with this disorder and their families. GeneReviews is not responsible for the information provided by other organizations. For information on selection criteria, click here.
+• FRAXA Research Foundation
+Phone: 978-462-1866
+Email: info@fraxa.org fraxa.org
+• National Fragile X Foundation
+Phone: 800-688-8765 fragilex.org
+• MedlinePlus
+Fragile X syndrome
+• National Ataxia Foundation
+
+Phone: 763-553-0020
+Email: naf@ataxia.org ataxia.org
+• NCBI Genes and Disease
+Fragile X syndrome
+• International Fragile X Premutation Registry fragilex.org/our-research/projects/premutation-registry
+Molecular Genetics
+Information in the Molecular Genetics and OMIM tables may differ from that elsewhere in the GeneReview: tables may contain more recent information. —ED.
+Table A. FMR1 Disorders: Genes and Databases
+Gene Chromosome Locus Protein Locus-Specific
+Databases
+HGMD ClinVar
+FMR1 Xq27.3 Fragile X messenger ribonucleoprotein 1
+FMR1 @ LOVD FMR1 FMR1
+Data are compiled from the following standard references: gene from HGNC; chromosome locus from OMIM; protein from UniProt.
+For a description of databases (Locus Specific, HGMD, ClinVar) to which links are provided, click here.
+Table B. OMIM Entries for FMR1 Disorders (View All in OMIM) 300623 FRAGILE X TREMOR/ATAXIA SYNDROME; FXTAS 300624 FRAGILE X SYNDROME; FXS 309550 FRAGILE X MESSENGER RIBONUCLEOPROTEIN 1; FMR1
+Molecular Pathogenesis
+Full-mutation alleles are associated with aberrant hypermethylation of the CGG expansion resulting in decrease or silencing of FMR1 transcription and loss of FMRP , the protein encoded by the gene. FMRP is found in the cytoplasm of many cell types, including neurons. The protein contains two KH-binding domains found in other proteins with RNA-binding properties and functions as an RNA-binding protein that interacts with a subset of mRNAs containing G-quartet motifs. FMRP is involved in neuronal synapse plasticity by regulating translation of proteins involved in the maintenance and regulation of synapses [Santoro et al 2012]. Absence of FMRP appears to disrupt neurotransmission mediated by the metabotropic glutamate receptor (mGluR) [Bear et al 2004].
+Premutation alleles are not associated with hypermethylation but are associated with increased mRNA levels.
+The pathogenic mechanism behind premutation-associated outcomes (FXTAS, FXPOI, and other fragile Xassociated outcomes) is thought to be due to toxicity from elevated levels of FMR1 mRNA [Galloway & Nelson 2009, Tassone et al 2012]. FMRP levels also decrease in the upper premutation range [Hessl et al 2011].
+Mechanism of disease causation. Full-mutation alleles are associated with a loss-of-function mechanism due to aberrant hypermethylation, while the pathogenic mechanisms of the premutation are not well understood but are hypothesized to be due to a gain-of-function toxicity of elevated levels of FMR1 mRNA [Hagerman et al 2011].
+FMR1-specific laboratory technical considerations. Nearly all FMR1 pathogenic variants (>99%) resulting in
+FXS occur as expansions of greater than 200 CGG repeats (full-mutation alleles) in the 5' UTR of exon 1 in
+
+FMR1. Deletions and single-nucleotide variants in FMR1 account for the remaining pathogenic variants found in individuals with FXS. Premutation alleles range from 55 to 200 CGG repeats.
+Chapter Notes
+Author History
+Elizabeth Berry-Kravis, MD, PhD (2019-present)
+Heather Hipp, MD (2019-present)
+Jessica Ezzell Hunter, PhD (2019-present)
+Robert A Saul, MD, FACMG; Greenwood Genetics Center (1998-2019)
+Jack C Tarleton, PhD, FACMG; Fullerton Genetics Center, Asheville (1998-2019)
+Peter K Todd, MD, PhD (2019-present)
+Revision History
+• 16 May 2024 (ma) Revision: added AARS2 to differential diagnosis of premature ovarian failure
+• 21 November 2019 (ha) Comprehensive update posted live
+• 28 October 2010 (me) Comprehensive update posted live
+• 20 December 2007 (me) Comprehensive update posted live
+• 24 May 2005 (rs/jt) Comprehensive update: change in scope of GeneReview from fragile X syndrome to
+FMR1-related disorders
+• 13 September 2004 (me) Comprehensive update posted live
+• 22 November 2002 (me) Comprehensive update posted live
+• 26 May 2000 (me) Comprehensive update posted live
+• 16 June 1998 (pb) Review posted live
+• May 1996 (jt) Original submission
+References
+Published Guidelines / Consensus Statements
+Biancalana V , Glaeser D, McQuaid S, Steinbach P . EMQN best practice guidelines for the molecular genetic testing and reporting of fragile X syndrome and other fragile X-associated disorders. Eur J Hum Genet.
+2015;23:417-25
+Chitayat D, Wyatt PR, et al. Fragile X testing in obstetrics and gynaecology in Canada. J Obstet Gynaecol
+Can. 2008;30:837-41.
+Committee on Genetics. Committee opinion no. 691: carrier screening for genetic conditions. Obstet
+Gynecol. 2017;129:e41-55.
+Finucane B, Abrams L, Cronister A, Archibald AD, Bennett RL, McConkie-Rosell A. Genetic counseling and testing for FMR1 gene mutations: practice guidelines of the national society of genetic counselors. J
+Genet Couns. 2012;21:752-60.
+Hersh JH, Saul RA, Committee on Genetics. Health supervision for children with fragile X syndrome.
+Pediatrics. 2011;127:994-1006
+Moeschler JB, Shevell M, et al. Comprehensive evaluation of the child with intellectual disability or global developmental delays. Pediatrics. 2014; 134:e903-18
+
+Monaghan KG, Lyon E, Spector EB. ACMG standards and guidelines for fragile X testing: a revision to the disease-specific supplements to the Standards and Guidelines for Clinical Genetics Laboratories of the
+American College of Medical Genetics and Genomics. Genet Med. 2013;15:575-86
+National Fragile X Foundation. Consensus documents on treatments and interventions for fragile X.
+Available online. Accessed 3-24-22.
+Schaefer GB, Mendelsohn NJ, et al. Clinical genetics evaluation in identifying the etiology of autism spectrum disorders: 2013 guideline revisions. Genet Med. 2013;15:399-407
+Sherman S, Pletcher BA, Driscoll DA. Fragile X syndrome: diagnostic and carrier testing. Genet Med.
+2005;7:584-7.
+Sherman SL. Premature ovarian failure in the fragile X syndrome. Am J Med Genet. 2000;97:189-94.
+Literature Cited
+Allen EG, Glicksman A, Tortora N, Charen K, He W , Amin A, Hipp H, Shubeck L, Nolin SL, Sherman SL.
+FXPOI: pattern of AGG interruptions does not show an association with age at amenorrhea among women with a premutation. Front Genet. 2018;9:292. PubMed PMID: 30123240.
+Allen EG, Sherman S, Abramowitz A, Leslie M, Novak G, Rusin M, Scott E, Letz R. Examination of the effect of the polymorphic CGG repeat in the FMR1 gene on cognitive performance. Behav Genet. 2005;35:435–45.
+PubMed PMID: 15971024.
+Allen EG, Sullivan AK, Marcus M, Small C, Dominguez C, Epstein MP , Charen K, He W , Taylor KC, Sherman
+SL. Examination of reproductive aging milestones among women who carry the FMR1 premutation. Hum
+Reprod. 2007;22:2142–52. PubMed PMID: 17588953.
+Avraham S, Almog B, Reches A, Zakar L, Malcov M, Sokolov A, Alpern S, Azem F . The ovarian response in fragile X patients and premutation carriers undergoing IVF-PGD: reappraisal. Hum Reprod. 2017;32:1508–
+11. PubMed PMID: 28472405.
+Bailey DB Jr, Berry-Kravis E, Gane LW , Guarda S, Hagerman R, Powell CM, Tassone F , Wheeler A. Fragile X newborn screening: lessons learned from a multisite screening study. Pediatrics. 2017;139:S216–25. PubMed
+PMID: 28814542.
+Bailey DB Jr, Raspa M, Olmsted M, Holiday DB. Co-occurring conditions associated with FMR1 gene variations: findings from a national parent survey. Am J Med Genet A. 2008;146A:2060–9. PubMed PMID:
+18570292.
+Bartholomay KL, Lee CH, Bruno JL, Lightbody AA, Reiss AL. Closing the gender gap in fragile X syndrome:
+review on females with FXS and preliminary research findings. Brain Sci. 2019;9:11. PubMed PMID:
+30642066.
+Bear MF , Huber KM, Warren ST. The mGluR theory of fragile X mental retardation. Trends Neurosci.
+2004;27:370–7. PubMed PMID: 15219735.
+Berry-Kravis E, Abrams L, Coffey SM, Hall DA, Greco C, Gane LW , Grigsby J, Bourgeois JA, Finucane B,
+Jacquemont S, Brunberg JA, Zhang L, Lin J, Tassone F , Hagerman PJ, Hagerman RJ, Leehey MA. Fragile Xassociated tremor/ataxia syndrome: clinical features, genetics, and testing guidelines. Mov Disord.
+2007;22:2018–30. PubMed PMID: 17618523.
+Berry-Kravis E, Sumis A, Hervey C, Mathur S. Clinic-based retrospective analysis of psychopharmacology for behavior in fragile X syndrome. Int J Pediatr. 2012;2012:843016. PubMed PMID: 22899942.
+Biancalana V , T oft M, Le Ber I, Tison F , Scherrer E, Thibodeau S, Mandel JL, Brice A, Farrer MJ, Durr A. FMR1 premutations associated with fragile X-associated tremor/ataxia syndrome in multiple system atrophy. Arch
+Neurol. 2005;62:962–6. PubMed PMID: 15956167.
+
+Bibi G, Malcov M, Yuval Y , Reches A, Ben-Y osef D, Almog B, Amit A, Azem F . The effect of CGG repeat number on ovarian response among fragile X premutation carriers undergoing preimplantation genetic diagnosis.
+Fertil Steril. 2010;94:869–74. PubMed PMID: 19481741.
+Bodega B, Bione S, Dalpra L, Toniolo D, Ornaghi F , Vegetti W , Ginelli E, Marozzi A. Influence of intermediate and uninterrupted FMR1 CGG expansions in premature ovarian failure manifestation. Hum Reprod.
+2006;21:952–7. PubMed PMID: 16361284.
+Bourgeois JA. Neuropsychiatry of fragile X-premutation carriers with and without fragile X-associated tremorataxia syndrome: implications for neuropsychology. Clin Neuropsychol. 2016;30:913–28. PubMed PMID:
+27355575.
+Bourgeois JA, Coffey SM, Rivera SM, Hessl D, Gane LW , Tassone F , Greco C, Finucane B, Nelson L, Berry-Kravis
+E, Grigsby J, Hagerman PJ, Hagerman RJ. A review of fragile X premutation disorders: expanding the psychiatric perspective. J Clin Psychiatry. 2009;70:852–62. PubMed PMID: 19422761.
+Bretherick KL, Fluker MR, Robinson WP . FMR1 repeat sizes in the gray zone and high end of the normal range are associated with premature ovarian failure. Hum Genet. 2005;117:376–82. PubMed PMID: 16078053.
+Brussino A, Gellera C, Saluto A, Mariotti C, Arduino C, Castellotti B, Camerlingo M, de Angelis V , Orsi L, Tosca
+P , Migone N, Taroni F , Brusco A. FMR1 gene premutation is a frequent genetic cause of late-onset sporadic cerebellar ataxia. Neurology. 2005;64:145–7. PubMed PMID: 15642922.
+Cao Z, Hulsizer S, Tassone F , Tang HT, Hagerman RJ, Rogawski MA, Hagerman PJ, Pessah IN. Clustered burst firing in FMR1 premutation hippocampal neurons: amelioration with allopregnanolone. Hum Mol Genet.
+2012;21:2923–35. PubMed PMID: 22466801.
+Capalbo A, Ubaldi FM, Rienzi L, Scott R, Treff N. Detecting mosaicism in trophectoderm biopsies: current challenges and future possibilities. Hum Reprod. 2017;32:492–8. PubMed PMID: 27738115.
+Cartwright B, Robinson J, Seed PT, Fogelman I, Rymer J. Hormone replacement therapy versus the combined oral contraceptive pill in premature ovarian failure: a randomized controlled trial of the effects on bone mineral density. J Clin Endocrinol Metab. 2016;101:3497–505. PubMed PMID: 27340881.
+Cellini E, Forleo P , Ginestroni A, Nacmias B, Tedde A, Bagnoli S, Mascalchi M, Sorbi S, Piacentini S. Fragile X premutation with atypical symptoms at onset. Arch Neurol. 2006;63:1135–8. PubMed PMID: 16908740.
+Centers for Disease Control and Prevention (CDC). Delayed diagnosis of fragile X syndrome--United States, 1990-1999. MMWR Morb Mortal Wkly Rep. 2002;51:740–2. PubMed PMID: 12201607.
+Check ML, Check JH, Kaplan H. Pregnancy despite imminent ovarian failure and extremely high endogenous gonadotropins and therapeutic strategies: case report and review. Clin Exp Obstet Gynecol. 2004;31:299–
+301. PubMed PMID: 15672973.
+Chen L, Hadd A, Sah S, Filipovic-Sadic S, Krosting J, Sekinger E, Pan R, Hagerman PJ, Stenzel TT, Tassone F ,
+Latham GJ. An information-rich CGG repeat primed PCR that detects the full range of fragile X expanded alleles and minimizes the need for Southern blot analysis. J Mol Diagn. 2010;12:589–600. PubMed PMID:
+20616364.
+Chen L, Hadd A, Sah S, Houghton J, Filipovic-Sadic S, Zhang W , Hagerman PJ, Tassone F , Latham GJ. Highresolution methylation polymerase chain reaction for fragile X analysis: evidence for novel FMR1 methylation patterns undetected in Southern blot analyses. Genet Med. 2011;13:528–38. PubMed PMID:
+21430544.
+Chonchaiya W , Nguyen DV , Au J, Campos L, Berry-Kravis EM, Lohse K, Mu Y , Utari A, Hervey C, Wang L,
+Sorensen P , Cook K, Gane L, Tassone F , Hagerman RJ. Clinical involvement in daughters of men with fragile
+X-associated tremor ataxia syndrome. Clin Genet. 2010;78:38–46. PubMed PMID: 20497189.
+
+Coffee B, Keith K, Albizua I, Malone T, Mowrey J, Sherman SL, Warren ST. Incidence of fragile X syndrome by newborn screening for methylated FMR1 DNA. Am J Hum Genet. 2009;85:503–14. PubMed PMID:
+19804849.
+Corrigan EC, Raygada MJ, Vanderhoof VH, Nelson LM. A woman with spontaneous premature ovarian failure gives birth to a child with fragile X syndrome. Fertil Steril. 2005;84:1508. PubMed PMID: 16275254.
+Crofton PM, Evans N, Bath LE, Warner P , Whitehead TJ, Critchley HO, Kelnar CJ, Wallace WH. Physiological versus standard sex steroid replacement in young women with premature ovarian failure: effects on bone mass acquisition and turnover. Clin Endocrinol (Oxf). 2010;73:707–14. PubMed PMID: 20738314.
+Curry CJ, Stevenson RE, Aughton D, Byrne J, Carey JC, Cassidy S, Cunniff C, Graham JM Jr, Jones MC, Kaback
+MM, Moeschler J, Schaefer GB, Schwartz S, Tarleton J, Opitz J. Evaluation of mental retardation:
+recommendations of a Consensus Conference: American College of Medical Genetics. Am J Med Genet.
+1997;72:468–77. PubMed PMID: 9375733.
+de Vries BB, van den Ouweland AM, Mohkamsing S, Duivenvoorden HJ, Mol E, Gelsema K, van Rijn M, Halley
+DJ, Sandkuijl LA, Oostra BA, Tibben A, Niermeijer MF . Screening and diagnosis for the fragile X syndrome among the mentally retarded: an epidemiological and psychological survey. Collaborative Fragile X Study
+Group. Am J Hum Genet. 1997;61:660–7. PubMed PMID: 9326332.
+Elizur SE, Lebovitz O, Derech-Haim S, Dratviman-Storobinsky O, Feldman B, Dor J, Orvieto R, Cohen Y .
+Elevated levels of FMR1 mRNA in granulosa cells are associated with low ovarian reserve in FMR1 premutation carriers. PLoS One. 2014;9:e105121. PubMed PMID: 25153074.
+Erickson CA, Stigler KA, Wink LK, Mullett JE, Kohn A, Posey DJ, McDougle CJ. A prospective open-label study of aripiprazole in fragile X syndrome. Psychopharmacology. 2011;216:85–90. PubMed PMID: 21318565.
+Farzin F , Perry H, Hessl D, Loesch D, Cohen J, Bacalman S, Gane L, Tassone F , Hagerman P , Hagerman R.
+Autism spectrum disorders and attention-deficit/hyperactivity disorder in boys with the fragile X premutation. J Dev Behav Pediatr. 2006;27:S137–44. PubMed PMID: 16685180.
+Fernández RM, Peciña A, Lozano-Arana MD, Sánchez B, García-Lozano JC, Borrego S, Antiñolo G. Clinical and technical overview of preimplantation genetic diagnosis for fragile X syndrome: experience at the
+University Hospital Virgen del Rocio in Spain. Biomed Res Int. 2015;2015;2015:965839.
+Fink DA, Nelson LM, Pyeritz R, Johnson J, Sherman SL, Cohen Y , Elizur SE. Fragile X associated primary ovarian insufficiency (FXPOI): case report and literature review. Front Genet. 2018;9:529. PubMed PMID:
+30542367.
+Finucane B, Abrams L, Cronister A, Archibald AD, Bennett RL, McConkie-Rosell A. Genetic counseling and testing for FMR1 gene mutations: practice guidelines of the national society of genetic counselors. J Genet
+Couns. 2012;21:752–60. PubMed PMID: 22797890.
+Finucane B, Lincoln S, Bailey L, Martin CL. Prognostic dilemmas and genetic counseling for prenatally detected fragile X gene expansions. Prenat Diagn. 2017;37:37–42. PubMed PMID: 27862088.
+Galloway JN, Nelson DL. Evidence for RNA-mediated toxicity in fragile X-associated tremor/ataxia syndrome.
+Future Neurol. 2009;4:785. PubMed PMID: 20161676.
+Gantois I, Khoutorsky A, Popic J, Aguilar-Valles A, Freemantle E, Cao R, Sharma V , Pooters T, Nagpal A,
+Skalecka A, Truong VT, Wiebe S, Groves IA, Jafarnejad SM, Chapat C, McCullagh EA, Gamache K, Nader K,
+Lacaille JC, Gkogkas CG, Sonenberg N. Metformin ameliorates core deficits in a mouse model of fragile X syndrome. Nat Med. 2017;23:674–7. PubMed PMID: 28504725.
+Gomez-Mancilla B, Berry-Kravis E, Hagerman R, von Raison F , Apostol G, Ufer M, Gasparini F , Jacquemont S.
+Development of mavoglurant and its potential for the treatment of fragile X syndrome. Expert Opin Investig
+Drugs. 2014 Jan;23:125–34. PubMed PMID: 24251408.
+
+Grasso M, Boon EM, Filipovic-Sadic S, van Bunderen PA, Gennaro E, Cao R, Latham GJ, Hadd AG, Coviello
+DA. A novel methylation PCR that offers standardized determination of FMR1 methylation and CGG repeat length without Southern blot analysis. J Mol Diagn. 2014;16:23–31. PubMed PMID: 24177047.
+Grigsby J, Bennett R, Brega A, Bounds L, Cogswell J, Greco C, Hagerman P , Hagerman R, Hall D, Jacquemont S,
+Leehey M, Paulich M, Rice C, Rubinstein D, Tassone F . Fragile X-associated tremor-ataxia syndrome
+(FXTAS): An X-linked neurodegenerative phenotype. Abstract #280. Dallas, TX: American College of
+Medical Genetics Meeting; 2005.
+Gutiérrez JF , Bajaj K, Klugman SD. Prenatal screening for fragile X: carriers, controversies, and counseling. Rev
+Obstet Gynecol. 2013;6:e1–7. PubMed PMID: 23687552.
+Hadd AG, Filipovic-Sadic S, Zhou L, Williams A, Schlageter AM, Latham GJ, Berry-Kravis E, Hall DA. A PCR method for X-chromosome activation analysis simplifies phenotype association studies in fragile X premutation carrier women. Clin Epigenetics. 2016;8:130. PubMed PMID: 27980694.
+Hagerman R, Au J, Hagerman P . FMR1 premutation and full mutation molecular mechanisms related to autism.
+J Neurodev Disord. 2011;3:211–24. PubMed PMID: 21617890.
+Hagerman RJ, Berry-Kravis E, Kaufmann WE, Ono MY , Tartaglia N, Lachiewicz A, Kronk R, Delahunty C,
+Hessl D, Visootak J, Picker J, Gane L, Tranfagia M. Advances in the treatment of fragile X syndrome.
+Pediatrics. 2009;123:378–90. PubMed PMID: 19117905.
+Hagerman RJ, Hagerman P . Fragile X-associated tremor/ataxia syndrome - features, mechanisms and management. Nat Rev Neurol. 2016;12:403–12. PubMed PMID: 27340021.
+Hagerman RJ, Protic D, Rajaratnam A, Salcedo-Arellano MJ, Aydin EY , Schneider A. Fragile X-associated neuropsychiatric disorders (FXAND). Front Psychiatry. 2018;9:564. PubMed PMID: 30483160.
+Hall DA, Berry-Kravis EB. Fragile X syndrome and fragile X-associated tremor ataxia syndrome. In: Geschwind
+DH, Paulson HL, Klein C, eds. Handbook of Clinical Neurology. Neurogenetics, Part I, Volume 147.
+Cambridge, MA: Elsevier; 2018:377-91.
+Hall DA, Berry-Kravis E, Jacquemont S, Rice CD, Cogswell J, Zhang L, Hagerman RJ, Hagerman PJ, Leehey MA.
+Initial diagnoses given to persons with the fragile X associated tremor/ataxia syndrome (FXTAS). Neurology.
+2005;65:299–301. PubMed PMID: 16043804.
+Hall DA, Robertson E, Shelton AL, Losh MC, Mila M, Moreno EG, Gomez-Anson B, Martínez-Cerdeño V ,
+Grigsby J, Lozano R, Hagerman R, Maria LS, Berry-Kravis E, O'Keefe JA. Update on the clinical, radiographic, and neurobehavioral manifestations in FXTAS and FMR1 premutation carriers. Cerebellum.
+2016;15:578–86. PubMed PMID: 27287737.
+Han XD, Powell BR, Phalin JL, Chehab FF . Mosaicism for a full mutation, premutation, and deletion of the CGG repeats results in 22% FMRP and elevated FMR1 mRNA levels in a high-functioning fragile X male. Am J
+Med Genet A. 2006;140:1463–71. PubMed PMID: 16761284.
+Hantash FM, Goos DM, Crossley B, Anderson B, Zhang K, Sun W , Strom CM. FMR1 premutation carrier frequency in patients undergoing routine population-based carrier screening: insights into the prevalence of fragile X syndrome, fragile X-associated tremor/ataxia syndrome, and fragile X-associated primary ovarian insufficiency in the United States. Genet Med. 2011;13:39–45. PubMed PMID: 21116185.
+Hartley SL, Seltzer MM, Hong J, Greenberg JS, Smith L, Almeida D, Coe C, Abbeduto L. Cortisol response to behavior problems in FMR1 premutation mothers of adolescents and adults with fragile X syndrome: a diathesis-stress model. Int J Behav Dev. 2012;36:53–61. PubMed PMID: 22798702.
+Hayward BE, Kumari D, Usdin K. Recent advances in assays for the fragile X-related disorders. Hum Genet.
+2017;136:1313–27. PubMed PMID: 28866801.
+Hayward BE, Zhou Y , Kumari D, Usdin K. A set of assays for the comprehensive analysis of FMR1 alleles in the fragile X-related disorders. J Mol Diagn. 2016;18:762–74. PubMed PMID: 27528259.
+
+Hessl D, Wang JM, Schneider A, Koldewyn K, Le L, Iwahashi C, Cheung K, Tassone F , Hagerman PJ, Rivera SM.
+Decreased fragile X mental retardation protein expression underlies amygdala dysfunction in carriers of the fragile X premutation. Biol Psychiatry. 2011;70:859–65. PubMed PMID: 21783174.
+Hipp HS, Charen KH, Spencer JB, Allen EG, Sherman SL. Reproductive and gynecologic care of women with fragile X primary ovarian insufficiency (FXPOI). Menopause. 2016;23:993–9. PubMed PMID: 27552334.
+Hunter JE, Abramowitz A, Rusin M, Sherman SL. Is there evidence for neuropsychological and neurobehavioral phenotypes among adults without FXTAS who carry FMR1 premutation? A review of current literature.
+Genet Med. 2009;11:79–89. PubMed PMID: 19265746.
+Hunter J, Rivero-Arias O, Angelov A, Kim E, Fotheringham I, Leal J. Epidemiology of fragile X syndrome: a systematic review and meta-analysis. Am J Med Genet A. 2014;164A:1648–58. PubMed PMID: 24700618.
+Ishiura H, Shibata S, Y oshimura J, Suzuki Y , Qu W , Doi K, Almansour MA, Kikuchi JK, Taira M, Mitsui J,
+Takahashi Y , Ichikawa Y , Mano T, Iwata A, Harigaya Y , Matsukawa MK, Matsukawa T, Tanaka M, Shirota Y ,
+Ohtomo R, Kowa H, Date H, Mitsue A, Hatsuta H, Morimoto S, Murayama S, Shiio Y , Saito Y , Mitsutake A,
+Kawai M, Sasaki T, Sugiyama Y , Hamada M, Ohtomo G, Terao Y , Nakazato Y , Takeda A, Sakiyama Y ,
+Umeda-Kameyama Y , Shinmi J, Ogata K, Kohno Y , Lim SY , Tan AH, Shimizu J, Goto J, Nishino I, Toda T,
+Morishita S, Tsuji S. Noncoding CGG repeat expansions in neuronal intranuclear inclusion disease, oculopharyngodistal myopathy and an overlapping disease. Nat Genet. 2019;51:1222–32. PubMed PMID:
+31332380.
+Jacquemont S, Hagerman RJ, Leehey M, Grigsby J, Zhang L, Brunberg JA, Greco C, Des Portes V , Jardini T,
+Levine R, Berry-Kravis E, Brown WT, Schaeffer S, Kissel J, Tassone F , Hagerman PJ. Fragile X premutation tremor/ataxia syndrome: molecular, clinical, and neuroimaging correlates. Am J Hum Genet. 2003;72:869–
+78. PubMed PMID: 12638084.
+Jeve YB, Potdar N, Opoku A, Khare M. Donor oocyte conception and pregnancy complications: a systematic review and meta-analysis. BJOG. 2016;123:1471–80. PubMed PMID: 26854328.
+Kaufmann WE, Kidd SA, Andrews HF , Budimirovic DB, Esler A, Haas-Givler B, Stackhouse T, Peacock G, Riley
+C, Sherman SL, Brown WT, Berry-Kravis E. Autism spectrum disorder in fragile X syndrome:
+characterization using FORW ARD. Pediatrics. 2017;139:S194–206. PubMed PMID: 28814540.
+Kidd SA, Berry-Kravis E, Choo TH, Chen C, Esler A, Hoffmann A, Andrews HF , Kaufmann WE. Improving the diagnosis of autism spectrum disorder in fragile X syndrome by adapting the Social Communication
+Questionnaire and the Social Responsiveness Scale-2. J Autism Dev Disord. 2020;50:3276–95. PubMed
+PMID: 31342442.
+Kidd SA, Lachiewicz A, Barbouth D, Blitz RK, Delahunty C, McBrien D, Visootsak J, Berry-Kravis E. Fragile X syndrome: a review of associated medical problems. Pediatrics. 2014;134:995–1005. PubMed PMID:
+25287458.
+Lawrenz B, El Khatib I, Liñán A, Bayram A, Arnanz A, Chopra R, De Munck N, Fatemi HM. The clinicians' dilemma with mosaicism-an insight from inner cell mass biopsies. Hum Reprod. 2019;34:998–1010. PubMed
+PMID: 31114858.
+Leehey MA, Berry-Kravis E, Goetz CG, Zhang L, Hall DA, Li L, Rice CD, Lara R, Cogswell J, Reynolds A, Gane
+L, Jacquemont S, Tassone F , Grigsby J, Hagerman RJ, Hagerman PJ. FMR1 CGG repeat length predicts motor dysfunction in premutation carriers. Neurology. 2008;70:1397–402. PubMed PMID: 18057320.
+Lekovich J, Man L, Xu K, Canon C, Lilienthal D, Stewart JD, Pereira N, Rosenwaks Z, Gerhardt J. CGG repeat length and AGG interruptions as indicators of fragile X-associated diminished ovarian reserve. Genet Med.
+2018;20:957–64. PubMed PMID: 29267266.
+Loat CS, Craig G, Plomin R, Craig IW . Investigating the relationship between FMR1 allele length and cognitive ability in children: a subtle effect of the normal allele range on the normal ability range? Ann Hum Genet.
+2006;70:555–65. PubMed PMID: 16907702.
+
+Loesch DZ, Bui MQ, Hammersley E, Schneider A, Storey E, Stimpson P , Burgess T, Francis D, Slater H, Tassone
+F , Hagerman RJ, Hessl D. Psychological status in female carriers of premutation FMR1 allele showing a complex relationship with the size of CGG expansion. Clin Genet. 2015;87:173–8. PubMed PMID: 24428240.
+MacKenzie JJ, Sumargo I, Taylor SA. A cryptic full mutation in a male with a classical fragile X phenotype. Clin
+Genet. 2006;70:39–42. PubMed PMID: 16813602.
+Maenner MJ, Baker MW , Broman KW , Tian J, Barnes JK, Atkins A, McPherson E, Hong J, Brilliant MH, Mailick
+MR. FMR1 CGG expansions: prevalence and sex ratios. Am J Med Genet B Neuropsychiatr Genet.
+2013;162B:466–73. PubMed PMID: 23740716.
+Manning M, Hudgins L. Array-based technology and recommendations for utilization in medical genetics practice for detection of chromosomal abnormalities. Genet Med. 2010;12:742–5. PubMed PMID: 20962661.
+Miller DT, Adam MP , Aradhya S, Biesecker LG, Brothman AR, Carter NP , Church DM, Crolla JA, Eichler EE,
+Epstein CJ, Faucett W A, Feuk L, Friedman JM, Hamosh A, Jackson L, Kaminsky EB, Kok K, Krantz ID, Kuhn
+RM, Lee C, Ostell JM, Rosenberg C, Scherer SW , Spinner NB, Stavropoulos DJ, Tepperberg JH, Thorland EC,
+Vermeesch JR, Waggoner DJ, Watson MS, Martin CL, Ledbetter DH. Consensus statement: chromosomal microarray is a first-tier clinical diagnostic test for individuals with developmental disabilities or congenital anomalies. Am J Hum Genet. 2010;86:749–64. PubMed PMID: 20466091.
+Moeschler JB, Shevell M, et al. Clinical genetic evaluation of the child with mental retardation or global developmental delays. Pediatrics. 2006;117:2304–16. PubMed PMID: 16740881.
+Monyak RE, Emerson D, Schoenfeld BP , Zheng X, Chambers DB, Rosenfelt C, Langer S, Hinchey P , Choi CH,
+McDonald TV , Bolduc FV , Sehgal A, McBride SMJ, Jongens TA. Insulin signaling misregulation underlies circadian and cognitive deficits in a Drosophila fragile X model. Mol Psychiatry. 2017;22:1140–8. PubMed
+PMID: 27090306.
+Nahhas FA, Monroe TJ, Prior TW , Botma PI, Fang J, Snyder PJ, Talbott SL, Feldman GL. Evaluation of the human fragile X mental retardation 1 polymerase chain reaction reagents to amplify the FMR1 gene: testing in a clinical diagnostic laboratory. Genet Test Mol Biomarkers. 2012;16:187–92. PubMed PMID: 21992462.
+Napoli E, Schneider A, Wang JY , Trivedi A, Carrillo NR, Tassone F , Rogawski M, Hagerman RJ, Giulivi C.
+Allopregnanolone treatment improves plasma metabolomic profile associated with GABA metabolism in fragile X-associated tremor/ataxia syndrome: a pilot study. Mol Neurobiol. 2019;56:3702–13. PubMed PMID:
+30187385.
+Nayot D, Chung JT, Son WY , Ao A, Hughes M, Dahan MH. Live birth following serial vitrification of embryos and PGD for fragile X syndrome in a patient with the premutation and decreased ovarian reserve. J Assist
+Reprod Genet. 2013;30:1439–44. PubMed PMID: 24062195.
+Nelson LM. Primary ovarian insufficiency. NEJM. 2009;360:606–14. PubMed PMID: 19196677.
+Nelson LM, Covington SN, Rebar RW . An update: spontaneous premature ovarian failure is not an early menopause. Fertil Steril. 2005;83:1327–32. PubMed PMID: 15866564.
+Nolin SL, Glicksman A, Ding X, Ersalesi N, Brown WT, Sherman SL, Dobkin C. Fragile X analysis of 1112 prenatal samples from 1991 to 2010. Prenat Diagn. 2011;31:925–31. PubMed PMID: 21717484.
+Nolin SL, Glicksman A, Ersalesi N, Dobkin C, Brown WT, Cao R, Blatt E, Sah S, Latham GJ, Hadd AG. Fragile X full mutation expansions are inhibited by one or more AGG interruptions in premutation carriers. Genet
+Med. 2015;17:358–64. PubMed PMID: 25210937.
+Nolin SL, Glicksman A, Tortora N, Allen E, Macpherson J, Mila M, Vianna-Morgante AM, Sherman SL, Dobkin
+C, Latham GJ, Hadd AG. Expansions and contractions of the FMR1 CGG repeat in 5,508 transmissions of normal, intermediate, and premutation alleles. Am J Med Genet A. 2019;179:1148–56. PubMed PMID:
+31050164.
+
+Nolin SL, Sah S, Glicksman A, Sherman SL, Allen E, Berry-Kravis E, Tassone F , Yrigollen C, Cronister A, Jodah
+M, Ersalesi N, Dobkin C, Brown WT, Shroff R, Latham GJ, Hadd AG. Fragile X AGG analysis provides new risk predictions for 45–69 repeat alleles. Am J Med Genet Part A. 2013;161A:771–8. PubMed PMID:
+23444167.
+North American Menopause Society. The 2012 hormone therapy position statement of: The North American
+Menopause Society. Menopause. 2012;19:257–71. PubMed PMID: 22367731.
+Orpana AK, Ho TH, Stenman J. Multiple heat pulses during PCR extension enabling amplification of GC-rich sequences and reducing amplification bias. Anal Chem. 2012;84:2081–7. PubMed PMID: 22220596.
+Rajan-Babu IS, Lian M, Cheah FSH, Chen M, Tan ASC, Prasath EB, Loh SF , Chong SS. FMR1 CGG repeat expansion mutation detection and linked haplotype analysis for reliable and accurate preimplantation genetic diagnosis of fragile X syndrome. Expert Rev Mol Med. 2017;19:e10. PubMed PMID: 28720156.
+Rauch A, Hoyer J, Guth S, Zweier C, Kraus C, Becker C, Zenker M, Hüffmeier U, Thiel C, Rüschendorf F ,
+Nürnberg P , Reis A, Trautmann U. Diagnostic yield of various genetic approaches in patients with unexplained developmental delay or mental retardation. Am J Med Genet A. 2006;140:2063–74. PubMed
+PMID: 16917849.
+Renda MM, Voigt RG, Babovic-Vuksanovic D, Highsmith WE, Vinson SS, Sadowski CM, Hagerman RJ.
+Neurodevelopmental disabilities in children with intermediate and premutation range fragile X cytosineguanine- guanine expansions. J Child Neurol. 2014;29:326–30. PubMed PMID: 23266944.
+Riddle JE, Cheema A, Sobesky WE, Gardner SC, Taylor AK, Pennington BF , Hagerman RJ. Phenotypic involvement in females with the FMR1 gene mutation. Am J Ment Retard. 1998;102:590–601. PubMed
+PMID: 9606468.
+Rodriguez-Revenga L, Madrigal I, Pagonabarraga J, Xunclà M, Badenas C, Kulisevsky J, Gomez B, Milà M.
+Penetrance of FMR1 premutation associated pathologies in fragile X syndrome families. Eur J Hum Genet.
+2009;17:1359–62. PubMed PMID: 19367323.
+Sansone SM, Schneider A, Bickel E, Berry-Kravis E, Prescott C, Hessl D. Improving IQ measurement in intellectual disabilities using true deviation from population norms. J Neurodev Disord. 2014;6:16. PubMed
+PMID: 26491488.
+Santoro MR, Bray SM, Warren ST. Molecular mechanisms of fragile X syndrome: a twenty-year perspective.
+Annu Rev Pathol. 2012;7:219–45. PubMed PMID: 22017584.
+Schufreider A, McQueen DB, Lee SM, Allon R, Uhler ML, Davie J, Feinberg EC. Diminished ovarian reserve is not observed in infertility patients with high normal CGG repeats on the fragile X mental retardation 1
+(FMR1) gene. Hum Reprod. 2015;30:2686–92. PubMed PMID: 26345686.
+Seltzer MM, Barker ET, Greenberg JS, Hong J, Coe C, Almeida D. Differential sensitivity to life stress in FMR1 premutation carrier mothers of children with fragile X syndrome. Health Psychol. 2012;31:612–22. PubMed
+PMID: 22149120.
+Seritan AL, Ortigas M, Seritan S, Bourgeois JA, Hagerman RJ. Psychiatric disorders associated with FXTAS.
+Curr Psychiatry Rev. 2013;9:59–64. PubMed PMID: 25620899.
+Sherman S. Clinical implications of gray-zone FMR1 alleles. Abstract #308. Dallas, TX: American College of
+Medical Genetics Meeting; 2005.
+Sherman SL. Premature ovarian failure in the fragile X syndrome. Am J Med Genet. 2000;97:189–94. PubMed
+PMID: 11449487.
+Shevell M, Ashwal S, Donley D, Flint J, Gingold M, Hirtz D, Majnemer A, Noetzel M, Sheth RD. Practice parameter: evaluation of the child with global developmental delay: report of the Quality Standards
+Subcommittee of the American Academy of Neurology and the Practice Committee of the Child Neurology
+Society. Neurology. 2003;60:367–80. PubMed PMID: 12578916.
+
+Sitzmann AF , Hagelstrom RT, Tassone F , Hagerman RJ, Butler MG. Rare FMR1 gene mutations causing fragile X syndrome: a review. Am J Med Genet. 2018;176:11–8. PubMed PMID: 29178241.
+Sone J, Mitsuhashi S, Fujita A, Mizuguchi T, Hamanaka K, Mori K, Koike H, Hashiguchi A, Takashima H,
+Sugiyama H, Kohno Y , Takiyama Y , Maeda K, Doi H, Koyano S, Takeuchi H, Kawamoto M, Kohara N, Ando
+T, Ieda T, Kita Y , Kokubun N, Tsuboi Y , Katoh K, Kino Y , Katsuno M, Iwasaki Y , Y oshida M, Tanaka F , Suzuki
+IK, Frith MC, Matsumoto N, Sobue G. Long-read sequencing identifies GGC repeat expansions in
+NOTCH2NLC associated with neuronal intranuclear inclusion disease. Nat Genet. 2019;51:1215–21.
+PubMed PMID: 31332381.
+Sone J, Mori K, Inagaki T, Katsumata R, Takagi S, Y okoi S, Araki K, Kato T, Nakamura T, Koike H, Takashima H,
+Hashiguchi A, Kohno Y , Kurashige T, Kuriyama M, Takiyama Y , Tsuchiya M, Kitagawa N, Kawamoto M,
+Y oshimura H, Suto Y , Nakayasu H, Uehara N, Sugiyama H, Takahashi M, Kokubun N, Konno T, Katsuno M,
+Tanaka F , Iwasaki Y , Y oshida M, Sobue G. Clinicopathological features of adult-onset neuronal intranuclear inclusion disease. Brain. 2016;139:3170–86. PubMed PMID: 27797808.
+Tartagni M, Cicinelli E, De Pergola G, De Salvia MA, Lavopa C, Loverro G. Effects of pretreatment with estrogens on ovarian stimulation with gonadotropins in women with premature ovarian failure: a randomized, placebo-controlled trial. Fertil Steril. 2007;87:858–61. PubMed PMID: 17261285.
+Tassone F , Adams J, Berry-Kravis EM, Cohen SS, Brusco A, Leehey MA, Li L, Hagerman RJ, Hagerman PJ. CGG repeat length correlates with age of onset of motor signs of the fragile X-associated tremor/ataxia syndrome
+(FXTAS). Am J Med Genet B Neuropsychiatr Genet. 2007;144B:566–9. PubMed PMID: 17427188.
+Tassone F , Hagerman RJ, Ikle DN, Dyer PN, Lampe M, Willemsen R, Oostra BA, Taylor AK. FMRP expression as a potential prognostic indicator in fragile X syndrome. Am J Med Genet. 1999;84:250–61. PubMed PMID:
+10331602.
+Tassone F , Iong KP , Tong TH, Lo J, Gane LW , Berry-Kravis E, Nguyen D, Mu LY , Laffin J, Bailey DB, Hagerman
+RJ. FMR1 CGG allele size and prevalence ascertained through newborn screening in the United States.
+Genome Med. 2012;4:100. PubMed PMID: 23259642.
+Tian Y , Wang JL, Huang W , Zeng S, Jiao B, Liu Z, Chen Z, Li Y , Wang Y , Min HX, Wang XJ, Y ou Y , Zhang RX,
+Chen XY , Yi F , Zhou YF , Long HY , Zhou CJ, Hou X, Wang JP , Xie B, Liang F , Y ang ZY , Sun QY , Allen EG,
+Shafik AM, Kong HE, Guo JF , Y an XX, Hu ZM, Xia K, Jiang H, Xu HW , Duan RH, Jin P , Tang BS, Shen L.
+Expansion of human-specific GGC repeat in neuronal intranuclear inclusion disease-related disorders. Am J
+Hum Genet. 2019;105:166–76. PubMed PMID: 31178126.
+Voorhuis M, Onland-Moret NC, Janse F , Ploos van Amstel HK, Goverde AJ, Lambalk CB, Laven JS, van der
+Schouw YT, Broekmans FJ, Fauser BC, et al. The significance of fragile X mental retardation gene 1 CGG repeat sizes in the normal and intermediate range in women with primary ovarian insufficiency. Hum
+Reprod. 2014;29:1585–93. PubMed PMID: 24812319.
+Wang JY , Trivedi AM, Carrillo NR, Y ang J, Schneider A, Giulivi C, Adams P , Tassone F , Kim K, Rivera SM,
+Lubarr N, Wu CY , Irwin RW , Brinton RD, Olichney JM, Rogawski MA, Hagerman RJ. Open-label allopregnanolone treatment of men with fragile X-associated tremor/ataxia syndrome. Neurotherapeutics.
+2017;14:1073–83. PubMed PMID: 28707277.
+Weber JD, Smith E, Berry-Kravis E, Cadavid D, Hessl D, Erickson C. Voice of people with fragile X syndrome and their families: reports from a survey on treatment priorities. Brain Sci. 2019;9:E18. pii. PubMed PMID:
+30678024.
+Wheeler A, Raspa M, Hagerman R, Mailick M, Riley C. Implications of the FMR1 premutation for children, adolescents, adults, and their families. Pediatrics. 2017;139:S172–82. PubMed PMID: 28814538.
+Wheeler AC, Bailey DB Jr, Berry-Kravis E, Greenberg J, Losh M, Mailick M, Milà M, Olichney JM, Rodriguez-
+Revenga L, Sherman S, Smith L, Summers S, Y ang JC, Hagerman R. Associated features in females with an
+FMR1 premutation. J Neurodev Disord. 2014;6:30. PubMed PMID: 25097672.
+
+Wirojanan J, Angkustsiri K, Tassone F , Gane LW , Hagerman RJ. A girl with fragile X premutation from sperm donation. Am J Med Genet A. 2008;146A:888–92. PubMed PMID: 18286596.
+Yrigollen CM, Durbin-Johnson B, Gane L, Nelson DL, Hagerman R, Hagerman PJ, Tassone F . AGG interruptions within the maternal FMR1 gene reduce the risk of offspring with fragile X syndrome. Genet
+Med. 2012;14:729–36. PubMed PMID: 22498846.
+Yrigollen CM, Sweha S, Durbin-Johnson B, Zhou L, Berry-Kravis E, Fernandez-Carvajal I, Faradz SM, Amiri K,
+Shaheen H, Polli R, Murillo-Bonilla L, Silva Arevalo Gde J, Cogram P , Murgia A, Tassone F . Distribution of
+AGG interruption patterns within nine world populations. Intractable Rare Dis Res. 2014;3:153–61. PubMed
+PMID: 25606365.
+License
+GeneReviews® chapters are owned by the University of Washington. Permission is hereby granted to reproduce, distribute, and translate copies of content materials for noncommercial research purposes only, provided that (i) credit for source (https://www.genereviews.org) and copyright (© 1993-2026 University of Washington) are included with each copy; (ii) a link to the original material is provided whenever the material is published elsewhere on the Web; and (iii) reproducers, distributors, and/or translators comply with the GeneReviews® Copyright Notice and Usage Disclaimer. No further modifications are allowed. For clarity, excerpts of GeneReviews chapters for use in lab reports and clinic notes are a permitted use.
+For more information, see the GeneReviews® Copyright Notice and Usage Disclaimer.
+For questions regarding permissions or whether a specified use is allowed, contact: addmast@wu.edu
