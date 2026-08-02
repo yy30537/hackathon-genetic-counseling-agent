@@ -2,6 +2,9 @@
 chromadb
 sentence-transformers
 
+# 语料预处理：PDF 原文转纯文本
+pypdf
+
 # 后端
 fastapi
 uvicorn
