@@ -19,3 +19,4 @@ HPO-MCP-Server/
 
 # macOS
 .DS_Store
+.venv/
