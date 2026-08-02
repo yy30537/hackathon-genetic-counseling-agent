@@ -1,0 +1,16 @@
+{
+  "id": "tc_11_hpo_no_match",
+  "title": "错误路径：HPO 关键词全部无命中",
+  "note": "验收脚本必须确定性 mock HPO 无命中；后端应短路为 422，禁止伪造术语或继续调用 RAG 与报告合成。",
+  "setup": {
+    "mode": "hpo_no_match"
+  },
+  "input": {
+    "symptoms": "希望把这段家庭记录整理成标准术语，但记录中没有可识别的具体表现。",
+    "gene_report": "WES 报告包含一个临床意义未明变异（VUS）。"
+  },
+  "expect": {
+    "http_status": 422,
+    "error_code": "HPO_NO_MATCH"
+  }
+}

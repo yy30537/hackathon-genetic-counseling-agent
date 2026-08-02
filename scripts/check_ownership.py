@@ -6,7 +6,7 @@
 
 分支名即轨道身份：
 
-    feat/fe-*    前端轨   只许动 app.py
+    feat/fe-*    前端轨   只许动 app.py 与 .streamlit/config.toml
     feat/be-*    后端轨   只许动 main.py
     feat/rag-*   知识轨   只许动 scripts/**
     其余分支                不限（人类与基建轨）
@@ -25,7 +25,7 @@ import sys
 
 # 分支前缀 -> (轨道名, 允许改动的路径模式)
 TRACKS = [
-    ("feat/fe-", "前端轨", ["app.py"]),
+    ("feat/fe-", "前端轨", ["app.py", ".streamlit/config.toml"]),
     ("feat/be-", "后端轨", ["main.py"]),
     ("feat/rag-", "知识轨", ["scripts/*"]),
 ]

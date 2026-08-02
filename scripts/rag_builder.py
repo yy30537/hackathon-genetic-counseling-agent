@@ -325,7 +325,6 @@ def load_raw():
                         "condition": condition,
                         "gene": gene,
                         "origin": origin,
-                        "section": title,
                     },
                 })
                 kept += 1

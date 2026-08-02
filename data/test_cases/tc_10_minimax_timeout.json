@@ -1,0 +1,16 @@
+{
+  "id": "tc_10_minimax_timeout",
+  "title": "错误路径：MiniMax 请求超时",
+  "note": "验收脚本必须确定性 mock MiniMax 超时，不依赖真实网络故障；后端不得透传原始异常或模型文本。",
+  "setup": {
+    "mode": "minimax_timeout"
+  },
+  "input": {
+    "symptoms": "孩子语言能力出现倒退，走路不稳，并反复搓手。",
+    "gene_report": "WES 检出 MECP2 基因临床意义未明变异（VUS）。"
+  },
+  "expect": {
+    "http_status": 502,
+    "error_code": "MINIMAX_API_ERROR"
+  }
+}

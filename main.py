@@ -9,11 +9,11 @@
 """
 
 from contextlib import asynccontextmanager
-from typing import List, Literal, Optional
+from typing import Annotated, List, Literal, Optional
 
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from config import official_disclaimer
 
@@ -56,7 +56,7 @@ class ScreeningResponse(BaseModel):
     mcp_translation: str
     retrieved_chunks: List[Chunk]
     # PRD C6 Roadmap 字段，本次 MVP 不返回。含义是筛查匹配可信度，不是患病概率。
-    confidence_level: Optional[int] = None
+    confidence_level: Optional[Annotated[int, Field(ge=0, le=100)]] = None
 
 
 class ErrorResponse(BaseModel):
@@ -103,7 +103,8 @@ async def mcp_translate_symptoms(symptoms: str) -> tuple[List[HpoTerm], str]:
     HPO 官方 API 只索引英文，链路必须是两段式：
     M3 中译英抽关键词 -> search_hpo_terms -> M3 回填中文名。
 
-    AC2：任一非空症状必产出 >=1 条，每条含形如 HP:0000733 的 hpo_id。
+    有命中时返回至少一条 HPO；全部关键词无命中时返回 ([], 过程文本)，由端点转换为
+    HTTP 422 HPO_NO_MATCH，不伪造术语、不继续进入 RAG/LLM。
     """
     raise NotImplementedError("M3")
 
@@ -133,7 +134,11 @@ def synthesize_report(
 # ---------- 端点 ----------
 
 
-@app.post("/api/screen", response_model=ScreeningResponse)
+@app.post(
+    "/api/screen",
+    response_model=ScreeningResponse,
+    response_model_exclude_none=True,
+)
 async def screen(payload: ScreeningRequest) -> ScreeningResponse:
     """全系统唯一业务端点。
 
@@ -147,8 +152,8 @@ async def screen(payload: ScreeningRequest) -> ScreeningResponse:
     # TODO(M2): 依次调用 mcp_translate_symptoms / retrieve_chunks / synthesize_report
     #           并组装为 ScreeningResponse。
     #
-    # disclaimer 必须走下面这一行：桶 C 逐字原文，不经 LLM，任何执行路径（含降级路径）
-    # 都必须填充。验收脚本用的是同一个函数，走这条路就不可能对不上（不变量 I1 / AC4）。
+    # HTTP 200 成功响应的 disclaimer 必须走下面这一行：桶 C 逐字原文，不经 LLM。
+    # ErrorResponse 不含 disclaimer；前端错误态从桶 C 本地加载回退声明（schema AC4）。
     _ = official_disclaimer()
 
     raise NotImplementedError("M2")
@@ -161,7 +166,8 @@ async def screen(payload: ScreeningRequest) -> ScreeningResponse:
 async def screening_error_handler(request: Request, exc: ScreeningError) -> JSONResponse:
     """错误一律以 HTTP 状态码承载，禁止「一律 200 + status 字段」的信封模式。
 
-    422 INVALID_INPUT / 500 MISSING_API_KEY / 502 MINIMAX_API_ERROR
+    422 INVALID_INPUT / 422 HPO_NO_MATCH / 500 MISSING_API_KEY /
+    502 MINIMAX_API_ERROR
     """
     return JSONResponse(
         status_code=exc.status_code,

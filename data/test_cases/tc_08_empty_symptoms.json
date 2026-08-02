@@ -1,0 +1,13 @@
+{
+  "id": "tc_08_empty_symptoms",
+  "title": "错误路径：症状为空，应被 422 拦截",
+  "note": "验证后端不能只校验 gene_report；即使绕过前端直接调用，纯空白症状也必须返回统一错误契约。",
+  "input": {
+    "symptoms": "   ",
+    "gene_report": "WES 检出 MECP2 基因临床意义未明变异（VUS）。"
+  },
+  "expect": {
+    "http_status": 422,
+    "error_code": "INVALID_INPUT"
+  }
+}

@@ -23,7 +23,9 @@ from config import official_disclaimer
 disclaimer = official_disclaimer()
 ```
 
-验收脚本用的是同一个函数，走这条路就不可能对不上。**任何执行路径（含 LLM 解析失败的降级路径）都必须填充它。**
+验收脚本用的是同一个函数，走这条路就不可能对不上。`disclaimer` 是 HTTP 200
+成功响应的必填字段。HTTP 错误响应严格使用 `ErrorResponse`，不增加该字段；前端在错误态
+通过 `load_fallback_disclaimer()` 从桶 C 本地加载同一原文。
 
 # MCP 会话必须常驻
 
@@ -38,16 +40,27 @@ async with stdio_client(params) as (read, write):
 ```
 
 HPO API 只索引英文，链路必须是「M3 中译英抽关键词 → `search_hpo_terms` → M3 回填中文名」两段式。
+全部英文关键词均无命中时不得伪造术语或继续进入 RAG/LLM；端点返回 HTTP 422
+`HPO_NO_MATCH`。
 
 # 错误按状态码分流
 
 | 场景 | HTTP | `error_code` |
 |---|---|---|
 | `symptoms` 或 `gene_report` 为空/全空白 | 422 | `INVALID_INPUT` |
+| 输入非空，但全部英文关键词均未命中 HPO | 422 | `HPO_NO_MATCH` |
 | 未读到 `MINIMAX_API_KEY` | 500 | `MISSING_API_KEY` |
 | Minimax 非 200、超时或响应无法解析 | 502 | `MINIMAX_API_ERROR` |
 
+缺少 `MINIMAX_API_KEY` 时在启动阶段记录配置错误但保持服务可用，由
+`POST /api/screen` 返回统一的 500 `ErrorResponse`。
+
 禁止「一律 200 + status 字段」的信封模式。禁止把 LLM 原始文本透传给前端。
+
+# confidence_level
+
+`confidence_level` 仅允许为 0–100 整数。MVP 不启用该字段时，路由必须使用
+`response_model_exclude_none=True`（或组装响应时省略该键），禁止输出 `null`。
 
 # 收尾
 

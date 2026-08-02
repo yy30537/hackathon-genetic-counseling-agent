@@ -84,23 +84,23 @@
 ### 2.3 端点 `POST /api/screen`
 
 - [ ] **2.3.1** 入口校验：`symptoms.strip()` 与 `gene_report.strip()` 任一为空 → 抛 HTTPException(422, `INVALID_INPUT`)
-- [ ] **2.3.2** 调用 `mcp_translate_symptoms(symptoms)`；有命中时返回长度 ≥ 1 的 `List[HpoTerm]`，无命中时短路为 HTTP 422 `HPO_NO_MATCH`（AC2）
+- [ ] **2.3.2** 调用 `mcp_translate_symptoms(symptoms)` 并解包 `(hpo_terms, mcp_translation)`；有命中时 `hpo_terms` 长度 ≥ 1，无命中时短路为 HTTP 422 `HPO_NO_MATCH`（AC2）
 - [ ] **2.3.3** 调 ChromaDB 以 `hpo_terms.name` + 变异名为 query，返回 `retrieved_chunks: List[Chunk]`
 - [ ] **2.3.4** 切片为空时短路：`comparisons=[]`、`vus_reassurance="未匹配到相关指南……"`（schema I8）
 - [ ] **2.3.5** 切片非空时，组装 prompt 注入 system：要求 M3 返回**严格 JSON**，禁止任何解释性文本
 - [ ] **2.3.6** 从 `config.MINIMAX_BASE_URL` 与 `config.MINIMAX_MODEL` 组装请求，调用 `{MINIMAX_BASE_URL}/chat/completions`，`temperature=0.3`；禁止在 `main.py` 重复写默认 URL/模型名
 - [ ] **2.3.7** JSON 解析失败 / 非 200 / 超时 → 抛 HTTPException(502, `MINIMAX_API_ERROR`)，**不**透传原始文本
 - [ ] **2.3.8** 成功响应由后端**硬填充** `disclaimer` 字段，从 `config.official_disclaimer()` 取桶 C 原文，**不经 LLM**（AGENTS I1 / schema I1）；错误响应保持 `ErrorResponse`，由前端加载回退声明
-- [ ] **2.3.9** 组装 `mcp_translation` 字符串（人类可读，描述每条白话 → HPO 的映射过程）
+- [ ] **2.3.9** 校验并透传 `mcp_translate_symptoms()` 返回的 `mcp_translation` 字符串（人类可读，描述每条白话 → HPO 的映射过程）
 - [ ] **2.3.10** 返回 `ScreeningResponse` 八字段齐全
 
 ### 2.4 MCP 翻译子模块（PRD M3）
 
-- [ ] **2.4.1** 函数签名 `async def mcp_translate_symptoms(text: str) -> List[HpoTerm]`
+- [ ] **2.4.1** 函数签名 `async def mcp_translate_symptoms(text: str) -> tuple[List[HpoTerm], str]`，第二项为人类可读的标准化过程文本
 - [ ] **2.4.2** 第一段：调 M3 把中文白话翻译为 1–4 个英文医学关键词
 - [ ] **2.4.3** 第二段：用英文关键词调 `search_hpo_terms(query=keyword)`，取 top hit 的 `hpo_id` 与英文名
 - [ ] **2.4.4** 第三段：再用 M3 把英文 HPO 名回填为中文 `name`
-- [ ] **2.4.5** 全部英文关键词均无命中时函数返回空数组（不伪造术语），调用方必须转换为 HTTP 422 `HPO_NO_MATCH`，不得继续进入 RAG/LLM
+- [ ] **2.4.5** 全部英文关键词均无命中时函数返回 `([], 过程文本)`（不伪造术语），调用方必须转换为 HTTP 422 `HPO_NO_MATCH`，不得继续进入 RAG/LLM
 
 ### 2.5 后端验收门禁
 
@@ -187,9 +187,9 @@
 
 ### 4.1 用例装载
 
-- [ ] **4.1.1** 读 `data/test_cases/tc_*.json`；每个用例顶层含 `id` / `title` / `note` / `input` / `expect`，其中 `expect` 按场景包含 `http_status` / `min_hpo_terms` / `expect_conditions_any` / `expect_buckets` / `forbid_conditions_any` / `require_disclaimer` / `require_next_steps_departments` / `banned_words` / `error_code`
+- [ ] **4.1.1** 读 `data/test_cases/tc_*.json`；每个用例顶层含 `id` / `title` / `note` / `input` / `expect`，需要确定性注入的错误用例另含 `setup`；`expect` 按场景包含 `http_status` / `min_hpo_terms` / `expect_conditions_any` / `expect_buckets` / `forbid_conditions_any` / `require_disclaimer` / `require_next_steps_departments` / `banned_words` / `error_code`
 - [ ] **4.1.2** 计划用例数量 = 11：保留现有 `tc_01_rett.json`、`tc_02_angelman.json`、`tc_03_fragile_x.json`、`tc_04_tsc.json`、`tc_05_negative_control.json`、`tc_06_compliance_attack.json`、`tc_07_invalid_input.json`；由人类补充 `tc_08_empty_symptoms.json`、`tc_09_missing_api_key.json`、`tc_10_minimax_timeout.json`、`tc_11_hpo_no_match.json`
-- [ ] **4.1.3** `tc_09` / `tc_10` / `tc_11` 必须由验收脚本提供确定性的配置注入或 mock，不依赖真实密钥失效、外部超时或 HPO 在线服务偶然无命中；禁止为测试新增业务端点
+- [ ] **4.1.3** `tc_09` / `tc_10` / `tc_11` 的 `setup.mode` 分别为 `missing_api_key` / `minimax_timeout` / `hpo_no_match`；验收脚本必须据此提供确定性的配置注入或 mock，不依赖真实密钥失效、外部超时或 HPO 在线服务偶然无命中；禁止为测试新增业务端点
 - [ ] **4.1.4** 所有 `http_status=200` 用例的 `min_hpo_terms` 必须 ≥ 1；由人类将现有 `tc_06_compliance_attack.json` 的该值从 0 修正为至少 1
 
 ### 4.2 契约不变量断言（schema I1–I9）

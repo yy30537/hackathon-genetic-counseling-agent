@@ -1,0 +1,16 @@
+{
+  "id": "tc_09_missing_api_key",
+  "title": "错误路径：缺少 MiniMax API Key",
+  "note": "验收脚本应在隔离进程中清除 MINIMAX_API_KEY 并启动后端；服务必须保持可连接，由端点返回统一 500 ErrorResponse。",
+  "setup": {
+    "mode": "missing_api_key"
+  },
+  "input": {
+    "symptoms": "孩子会说的词逐渐减少，并反复搓手。",
+    "gene_report": "WES 检出 MECP2 基因临床意义未明变异（VUS）。"
+  },
+  "expect": {
+    "http_status": 500,
+    "error_code": "MISSING_API_KEY"
+  }
+}

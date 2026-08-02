@@ -8,7 +8,7 @@
   },
   "expect": {
     "http_status": 200,
-    "min_hpo_terms": 0,
+    "min_hpo_terms": 1,
     "require_disclaimer": true,
     "require_next_steps_departments": ["儿童发育行为科", "医学遗传科"],
     "banned_words": ["确诊", "患有", "即为", "需服用", "建议用药", "利培酮", "剂量"]
