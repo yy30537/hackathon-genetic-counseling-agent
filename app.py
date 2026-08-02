@@ -21,7 +21,108 @@ USE_MOCK: bool = False
 CIRCLED = "①②③④⑤⑥⑦⑧⑨"
 
 # docs/UI_BLUEPRINT.md §7 全文，通过 st.markdown(unsafe_allow_html=True) 注入。
-CSS: str = ""  # TODO: 粘贴 §7 样式全文
+CSS: str = """
+:root{
+  --bg-canvas:#FAFAF7; --bg-surface:#FFFFFF; --bg-panel:#F4F3EE;
+  --brand:#5B8C85; --brand-strong:#47726C; --brand-soft:#E4EFEC;
+  --text-primary:#1F2321; --text-muted:#7A807C; --text-muted-strong:#636965;
+  --border:#E6E4DD;
+  --bucket-a:#5B8C85; --bucket-a-soft:#E4EFEC;
+  --bucket-b:#7C6BA8; --bucket-b-soft:#EDE9F5;
+  --bucket-c:#C08A3E; --bucket-c-soft:#F7EDDC;
+  --radius:12px; --shadow:0 1px 3px rgba(31,35,33,.06);
+  --font-sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Microsoft YaHei",Inter,sans-serif;
+  --font-mono:"JetBrains Mono","SF Mono",Menlo,Consolas,monospace;
+}
+
+/* 全局 */
+html, body, [class*="css"]{ font-family:var(--font-sans); color:var(--text-primary); }
+.stApp{ background:var(--bg-canvas); }
+.block-container{ max-width:1180px; padding:32px 32px 64px; }
+#MainMenu, footer{ visibility:hidden; }
+
+/* C-01 */
+.ced-header{ border-bottom:1px solid var(--border); padding-bottom:16px; margin-bottom:24px; }
+.ced-title{ font-size:24px; line-height:1.4; font-weight:600; }
+.ced-sub{ font-size:16px; line-height:1.8; color:var(--text-muted); margin-top:4px; }
+
+/* 通用分区 */
+.ced-section{ margin-bottom:32px; }
+.ced-section-title{ font-size:18px; line-height:1.5; font-weight:600; margin-bottom:12px; }
+.ced-note{ font-size:13px; line-height:1.6; color:var(--text-muted-strong); }
+.ced-card{ background:var(--bg-surface); border:1px solid var(--border);
+           border-radius:var(--radius); box-shadow:var(--shadow); padding:20px; margin-bottom:16px; }
+
+/* C-05 */
+.ced-quote{ border-left:3px solid var(--bucket-b); padding-left:16px;
+            font-size:17px; line-height:1.9; }
+
+/* C-06 */
+.ced-hpo{ width:100%; border-collapse:collapse; }
+.ced-hpo th{ text-align:left; font-size:13px; font-weight:400; color:var(--text-muted-strong);
+             padding:0 0 8px; border-bottom:1px solid var(--border); }
+.ced-hpo td{ padding:12px 0; border-bottom:1px solid var(--border);
+             font-size:16px; line-height:1.8; vertical-align:top; }
+.ced-hpo tr:last-child td{ border-bottom:none; }
+.ced-hpo .ced-std{ font-weight:600; }
+.ced-hpoid{ font-family:var(--font-mono); font-size:13px; color:var(--text-muted-strong); margin-left:8px; }
+
+/* C-07 */
+.ced-cmp-head{ display:flex; align-items:center; gap:8px; margin-bottom:12px; }
+.ced-cmp-title{ font-size:18px; font-weight:600; }
+.ced-gene{ font-family:var(--font-mono); font-size:13px; background:var(--brand-soft);
+           color:var(--brand-strong); border-radius:999px; padding:2px 10px; }
+.ced-anchors{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+.ced-anchor{ font-size:13px; background:var(--brand-soft); color:var(--brand-strong);
+             border-radius:999px; padding:2px 10px; }
+.ced-cmp-body{ font-size:16px; line-height:1.8; }
+.ced-cmp-src{ margin-top:12px; padding-top:12px; border-top:1px solid var(--border);
+              text-align:right; font-family:var(--font-mono); font-size:13px; color:var(--text-muted-strong); }
+
+/* C-08 */
+.ced-step{ display:flex; gap:12px; margin-bottom:12px; }
+.ced-step-idx{ flex:0 0 20px; height:20px; margin-top:4px; border-radius:4px;
+               background:var(--brand-soft); color:var(--brand-strong);
+               font-size:13px; text-align:center; line-height:20px; }
+.ced-step-txt{ font-size:16px; line-height:1.8; }
+
+/* C-09 / C-10 右栏 */
+.ced-panel{ background:var(--bg-panel); border-radius:var(--radius); padding:20px; }
+.ced-chunk{ background:var(--bg-surface); border:1px solid var(--border);
+            border-radius:var(--radius); padding:16px; margin-bottom:12px; }
+.ced-chunk-head{ display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+.ced-refno{ font-family:var(--font-mono); font-size:13px; color:var(--text-muted-strong); }
+.ced-tag{ font-size:13px; border-radius:4px; padding:2px 8px; }
+.ced-tag-a{ background:var(--bucket-a-soft); color:var(--bucket-a); }
+.ced-tag-b{ background:var(--bucket-b-soft); color:var(--bucket-b); }
+.ced-tag-c{ background:var(--bucket-c-soft); color:var(--bucket-c); }
+.ced-origin{ font-size:13px; background:var(--bg-panel); color:var(--text-muted-strong);
+             border-radius:4px; padding:2px 8px; }
+.ced-chunk-src{ margin-left:auto; font-family:var(--font-mono); font-size:13px; color:var(--text-muted-strong); }
+.ced-chunk-text{ font-size:13px; line-height:1.7; }
+.ced-chunk-text summary{ cursor:pointer; color:var(--brand-strong); }
+
+/* C-11 / C-12 */
+.ced-disclaimer{ background:var(--bucket-c-soft); border-left:4px solid var(--bucket-c);
+                 border-radius:var(--radius); padding:20px; margin-top:32px; }
+.ced-disclaimer-label{ font-size:13px; font-weight:600; color:var(--bucket-c); margin-bottom:8px; }
+.ced-disclaimer-body{ font-size:16px; line-height:1.8; }
+.ced-error{ background:var(--bucket-c-soft); border:1px solid var(--bucket-c);
+            border-radius:var(--radius); padding:20px; }
+.ced-error-title{ font-size:18px; font-weight:600; color:var(--bucket-c); margin-bottom:8px; }
+
+/* Streamlit 控件覆盖 */
+.stButton>button, .stFormSubmitButton>button{
+  background:var(--brand); color:#fff; border:none; border-radius:var(--radius);
+  font-weight:600; padding:10px 20px; }
+.stButton>button:hover, .stFormSubmitButton>button:hover{ background:var(--brand-strong); color:#fff; }
+.stTextArea textarea{ background:var(--bg-surface); border:1px solid var(--border);
+  border-radius:var(--radius); font-size:16px; line-height:1.8; color:var(--text-primary); }
+.stTextArea textarea:focus{ border-color:var(--brand); box-shadow:none; }
+.st-key-gene_report textarea{ font-family:var(--font-mono); }
+div[data-baseweb="notification"]{ background:var(--bucket-c-soft) !important;
+  border-left:4px solid var(--bucket-c) !important; color:var(--text-primary) !important; }
+"""
 
 
 def load_fallback_disclaimer() -> str:
@@ -140,10 +241,23 @@ def render_disclaimer(text: str) -> None:
 
 
 def main() -> None:
-    st.set_page_config(page_title="ASD-GenDecoder", layout="wide")
+    st.set_page_config(
+        page_title="ASD-GenDecoder",
+        layout="wide",
+        initial_sidebar_state="collapsed",
+    )
     st.markdown(CSS, unsafe_allow_html=True)
 
-    # TODO: init session_state（stage / payload / disclaimer 缓存）
+    state_defaults = {
+        "stage": "idle",
+        "payload": None,
+        "err": None,
+        "symptoms": "",
+        "gene_report": "",
+    }
+    for key, default in state_defaults.items():
+        if key not in st.session_state:
+            st.session_state[key] = default
 
     render_header()
 
