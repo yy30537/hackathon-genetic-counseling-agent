@@ -1,27 +1,802 @@
-=== RAG_CORPUS_PLACEHOLDER 待填充：本文件尚未粘贴原文，灌库时会被跳过 ===
+NLM Citation: Kaur S, Christodoulou J. MECP2 Disorders. 2001 Oct 3
+[Updated 2025 Dec 4]. In: Adam MP , Bick S, Mirzaa GM, et al., editors.
+GeneReviews® [Internet]. Seattle (WA): University of Washington,
+Seattle; 1993-2026.
+Bookshelf URL: https://www.ncbi.nlm.nih.gov/books/
+Simranpreet Kaur, MSc, M Phil1 and John Christodoulou, MBBS, PhD, FRACP , FFSc,
+FRCPA, FAHMS2
+Created: October 3, 2001; Revised: December 4, 2025.
+Summary
+Clinical characteristics
+The spectrum of MECP2-related phenotypes in females ranges from classic Rett syndrome to variant Rett syndrome with a broader clinical phenotype (either milder or more severe than classic Rett syndrome) to mild learning disabilities; the spectrum in males ranges from severe neonatal encephalopathy to pyramidal signs, parkinsonism, and macroorchidism (PPM-X) syndrome to severe syndromic/nonsyndromic intellectual disability.
+• Females: Classic Rett syndrome, a progressive neurodevelopmental disorder primarily affecting girls, is characterized by apparently normal psychomotor development during the first six to 18 months of life, followed by a short period of developmental stagnation, then rapid regression in language and motor skills, followed by long-term stability. During the phase of rapid regression, repetitive, stereotypic hand movements replace purposeful hand use. Additional findings include fits of screaming and inconsolable crying, autistic features, panic-like attacks, bruxism, episodic apnea and/or hyperpnea, gait ataxia and apraxia, tremors, seizures, and acquired microcephaly.
+• Males: Severe neonatal-onset encephalopathy, the most common phenotype in affected males, is characterized by a relentless clinical course that follows a metabolic-degenerative type of pattern, abnormal tone, involuntary movements, severe seizures, and breathing abnormalities. Death often occurs before age two years.
+Diagnosis/testing
+The diagnosis of a MECP2 disorder is established by molecular genetic testing in a female proband with suggestive findings and a heterozygous MECP2 pathogenic variant, and in a male proband with suggestive findings and a hemizygous MECP2 pathogenic variant.
+Author Affiliations: 1 Brain and Mitochondrial Research Group, Murdoch Children’s Research Institute; Department of
+Paediatrics, University of Melbourne, Parkville, Victoria, Australia; Email: simran.kaur@mcri.edu.au. 2 Professor, Pediatrics and Biochemical, Molecular, and Human Genetics, Theme Director, Genetics Research, Murdoch Children’s Research
+Institute; Chair of Genomic Medicine, Department of Pediatrics, University of Melbourne, Melbourne, Victoria, Australia;
+Email: john.christodoulou@mcri.edu.au.
+Copyright © 1993-2026, University of Washington, Seattle. GeneReviews is a registered trademark of the University of
+Washington, Seattle. All rights reserved. Test.
 
-来源：GeneReviews - MECP2-Related Disorders
-NBK ID：NBK1497
-链接：https://www.ncbi.nlm.nih.gov/books/NBK1497/
-入库归属：桶 A（鉴别诊断）｜condition = Rett 综合征 / MECP2 相关疾病｜gene = MECP2
+Management
+Treatment of manifestations: Treatment is mainly symptomatic and focuses on optimizing the individual's abilities using a multidisciplinary approach that should also include psychosocial support for family members.
+Risperidone may help in treating agitation; melatonin can ameliorate sleep disturbances. Treatment of seizures, constipation, gastroesophageal reflux, scoliosis, prolonged QTc, and spasticity per standard care.
+Surveillance: Periodic evaluation by the multidisciplinary team; regular assessment of QTc for evidence of prolongation; regular assessment for scoliosis.
+Agents/circumstances to avoid: Drugs known to prolong the QT interval.
+Genetic counseling
+MECP2 disorders are inherited in an X-linked manner. More than 99% are simplex cases (i.e., a single occurrence in a family), resulting from a de novo pathogenic variant or possibly from inheritance of the pathogenic variant from a parent who has germline mosaicism. Rarely, a MECP2 variant may be inherited from a heterozygous mother in whom favorable skewing of X-chromosome inactivation results in minimal to no clinical findings. When the mother is a known heterozygote, the risk to her offspring of inheriting the MECP2 variant is 50%. When the pathogenic MECP2 variant has been identified in the family, heterozygote testing for at-risk female relatives, prenatal testing for pregnancies at increased risk, and preimplantation genetic testing are possible. Because of the possibility of parental germline mosaicism, it is appropriate to offer prenatal diagnosis to couples who have had a child with a MECP2 disorder regardless of whether the MECP2 pathogenic variant has been detected in a parent.
+GeneReview Scope
+MECP2 Disorders: Included Phenotypes 1, 2
+Females
+• MECP2 classic Rett syndrome
+• Variant Rett syndrome
+• Mild learning disabilities
+Males
+• MECP2-related severe neonatal encephalopathy
+• Pyramidal signs, parkinsonism, and macroorchidism (PPM-X) syndrome
+• Syndromic/nonsyndromic intellectual disability
+1. For other genetic causes of these phenotypes see Differential Diagnosis.
+2. Note: The allelic disorder MECP2 duplication syndrome is not included in this GeneReview. See Genetically Related Disorders.
+Diagnosis
+Note: Duplication of MECP2 (ranging from 0.3 to 4 Mb and larger) is associated with the allelic disorder MECP2 duplication syndrome and is not addressed in this GeneReview.
+Suggestive Findings in Females
+A MECP2 disorder should be suspected/considered in females with the following clinical findings suggestive of
+MECP2 classic Rett syndrome or variant Rett syndrome (based on clinical diagnostic criteria published by Neul et al [2010] [full text] prior to the widespread availability of molecular genetic testing), or mild learning disabilities.
+Clinical findings of MECP2 classic Rett syndrome and variant Rett syndrome
 
-这是 tc_01 黄金演示案例对应的文献，优先级最高。
+• Most distinguishing finding: A period of regression (range: ages 1-4 years) followed by recovery or stabilization (range: ages 2-10 years; mean: age 5 years)
+• Main findings
+⚬ Partial or complete loss of acquired purposeful hand skills
+⚬ Partial or complete loss of acquired spoken language or language skill (e.g., babble)
+⚬ Gait abnormalities: impaired (dyspraxic) or absence of ability
+⚬ Stereotypic hand movements including hand wringing/squeezing, clapping/tapping, mouthing, and washing/rubbing automatisms
+• Supportive findings
+⚬ Breathing disturbances when awake
+⚬ Bruxism when awake
+⚬ Impaired sleep pattern
+⚬ Abnormal muscle tone
+⚬ Peripheral vasomotor disturbances
+⚬ Scoliosis/kyphosis
+⚬ Growth restriction
+⚬ Small, cold hands and feet
+⚬ Inappropriate laughing/screaming spells
+⚬ Diminished response to pain
+⚬ Intense eye communication – "eye pointing"
+• Exclusionary findings
+⚬ Brain injury secondary to peri- or postnatal trauma, neurometabolic disease, or severe infection that causes neurologic problems
+⚬ Grossly abnormal psychomotor development in the first six months of life, with early milestones not being met
+Clinical findings of MECP2 mild learning disability. Typically mild and non-progressive. Note: Typically, females with mild learning disability are identified through molecular genetic testing following diagnosis of a first-degree relative (e.g., a more significantly affected brother or sister).
+Suggestive Findings in Males
+MECP2 disorders should be considered in a male with severe neonatal encephalopathy; pyramidal signs, parkinsonism, and macroorchidism (PPM-X) syndrome; or syndromic/nonsyndromic intellectual disability.
+Clinical findings of MECP2 severe neonatal encephalopathy
+• Microcephaly
+• Relentless clinical course that follows a metabolic-degenerative type of pattern
+• Abnormal tone
+• Involuntary movements
+• Severe seizures
+• Breathing abnormalities (including central hypoventilation or respiratory insufficiency)
+Clinical findings of MECP2 severe intellectual disability (including PPM-X syndrome)
+• Moderate-to-severe intellectual disability
+• Resting tremor
+• Slowness of movements
+• Ataxia
+• PPM-X syndrome: pyramidal signs, parkinsonism, and macroorchidism
 
---- 操作步骤 ---
+• No seizures or microcephaly
+• Usually normal brain MRI, EEG, EMG, and nerve conduction velocity studies
+Establishing the Diagnosis
+Female proband. The diagnosis of a MECP2 disorder is usually established in a female proband with suggestive findings and a heterozygous pathogenic (or likely pathogenic) variant in MECP2 identified by molecular genetic testing (see Table 1).
+Male proband. The diagnosis of a MECP2 disorder is established in a male proband with suggestive findings and a hemizygous pathogenic (or likely pathogenic) variant in MECP2 identified by molecular genetic testing
+(see Table 1).
+Note: (1) Per American College of Medical Genetics and Genomics / Association for Molecular Pathology variant interpretation guidelines, the terms "pathogenic variant" and "likely pathogenic variant" are synonymous in a clinical setting, meaning that both are considered diagnostic and can be used for clinical decision making
+[Richards et al 2015]. Reference to "pathogenic variants" in this GeneReview is understood to include likely pathogenic variants. (2) Identification of a hemizygous or heterozygous MECP2 variant of uncertain significance does not establish or rule out the diagnosis.
+Molecular genetic testing approaches can include a combination of gene-targeted testing (either single-gene, multigene panel) or comprehensive genomic testing (exome sequencing, exome array, genome sequencing) depending on the phenotype.
+Gene-targeted testing requires that the clinician determine which gene(s) are likely involved, whereas genomic testing does not. Because the phenotype of MECP2 disorders is broad, females with the distinctive findings described in Suggestive Findings are likely to be diagnosed using gene-targeted testing (see Option 1), whereas females and males with a phenotype indistinguishable from many other inherited disorders with intellectual disability and/or neonatal encephalopathy are more likely to be diagnosed using genomic testing (see Option 2).
+Option 1
+When the clinical findings suggest the diagnosis of a MECP2 disorder, molecular genetic testing approaches can include use of single-gene testing or a multigene panel:
+• Single-gene testing. Sequence analysis of MECP2 detects missense, nonsense, and splice site variants and small intragenic deletions/insertions. If no pathogenic variant is found, perform gene-targeted deletion/ duplication analysis to detect intragenic deletions or duplications.
+• Various multigene panels such as Rett/Angelman syndrome panels and more comprehensive childhoodonset epilepsy panels that include MECP2 and other genes of interest (see Differential Diagnosis) are most likely to identify the genetic cause of the condition while limiting identification of pathogenic variants and variants of uncertain significance in genes that do not explain the underlying phenotype. Note: (1) The genes included in the panel and the diagnostic sensitivity of the testing used for each gene vary by laboratory and are likely to change over time. (2) Some multigene panels may include genes not associated with the condition discussed in this GeneReview. (3) In some laboratories, panel options may include a custom laboratory-designed panel and/or custom phenotype-focused exome analysis that includes genes specified by the clinician. (4) Methods used in a panel may include sequence analysis, deletion/duplication analysis, and/or other non-sequencing-based tests. For this disorder a multigene panel that also includes deletion/duplication analysis is recommended (see Table 1).
+For an introduction to multigene panels click here. More detailed information for clinicians ordering genetic tests can be found here.
 
-1. 打开上面的链接，在网页正文区全选复制。
-2. 删除本文件的全部内容（含本行说明），把原文粘贴进来，以 UTF-8 保存。
-3. 回到项目根目录运行 python scripts/rag_builder.py --dry-run 检查切分统计。
+Option 2
+When the phenotype overlaps with many other inherited disorders characterized by intellectual disability and/or neonatal encephalopathy, comprehensive genomic testing (which does not require the clinician to determine which gene[s] are likely involved) is another option. Exome sequencing is most commonly used; genome sequencing is also possible.
+If exome sequencing is not diagnostic, exome array (when clinically available) may be considered to detect
+(multi)exon deletions or duplications that cannot be detected by sequence analysis.
+For an introduction to comprehensive genomic testing click here. More detailed information for clinicians ordering genomic testing can be found here.
+Table 1. MECP2 Disorders: Molecular Genetic Testing
+Gene 1 Method Proportion of Pathogenic Variants 2
+Identified by Method
+MECP2
+Sequence analysis 3 90%-95% 4
+Gene-targeted deletion/duplication analysis 5 5%-10% 6, 7
+1. See Table A. Genes and Databases for chromosome locus and protein.
+2. See Molecular Genetics for information on variants detected in this gene.
+3. Sequence analysis detects variants that are benign, likely benign, of uncertain significance, likely pathogenic, or pathogenic. Variants may include missense, nonsense, and splice site variants and small intragenic deletions/insertions; typically, exon or whole-gene deletions/duplications are not detected. For issues to consider in interpretation of sequence analysis results, click here.
+4. Archer et al [2006], Philippe et al [2006]
+5. Gene-targeted deletion/duplication analysis detects intragenic deletions or duplications. Methods used may include a range of techniques such as quantitative PCR, long-range PCR, multiplex ligation-dependent probe amplification (MLPA), and a gene-targeted microarray designed to detect single-exon deletions or duplications. Gene-targeted deletion/duplication testing will detect deletions ranging from a single exon to the whole gene; however, breakpoints of large deletions and/or deletion of adjacent genes (e.g., those described by Hardwick et al [2007]) may not be detected by these methods.
+6. The sizes of many reported disease-associated deletions are at the upper limits of detection by sequence analysis and the lower limits of detection by gene-targeted deletion/duplication analysis; therefore, the proportion of pathogenic variants detected by either method depends on the methods used by a laboratory.
+7. Archer et al [2006], Pan et al [2006], Philippe et al [2006], Hardwick et al [2007], Zahorakova et al [2007]
+Clinical Characteristics
+Clinical Description
+In females the spectrum of MECP2-related phenotypes ranges from classic Rett syndrome, to variant Rett syndrome (either milder or more severe than classic Rett syndrome), to mild learning disabilities. In males the spectrum ranges from severe neonatal encephalopathy, to pyramidal signs, parkinsonism, and macroorchidism
+(PPM-X) syndrome, to severe syndromic/nonsyndromic intellectual disability.
 
---- 三条硬要求 ---
+MECP2 Disorders in Females
+Table 2. Features of MECP2 Disorders in Females
+Phenotype Feature % of Persons w/Feature
+MECP2 classic Rett syndrome
+Regression followed by recovery or stabilization 99%
+Deceleration of head growth 80%
+Gait abnormalities 99%
+Seizures 60%-80%
+Hand stereotypies & loss of purposeful hand skills 100% 1
+Absence of speech; high-pitched crying 99%
+Cold extremities 99%
+Irregular breathing 99%
+Variant Rett syndrome
+Regression followed by recovery or stabilization 99%
+Gait abnormalities 80%-99%
+Sleep disturbences 80%-99%
+Seizures 6%-80%
+Hand stereotypies & loss of purposeful hand skills 97.3%
+Breathing irregularities 80%-99%
+Agitation 80%-99%
+Gold et al [2018], Einspieler & Marschik [2019], Stallworth et al [2019]
+1. Stallworth et al [2019]; 44% showed different patterns including hand wringing, washing, clapping, and tapping.
+MECP2 classic Rett syndrome. Most individuals with classic Rett syndrome are female; however, males meeting the clinical criteria for classic Rett syndrome who have a 47,XXY karyotype [Hoffbuhr et al 2001, Leonard et al 2001, Schwartzman et al 2001] and postzygotic MECP2 variants resulting in somatic mosaicism have been described [Clayton-Smith et al 2000, Topçu et al 2002].
+Although early development is reportedly normal in children with classic Rett syndrome, parents – in retrospect
+– often identify subtle differences compared to unaffected sibs. Most (but not all) affected children have acquired microcephaly; stereotypic hand movements and breathing irregularities are seen in the majority.
+Variant Rett syndrome. Females with variant Rett syndrome exhibit a broader spectrum of clinical features than those observed in classic Rett syndrome. At the more severe end of the spectrum, development is delayed from very early infancy; congenital hypotonia and infantile spasms are also seen. At the milder end of the spectrum, regression is less dramatic and intellectual disability is much less severe; some speech may be preserved.
+Mild learning disabilities. In rare instances, females with a pathogenic MECP2 variant may only exhibit mild learning disabilities or some autistic features, presumably as a consequence of favorable skewing of Xchromosome inactivation. When there is no regression phase and no characteristic hand stereotypes, the clinical course differs from that of classic and variant Rett syndrome.
 
-1. 必须保留章节标题行，例如 Clinical Characteristics、Clinical Description、
-   Diagnosis、Differential Diagnosis、Management。灌库脚本靠这些独立成行的标题
-   做章节过滤，标题丢失会导致整篇内容落入 preamble 而被全部跳过。
+MECP2 Disorders in Males
+Table 3. Features of MECP2 Disorders in Males
+Phenotype Feature
+% of Persons w/Feature
+Present Absent Not reported
+MECP2-related severe neonatal encephalopathy 1
+Normal birth parameters 71% 29%
+Head growth deceleration / microcephaly 94% 5.8%
+Hypotonia &/or feeding difficulties in infancy 82.4% 17.6%
+Hypertonia of extremities 52.9% 11.8% 35.3%
+Movement disorder, e.g., myoclonus, tremors, & dystonia 58.8% 17.7% 23.5%
+Mild cerebral atrophy 18% 35% 47%
+Polymicrogyria 5.9% 23.5% 70.6%
+Poor head control 35% 12% 53%
+Seizures 58.8% 17.7% 23.5%
+Severe development delay 82.4% 17.6%
+Irregular breathing / sleep apnea 47.1% 29.4% 23.5%
+Gastroesophageal reflux 35.3% 64.7%
+EEG abnormality 88.2% 5.9% 5.9%
+Pyramidal signs, parkinsonism, & macroorchidism
+(PPM-X syndrome) 2
+Psychosis 67.6% 10.8% 21.6%
+Pyramidal signs 46% 2.7% 51.3%
+Macroorchidism 19% 81%
+Intellectual disability 50% 50%
+Parkinsonism 2.7% 97.3%
+Progressive spasticity 67.6% 32.4%
+Delayed development 54% 46%
+Speech difficulties 50% 50%
+Seizures 2.7%
+Bilateral juvenile cataract 2.7%
+Scoliosis or kyphosis 10.8%
+Large ears 8.1%
+Movement disorders 32.4%
+Apraxia 2.7% 36%
+Seizures 8.1% 91.9%
+Dysmorphic features 5.4% 94.6%
 
-2. 不要手动删除 Management / Treatment / Surveillance 章节。脚本会自动识别并
-   强制丢弃，保留原样才能在日志里算出准确的过滤条数，这是 PRD 中 AC10 的校验依据。
+Table 3. continued from previous page.
+Phenotype Feature
+% of Persons w/Feature
+Present Absent Not reported
+Syndromic/ nonsyndromic intellectual disability 3
+Severe intellectual disability 90% 10%
+Gait abnormalities 57% 7% 36%
+Facial dysmorphism 10% 3% 87%
+Behavioral problems 40% 3% 57%
+Autistic-like behavior 3% 53% 44%
+Seizures 20% 30% 50%
+Poor/absent language skills 47% 17% 36%
+Hypotonia 23% 77%
+Microcephaly 13% 23% 64%
+History of regression 17% 27% 56%
+Spasticity 33% 17% 50%
+Sleep disturbances 13% 10% 77%
+1. Schüle et al [2008]
+2. Lindsay et al [1996], Claes et al [1997], Gendrot et al [1999], Orrico et al [2000], Klauck et al [2002], Winnepenninckx et al [2002],
+Moog et al [2003], Psoni et al [2010]
+3. Lubs et al [1999], Meloni et al [2000], Orrico et al [2000], Gomot et al [2003], Meins et al [2005], Van Esch et al [2005], Ramocki et al
+[2009]
+Severe neonatal-onset encephalopathy is characterized by a relentless clinical course that follows a metabolicdegenerative type of pattern, abnormal tone, involuntary movements, severe seizures, and breathing abnormalities (including central hypoventilation or respiratory insufficiency) [Wan et al 1999, Villard et al 2000,
+Zeev et al 2002, Kankirawatana et al 2006]. Often, males with a severe neonatal encephalopathy die before age two years [Schanen et al 1998, Wan et al 1999].
+The severe encephalopathy phenotype appears to be rare in females [Lugtenberg et al 2009].
+X-linked ID and PPM-X syndrome. PPM-X syndrome, caused by the p.(Ala140Val) MECP2 variant in males, is characterized by moderate-to-severe intellectual disability. Most have spasticity that may be progressive; some may have extrapyramidal movements. Episodic psychosis is seen in many but not all. Most affected males also have macroorchidism. Microcephaly is variable. See also Genotype-Phenotype Correlations.
+Genotype-Phenotype Correlations
+Genotype-phenotype correlations are inconsistent, due in part to the pattern of X-chromosome inactivation
+(XCI); females who have a MECP2 pathogenic variant and favorably skewed XCI may have mild or no manifestations [Wan et al 1999, Amir et al 2000, Cheadle et al 2000, Huppke et al 2000, Weaving et al 2003, Chae et al 2004, Schanen et al 2004,Charman et al 2005].
+MECP2 pathogenic variants with some residual function that are associated with milder phenotypes include the following:
+• p.(Ala140Val). The phenotype is syndromic (PPM-X) intellectual disability in males and very mild cognitive impairment in females [Dotti et al 2002, Klauck et al 2002, Gomot et al 2003, Venkateswaran et al 2014, Lambert et al 2016, Sheikh et al 2016].
 
-3. 不要改文件名。脚本按文件名推断来源、病种与所属数据桶。
+• p.(Arg133Cys). The phenotype is less severe than classic Rett syndrome in females; this variant can be present in affected males [Leonard et al 2003, Sheikh et al 2016].
+• p.(Arg309Cys) is found in females and males with intellectual disability and some features of MECP2 disorders, but not classic or variant Rett syndrome [Campos et al 2007, Schönewolf-Greulich et al 2016].
+Prevalence
+The worldwide prevalence is 1:10,000-1:23,000 female births [Ellaway et al 1999, Armstrong et al 2010]. Reports of incidence are limited; available estimates range from 0.43-0.71:10,000 for females in France [Bienvenu et al 2006] to 0.586:10,000 for females in Serbia [Sarajlija et al 2015] and 1.09:10,000 for females in Australia
+[Laurvick et al 2006].
+Genetically Related (Allelic) Disorders
+MECP2 duplication syndrome is characterized in affected males by infantile hypotonia, delayed psychomotor development leading to severe intellectual disability, poor speech development, progressive spasticity, recurrent respiratory infections, and seizures.
+Duplications of MECP2 ranging from 0.3 to 4 Mb and larger are found in all affected males.
+The birth prevalence of MECP2 duplication syndrome has been reported to be 0.65:100,000 for all live births and 1:100,000 for males in Australia with the median age at diagnosis of 23.5 months [Giudice-Nairn et al 2019].
+Differential Diagnosis
+Table 4. MECP2 Disorders: Differential Diagnosis
+DiffDx
+Disorder
+Gene(s) / Genetic
+Mechanism MOI
+Clinical Features of Disorder
+Overlapping w/MECP2
+Disorders
+Distinguishing from MECP2
+Disorders
+Angelman syndrome
+Deficient expression or function of maternally inherited UBE3A allele
+See footnote 1.
+ID, severe speech impairment, gait ataxia &/or tremulousness of the limbs; microcephaly & seizures common; DD 1st noted at age ~6 mos
+In classic Rett syndrome DD is not overtly evident in the 1st 6 mos.
+Early infantile epileptic encephalopathy (See
+CDKL5 Deficiency
+Disorder.)
+CDKL5 XL
+In females: early-onset severe seizures w/poor cognitive development; facial gestalt, cortical visual impairment;
+In males: severe-profound ID
+& early-onset intractable seizures 2
+Very early-onset seizures, facial dysmorphism, & cortical visual impairment are not generally seen in classic Rett syndrome.
 
-完整清单与合规说明见 ../SOURCES.md
+Table 4. continued from previous page.
+DiffDx
+Disorder
+Gene(s) / Genetic
+Mechanism MOI
+Clinical Features of Disorder
+Overlapping w/MECP2
+Disorders
+Distinguishing from MECP2
+Disorders
+Rett syndrome, congenital variant (See FOXG1
+Syndrome.)
+FOXG1 AD
+Short normal period of development before onset of regression leading to severe ID,
+DD, postnatal microcephaly, agenesis of the corpus callosum, seizures, dyskinesia,
+& hypotonia 3
+Except for microcephaly, structural abnormalities are not usually seen on brain
+MRI.
+AD = autosomal dominant; DD = developmental delay; DiffDx = differential diagnosis; ID = intellectual disability; MOI = mode of inheritance; XL = X-linked
+1. The risk to sibs of a proband depends on the genetic mechanism leading to the loss of UBE3A function: typically less than 1% risk for probands with a deletion or uniparental disomy (UPD), and as high as 50% for probands with an imprinting defect or a pathogenic variant of UBE3A.
+2. Elia et al [2008]
+3. Overlapping features and a similar facial appearance between individuals with FOXG1 pathogenic variants has led to the suggestion that these individuals should be regarded as having FOXG1 syndrome rather than a variant of Rett syndrome [Kortüm et al 2011].
+Management
+Evaluations Following Initial Diagnosis
+To establish the extent of disease and needs in an individual diagnosed with a MECP2 disorder, the evaluations summarized in Table 5 (if not performed as part of the evaluation that led to the diagnosis) are recommended.
+Table 5. MECP2 Disorders: Recommended Evaluations Following Initial Diagnosis
+System/Concern Evaluation Comment
+Constitutional Measurement of height, weight, & head circumference
+Neurologic Neurologic eval To incl brain MRI; consider EEG / video monitoring if seizures are a concern.
+Development Developmental assessment • Motor, adaptive, cognitive, & speech-language eval
+• Eval for early intervention / special education
+Neurobehavioral/
+Psychiatric Neuropsychiatric eval In persons age >12 mos: screening for problems incl sleep disturbances,
+ADHD, anxiety, &/or findings suggestive of ASD
+Musculoskeletal Orthopedics, physical medicine & rehab, PT/OT eval
+To incl assessment of:
+• Gross motor & fine motor skills
+• Scoliosis
+• Mobility & activities of daily living & need for adaptive devices
+• Need for PT (to improve gross motor skills) &/or OT (to improve fine motor skills)
+Gastrointestinal/
+Feeding
+Gastroenterology / nutrition / feeding team eval
+To incl:
+• Eval of aspiration risk & nutritional status
+• History of constipation & GERD
+Consider need for gastrostomy tube placement.
+Respiratory Overnight sleep studies • Analysis for abnormalities of breathing regularity
+• Noninvasive assessment of pulmonary gas exchange
+
+Table 5. continued from previous page.
+System/Concern Evaluation Comment
+Sleep disorder Breathing monitoring using portable polygraphic screening devices To assess occurrence of apnea & hypopnea
+Cardiovascular Cardiac eval To assess for prolonged QTc
+Osteopenia Bone densitometry To assess for osteopenia
+Eyes Ophthalmologic eval To assess for ↓ vision, abnormal ocular movement, strabismus
+Hearing Audiology eval Assess for hearing loss
+ENT/Mouth
+Genitourinary
+Integument History & exam ↓ perfusion of hands & feet (possible autonomic abnormalities)
+Miscellaneous/
+Other
+Consultation w/clinical geneticist &/or genetic counselor To incl genetic counseling
+Family supports/ resources
+Assess need for:
+• Community or online resources, e.g., Parent to Parent;
+• Social work involvement for parental support;
+• Home nursing referral.
+ADHD = attention-deficit/hyperactivity disorder; ASD = autism spectrum disorder; GERD = gastroesophageal reflux disease; OT = occupational therapy; PT = physical therapy
+Treatment of Manifestations
+Treatment needs to be individualized following an assessment of the affected individual's clinical problems and needs.
+Management is symptomatic and focuses on optimizing the individual's abilities using a multidisciplinary approach with input from a pediatric or adult specialist physician, dietician, occupational therapist, speech therapist, music therapist, dentist, and other medical subspecialists as needed.
+Table 6. MECP2 Disorders: Treatment of Manifestations
+Manifestation/
+Concern Treatment Considerations/Other
+DD/ID See Developmental Delay / Intellectual Disability
+Management Issues.
+Epilepsy Standardized treatment w/ASM by an experienced neurologist
+• Many ASMs may be effective; none has been demonstrated effective specifically for this disorder.
+• Education of parents/caregivers 1
+Neurobehavioral/
+Psychiatric
+Risperidone (low dose) or selective serotonin uptake inhibitors have been somewhat successful in treating agitation.
+Musculoskeletal Scoliosis Per guidelines 2
+Poor weight gain /
+Failure to thrive
+Feeding therapy; gastrostomy tube placement may be required for persistent feeding issues.
+Low threshold for clinical feeding eval &/or radiographic swallowing study when showing clinical signs or symptoms of dysphagia;
+nutritional guidelines are available. 3
+
+Table 6. continued from previous page.
+Manifestation/
+Concern Treatment Considerations/Other
+Spasticity
+Orthopedics / physical medicine & rehab / PT &
+OT incl stretching to help avoid contractures & falls
+Consider need for positioning & mobility devices, disability parking placard.
+Sleep disorder Melatonin can ameliorate sleep disturbances. Chloral hydrate, hydroxyzine, or diphenhydramine may be used w/melatonin.
+Abnormal vision &/or strabismus
+Standard treatment(s) as recommended by ophthalmologist
+Community vision services through early intervention or school district
+Central visual impairment No specific treatment; early intervention to help stimulate visual development
+Hearing Hearing aids may be helpful; per otolaryngologist Community hearing services through early intervention or school district
+Gastrointestinal
+• Constipation: stool softeners, prokinetics, osmotic agents, or laxatives as needed
+• GERD: anti-reflux agents, smaller & thickened feedings, & positioning
+Cardiovascular Treatment for prolonged QTc Under care of pediatric cardiologist
+Osteopenia Baseline densitometry; optimization of physical activity & calcium & vitamin D levels
+Guidelines for management of bone health are available. 4
+Family/
+Community
+• Ensure appropriate social work involvement to connect families w/local resources, respite, & support.
+• Care coordination to manage multiple subspecialty appointments, equipment, medications, & supplies
+• Ongoing assessment for need of palliative care involvement &/or home nursing
+• Consider involvement in adaptive sports or Special Olympics.
+ASM = anti-seizure medication; DD = developmental delay; GERD = gastroesophageal reflux disease; ID = intellectual disability; OT = occupational therapy; PT = physical therapy
+1. Education of parents/caregivers regarding common seizure presentations is appropriate. For information on non-medical interventions and coping strategies for children diagnosed with epilepsy, see Epilepsy Foundation Toolbox.
+2. Downs et al [2009]
+3. Leonard et al [2013]
+4. Jefferson et al [2016]
+Developmental Delay / Intellectual Disability Management Issues
+The following information represents typical management recommendations for individuals with developmental delay / intellectual disability in the United States; standard recommendations may vary from country to country.
+Ages 0-3 years. Referral to an early intervention program is recommended for access to occupational, physical, speech, and feeding therapy as well as infant mental health services, special educators, and sensory impairment specialists. In the US, early intervention is a federally funded program available in all states that provides inhome services to target individual therapy needs.
+Ages 3-5 years. In the US, developmental preschool through the local public school district is recommended.
+Before placement, an evaluation is made to determine needed services and therapies and an individualized education plan (IEP) is developed for those who qualify based on established motor, language, social, or cognitive delay. The early intervention program typically assists with this transition. Developmental preschool is center based; for children too medically unstable to attend, home-based services are provided.
+
+All ages. Consultation with a developmental pediatrician is recommended to ensure the involvement of appropriate community, state, and educational agencies and to support parents in maximizing quality of life.
+Some issues to consider:
+• IEP services:
+⚬ An IEP provides specially designed instruction and related services to children who qualify.
+⚬ IEP services will be reviewed annually to determine if any changes are needed.
+⚬ Special education law requires that children participating in an IEP be in the least restrictive environment feasible at school and included in general education as much as possible, when and where appropriate.
+⚬ Vision and hearing consultants should be a part of the child's IEP team to support access to academic material.
+⚬ PT, OT, and speech services will be provided in the IEP to the extent that the need affects the child's access to academic material. Beyond that, private supportive therapies based on the affected individual's needs may be considered. Specific recommendations regarding type of therapy can be made by a developmental pediatrician.
+⚬ As a child enters teen years, a transition plan should be discussed and incorporated in the IEP . For those receiving IEP services, the public school district is required to provide services until age 21.
+• A 504 plan (Section 504: a US federal statute that prohibits discrimination based on disability) can be considered for those who require accommodations or modifications such as front-of-class seating, assistive technology devices, classroom scribes, extra time between classes, modified assignments, and enlarged text.
+• Developmental Disabilities Administration (DDA) enrollment is recommended. DDA is a public agency that provides services and support to qualified individuals. Eligibility differs by state but is typically determined by diagnosis and/or associated cognitive/adaptive disabilities.
+• Families with limited income and resources may also qualify for supplemental security income (SSI) for their child with a disability.
+Motor Dysfunction
+Gross motor dysfunction
+• Physical therapy is recommended to maximize mobility and to reduce the risk for later-onset orthopedic complications (e.g., contractures, scoliosis, hip dislocation).
+• Consider use of durable medical equipment and positioning devices as needed (e.g., wheelchairs, walkers, bath chairs, orthotics, adaptive strollers).
+• For muscle tone abnormalities including hypertonia or dystonia, consider involving appropriate specialists to aid in management of baclofen, tizanidine, Botox®, anti-parkinsonian medications, or orthopedic procedures.
+Fine motor dysfunction. Occupational therapy is recommended for difficulty with fine motor skills that affect adaptive function such as feeding, grooming, dressing, and writing.
+Oral motor dysfunction should be assessed at each visit and clinical feeding evaluations and/or radiographic swallowing studies should be obtained for choking/gagging during feeds, poor weight gain, frequent respiratory illnesses, or feeding refusal that is not otherwise explained. Assuming that the child is safe to eat by mouth, feeding therapy (typically by an occupational or speech therapist) is recommended to improve coordination or sensory-related feeding issues. Feeds can be thickened or chilled for safety. When feeding dysfunction is severe, an NG-tube or G-tube may be necessary.
+Communication issues. Consider evaluation for alternative means of communication (e.g., augmentative and alternative communication [AAC]) for individuals who have expressive language difficulties. An AAC evaluation
+
+can be completed by a speech-language pathologist who has expertise in the area. The evaluation will consider cognitive abilities and sensory impairments to determine the most appropriate form of communication. AAC devices can range from low-tech, such as picture exchange communication, to high-tech, such as voicegenerating devices. Contrary to popular belief, AAC devices do not hinder verbal development of speech, but rather support optimal speech and language development.
+Social/Behavioral Concerns
+Children may qualify for and benefit from interventions used in treatment of autism spectrum disorder, including applied behavior analysis (ABA). ABA therapy is targeted to the individual child's behavioral, social, and adaptive strengths and weaknesses and typically performed one on one with a board-certified behavior analyst.
+Consultation with a developmental pediatrician may be helpful in guiding parents through appropriate behavior management strategies or providing prescription medications, such as medication used to treat attention-deficit/ hyperactivity disorder, when necessary.
+Concerns about serious aggressive or destructive behavior can be addressed by a pediatric psychiatrist.
+Surveillance
+Many of the clinical features in females with atypical Rett syndrome (Table 2) evolve with age and hence should be reassessed every six to 12 months.
+Table 7. MECP2 Disorders: Recommended Surveillance
+System/Concern Evaluation Frequency
+Feeding • Measurement of growth parameters
+• Eval of nutritional status & safety of oral intake
+At each multidisciplinary clinic visit;
+at least annually
+Gastrointestinal Monitor for constipation.
+Respiratory Monitor for evidence of aspiration, respiratory insufficiency.
+Neurologic
+• Monitor those w/seizures as clinically indicated.
+• Assess for new manifestations, e.g., seizures, changes in tone, movement disorders.
+Development Monitor developmental progress & educational needs.
+Speech & language Monitor communication skills.
+Psychiatric/
+Behavioral Behavioral assessment for anxiety, attention, & aggressive or self-injurious behavior
+Musculoskeletal • Physical medicine, OT/PT assessment of mobility, self-help skills
+• Monitor scoliosis.
+Cardiovascular Monitor for prolonged QTc.
+Respiratory Apnea/hyperventilation
+Miscellaneous/
+Other
+Assess family need for social work support (e.g., palliative/respite care, home nursing;
+other local resources) & care coordination.
+OT = occupational therapy; PT = physical therapy
+Agents/Circumstances to Avoid
+Because individuals with MECP2 disorders are at increased risk for life-threatening arrhythmias associated with a prolonged QT interval, avoidance of drugs known to prolong the QT interval, including the following, is recommended:
+
+• Prokinetic agents (e.g., cisapride)
+• Antipsychotics (e.g., thioridazine), tricyclic antidepressants (e.g., imipramine)
+• Antiarrhythmics (e.g., quinidine, sotolol, amiodarone)
+• Anesthetic agents (e.g., thiopental, succinylcholine)
+• Antibiotics (e.g., erythromycin, ketoconazole)
+See CredibleMeds® (free registration required) for a more extensive list of drugs to avoid.
+Evaluation of Relatives at Risk
+See Genetic Counseling for issues related to testing of at-risk relatives for genetic counseling purposes.
+Therapies Under Investigation
+A number of clinical trials are currently under way, including observational studies, studies focused on improvement of language and communication skills, and drug trials.
+For details see www.rettsyndrome.org.
+Search ClinicalTrials.gov in the US and EU Clinical Trials Register in Europe for access to information on clinical studies for a wide range of diseases and conditions.
+Genetic Counseling
+Genetic counseling is the process of providing individuals and families with information on the nature, mode(s) of inheritance, and implications of genetic disorders to help them make informed medical and personal decisions. The following section deals with genetic risk assessment and the use of family history and genetic testing to clarify genetic status for family members; it is not meant to address all personal, cultural, or ethical issues that may arise or to substitute for consultation with a genetics professional. —ED.
+Mode of Inheritance
+MECP2 disorders are inherited in an X-linked manner.
+Risk to Family Members
+Parents of a proband
+• Approximately 99.5% of affected individuals represent simplex cases (i.e., a single occurrence in the family).
+• Female proband. MECP2 molecular genetic testing is recommended for both parents.
+• Male proband. MECP2 molecular genetic testing is recommended for the mother. (Note: The father of an affected male will not have a MECP2 disorder nor will he be hemizygous for the MECP2 pathogenic variant; therefore, he does not require further evaluation/testing.)
+• The mother of a proband who is found to be heterozygous for a MECP2 variant may have favorably skewed X-chromosome inactivation that results in her being unaffected or mildly affected.
+• If the MECP2 pathogenic variant found in the proband cannot be detected in the leukocyte DNA of either parent, possible explanations include a de novo pathogenic variant in the proband or germline mosaicism in a parent. Maternal and paternal germline mosaicism have been reported [Amir et al 1999, Zeev et al 2002, Mari et al 2005].
+⚬ Maternal germline mosaicism was reported in one of nine pregnancies [Mari et al 2005, Venâncio et al 2007].
+
+⚬ Paternal germline mosaicism was reported in five fathers of affected daugthers from 21 families
+[Zhang et al 2019].
+Sibs of a proband. The risk to sibs depends on the genetic status of the parents:
+• If the mother of the proband has a MECP2 pathogenic variant, the chance of transmitting it in each pregnancy is 50%.
+⚬ Females who inherit the pathogenic variant are at high risk of developing a MECP2 disorder, although skewed X-chromosome inactivation may result in a variable phenotype.
+⚬ Males who inherit the variant may have a severe neonatal encephalopathy or, if they survive the first year, will most likely have a severe intellectual disability syndrome.
+• If the proband represents a simplex case (i.e., a single occurrence in a family) and if the MECP2 pathogenic variant cannot be detected in the leukocyte DNA of either parent, the risk to sibs is greater than that of the general population because of the possibility of parental germline mosaicism [Amir et al 1999, Zeev et al 2002, Mari et al 2005, Venâncio et al 2007, Zhang et al 2019].
+Offspring of a proband
+• Each child of a female proband with a MECP2 disorder has a 50% chance of inheriting the MECP2 pathogenic variant. Females with more severe MECP2 disorders do not reproduce; mildly affected females have reproduced.
+• Males with a MECP2 disorder are not known to reproduce.
+Other family members. The risk to other family members depends on the genetic status of the proband's mother: if the mother is affected or has a pathogenic MECP2 variant, her family members may be at risk.
+Related Genetic Counseling Issues
+First-degree female relatives. Once the pathogenic MECP2 variant has been identified in a proband, it is appropriate to offer testing to all first-degree female relatives regardless of their clinical status. Apparently unaffected sisters of a female proband with a MECP2 disorder may be heterozygous for the MECP2 variant present in their sister but have few to no manifestations because of skewed X-chromosome inactivation. Genetic counseling should address this possibility as clinically unaffected sisters may be at risk of transmitting the pathogenic MECP2 variant to their children.
+Family planning
+• The optimal time for determination of genetic risk and discussion of the availability of prenatal/ preimplantation genetic testing is before pregnancy.
+• It is appropriate to offer genetic counseling (including discussion of potential risks to offspring and reproductive options) to young adults who are mildly affected or are at risk of having a pathogenic MECP2 variant.
+DNA banking. Because it is likely that testing methodology and our understanding of genes, pathogenic mechanisms, and diseases will improve in the future, consideration should be given to banking DNA from probands in whom a molecular diagnosis has not been confirmed (i.e., the causative pathogenic mechanism is unknown). For more information, see Huang et al [2022].
+Prenatal Testing and Preimplantation Genetic Testing
+Once the MECP2 pathogenic variant has been identified in an affected family member, prenatal and preimplantation genetic testing are possible. Males with a MECP2 variant who survive infancy will most likely
+
+have severe intellectual disability. The phenotype in a female with a MECP2 variant is difficult to predict and can range from apparently normal to severely affected.
+Note: Because parental germline mosaicism for a MECP2 pathogenic variant has been reported in multiple families, it is appropriate to offer prenatal testing to the parents of a child with a MECP2 disorder whether or not the MECP2 pathogenic variant has been identified in the leukocyte DNA of either parent.
+Resources
+GeneReviews staff has selected the following disease-specific and/or umbrella support organizations and/or registries for the benefit of individuals with this disorder and their families. GeneReviews is not responsible for the information provided by other organizations. For information on selection criteria, click here.
+• AussieRett
+Telethon Kids Institute
+Australia
+Phone: +61 419 956 946
+Fax: +61 8 6319 1761
+Email: Helen.Leonard@telethonkids.org.au
+Rett syndrome and Related Disorders
+• International Rett Syndrome Foundation
+Phone: 800-818-RETT (7388); 513-874-3020
+Email: admin@rettsyndrome.org rettsyndrome.org
+• Medical Home Portal
+Rett Syndrome
+• MedlinePlus
+Rett syndrome
+• NCBI Genes and Disease
+Rett syndrome
+• Rett New Zealand
+New Zealand
+Phone: 04 475 9265
+Email: rett.info@nzord.org.nz rettsyndrome.org.nz
+• Rett Syndrome Europe
+Email: info@rettsyndrome.eu rettsyndrome.eu
+• Rett Syndrome Research Trust
+Phone: 203-445-0041
+Email: info@rsrt.org reverserett.org
+• Rett UK
+United Kingdom
+Phone: 01582 798911
+
+Email: info@rettuk.org www.rettuk.org
+Molecular Genetics
+Information in the Molecular Genetics and OMIM tables may differ from that elsewhere in the GeneReview: tables may contain more recent information. —ED.
+Table A. MECP2 Disorders: Genes and Databases
+Gene Chromosome Locus Protein Locus-Specific
+Databases
+HGMD ClinVar
+MECP2 Xq28 Methyl-CpGbinding protein 2
+MECP2 @ LOVD
+CCHMC - Human
+Genetics Mutation
+Database (MECP2)
+RettBASE
+MECP2 MECP2
+Data are compiled from the following standard references: gene from HGNC; chromosome locus from OMIM; protein from UniProt.
+For a description of databases (Locus Specific, HGMD, ClinVar) to which links are provided, click here.
+Table B. OMIM Entries for MECP2 Disorders (View All in OMIM) 300005 METHYL-CpG-BINDING PROTEIN 2; MECP2 300055 INTELLECTUAL DEVELOPMENTAL DISORDER, X-LINKED, SYNDROMIC 13; MRXS13 300496 AUTISM, SUSCEPTIBILITY TO, X-LINKED 3; AUTSX3 300673 ENCEPHALOPATHY , NEONATAL SEVERE, DUE TO MECP2 MUTATIONS 312750 RETT SYNDROME; RTT
+Molecular Pathogenesis
+Loss of the protein MeCP2 leads to epigenetic aberrations of chromatin, suggesting that MeCP2 deficiency could lead to loss of imprinting, thereby contributing to the pathogenesis of Rett syndrome [Horike et al 2005,
+Kaufmann et al 2005, Makedonski et al 2005].
+The nuclear MeCP2 protein functional domains include:
+• Methyl binding domain (MBD): binds specifically to DNA at symmetrically methylated CpGs within chromatin [Hansen et al 2010, Casas-Delucchi et al 2012]
+• Transcription repression domain (TRD): responsible for recruiting other proteins that mediate transcription repression
+• A-T hook domain: basic residues that bind A-T rich DNA [Baker et al 2013, Heckman et al 2014]
+• WW domain: conserved C-terminal domain [Buschdorf & Stratling 2004]
+It has also been shown that MeCP2 plays a role in gene splicing [Y oung et al 2005] and in long-range chromatin remodeling [Horike et al 2005], and may be a transcriptional activator [Chahrour et al 2008].
+Mechanism of disease causation. Most pathogenic MECP2 variants occur de novo. It has been suggested that pathogenic variants result in loss of protein function; some functional studies show that pathogenic MECP2 variants affect the MBD or TRD domains of the abnormal protein, depending on the location of the variant
+[Kudo et al 2001, Kudo et al 2002, Kudo et al 2003].
+MECP2-specific laboratory technical considerations. Two transcripts have been described:
+• NM_001110792.1: encodes MECP2_e1, includes exons 1, 3, and 4 but not exon 2 (498 amino acids)
+
+• NM_004992.3: encodes MECP2_e2, includes exons 2, 3, and 4 but not exon 1 (486 amino acids)
+Although the isoforms are nearly identical, use of two alternative start codons creates alternative N-termini. The e1 transcript is much more highly expressed in brain than the e2 transcript [Kriaucionis & Bird 2004,
+Mnatzakanian et al 2004].Of note:
+• Exon 1 (MECP2_e1): pathogenic variants in exon 1 are rare and include variants in the start codon
+(p.Met1?) and p.Ala2 as well as variant frameshift changes [Amir et al 2005, Evans et al 2005, Poirier et al 2005, Ravn et al 2005, Saxena et al 2006, Saunders et al 2009, Sheikh et al 2017].
+• Exon 2 (MECP2_e2): a pathogenic variant in the start codon (p.Met1?) has been reported in exon 2
+[Gauthier et al 2005].
+The majority of pathogenic variants occur in the region encoding the methyl binding domain (MBD, exons 3 and 4; amino acids 90-174 of the MeCP2 e2 isoform), affecting the ability of the MeCP2 protein to bind to target
+DNA. A number of highly recurrent nonsense variants are found in the transcriptional repression domain (TRD, exon 4; amino acids 219-322 of the MeCP2 e2 isoform) and beyond the TRD, a large number of frameshift variants delete the C-terminal end of the protein (3' end of exon 4).
+For ClinGen variant interpretation guidelines, see ClinGen Rett and Angelman-like Disorders Expert Panel
+Specifications to the ACMG/AMP Variant Interpretation Guidelines for MECP2 Version 5.0.0.
+Table 8. Notable MECP2 Pathogenic Variants
+Reference Sequences DNA Nucleotide
+Change
+Predicted Protein
+Change Comment [Reference]
+NM_004492.3
+NP_004983.1 c.473C>T p.Thr158Met
+Common, recurrent pathogenic variants [Miltenberger-
+Miltenyi & Laccone 2003, Archer et al 2006, Philippe et al 2006] c.502C>T p.Arg168Ter c.763C>T p.Arg255Ter c.808C>T p.Arg270Ter c.916C>T p.Arg306Cys c.397C>T p.Arg133Cys
+Milder phenotype in females is consistent w/in vitro functional studies showing that DNA binding is not impaired
+[Leonard et al 2003, Sheikh et al 2016].
+c.419C>T p.Ala140Val
+Nonclassic, variant Rett syndrome, observed in familial cases w/affected males [Dotti et al 2002, Klauck et al 2002, Gomot et al 2003, Venkateswaran et al 2014, Lambert et al 2016,
+Sheikh et al 2016]; heterozygous females may have mild ID & impaired speech acquistion [Klauck et al 2002, Lambert et al 2016].
+c.925C>T p.Arg309Trp
+Observed in females & males w/ID & some features of a
+MECP2 disorder, but not classic or variant Rett syndrome
+[Campos et al 2007, Schönewolf-Greulich et al 2016]
+ID = intellectual disability
+Variants listed in the table have been provided by the authors. GeneReviews staff have not independently verified the classification of variants.
+GeneReviews follows the standard naming conventions of the Human Genome Variation Society (varnomen.hgvs.org). See Quick
+Reference for an explanation of nomenclature.
+
+Chapter Notes
+Author History
+Vicky L Brandt; Baylor College of Medicine (2000-2004)
+John Christodoulou, MBBS, PhD, FRACP , FRCPA, FHGSA (2006-present)
+Gladys Ho, MSc; Children's Hospital at Westmead, Sydney (2009-2019)
+Simranpreet Kaur, MSci, MPhil (2019-present)
+Huda Y Zoghbi, MD; Baylor College of Medicine (2004-2006)
+Revision History
+• 4 December 2025 (cm) Revision: ClinGen variant interpretation guidelines
+• 19 September 2019 (bp) Comprehensive update posted live
+• 28 June 2012 (me) Comprehensive update posted live
+• 2 April 2009 (me) Comprehensive update posted live
+• 15 August 2006 (me) Comprehensive update posted live
+• 11 February 2004 (me) Comprehensive update posted live
+• 3 October 2001 (me) Review posted live
+• September 2000 (vb) Original submission
+References
+Published Guidelines / Consensus Statements
+Downs J, Bergman A, Carter P , Anderson A, Palmer GM, Roye D, van Bosse H, Bebbington A, Larsson EL,
+Smith BG, Baikie G, Fyfe S, Leonard H. Guidelines for management of scoliosis in Rett syndrome patients based on expert consensus and clinical evidence. Spine. 2009;34:E607-17.
+Literature Cited
+Amir RE, Fang P , Yu Z, Glaze DG, Percy AK, Zoghbi HY , Roa BB, Van den Veyver IB. Mutations in exon 1 of
+MECP2 are a rare cause of Rett syndrome. J Med Genet. 2005;42:e15. PubMed PMID: 15689438.
+Amir RE, Van den Veyver IB, Schultz R, Malicki DM, Tran CQ, Dahle EJ, Philippi A, Timar L, Percy AK, Motil
+KJ, Lichtarge O, Smith EO, Glaze DG, Zoghbi HY . Influence of mutation type and X chromosome inactivation on Rett syndrome phenotypes. Ann Neurol. 2000;47:670–9. PubMed PMID: 10805343.
+Amir RE, Van den Veyver IB, Wan M, Tran CQ, Francke U, Zoghbi HY . Rett syndrome is caused by mutations in X-linked MECP2, encoding methyl- CpG-binding protein 2. Nat Genet. 1999;23:185–8. PubMed PMID:
+10508514.
+Archer HL, Whatley SD, Evans JC, Ravine D, Huppke P , Kerr A, Bunyan D, Kerr B, Sweeney E, Davies SJ,
+Reardon W , Horn J, MacDermot KD, Smith RA, Magee A, Donaldson A, Crow Y , Hermon G,
+Miedzybrodzka Z, Cooper DN, Lazarou L, Butler R, Sampson J, Pilz DT, Laccone F , Clarke AJ. Gross rearrangements of the MECP2 gene are found in both classical and atypical Rett syndrome patients. J Med
+Genet. 2006;43:451–6. PubMed PMID: 16183801.
+Armstrong AH, Hangauer J, Agazzi H, Nunez A, Gieron-Korthals M. Individuals with intellectual and developmental disabilities. In: David AS, ed. Handbook of Pediatric Neuropsychology. New Y ork: Springer.
+2010;537-50.
+Baker SA, Chen L, Wilkins AD, Yu P , Lichtarge O, Zoghbi HY . An AT-hook domain in MeCP2 determines the clinical course of Rett syndrome and related disorders. Cell. 2013;152:984–96. PubMed PMID: 23452848.
+
+Bienvenu T, Philippe C, de Roux N, Raynaud M, Bonnefond JP , Pasquier L, Lesca G, Mancini J, Jonveaux P ,
+Moncla A, Feingold J, Chelly J, Villard L. The incidence of Rett syndrome in France. Pediatr Neurol.
+2006;34:372–5. PubMed PMID: 16647997.
+Buschdorf JP , Stratling WH. A WW domain binding region in methyl-CpG-binding protein MeCP2: impact on
+Rett syndrome. J Mol Med. 2004;82:135–43. PubMed PMID: 14618241.
+Campos M Jr, Abdalla CB, Santos-Rebouças CB, dos Santos AV , Pestana CP , Domingues ML, dos Santos JM,
+Pimentel MM. Low significance of MECP2 mutations as a cause of mental retardation in Brazilian males.
+Brain Dev. 2007;29:293–7. PubMed PMID: 17084570.
+Casas-Delucchi CS, Becker A, Bolius JJ, Cristina Cardoso M. Targeted manipulation of heterochromatin rescues
+MeCP2 Rett mutants and re-establishes higher order chromatin organization. Nucl Acids Res. 2012;40:e176.
+PubMed PMID: 22923521.
+Chae JH, Hwang H, Hwang YS, Cheong HJ, Kim KJ. Influence of MECP2 gene mutation and X-chromosome inactivation on the Rett syndrome phenotype. J Child Neurol. 2004;19:503–8. PubMed PMID: 15526954.
+Chahrour M, Jung SY , Shaw C, Zhou X, Wong ST, Qin J, Zoghbi HY . MeCP2, a key contributor to neurological disease, activates and represses transcription. Science. 2008;320:1224–9. PubMed PMID: 18511691.
+Charman T, Neilson TC, Mash V , Archer H, Gardiner MT, Knudsen GP , McDonnell A, Perry J, Whatley SD,
+Bunyan DJ, Ravn K, Mount RH, Hastings RP , Hulten M, Orstavik KH, Reilly S, Cass H, Clarke A, Kerr AM,
+Bailey ME. Dimensional phenotypic analysis and functional categorisation of mutations reveal novel genotype-phenotype associations in Rett syndrome. Eur J Hum Genet. 2005;13:1121–30. PubMed PMID:
+16077736.
+Cheadle JP , Gill H, Fleming N, Maynard J, Kerr A, Leonard H, Krawczak M, Cooper DN, Lynch S, Thomas N,
+Hughes H, Hulten M, Ravine D, Sampson JR, Clarke A. Long-read sequence analysis of the MECP2 gene in
+Rett syndrome patients: correlation of disease severity with mutation type and location. Hum Mol Genet.
+2000;9:1119–29. PubMed PMID: 10767337.
+Claes S, Devriendt K, D'Adamo P , Meireleire J, Raeymaekers P , Toniolo D, Cassiman JJ, Fryns JP . X-linked severe mental retardation and a progressive neurological disorder in a Belgian family: clinical and genetic studies.
+Clin Genet. 1997;52:155–61. PubMed PMID: 9377804.
+Clayton-Smith J, Watson P , Ramsden S, Black GC. Somatic mutation in MECP2 as a non-fatal neurodevelopmental disorder in males. Lancet. 2000;356:830–2. PubMed PMID: 11022934.
+Dotti MT, Orrico A, De Stefano N, Battisti C, Sicurelli F , Severi S, Lam CW , Galli L, Sorrentino V , Federico A. A
+Rett syndrome MECP2 mutation that causes mental retardation in men. Neurology. 2002;58:226–30.
+PubMed PMID: 11805248.
+Downs J, Bergman A, Carter P , Anderson A, Palmer GM, Roye D, van Bosse H, Bebbington A, Larsson EL,
+Smith BG, Baikie G, Fyfe S, Leonard H. Guidelines for management of scoliosis in Rett syndrome patients based on expert consensus and clinical evidence. Spine. 2009;34:E607–17. PubMed PMID: 19644320.
+Einspieler C, Marschik PB. Regression in Rett syndrome: developmental pathways to its onset. Neurosci
+Biobehav Rev. 2019;98:320–32. PubMed PMID: 30832924.
+Elia M, Falco M, Ferri R, Spalletta A, Bottitta M, Calabrese G, Carotenuto M, Musumeci SA, Lo Giudice M,
+Fichera M. CDKL5 mutations in boys with severe encephalopathy and early-onset intractable epilepsy.
+Neurology. 2008;71:997–9. PubMed PMID: 18809835.
+Ellaway C, Williams K, Leonard H, Higgins G, Wilcken B, Christodoulou J. Rett syndrome: randomized controlled trial of L-carnitine. J Child Neurol. 1999;14:162–7. PubMed PMID: 10190267.
+Evans JC, Archer HL, Whatley SD, Kerr A, Clarke A, Butler R. Variation in exon 1 coding region and promoter of MECP2 in Rett syndrome and controls. Eur J Hum Genet. 2005;13:124–6. PubMed PMID: 15367913.
+
+Gauthier J, de Amorim G, Mnatzakanian GN, Saunders C, Vincent JB, Toupin S, Kauffman D, St-Onge J,
+Laurent S, Macleod PM, Minassian BA, Rouleau GA. Clinical stringency greatly improves mutation detection in Rett syndrome. Can J Neurol Sci. 2005;32:321–6. PubMed PMID: 16225173.
+Gendrot C, Ronce N, Raynaud M, Ayrault AD, Dourlens J, Castelnau P , Muh JP , Chelly J, Moraine C. X-linked nonspecific mental retardation (MRX16) mapping to distal Xq2 8: linkage study and neuropsychological data in a large family. Am J Med Genet. 1999;83:411–8. PubMed PMID: 10232754.
+Giudice-Nairn P , Downs J, Wong K, Wilson D, Ta D, Gattas M, Amor D, Thompson E, Kirrali-Borri C, Ellaway
+C, Leonard H. The incidence, prevalence and clinical features of MECP2 duplication syndrome in Australian children. J Paediatr Child Health. 2019;55:1315–22. PubMed PMID: 30756435.
+Gold W A, Krishnaraj R, Ellaway C, Christodoulou J. Rett syndrome: a genetic update and clinical review focusing on comorbidities. ACS Chem Neurosci. 2018;9:167–76. PubMed PMID: 29185709.
+Gomot M, Gendrot C, Verloes A, Raynaud M, David A, Yntema HG, Dessay S, Kalscheuer V , Frints S, Couvert
+P , Briault S, Blesson S, Toutain A, Chelly J, Desportes V , Moraine C. MECP2 gene mutations in nonsyndromic X-linked mental retardation: phenotype-genotype correlation. Am J Med Genet A.
+2003;123A:129–39. PubMed PMID: 14598336.
+Hansen JC, Ghosh RP , Woodcock CL. Binding of the Rett syndrome protein, MeCP2, to methylated and unmethylated DNA and chromatin. IUBMB Life. 2010;62:732–8. PubMed PMID: 21031501.
+Hardwick SA, Reuter K, Williamson SL, Vasudevan V , Donald J, Slater K, Bennetts B, Bebbington A, Leonard H,
+Williams SR, Smith RL, Cloosterman D, Christodoulou J. Delineation of large deletions of the MECP2 gene in Rett syndrome patients, including a familial case with a male proband. Eur J Hum Genet. 2007;15:1218–
+29. PubMed PMID: 17712354.
+Heckman LD, Chahrour MH, Zoghbi HY . Rett-causing mutations reveal two domains critical for MeCP2 function and for toxicity in MECP2 duplication syndrome mice. eLife. 2014;3:e02676. PubMed PMID:
+24970834.
+Hoffbuhr K, Devaney JM, LaFleur B, Sirianni N, Scacheri C, Giron J, Schuette J, Innis J, Marino M, Philippart
+M, Narayanan V , Umansky R, Kronn D, Hoffman EP , Naidu S. MeCP2 mutations in children with and without the phenotype of Rett syndrome. Neurology. 2001;56:1486–95. PubMed PMID: 11402105.
+Horike S, Cai S, Miyano M, Cheng JF , Kohwi-Shigematsu T. Loss of silent-chromatin looping and impaired imprinting of DLX5 in Rett syndrome. Nat Genet. 2005;37:31–40. PubMed PMID: 15608638.
+Huang SJ, Amendola LM, Sternen DL. Variation among DNA banking consent forms: points for clinicians to bank on. J Community Genet. 2022;13:389-97. PubMed PMID: 35834113.
+Huppke P , Laccone F , Kramer N, Engel W , Hanefeld F . Rett syndrome: analysis of MECP2 and clinical characterization of 31 patients. Hum Mol Genet. 2000;9:1369–75. PubMed PMID: 10814718.
+Jefferson A, Leonard H, Siafarikas A, Woodhead H, Fyfe S, Ward LM, Munns C, Motil K, Tarquinio D, Shapiro
+JR, Brismar T, Ben-Zeev B, Bisgaard AM, Coppola G, Ellaway C, Freilinger M, Geerts S, Humphreys P , Jones
+M, Lane J, Larsson G, Lotan M, Percy A, Pineda M, Skinner S, Syhler B, Thompson S, Weiss B, Witt
+Engerström I, Downs J. Clinical guidelines for management of bone health in Rett syndrome based on expert consensus and available evidence. PLoS One. 2016;11:e0146824. PubMed PMID: 26849438.
+Kankirawatana P , Leonard H, Ellaway C, Scurlock J, Mansour A, Makris CM, Dure LS 4th, Friez M, Lane J,
+Kiraly-Borri C, Fabian V , Davis M, Jackson J, Christodoulou J, Kaufmann WE, Ravine D, Percy AK. Early progressive encephalopathy in boys and MECP2 mutations. Neurology. 2006;67:164–6. PubMed PMID:
+16832102.
+Kaufmann WE, Jarrar MH, Wang JS, Lee YJ, Reddy S, Bibat G, Naidu S. Histone modifications in Rett syndrome lymphocytes: a preliminary evaluation. Brain Dev. 2005;27:331–9. PubMed PMID: 16023547.
+
+Klauck SM, Lindsay S, Beyer KS, Splitt M, Burn J, Poustka A. A mutation hot spot for nonspecific X-linked mental retardation in the MECP2 gene causes the PPM-X syndrome. Am J Hum Genet. 2002;70:1034–7.
+PubMed PMID: 11885030.
+Kortüm F , Das S, Flindt M, Morris-Rosendahl DJ, Stefanova I, Goldstein A, Horn D, Klopocki E, Kluger G,
+Martin P , Rauch A, Roumer A, Saitta S, Walsh LE, Wieczorek D, Uyanik G, Kutsche K, Dobyns WB. The core
+FOXG1 syndrome phenotype consists of postnatal microcephaly, severe mental retardation, absent language, dyskinesia, and corpus callosum hypogenesis. J Med Genet. 2011;48:396–406. PubMed PMID: 21441262.
+Kriaucionis S, Bird A. The major form of MeCP2 has a novel N-terminus generated by alternative splicing.
+Nucleic Acids Res. 2004;32:1818–23. PubMed PMID: 15034150.
+Kudo S, Nomura Y , Segawa M, Fujita N, Nakao M, Dragich J, Schanen C, Tamura M. Functional analyses of
+MeCP2 mutations associated with Rett syndrome using transient expression systems. Brain Dev.
+2001;23:S165–73. PubMed PMID: 11738866.
+Kudo S, Nomura Y , Segawa M, Fujita N, Nakao M, Hammer S, Schanen C, Terai I, Tamura M. Functional characterisation of MeCP2 mutations found in male patients with X linked mental retardation. J Med Genet.
+2002;39:132–6. PubMed PMID: 11836365.
+Kudo S, Nomura Y , Segawa M, Fujita N, Nakao M, Schanen C, Tamura M. Heterogeneity in residual function of
+MeCP2 carrying missense mutations in the methyl CpG binding domain. J Med Genet. 2003;40:487–93.
+PubMed PMID: 12843318.
+Lambert S, Maystadt I, Boulanger S, Vrielynck P , Destrée A, Lederer D, Moortgat S. Expanding phenotype of p.Ala140Val mutation in MECP2 in a 4 generation family with X-linked intellectual disability and spasticity.
+Eur J Med Genet. 2016;59:522–5. PubMed PMID: 27465203.
+Laurvick CL, de Klerk N, Bower C, Christodoulou J, Ravine D, Ellaway C, Williamson S, Leonard H. Rett syndrome in Australia: a review of the epidemiology. J Pediatr. 2006;148:347–52. PubMed PMID: 16615965.
+Leonard H, Colvin L, Christodoulou J, Schiavello T, Williamson S, Davis M, Ravine D, Fyfe S, de Klerk N,
+Matsuishi T, Kondo I, Clarke A, Hackwell S, Y amashita Y . Patients with the R133C mutation: is their phenotype different from patients with Rett syndrome with other mutations? J Med Genet. 2003;40:e52.
+PubMed PMID: 12746406.
+Leonard H, Ravikumara M, Baikie G, Naseem N, Ellaway C, Percy A, Abraham S, Geerts S, Lane J, Jones M,
+Bathgate K, Downs J, et al. Assessment and management of nutrition and growth in Rett syndrome. J Pediatr
+Gastroenterol Nutr. 2013;57:451–60. PubMed PMID: 24084372.
+Leonard H, Silberstein J, Falk R, Houwink-Manville I, Ellaway C, Raffaele LS, Engerstrom IW , Schanen C.
+Occurrence of Rett syndrome in boys. J Child Neurol. 2001;16:333–8. PubMed PMID: 11392517.
+Lindsay S, Splitt M, Edney S, Berney TP , Knight SJ, Davies KE, O'Brien O, Gale M, Burn J. PPM-X: a new Xlinked mental retardation syndrome with psychosis, pyramidal signs, and macroorchidism maps to Xq28.
+Am J Hum Genet. 1996;58:1120–6. PubMed PMID: 8651288.
+Lubs H, Abidi F , Bier JA, Abuelo D, Ouzts L, Voeller K, Fennell E, Stevenson RE, Schwartz CE, Arena F . XLMR syndrome characterized by multiple respiratory infections, hypertelorism, severe CNS deterioration and early death localizes to distal Xq28. Am J Med Genet. 1999;85:243–8. PubMed PMID: 10398236.
+Lugtenberg D, Kleefstra T, Oudakker AR, Nillesen WM, Yntema HG, Tzschach A, Raynaud M, Rating D,
+Journel H, Chelly J, Goizet C, Lacombe D, Pedespan JM, Echenne B, Tariverdian G, O'Rourke D, King MD,
+Green A, van Kogelenberg M, Van Esch H, Gecz J, Hamel BC, van Bokhoven H, de Brouwer AP . Structural variation in Xq28: MECP2 duplications in 1% of patients with unexplained XLMR and in 2% of male patients with severe encephalopathy. Eur J Hum Genet. 2009;17:444–53. PubMed PMID: 18985075.
+
+Makedonski K, Abuhatzira L, Kaufman Y , Razin A, Shemer R. MeCP2 deficiency in Rett syndrome causes epigenetic aberrations at the PWS/AS imprinting center that affects UBE3A expression. Hum Mol Genet.
+2005;14:1049–58. PubMed PMID: 15757975.
+Mari F , Caselli R, Russo S, Cogliati F , Ariani F , Longo I, Bruttini M, Meloni I, Pescucci C, Schurfeld K, Toti P ,
+Tassini M, Larizza L, Hayek G, Zappella M, Renieri A. Germline mosaicism in Rett syndrome identified by prenatal diagnosis. Clin Genet. 2005;67:258–60. PubMed PMID: 15691364.
+Meins M, Lehmann J, Gerresheim F , Herchenbach J, Hagedorn M, Hameister K, Epplen JT. Submicroscopic duplication in Xq28 causes increased expression of the MECP2 gene in a boy with severe mental retardation and features of Rett syndrome. J Med Genet. 2005;42:e12. PubMed PMID: 15689435.
+Meloni I, Bruttini M, Longo I, Mari F , Rizzolio F , D'Adamo P , Denvriendt K, Fryns JP , Toniolo D, Renieri A. A mutation in the rett syndrome gene, MECP2, causes X-linked mental retardation and progressive spasticity in males. Am J Hum Genet. 2000;67:982–5. PubMed PMID: 10986043.
+Miltenberger-Miltenyi G, Laccone F . Mutations and polymorphisms in the human methyl CpG-binding protein
+MECP2. Hum Mutat. 2003;22:107–15. PubMed PMID: 12872250.
+Mnatzakanian GN, Lohi H, Munteanu I, Alfred SE, Y amada T, MacLeod PJ, Jones JR, Scherer SW , Schanen NC,
+Friez MJ, Vincent JB, Minassian BA. A previously unidentified MECP2 open reading frame defines a new protein isoform relevant to Rett syndrome. Nat Genet. 2004;36:339–41. PubMed PMID: 15034579.
+Moog U, Smeets EE, van Roozendaal KE, Schoenmakers S, Herbergs J, Schoonbrood-Lenssen AM, Schrander-
+Stumpel CT. Neurodevelopmental disorders in males related to the gene causing Rett syndrome in females
+(MECP2). Eur J Paediatr Neurol. 2003;7:5–12. PubMed PMID: 12615169.
+Neul JL, Kaufmann WE, Glaze DG, Christodoulou J, Clarke AJ, Bahi-Buisson N, Leonard H, Bailey ME,
+Schanen NC, Zappella M, Renieri A, Huppke P , Percy AK, et al. Rett syndrome: revised diagnostic criteria and nomenclature. Ann Neurol. 2010;68:944–50. PubMed PMID: 21154482.
+Orrico A, Lam C, Galli L, Dotti MT, Hayek G, Tong SF , Poon PM, Zappella M, Federico A, Sorrentino V .
+MECP2 mutation in male patients with non-specific X-linked mental retardation. FEBS Lett. 2000;481:285–
+8. PubMed PMID: 11007980.
+Pan H, Li MR, Nelson P , Bao XH, Wu XR, Yu S. Large deletions of the MECP2 gene in Chinese patients with classical Rett syndrome. Clin Genet. 2006;70:418–9. PubMed PMID: 17026625.
+Philippe C, Villard L, De Roux N, Raynaud M, Bonnefond JP , Pasquier L, Lesca G, Mancini J, Jonveaux P ,
+Moncla A, Chelly J, Bienvenu T. Spectrum and distribution of MECP2 mutations in 424 Rett syndrome patients: a molecular update. Eur J Med Genet. 2006;49:9–18. PubMed PMID: 16473305.
+Poirier K, Francis F , Hamel B, Moraine C, Fryns JP , Ropers HH, Chelly J, Bienvenu T. Mutations in exon 1 of
+MECP2B are not a common cause of X-linked mental retardation in males. Eur J Hum Genet. 2005;13:523–
+4. PubMed PMID: 15770224.
+Psoni S, Sofocleous C, Traeger-Synodinos J, Kitsiou-Tzeli S, Kanavakis E, Fryssira-Kanioura H. Phenotypic and genotypic variability in four males with MECP2 gene sequence aberrations including a novel deletion.
+Pediatr Res. 2010;67:551–6. PubMed PMID: 20098342.
+Ramocki MB, Peters SU, Tavyev YJ, Zhang F , Carvalho CM, Schaaf CP , Richman R, Fang P , Glaze DG, Lupski
+JR, Zoghbi HY . Autism and other neuropsychiatric symptoms are prevalent in individuals with MeCP2 duplication syndrome. Ann Neurol. 2009;66:771–82. PubMed PMID: 20035514.
+Ravn K, Nielsen JB, Skjeldal OH, Kerr A, Hulten M, Schwartz M. Large genomic rearrangements in MECP2.
+Hum Mutat. 2005;25:324. PubMed PMID: 15712379.
+Richards S, Aziz N, Bale S, Bick D, Das S, Gastier-Foster J, Grody WW , Hegde M, Lyon E, Spector E,
+Voelkerding K, Rehm HL, et al. Standards and guidelines for the interpretation of sequence variants: a joint
+
+consensus recommendation of the American College of Medical Genetics and Genomics and the Association for Molecular Pathology. Genet Med. 2015;17:405–24. PubMed PMID: 25741868.
+Sarajlija A, Kisic-Tepavcevic D, Nikolic Z, Savic Pavicevic D, Obradovic S, Djuric M, Pekmezovic T.
+Epidemiology of Rett syndrome in Serbia: prevalence, incidence and survival. Neuroepidemiology.
+2015;44:1–5. PubMed PMID: 25571926.
+Saunders CJ, Minassian BE, Chow EW , Zhao W , Vincent JB. Novel exon 1 mutations in MECP2 implicate isoform MeCP2_e1 in classical Rett syndrome. Am J Med Genet A. 2009;149A:1019–23. PubMed PMID:
+19365833.
+Saxena A, de Lagarde D, Leonard H, Williamson SL, Vasudevan V , Christodoulou J, Thompson E, MacLeod P ,
+Ravine D. Lost in translation: translational interference from a recurrent mutation in exon 1 of MECP2. J
+Med Genet. 2006;43:470–7. PubMed PMID: 16155192.
+Schanen C, Houwink EJ, Dorrani N, Lane J, Everett R, Feng A, Cantor RM, Percy A. Phenotypic manifestations of MECP2 mutations in classical and atypical Rett syndrome. Am J Med Genet A. 2004;126A:129–40.
+PubMed PMID: 15057977.
+Schanen NC, Kurczynski TW , Brunelle D, Woodcock MM, Dure LS 4th, Percy AK. Neonatal encephalopathy in two boys in families with recurrent Rett syndrome. J Child Neurol. 1998;13:229–31. PubMed PMID:
+9620015.
+Schönewolf-Greulich B, Tejada MI, Stephens K, Hadzsiev K, Gauthier J, Brøndum-Nielsen K, Pfundt R, Ravn K,
+Maortua H, Gener B, Martínez-Bouzas C, Piton A, Rouleau G, Clayton-Smith J, Kleefstra T, Bisgaard AM,
+Tümer Z. The MECP2 variant c.925C>T (p.Arg309Trp) causes intellectual disability in both males and females without classic features of Rett syndrome. Clin Genet. 2016;89:733–8. PubMed PMID: 26936630.
+Schüle B, Armstrong DD, Vogel H, Oviedo A, Francke U. Severe congenital encephalopathy caused by MECP2 null mutations in males: central hypoxia and reduced neuronal dendritic structure. Clin Genet. 2008;74:116–
+26. PubMed PMID: 18477000.
+Schwartzman JS, Bernardino A, Nishimura A, Gomes RR, Zatz M. Rett syndrome in a boy with a 47,XXY karyotype confirmed by a rare mutation in the MECP2 gene. Neuropediatrics. 2001;32:162–4. PubMed
+PMID: 11521215.
+Sheikh TI, Ausió J, Faghfoury H, Silver J, Lane JB, Eubanks JH, MacLeod P , Percy AK, Vincent JB. From function to phenotype: impaired DNA binding and clustering correlates with clinical severity in males with missense mutations in MECP2. Sci Rep. 2016;6:38590. PubMed PMID: 27929079.
+Sheikh TI, de Paz AM, Akhtar S, Ausió J, Vincent JB. MeCP2_E1 N-terminal modifications affect its degradation rate and are disrupted by the Ala2Val Rett mutation. Hum Mol Genet. 2017;26:4132–41.
+PubMed PMID: 28973632.
+Stallworth JL, Dy ME, Buchanan CB, Chen CF , Scott AE, Glaze DG, Lane JB, Lieberman DN, Oberman LM,
+Skinner SA, Tierney AE, Cutter GR, Percy AK, Neul JL, Kaufmann WE. Hand stereotypies: lessons from the
+Rett Syndrome Natural History Study. Neurology. 2019;92:e2594–603. PubMed PMID: 31053667.
+Topçu M, Akyerli C, Sayi A, Toruner GA, Kocoglu SR, Cimbis M, Ozcelik T. Somatic mosaicism for a MECP2 mutation associated with classic Rett syndrome in a boy. Eur J Hum Genet. 2002;10:77–81. PubMed PMID:
+11896459.
+Van Esch H, Bauters M, Ignatius J, Jansen M, Raynaud M, Hollanders K, Lugtenberg D, Bienvenu T, Jensen LR,
+Gecz J, Moraine C, Marynen P , Fryns JP , Froyen G. Duplication of the MECP2 region is a frequent cause of severe mental retardation and progressive neurological symptoms in males. Am J Hum Genet. 2005;77:442–
+53. PubMed PMID: 16080119.
+Venâncio M, Santos M, Pereira SA, Maciel P , Saraiva JM. An explanation for another familial case of Rett syndrome: maternal germline mosaicism. Eur J Hum Genet. 2007;15:902–4. PubMed PMID: 17440498.
+
+Venkateswaran S, McMillan HJ, Doja A, Humphreys P . Adolescent onset cognitive regression and neuropsychiatric symptoms associated with the A140V MECP2 mutation. Dev Med Child Neurol.
+2014;56:91–4. PubMed PMID: 24328834.
+Villard L, Kpebe A, Cardoso C, Chelly PJ, Tardieu PM, Fontes M. Two affected boys in a Rett syndrome family:
+clinical and molecular findings. Neurology. 2000;55:1188–93. PubMed PMID: 11071498.
+Wan M, Lee SS, Zhang X, Houwink-Manville I, Song HR, Amir RE, Budden S, Naidu S, Pereira JL, Lo IF , Zoghbi
+HY , Schanen NC, Francke U. Rett syndrome and beyond: recurrent spontaneous and familial MECP2 mutations at CpG hotspots. Am J Hum Genet. 1999;65:1520–9. PubMed PMID: 10577905.
+Weaving LS, Williamson SL, Bennetts B, Davis M, Ellaway CJ, Leonard H, Thong MK, Delatycki M, Thompson
+EM, Laing N, Christodoulou J. Effects of MECP2 mutation type, location and X-inactivation in modulating
+Rett syndrome phenotype. Am J Med Genet A. 2003;118A:103–14. PubMed PMID: 12655490.
+Winnepenninckx B, Errijgers V , Hayez-Delatte F , Reyniers E, Frank Kooy R. Identification of a family with nonspecific mental retardation (MRX79) with the A140V mutation in the MECP2 gene: is there a need for routine screening? Hum Mutat. 2002;20:249–52. PubMed PMID: 12325019.
+Y oung JI, Hong EP , Castle JC, Crespo-Barreto J, Bowman AB, Rose MF , Kang D, Richman R, Johnson JM,
+Berget S, Zoghbi HY . Regulation of RNA splicing by the methylation-dependent transcriptional repressor methyl-CpG binding protein 2. Proc Natl Acad Sci USA. 2005;102:17551–8. PubMed PMID: 16251272.
+Zahorakova D, Rosipal R, Hadac J, Zumrova A, Bzduch V , Misovicova N, Baxova A, Zeman J, Martasek P .
+Mutation analysis of the MECP2 gene in patients of Slavic origin with Rett syndrome: novel mutations and polymorphisms. J Hum Genet. 2007;52:342–8. PubMed PMID: 17387578.
+Zeev BB, Y aron Y , Schanen NC, Wolf H, Brandt N, Ginot N, Shomrat R, Orr-Urtreger A. Rett syndrome: clinical manifestations in males with MECP2 mutations. J Child Neurol. 2002;17:20–4. PubMed PMID: 11913564.
+Zhang Q, Y ang X, Wang J, Li J, Wu Q, Wen Y , Zhao Y , Zhang X, Y ao H, Wu X, Yu S, Wei L, Bao X. Genomic mosaicism in the pathogenesis and inheritance of a Rett syndrome cohort. Genet Med. 2019;21:1330–8.
+PubMed PMID: 30405208.
+License
+GeneReviews® chapters are owned by the University of Washington. Permission is hereby granted to reproduce, distribute, and translate copies of content materials for noncommercial research purposes only, provided that (i) credit for source (https://www.genereviews.org) and copyright (© 1993-2026 University of Washington) are included with each copy; (ii) a link to the original material is provided whenever the material is published elsewhere on the Web; and (iii) reproducers, distributors, and/or translators comply with the GeneReviews® Copyright Notice and Usage Disclaimer. No further modifications are allowed. For clarity, excerpts of GeneReviews chapters for use in lab reports and clinic notes are a permitted use.
+For more information, see the GeneReviews® Copyright Notice and Usage Disclaimer.
+For questions regarding permissions or whether a specified use is allowed, contact: addmast@wu.edu

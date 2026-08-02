@@ -1,28 +1,1088 @@
-=== RAG_CORPUS_PLACEHOLDER 待填充：本文件尚未粘贴原文，灌库时会被跳过 ===
+NLM Citation: Driscoll DJ, Miller JL, Cassidy SB. Prader-Willi
+Syndrome. 1998 Oct 6 [Updated 2026 Feb 19]. In: Adam MP , Bick S,
+Mirzaa GM, et al., editors. GeneReviews® [Internet]. Seattle (WA):
+University of Washington, Seattle; 1993-2026.
+Bookshelf URL: https://www.ncbi.nlm.nih.gov/books/
+Synonym: Prader-Labhart-Willi Syndrome
+Daniel J Driscoll, MD, PhD, FFACMGG, FAAP ,1 Jennifer L Miller, MD, MS, FAAP ,2 and Suzanne B Cassidy, MD, FFACMGG3
+Created: October 6, 1998; Revised: February 19, 2026.
+Summary
+Clinical characteristics
+Prader-Willi syndrome (PWS) is characterized by severe hypotonia, poor appetite, and feeding difficulties in early infancy, followed in early childhood by excessive eating and gradual development of morbid obesity (unless food intake is strictly controlled). Motor milestones and language development are delayed. All individuals have some degree of cognitive impairment. Hypogonadism is present in both males and females and manifests as genital hypoplasia, incomplete pubertal development, and, in most, infertility. Short stature is common (if not treated with growth hormone). A distinctive behavioral phenotype (temper tantrums, stubbornness, manipulative behavior, and obsessive-compulsive characteristics) is common. Characteristic facial features, strabismus, and scoliosis are often present.
+Diagnosis/testing
+PWS is a contiguous gene syndrome due to abnormal DNA methylation within the Prader-Willi critical region
+(PWCR) at 15q11.2-q13. The diagnosis and molecular cause can be identified in a proband by simultaneous
+DNA methylation analysis and oligo-SNP combination array (OSA). DNA methylation analysis identifies maternal-only imprinting within the PWCR. OSA can identify the molecular cause in those with a 15q11.2-q13 deletion, imprinting center deletion, and uniparental isodisomy and segmental isodisomy. In individuals with maternal-only imprinting identified on DNA methylation analysis and a normal OSA, DNA polymorphism analysis can be used to distinguish uniparental heterodisomy from an imprinting defect by epimutation.
+Management
+Targeted therapy: Diazoxide choline for hyperphagia.
+Author Affiliations: 1 Professor of Pediatrics and Genetics, Hayward Professor of Genetics Research, University of
+Florida College of Medicine, Gainesville, Florida; Email: driscdj@peds.ufl.edu. 2 Professor of Pediatrics, Division of
+Pediatric Endocrinology, University of Florida College of Medicine, Gainesville, Florida; Email: millejl@peds.ufl.edu. 3
+Clinical Professor of Pediatrics, Division of Medical Genetics, University of California, San Francisco, San Francisco,
+California; Email: suzannecassidy@comcast.net.
+Copyright © 1993-2026, University of Washington, Seattle. GeneReviews is a registered trademark of the University of
+Washington, Seattle. All rights reserved. Test.
 
-来源：GeneReviews - Prader-Willi Syndrome
-NBK ID：NBK1330
-链接：https://www.ncbi.nlm.nih.gov/books/NBK1330/
-入库归属：桶 A（鉴别诊断）｜condition = Prader-Willi 综合征｜gene = 15q11.2-q13
+Supportive care: In infancy, special nipples or nasogastric tube feeding to assure adequate nutrition. In childhood, strict supervision of daily food intake based on height, weight, and body mass index (BMI) to provide energy requirements while limiting excessive weight gain (maintain BMI z score <2); encourage physical activity. Developmental services and educational support; hormonal and surgical treatments can be considered for cryptorchidism; growth hormone therapy to normalize height, increase lean body mass and mobility, and decrease fat mass; endocrine management of sex hormone replacement at puberty; treatment for those with precocious puberty, type 2 diabetes, and hypothyroidism; urgent evaluation for those with acute gastrointestinal manifestations; topiramate or N-acetylcysteine as needed for skin picking; standard treatment for neurobehavioral and ophthalmologic manifestations, sleep issues, scoliosis, hip dysplasia, and seizures;
+modafinil may be helpful for daytime sleepiness; calcium and vitamin D supplementation to avoid osteoporosis;
+sex steroid therapy, growth hormone, or bisphosphonates for low bone density; products for dry mouth and frequent dental hygiene; social work support and care coordination. In adulthood, a residential facility for individuals with PWS that helps regulate behavior and weight management may prevent morbid obesity, and growth hormone may help to maintain muscle mass.
+Surveillance: Monitor development, growth, skin, sleep issues, and family needs at each visit. Assess testicular position annually in males; assess glycosylated hemoglobin and/or glucose tolerance test in adolescents and those with obesity or rapid weight gain; and assess free thyroxine and TSH every six to 12 months. Assess for central adrenal insufficiency as needed; monitor height, weight, and BMI monthly in infancy, every six months until age ten years, and then annually. Assess for behavioral issues annually after age two years, and for psychosis annually in adolescent and adults. Assess for vision issues and sleep issues annually; sleep study prior to starting growth hormone therapy and four to eight weeks after starting growth hormone therapy. Clinical examination for scoliosis at each visit when child can sit independently; spine radiographs annually in those with clinical findings of scoliosis or obesity; DXA scan every two years beginning in adolescence. Assess for new seizures or monitor those with seizures at each visit. Dental evaluations every six months or more frequently in those with dental issues.
+Agents/circumstances to avoid: Unsupervised access to food; emetics; antidiarrheal medications; sedatives and other medications.
+Genetic counseling
+Individuals with PWS typically represent simplex cases (i.e., a single affected family member) and have the disorder as the result of a de novo genetic alteration. The vast majority of families have a recurrence risk of less than 1%. However, certain etiologies involve a recurrence risk as high as 50%, and a scenario with a risk of almost 100%, though very unlikely, is theoretically possible. Reliable PWS recurrence risk assessment therefore requires identification of the genetic mechanism of PWS in the proband (i.e., a 15q deletion, UPD 15, or an imprinting defect) and parental testing to discern the presence of a predisposing genetic alternation (e.g., a parental chromosome rearrangement or paternal heterozygosity for an imprinting center deletion). Once the causative genetic mechanism has been identified in the proband, prenatal testing for PWS is possible.
+Diagnosis
+Suggestive Findings
+Prader-Willi syndrome (PWS) should be suspected in individuals with the following specific clinical findings and/or laboratory findings.
 
-无专属测试用例。与安格曼综合征同属 15q11.2-q13 区域但亲本来源相反，
-是解释印记机制时的有用对照。
+Clinical Findings
+Clinical findings differ by age group. The presence of all the findings for a given age group in an individual of that age is sufficient to justify molecular analysis for PWS (see Establishing the Diagnosis).
+Neonatal period. Hypotonia with poor suck
+Age one month to two years
+• Hypotonia with poor appetite and suck in the neonatal period
+• Developmental delay
+Age two to six years
+• Hypotonia with history of poor suck
+• Developmental delay
+Age six to 12 years
+• History of hypotonia with poor suck (hypotonia often persists)
+• Developmental delay
+• Excessive eating with central obesity if uncontrolled externally
+Age 13 years to adulthood
+• Cognitive impairment, usually mild intellectual disability
+• Excessive eating and hyperphagia with central obesity if uncontrolled externally
+• Hypothalamic hypogonadism and/or typical behavioral findings
+Laboratory Findings
+Deletion of the 15q11.2-q13 genomic region is suggestive of PWS but not diagnostic.
+Establishing the Diagnosis
+The diagnosis of PWS is established in a proband by identification of abnormal DNA methylation within the
+Prader-Willi critical region (PWCR) at 15q11.2-q13 in which the region demonstrates maternal-only imprinting due to one of the following:
+• Deletion of the paternally inherited 15q11.2-q13 region
+• Uniparental disomy of the maternal chromosome 15q11.2-q13 region (UPD 15)
+• An imprinting defect of the paternal chromosome 15q11.2-q13 region either due to an imprinting center deletion or epimutation
+Molecular genetic testing approaches include first-tier, second-tier, and other testing options.
+Recommended first-tier testing. Testing should begin with both DNA methylation analysis and oligo-small nucleotide polymorphism (SNP) combination array (OSA) to establish the diagnosis and identify the molecular cause in most individuals (see Figure 1 and Table 1).
+• DNA methylation analysis, typically by methylation-specific PCR (MSP), can establish the diagnosis of
+PWS by identification of maternal-only imprinting at 15q11.2-q13 but cannot identify the cause of the abnormal DNA methylation (i.e., test results cannot distinguish between a 15q deletion, UPD 15, or imprinting defect).
+• OSA uses a combination of both oligonucleotide and SNP probes to detect deletions/duplications, distinguish type 1 and 2 deletions as well as atypical deletions (see Figure 2), and determine if there are
 
---- 操作步骤 ---
+any other significant chromosomal abnormalities (in the rare instances of unbalanced translocations).
+Most current OSAs will also detect small imprinting center deletions, as well as other genetic conditions that have clinical features that overlap with PWS (e.g., deletions of the SNORD116 gene cluster; see
+Differential Diagnosis). In addition, an OSA will identify individuals with UPD 15 due to isodisomy and segmental isodisomy.
+Recommend second-tier testing. In individuals with abnormal DNA methylation at 15q11.2-q13 demonstrating maternal-only imprinting and no 15q deletion or UPD 15 (no absence of heterozygosity by isodisomy or segmental isodisomy) identified on OSA, DNA polymorphism testing of the proband and parents is recommended to identify UPD 15 due to heterodisomy or abnormal DNA methylation due to an epigenetic imprinting defect.
+Other testing options
+• Methylation-specific multiplex ligation-dependent probe amplification (MS-MLP A) can establish the diagnosis of PWS by identification of maternal-only imprinting at 15q11.2-q13 and can (1) identify and approximate the size of the deletion of the paternally inherited 15q11.2-q13 region; (2) identify type 1 and 2 deletions (see Figure 2); (3) interrogate six differentially methylated regions versus only one region interrogated by MSP; (4) often identify and quantify mosaicism; and (5) identify imprinting center and
+SNORD116 deletions (see Figure 1 and Differential Diagnosis). MS-MLPA cannot distinguish UPD 15 from an imprinting defect by epimutation.
+• DNA sequence analysis. In individuals with abnormal DNA methylation at 15q11.2-q13 demonstrating maternal-only imprinting, DNA sequence analysis can identify imprinting defects due to imprinting center deletions. Note: This test is not often used, since MS-MLPA and most OSAs have concentrated probes to detect imprinting center deletions.
+• FISH analysis is limited by the specific probes used (e.g., SNRPN) and can identify a deletion of 15q11.2q13. FISH does not (1) query the whole PWCR; (2) determine the size of the deletion; (3) provide information about the rest of the chromosomes; or (4) identify UPD 15 or imprinting defects. FISH analysis is not a recommended first-tier test but may be used to clarify recurrence risk (see Tables 10 and 11).
+Note: The underlying genetic etiology of PWS is important to discern for genetic counseling (see Tables 10 and 11).
 
-1. 打开上面的链接，在网页正文区全选复制。
-2. 删除本文件的全部内容（含本行说明），把原文粘贴进来，以 UTF-8 保存。
-3. 回到项目根目录运行 python scripts/rag_builder.py --dry-run 检查切分统计。
+Table 1. Molecular Genetic Testing Used in Prader-Willi Syndrome
+Mechanism 1
+Proportion of PWS
+Attributed to
+Mechanism
+DNA Methylation
+Analysis 2 OSA 3 DNA Polymorphism
+Testing 4 MS-MLPA 5 15q deletion ~60%-70%
+DNA methylation abnormal; cannot distinguish cause
++ +
+UPD 15 complete isodisomy 4%-5% +
+DNA methylation abnormal; cannot distinguish cause
+UPD 15 segmental isodisomy 17%-23% +
+UPD 15 heterodisomy 6 ~8%-11% +
+Imprinting center deletion <0.5% + +
+Imprinting defect by epimutation ~2%-4% +
+DNA methylation abnormal; cannot distinguish cause
++ = mechanism can be identified by test method; MS-MLPA = methylation-specific multiplex ligation-dependent probe amplification;
+OSA = oligo-small nucleotide polymorphism (SNP) combination array; PWS = Prader-Willi syndrome; UPD = uniparental disomy
+1. See Molecular Genetics for more details.
+2. Typically by methylation-specific PCR (MSP).
+3. OSA can detect genome-wide large deletions/duplications that cannot be detected by sequence analysis and provide detailed information regarding the size of the deletion, including most imprinting center deletions (see Figure 1). In addition, use of small nucleotide polymorphisms (SNP) will allow detection of UPD 15 by complete isodisomy and segmental isodisomy but not heterodisomy.
+4. Not a first-tier test; performed after DNA methylation analysis establishes the diagnosis of PWS to distinguish between methylation abnormalities due to UPD 15 heterodisomy and imprinting defect by epimutation.
+5. Methylation-specific multiplex ligation-dependent probe amplification (MS-MLPA) can identify 15q deletions and most imprinting center deletions (see Figure 1); it can identify abnormal DNA methylation but cannot distinguish UPD from an imprinting defect by epimutation.
+6. Includes UPD 15 without any regions of isodisomy (i.e., resulting in absence of heterozygosity)
+Clinical Characteristics
+Clinical Description
+Prader-Willi syndrome (PWS) is a complex, multisystem disorder characterized by neonatal hypotonia with poor suck and poor weight gain without nutritional support, developmental delay, mild cognitive impairment, hypogonadism leading to genital hypoplasia and pubertal insufficiency, short stature if untreated with growth hormone (GH), childhood-onset obesity if excessive eating is not limited, behavioral findings, and typically a characteristic facial appearance. Less consistent but common features include decreased fetal movements, small hands and/or feet, hypopigmentation compared to the affected individual's family members, skin picking, strabismus and visual acuity abnormalities, sleep disturbance (including daytime sleepiness and sometimes sleep apnea), thick, viscous saliva, and articulation differences. There is some variability in clinical findings depending on the molecular cause of PWS.
 
---- 三条硬要求 ---
+Figure 1. Comprehensive testing strategy to diagnose Prader-Willi syndrome and to establish the genetic mechanism
+AOH = absence of heterozygosity; chrom abn = chromosomal abnormality; IC = imprinting center; OSA = oligo-SNP array; PWS =
+Prader-Willi syndrome; UPD = uniparental disomy; W/U = workup
 
-1. 必须保留章节标题行，例如 Clinical Characteristics、Clinical Description、
-   Diagnosis、Differential Diagnosis、Management。灌库脚本靠这些独立成行的标题
-   做章节过滤，标题丢失会导致整篇内容落入 preamble 而被全部跳过。
+Table 2. Prader-Willi Syndrome: Frequency of Select Features
+Feature % of Persons w/Feature Comment
+Infantile hypotonia 95%-100% Assoc w/poor suck; results in poor weight gain w/o feeding support
+Dysphagia 90%-100% Typically present at birth & persists to adulthood
+Motor delay 90%-100%
+Language delay 90%-100% Incl abnormal speech articulation, speech apraxia
+Intellectual disability 90%-100% Most w/mild disability; ranges from severe learning disabilities to significant cognitive disability
+Figure 2. Summary of the genetic and expression map of chromosome region 15q11.2-q13.3
+The Prader-Willi syndrome (PWS) critical region (shown in blue) has several paternally (PWS region) expressed genes (MKRN3,
+MAGEL2, NDN, PWRN1, NPAP1, and SNURF-SNRPN), a family of paternally expressed small nucleolar RNA (snoRNA) genes, and
+IPW, a long noncoding RNA. Three of these genes (SNURF-SNRPN, MAGEL2, and NDN) have differentially methylated CpG islands in their promoter region that are methylated on the repressed maternal alleles. Only UBE3A (shown in red), associated with Angelman syndrome (AS), has preferential maternal-only expression, and this imprinted expression is limited to certain tissue-specific regions
+(specifically the brain). The imprinting center (IC) has a bipartite structure with an AS (maternal, shown in red) and a PWS (paternal, shown in blue) component. The PWS shortest region of deletion overlap (PWS-SRO) has been localized to a 4.3-kb region that includes the promoter, CpG island, exon 1, and a small part of intron 1 of bicistronic SNURF-SNRPN. The AS-SRO lies approximately 35 kb proximal to exon 1 of SNURF-SNRPN. The bipartite IC lies within the 2.5-Mb PWS/AS imprinted region. The cluster of GABA receptor genes (GABRB3, GABRA5, and GABRG3), ATP10A, OCA2 (pathogenic variants of which cause oculocutaneous albinism type 2), and
+HERC2 are not imprinted and have biparental expression (shown in green). The jagged vertical lines denote the three common 5- to 6-
+Mb PWS and AS deletion breakpoints: BP1, BP2, and BP3. On rare occasions there will be a distal breakpoint at BP4 or BP5. Between
+BP1 and BP2 lie four additional, nonimprinted genes: NIPA1, NIPA2, CYFIP1, and TUBGCP5. Type 1 and type 2 deletions account for more than 90% of the deletions identified in individuals with PWS. Type 1 deletions (T1D) extend from BP1 to BP3, and type 2 deletions (T2D) extend from BP2 to BP3. Note that there are more copies of SNORD116 (approximately 24 copies) and SNORD115
+(approximately 47 copies) than are shown, and the map has not been precisely drawn to scale. The map order was determined by the latest human genome assembly (UCSC Genome Browser,GRCh38/hg38).
 
-2. 不要手动删除 Management / Treatment / Surveillance 章节。脚本会自动识别并
-   强制丢弃，保留原样才能在日志里算出准确的过滤条数，这是 PRD 中 AC10 的校验依据。
+Table 2. continued from previous page.
+Feature % of Persons w/Feature Comment
+Endocrine manifestations 90%-100% Hypogonadism, abnormal pubertal development, growth deficiency, diabetes mellitus, hypothyroidism
+Hyperphagia & obesity 90%-100%
+Characteristic behavior profile 70%-90% Anxiety, tantrums, rigidity, OCD, manipulative behavior, autistic features,
+ADHD; psychosis becomes evident in young adults, esp those w/UPD 15
+Increased pain threshold 60%-80% May mask urgent medical issues
+Dysmorphic facial features 50%-70% May attenuate w/GH therapy; more common in persons w/15q deletion
+Hypopigmentation 50%-70% Primarily in those w/15q deletion
+Skin picking 50%-60% Decreases in older adults
+Strabismus 40%-60%
+Sleep abnormalities 30%-40% Central apnea (in infants), obstructive sleep apnea, daytime sleepiness, narcolepsy
+Scoliosis 40%-80%
+Seizures 10%-20% Typically generalized & treatable
+ADHD = attention-deficit/hyperactivity disorder; GH = growth hormone; OCD = obsessive-compulsive disorder; UPD = uniparental disomy
+Perinatal findings. A retrospective study of prenatal ultrasounds of 47 individuals with PWS younger than age ten years found that affected individuals had decreased fetal movements (88%), were small for gestational age
+(65%), had asymmetrical intrauterine growth with increased head-to-abdomen circumference ratio (43%), and had polyhydramnios (34%) when compared to controls [Gross et al 2015]. Prenatal hypotonia usually results in decreased fetal movements, abnormal fetal position at delivery, and increased incidence of assisted delivery or cesarean section. Fetal size is generally within the normal range, but the birth weight and body mass index
+(BMI) are on average 15% lower than in typically developing sibs [Miller et al 2011].
+Hypotonia. Infantile hypotonia is a nearly universal finding, causing decreased movement and lethargy with decreased spontaneous arousal, weak cry, and poor reflexes, including poor suck. Hypotonia is central in origin, and neuromuscular studies including muscle biopsy, when done for diagnostic purposes, are generally normal or show nonspecific signs of disuse.
+Poor suck, dysphagia, lethargy, and poor appetite result in poor weight gain in early infancy without assisted feeding. Feeding difficulties are reported in 99% of infants; nasogastric tube feeding (a gastrostomy tube is rarely needed) or the use of special nipples is generally required for a variable period of time, usually weeks to months.
+By the time the child is drinking from a cup or eating solids, a period of approximately normal eating behavior occurs.
+The hypotonia improves over time. However, children and adults remain mildly hypotonic, with decreased muscle bulk and tone.
+Developmental delay. Early motor milestones are achieved at approximately double the normal age (e.g., sitting at 12 months, walking at 24 months). Language milestones are also typically delayed and speech is impaired
+[Dimitropoulos et al 2013]. Speech articulation is abnormal in many individuals with PWS. Speech apraxia has been reported in 7%-10% and is more common in those with 15q deletion. Although a small proportion of affected individuals have extremely impaired language development, verbal ability is a relative strength for most.
 
-3. 不要改文件名。脚本按文件名推断来源、病种与所属数据桶。
+Intellectual disabilities are generally evident by the time the child reaches preschool age. Testing indicates that most individuals with PWS have mild intellectual disability (mean IQ: 60-70), with approximately 40% having borderline disability or low-normal intelligence and approximately 20% having moderate disability. Regardless of measured IQ, most children with PWS have multiple severe learning disabilities and poor academic performance for their intellectual abilities [Whittington & Holland 2017]. Based on the authors' experiences, a small percentage of individuals with PWS are able to attend and graduate from college. Increased skill with jigsaw puzzles is reported, particularly in individuals with a 15q deletion.
+Endocrine manifestations
+• Hypogonadism is present in both sexes and manifests as genital hypoplasia, incomplete pubertal development, and infertility in the vast majority. Genital hypoplasia is evident at birth and throughout life.
+⚬ Males. The penis may be small, and most characteristic is a hypoplastic scrotum with poorly rugated scrotal skin and decreased pigmentation. Unilateral or bilateral cryptorchidism is present in 80%-90% of males.
+⚬ Females. Genital hypoplasia is often overlooked; however, the labia majora, labia minora, and clitoris are often small from birth.
+Hypogonadism is usually associated with low serum concentration of gonadotropins and causes incomplete, delayed, and sometimes disordered pubertal development. Infertility is almost universal, although a few instances of reproduction in females have been reported [Cassidy et al 2012]. Although hypogonadism in PWS has long been believed to be entirely hypothalamic in origin, studies have suggested a combination of hypothalamic and primary gonadal deficiencies [Eldar-Geva et al 2009, Hirsch et al 2009, Eldar-Geva et al 2010, Gross-Tsur et al 2012], a conclusion largely based on the absence of hypogonadotropism and abnormally low inhibin B levels in some affected individuals of both sexes.
+Male infants with PWS and cryptorchidism can be treated with human chorionic gonadotropin (hCG), which results in anatomically lower testes as well as improvement in the size of the penis and scrotal sac, prior to urologic surgery. Undergoing orchiopexy at a younger age, as well as higher levels of inhibin B and testosterone after hCG treatment, have been associated with a greater number of germ cell-containing tubules on testicular histology [Bakker et al 2015].
+Premature pubarche has been reported in 15%-20% of males and 30% of females. Premature adrenarche was reported in 15%-20% of individuals with PWS. Premature pubarche and adrenarche have been associated with elevated dehydroepiandrosterone sulfate levels. Advanced bone age is also reported.
+Central precocious puberty, typically idiopathic, has been reported in 5% of individuals.
+• Growth deficiency. Data from at least 15 studies involving more than 300 affected children document reduced GH secretion in individuals with PWS [Burman et al 2001]. Short stature is reported in 60%-70% of untreated individuals; if not apparent in childhood, short stature is almost always present during the second decade in the absence of GH treatment. The lack of a pubertal growth spurt results in an average untreated height of 155 cm for males and 148 cm for females. GH deficiency is also seen in adults with
+PWS [Grugni et al 2006, Höybye 2007]. Treatment with GH is beneficial in individuals with PWS regardless of GH sufficiency status [Alves & Franco 2020, Höybye et al 2021]. Growth charts for affected infants and children not treated with GH have been published [Butler et al 2011, Butler et al 2015], and growth charts for GH-treated children with PWS have been developed [Butler et al 2016].
+The hands and feet grow slowly and are generally below the fifth centile by age ten years (70%-90% of individuals) in the absence of GH treatment, with an average adult female foot size of 20.3 cm and average adult male foot size of 22.3 cm.
 
-完整清单与合规说明见 ../SOURCES.md
+• Hypothalamic pituitary dysfunction. Impaired hypothalamic development and function results in multiple hormonal deficiencies, including GH deficiency, hypogonadism, hypothyroidism, corticotropin deficiency, and abnormal oxytocin neurons [Tauber & Hoybye 2021].
+• Type II diabetes. Up to 25% of adults with PWS (particularly those with significant obesity) have type II diabetes [Tauber & Hoybye 2021], with a mean age of onset of 20 years. Earlier diagnosis, education of parents, GH therapy, and the availability of group homes specific for adults with PWS have led to a reduction in the development of morbid obesity and type II diabetes.
+• Central hypothyroidism, with a normal thyroid-stimulating hormone and low free thyroxine, has been documented in up to 25% of individuals with PWS. The mean age of diagnosis is two years [Miller et al 2008, Diene et al 2010].
+• Central adrenal insufficiency (CAI). A Dutch study initially suggested that CAI was common in individuals with PWS [de Lind van Wijngaarden et al 2008], but subsequent studies, including one large international study, found that CAI is rare (1.2%) in adults with PWS [Rosenberg et al 2020]. The international study concluded that there is no need for hydrocortisone supplementation in individuals with PWS in the absence of clinical manifestations and confirmation of adrenal insufficiency.
+Appetite, obesity, and gastrointestinal manifestations. In contrast to the long-held view that there are only two distinct nutritional phases in PWS (i.e., poor weight gain followed by hyperphagia leading to obesity), a multicenter study found that the transition between nutritional phases is much more complex, with seven different nutritional phases through which individuals with PWS typically progress [Miller et al 2011] (see Table 3).
+Table 3. Nutritional Phases in Prader-Willi Syndrome
+Phase Median Ages Clinical Characteristics 0 Prenatal to birth ↓ fetal movements & lower birth weight than sibs 1a Birth to 9 mos Hypotonia w/difficulty feeding & ↓ appetite 1b 9 to 25 mos Improved feeding & appetite; growing appropriately 2a 2.1 to 4.5 yrs Weight ↑ w/o appetite ↑ or excess calories 2b 4.5 to 8 yrs ↑ appetite & calories but can feel full 3 8 yrs to adulthood Hyperphagic, rarely feels full 4 Adulthood Appetite no longer insatiable for some
+Adapted from Miller et al [2011]
+• Hyperphagia in PWS is believed to be caused by a hypothalamic abnormality resulting in lack of satiety.
+Food-seeking behaviors such as hoarding or foraging for food, eating of inedible objects, and stealing of food or money to buy food are common. At this time there are no consistently identified hormonal abnormalities to explain the hyperphagia, and the metabolic correlates of hyperphagia in PWS remain uncertain.
+• Obesity results from these hyperphagic behaviors and from decreased total caloric requirement. The latter is due to decreased resting energy expenditure resulting from decreased activity and decreased lean body mass (primarily muscle) compared with unaffected individuals. Obesity in individuals with PWS is primarily central (abdomen, buttocks, and thighs) in both sexes. Interestingly, there is less visceral fat in obese individuals than would be expected for the degree of obesity. Obesity and its complications are the major causes of morbidity and mortality (see Life span at the end of this section).
+
+Early diagnosis allows the clinician to begin anticipatory guidance concerning the natural history of PWS, and in particular the nutritional phases (see Table 3), informing the family about the risks of obesity and the need to monitor weight gain and restrict calories beginning around age 18 to 36 months. Obesity may be prevented if the diet, exercise, and supervision program described in Treatment of Manifestations is instituted.
+If started at a young age, GH treatment, along with good dietary control, may prevent obesity and the high proportion of fat mass. It may also modify the typical PWS facial appearance, improve motor milestones, and improve some cognitive abilities [Butler et al 2019b, Ayet-Roger et al 2022].
+• Acute gastrointestinal manifestations. In most affected individuals, gastric emptying is delayed
+(60%-80% of individuals), and vomiting is rare; decreased vomiting is reported in 80%-90%, increasing the risk of gastric necrosis with significant hyperphagia. Abdominal distention, bloating, pain, lethargy, loss of appetite, and vomiting may be signs of life-threatening gastric inflammation or necrosis.
+Individuals with these symptoms should be urgently evaluated by a medical professional and may require hospitalization. Radiographic imaging and possibly emergency surgery may be required. Use of antidiarrheal medications can lead to severe colonic distention, necrosis, and rupture.
+Behavior. A characteristic behavior profile with anxiety, temper tantrums (outbursts), rigidity/resistance to change, obsessive-compulsive behaviors, and social cognition deficits becomes evident in early childhood in individuals with PWS [Ishii et al 2017, Schwartz et al 2021]. These behaviors increase with age and BMI in childhood and adolescence, although it was noted by Dykens [2013] that externalizing behavioral issues (e.g., aggression, impulsivity) tend to decline in older adults (age >40 years).
+• Many of the behavioral characteristics are suggestive of autism. A recent meta-analysis including 786 individuals with PWS reported that 26.7% met criteria for autism spectrum disorder, including 18.5% of those with 15q deletion and 35.3% of those with UPD 15 [Bennett et al 2015].
+• Attention-deficit/hyperactivity disorder is common and of early onset.
+• Psychosis is evident by young adulthood in some affected individuals and is significantly more frequent in those with UPD 15. A meta-analysis of 95 individuals with PWS from five studies suggested an overall incidence of psychosis of about 25% in those with 15q deletion and 64% in those with UPD 15 [Y ang et al 2013].
+Behavioral and psychiatric issues interfere most with the quality of life in adolescence and adulthood, including affecting ability to live independently.
+Pain insensitivity. Diminished typical pain perception is common and may mask the presence of infection, injury, or fractures. Individuals with PWS may not report pain until the condition is severe, and they may have difficulty localizing pain.
+Dysmorphic features. Characteristic facial features (narrow bifrontal diameter, almond-shaped palpebral fissures, narrow nasal bridge, thin vermilion of the upper lip with down-turned corners of the mouth) may or may not be apparent at birth and may slowly evolve over time [Cassidy & Driscoll 2009, Cassidy et al 2012].
+Treatment with GH may attenuate the dysmorphic features over time.
+Hypopigmentation of hair, eyes, and skin is frequently found in individuals with 15q deletion due to the deletion of OCA2 located at 15q.
+Dermatologic manifestations. Skin and mucosal picking, often leaving chronic open sores, is one of the more difficult issues. Picking at the nose, rectum, or vagina is common and often unknown to caregivers. Picking can result in pigmentary changes, scarring, and infections.
+Peripheral edema is not uncommon in obese individuals with PWS and may lead to chronic changes of the legs.
+
+Ophthalmologic manifestations. Strabismus in those with PWS is often diagnosed by age five years. Myopia and hyperopia are common [Bohonowych et al 2021].
+Sleep abnormalities are well documented and include reduced rapid eye movement (REM) latency, altered sleep architecture, oxygen desaturation, and both central and obstructive apnea [Festen et al 2006, Priano et al 2006].
+Primary hypothalamic dysfunction is thought to be the cause of the alterations in sleep microstructure and abnormalities in ventilation during sleep. Some individuals with PWS have excessive daytime sleepiness, which resembles narcolepsy, with rapid onset of REM sleep and decrease in non-REM sleep instability [Bruni et al 2010]. Narcolepsy, reported in 10%-35%, is often undiagnosed in individuals with PWS due to the prevalence of excessive daytime somnolence. Multiple sleep latency tests must be done to diagnose narcolepsy. Cataplexy has been known to occur in individuals with PWS, but the prevalence is not known.
+Skeletal findings. Scoliosis, present in 40%-80% of affected individuals, varies in age of onset and severity, and may be present from infancy. It is presumed to be related to hypotonia, since there are no underlying structural anomalies. Kyphosis occurs commonly in adolescents and adults with PWS. Hip dysplasia occurs in approximately 20%-30% [Trizno et al 2018]. The incidence of osteopenia and osteoporosis is increased in individuals with PWS. Frequency of bone fractures, particularly of long bones, seems increased, although no well-designed study has been published.
+Seizures, typically generalized seizures, may occur in early childhood. They tend to be infrequent and often resolve after a few years of anti-seizure medication [Takeshita et al 2013].
+Dental issues. Saliva flow is decreased in people with PWS and can lead to increased dental caries and speech articulation difficulties. Dried material on the lips is common. Dental crowding and enamel hypoplasia are also more common.
+Life span. The mortality rate in individuals with PWS is higher than in controls with intellectual disability. With improved management, the death rate has declined to 1.25% per annum [Whittington et al 2015]. Several large studies have indicated that respiratory failure and other febrile illnesses are the most frequent causes of death in children, and cardiac disease and failure, pulmonary thromboembolism, obesity-related complications, and gastric causes are most frequent in adults [Butler et al 2017, Pacoricona Alfaro et al 2019]. Of note, a family questionnaire-based survey of more than 2,000 individuals known to the Prader-Willi Syndrome Association
+(USA), of whom 114 were deceased, showed that those who were living had a significantly higher rate of GH treatment (threefold higher) than those who were deceased, even after adjusting for the greater age of those who were deceased [Proffitt et al 2019].
+Acute gastric distention with gastric rupture and necrosis has been reported as a cause of death in several individuals with PWS, particularly following an eating binge among those who are thin but were previously obese. It may be unrecognized because of a high pain threshold.
+Choking, especially on hot dogs, has been reported as cause of death in approximately 8% of deaths in individuals with PWS. Disordered pharyngeal and esophageal swallowing and lack of attempt to clear residue or coughing is common in PWS [Gross et al 2017], and combined with rapid eating may increase the risk of aspiration-related mortality.
+Concern about the possible contribution of GH administration to unexpected death has been raised by reported deaths of individuals within a few months of starting GH therapy. The few reported deaths were mostly in obese individuals who had preexisting respiratory or cardiac disorders with evidence of upper airway obstruction and uncorrected tonsillar and adenoidal hypertrophy. In other studies, the rate of death in affected individuals on and off GH therapy did not differ; thus, the relationship of GH administration to unexpected death remains unclear. See Management for recommended evaluations prior to starting GH therapy.
+
+Neuroimaging. Reported abnormalities on brain imaging include white matter lesions, ventriculomegaly, decreased volume of brain tissue in the parietal and occipital lobes, Sylvian fissure polymicrogyria, incomplete insular closure, gray matter volume changes, and reduced pituitary height. Their relationship to clinical manifestations remains unclear.
+Genotype-Phenotype Correlations
+No phenotypic feature is known to correlate exclusively with any one of the three main molecular mechanisms that result in PWS. However, some statistical differences in the frequency or severity of certain features between the two largest molecular classes (15q deletion and UPD 15) have been observed.
+• Post-term delivery [Butler et al 2009] and advanced maternal age is more common with UPD 15 [Miller et al 2011].
+• Individuals with UPD 15 are less likely to have the typical facial appearance, hypopigmentation
+[Mahmoud et al 2021], or skill with jigsaw puzzles [Dykens 2002]. They also have a somewhat higher verbal IQ [Rosenberg et al 2022] than those with 15q deletion.
+• Individuals with UPD 15 are more likely to have psychosis [Y ang et al 2013] and autism spectrum disorder
+[Bennett et al 2015]. Studies suggest that as many as 64% of those with UPD 15 develop atypical psychosis compared with 25% of those with 15q deletion [Y ang et al 2013].
+Penetrance
+Penetrance is complete.
+Nomenclature
+The term "HHHO" (hypogonadism, hypotonia, hypomentia, obesity) is no longer used.
+PWS is sometimes called Willi-Prader syndrome or Prader-Labhart-Willi syndrome.
+Prevalence
+The estimated prevalence of PWS is 1:10,000-30,000 in a number of populations.
+A recent study screening 16,579 newborns for PWS in Australia found a birth incidence of 1:8,290 [Godler et al 2022].
+Genetically Related Disorders
+Angelman syndrome (AS) is caused by loss of the maternally contributed PWS/AS critical region. It is clinically distinct from Prader-Willi syndrome (PWS) after age two years (see Differential Diagnosis).
+Schaaf-Y ang syndrome is caused by pathogenic truncating variants on the paternally inherited MAGEL2 gene in the PWS critical region of 15q11.2.
+Maternally inherited duplication of the PWS/AS critical region causes intellectual disability, seizures, and autism
+[Boyar et al 2001]. See Maternal 15q Duplication Syndrome.
+Differential Diagnosis
+Many disorders can mimic parts of the Prader-Willi syndrome (PWS) phenotype.
+SNORD116 deletion. Loss of expression of the SNORD116 gene cluster plays a major role in the PWS phenotype
+(see Molecular Pathogenesis). Rare individuals with a SNORD116 deletion have been described in the literature
+
+with many, but not all, of the major features of PWS [Tan et al 2020]. These individuals have a milder phenotype typically without the PWS facial gestalt, and many also have characteristics not typical for PWS (e.g., macrocephaly, tall stature without growth hormone [GH] therapy, hirsutism, normal pubertal development, normal intelligence). Of note, most current oligo-SNP combination arrays will detect deletions of the
+SNORD116 gene cluster.
+Craniopharyngioma and the results of its treatment show significant overlap with PWS. Damage to the hypothalamus causes most of the same findings that characterize PWS, particularly when craniopharyngioma occurs at an early age. History and, if uncertain, DNA methylation analysis will distinguish craniopharyngioma from PWS.
+Hyperphagic short stature is an acquired condition related to psychosocial stress that includes GH insufficiency, hyperphagia, and mild learning disabilities [Gilmour et al 2001]. History and, if uncertain, DNA methylation analysis should distinguish this disorder from PWS.
+Hypotonia in infancy is also seen in neonatal sepsis, central nervous system depression, and other genetic disorders (see Table 4). In some instances, these disorders can be distinguished from PWS by the presence of poor respiratory effort, a feature rarely seen in PWS.
+Table 4. Genetic Disorders with Hypotonia in Infancy in the Differential Diagnosis of Prader-Willi Syndrome
+Disorder Gene(s) MOI Clinical Features / Comment
+Angelman syndrome (AS) UBE3A 1 Recurrence risk is mechanism dependent. 2
+Severe DD or ID, severe speech impairment, gait ataxia &/or tremulousness of the limbs, & unique behavior w/happy demeanor, frequent laughing, smiling, & excitability. Microcephaly & seizures are common. Hypotonia may be the only manifestation of
+AS in infancy. Affected persons lack characteristic sucking issues, hypogonadism, & facial appearance of those w/PWS.
+Congenital myasthenic syndromes (CMS)
+>30 genes incl:
+CHAT
+CHRNE
+COL13A1
+COLQ
+DOK7
+RAPSN
+AR
+AD 3
+Typically presents w/fatigable weakness involving ocular, bulbar, & limb muscles w/onset typically age
+<2 yrs. In the classic presentation, a CMS is limited to weakness of skeletal muscles.
+Congenital myotonic dystrophy type 1 DMPK AD
+Hypotonia & severe generalized weakness at birth, often w/respiratory insufficiency & early death; ID is common.
+Fragile X syndrome (See
+FMR1 Disorders.) FMR1 XL
+Moderate ID in affected males & mild ID in affected females. Males may have a characteristic appearance, connective tissue findings, & large testes (post pubertal). Behavioral abnormalities are common.
+Hypotonia may be the only manifestation in infancy.
+Affected persons lack characteristic sucking issues, hypogonadism, & facial appearance of those w/PWS.
+GARS1 infantile-onset SMA
+(See GARS1-Assoc Axonal
+Neuropathy.)
+GARS1 AD Initial manifestations are typically respiratory distress, poor feeding, & muscle weakness (distal > proximal).
+
+Table 4. continued from previous page.
+Disorder Gene(s) MOI Clinical Features / Comment
+Infantile-onset Pompe disease GAA AR
+Onset is typically at median age of 4 mos w/hypotonia, generalized muscle weakness, feeding difficulties, poor weight gain, respiratory distress, & hypertrophic cardiomyopathy. (Note: In PWS, hypotonia is noted at birth, not several months later.)
+Schaaf-Y ang syndrome MAGEL2 AD w/imprinting 4
+Hypotonia & feeding difficulties in infancy are similar to PWS, but joint contractures incl arthrogryposis are features not typical of PWS. ASD is frequent as well as
+ID, which can be profound. Some persons develop obesity & hyperphagia in late childhood/adolescence that ↑ w/age.
+Spinal muscular atrophy SMN1 AR Poor respiratory effort may be present, a feature rarely seen in PWS.
+WAC-related ID WAC AD
+Variable degrees of DD &/or ID. Behavioral abnormalities are observed in the majority of older children & adults. Most affected infants have significant but nonspecific features at birth (e.g., neonatal hypotonia, feeding issues).
+X-linked infantile SMA UBA1 XL
+Congenital hypotonia, areflexia, & evidence of degeneration & loss of anterior horn cells (i.e., lower motor neurons) in spinal cord & brain stem. Often congenital contractures &/or fractures are present.
+Zellweger spectrum disorder
+(ZSD) ZSD-PEX genes AR 5
+Affected newborns are hypotonic w/poor feeding.
+They have distinctive facies, congenital malformations,
+& liver disease that can be severe. (Note: The brain
+MRI findings are very striking & distinctive in ZSD, while the brain MRIs of persons w/PWS are typically relatively normal.)
+AD = autosomal dominant; AR = autosomal recessive; ASD = autism spectrum disorder; DD = developmental delay; ID = intellectual disability; MOI = mode of inheritance; PWS = Prader-Willi syndrome; SMA = spinal muscular atrophy; XL = X-linked
+1. Angelman syndrome (AS) is associated with deficient expression or function of the maternally inherited UBE3A allele, which can be caused by a variety of different mechanisms.
+2. Individuals with AS typically represent simplex cases (i.e., a single affected family member) and have the disorder as the result of a de novo genetic alteration associated with a very low recurrence. Less commonly, an individual with AS has the disorder as the result of a genetic alteration associated with an imprinting pattern of autosomal dominant inheritance or variable recurrence risk.
+3. Congenital myasthenic syndromes (CMS) are typically inherited in an autosomal recessive manner. Less commonly, CMS are inherited in an autosomal dominant manner.
+4. Schaaf-Y ang syndrome is inherited in an autosomal dominant imprinted manner (a heterozygous pathogenic variant on the paternally derived MAGEL2 allele results in disease).
+5. Zellweger spectrum disorder (ZSD) is typically inherited in an autosomal recessive manner (one PEX6 variant, p.Arg860Trp, has been associated with ZSD in the heterozygous state).
+Developmental delay / intellectual disability and obesity with or without hypogonadism can be seen in the disorders summarized in Table 5.
+
+Table 5. Genetic Disorders with Developmental Delay / Intellectual Disability and Obesity with or without Hypogonadism in the
+Differential Diagnosis of Prader-Willi Syndrome
+Disorder Gene(s) / Genetic
+Mechanism MOI Clinical Features / Comment
+Albright hereditary osteodystrophy (See
+Disorders of GNAS
+Inactivation.)
+GNAS AD w/imprinting 1
+Also characterized by short stature but lacks hypotonia & is assoc w/characteristic facial appearance (round face) unlike the facial appearance in PWS.
+Alström syndrome ALMS1 AR
+The 1st clinical manifestation is usually nystagmus caused by cone-rod dystrophy
+&/or infantile-onset cardiomyopathy. Lateronset findings incl obesity that manifests during the 1st yrs of life, progressive SNHL, insulin resistance / type II DM, adolescent- or adult-onset restrictive cardiomyopathy, hepatic steatosis, & progressive kidney dysfunction.
+Angelman syndrome (AS) UBE3A 2 Recurrence risk is mechanism dependent. 3
+Persons w/AS caused by paternal UPD 15 frequently have ↑ BMI for age. In a large study
+>70% were overweight & >40% were obese. 4
+Bardet-Beidl syndrome
+(BBS)
+~26 genes incl:
+ARL6
+BBS1
+BBS2
+BBS4
+BBS10
+BBS12
+CEP290
+MKKS 5
+AR
+Cone-rod dystrophy, truncal obesity, postaxial polydactyly, cognitive impairment, male hypogonadotropic hypogonadism, complex female genitourinary malformations, & kidney dysfunction. Persons w/BBS have a different facial phenotype from those w/PWS.
+Borjeson-Forssman-
+Lehmann syndrome (BFLS)
+(OMIM 301900)
+PHF6 XL
+In males, severe cognitive deficit, epilepsy, hypogonadism, hypometabolism, marked obesity, infantile hypotonia, & growth deficiency. BFLS can be distinguished from
+PWS by the severity of ID, the presence of nystagmus, & characteristic facial appearance w/prominent superciliary ridges, ptosis, & deep-set eyes.
+Cohen syndrome VPS13B AR
+Poor weight gain in infancy & childhood;
+truncal obesity in the teenage years; earlyonset hypotonia & DD; microcephaly developing during the 1st yr; moderate-toprofound DD/ID; progressive retinochoroidal dystrophy & high myopia; neutropenia in many persons w/recurrent infections & aphthous ulcers in some; cheerful disposition;
+joint hypermobility. Characteristic facial features are different from those in PWS.
+Fragile X syndrome (See
+FMR1 Disorders.) FMR1 XL A subset of affected persons have a "PWSlike" phenotype incl hyperphagia & obesity. 6
+PWS-like syndromic obesity 7 SIM1 Recurrence risk is mechanism dependent.
+Obesity, DD, plus hypotonia &/or short extremities
+
+Table 5. continued from previous page.
+Disorder Gene(s) / Genetic
+Mechanism MOI Clinical Features / Comment
+Temple syndrome
+Maternal UPD 14, paternal chromosome 14 deletion, or loss of methylation at 14q32
+Recurrence risk is mechanism dependent.
+Prenatal growth restriction, hypotonia, infant feeding issues w/DD/ID, childhood obesity, & short stature are common to both Temple syndrome & PWS. Characteristic facial features & precocious puberty distinguish
+PWS. 8
+AD = autosomal dominant; AR = autosomal recessive; DD = developmental delay; ID = intellectual disability; MOI = mode of inheritance; PWS = Prader-Willi syndrome; UPD = uniparental disomy; SNHL = sensorineural hearing loss; DM = diabetes mellitus;
+XL = X-linked
+1. Disorders of GNAS inactivation are inherited in an autosomal dominant manner, with the specific phenotype determined by the parental origin of the defective allele.
+2. Angelman syndrome (AS) is associated with deficient expression or function of the maternally inherited UBE3A allele.
+3. Individuals with AS typically represent simplex cases (i.e., a single affected family member) and have the disorder as the result of a de novo genetic alteration associated with a very low recurrence. Less commonly, an individual with AS has the disorder as the result of a genetic alteration associated with an imprinting pattern of autosomal dominant inheritance or variable recurrence risk.
+4. Lossie et al [2001]
+5. Listed genes represent the most commonly associated genes.
+6. de Vries et al [1993]
+7. A "PWS-like phenotype" of syndromic obesity has been identified in individuals with 6q16.2 deletions involving SIM1 [Bonaglia et al 2008, El Khattabi et al 2015] and in individuals with intragenic SIM1 pathogenic variants [Bonnefond et al 2013].
+8. Hosoki et al [2009]
+Cytogenetic abnormalities with a phenotype similar to PWS include the following:
+• A PWS-like phenotype was reported in an individual with a 6q16.3q23.3 duplication (the duplication did not encompass SIM1) [Desch et al 2015].
+• Several reports have associated a PWS-like phenotype with 1p36 deletion; findings include hypotonia, developmental delay, obesity, hyperphagia, and behavioral issues [Tsuyusaki et al 2010, Stagi et al 2014].
+• Multiple reports describe a PWS-like phenotype with deletions at 16p11.2 including SHB2B1, which is involved in leptin and insulin signaling [Maillard et al 2015].
+• Reports of other cytogenetic anomalies in individuals with a PWS-like phenotype have included dupXq27.2-ter and del10q26 [Lukusa & Fryns 2000, Ben-Abdallah-Bouhjar et al 2012, Rocha & Paiva 2014].
+Management
+Management of the manifestations of Prader-Willi syndrome (PWS) is age dependent and should include both addressing the consequences of PWS and anticipatory guidance. A team approach is recommended. Several approaches to management have been published [McCandless 2011, Cassidy et al 2012, Duis et al 2019]. In addition, a detailed description of management issues in infancy, early childhood, adolescents, and adults written by the Clinical and Scientific Advisory Board for the International Prader-Willi Syndrome Organization can be found at the IPWSO Guides for Doctors: Consensus Documents.
+Evaluations Following Initial Diagnosis
+To establish the extent of disease and needs in an individual diagnosed with PWS, the evaluations summarized in Table 6 (if not performed as part of the evaluation that led to the diagnosis) are recommended.
+
+Table 6. Prader-Willi Syndrome: Recommended Evaluations Following Initial Diagnosis
+System/Concern Evaluation Comment
+Hypotonia
+• Assessment of newborns & young infants for sucking issues & poor growth
+• Nutrition consultation
+• PT eval
+• If prolonged, eval for hypothyroidism
+Developmental delay Developmental assessment
+• To incl motor, adaptive, cognitive, & speech-language eval
+• Eval for early intervention / special education
+Hypogonadism
+• Assessment of males for presence of cryptorchidism regardless of age
+• Assessment of pubertal stage
+• Urologic consultation for consideration of orchiopexy
+• If pubertal stage is not age appropriate, refer to endocrinologist for eval & potential hormone therapy.
+Endocrine
+• Referral to endocrinologist for treatment w/GH therapy to be considered at diagnosis
+• Glycosylated hemoglobin concentration &/or glucose tolerance test to assess for diabetes if obese at
+diagnosis
+• Free thyroxine & TSH levels to assess for hypothyroidism
+• Assessment for manifestations of central adrenal insufficiency
+Growth
+• Assessment of height & weight
+• Plot height, weight, head circumference, & BMI on either age-appropriate growth charts &/or charts developed for PWS
+• Growth charts for affected infants & children not treated w/GH have been published. 1
+• Growth charts for GH-treated children w/PWS have been developed. 2
+Hyperphagia/Obesity Nutritional consultation
+Behavior
+• Assess for behavioral findings & obsessivecompulsive features after age 2 yrs.
+• Assess family support, parenting skills, & psychosocial/emotional needs to assist in designing family interventions.
+Dermatologic Clinical assessment for open sores &/or infection secondary to skin picking
+Eyes Ophthalmologic eval To assess for reduced vision, abnormal ocular movement, strabismus
+Sleep
+• Evaluate respiratory status during sleep w/sleep study prior to initiation of GH therapy.
+• Evaluate excessive daytime sleepiness / narcolepsy / cataplexy w/overnight sleep study followed by multiple sleep latency testing & video EEG.
+Scoliosis Assess clinically & radiographically, if indicated.
+Very obese persons cannot be adequately assessed clinically for scoliosis & radiographs are necessary to establish the diagnosis.
+Hip dysplasia • Assess infants for hip dysplasia.
+• Hip ultrasound at age 6 wks
+Seizures Consider EEG if seizures are a concern.
+Dental Dental exam for ↑ risk of caries, dental crowding, & enamel hypoplasia
+
+Table 6. continued from previous page.
+System/Concern Evaluation Comment
+Genetic counseling By genetics professionals 1
+To obtain a pedigree & inform affected persons & their families re nature, MOI, & implications of PWS to facilitate medical & personal decision making
+Family support
+& resources
+Assess need for:
+• Community or online resources such as Parent to
+Parent;
+• Social work involvement for parental support;
+• Home nursing referral.
+BMI = body mass index; GH = growth hormone; MOI= mode of inheritance; PT = physical therapy; PWS = Prader-Willi syndrome;
+TSH = thyroid-stimulating hormone
+1. Butler et al [2011], Butler et al [2015]
+2. Butler et al [2016]
+3. Clinical geneticist, certified genetic counselor, certified genetic nurse, genetics advanced practice provider (nurse practitioner or physician assistant)
+Treatment of Manifestations
+Targeted Therapy
+In GeneReviews, a targeted therapy is one that addresses the specific underlying mechanism of disease causation
+(regardless of whether the therapy is significantly efficacious for one or more manifestation of the genetic condition);
+would otherwise not be considered without knowledge of the underlying genetic cause of the condition; or could lead to a cure. —ED
+Table 7. Prader-Willi Syndrome: Targeted Therapy
+Type Treatment Dosage Consideration
+K-ATP channel agonist Diazoxide choline 4-5.8 mg/kg/day 1
+• Approved by FDA in 2025 for treatment of hyperphagia in persons age ≥4 yrs w/PWS
+• Treatment during open-label extension showed a 9-point decrease in hyperphagia score, sustained over time. 2
+• May exert beneficial effects by downregulating insulin secretion from pancreatic beta cells, downregulating neuropeptide Y secretion, & activating K-ATP channels in adipose tissue
+FDA = Food and Drug Administration; PWS = Prader-Willi syndrome
+1. See prescribing information.
+2. Miller et al [2024]
+Supportive Care
+Management by multidisciplinary specialists typically starting with neonatologists and followed by medical geneticists and genetic counselors, primary care physicians, endocrinologists, orthopedists, nutritionists, psychologists, psychiatrists, physical, occupational, and speech therapists, and educators is recommended.
+
+Table 8. Prader-Willi Syndrome: Treatment of Manifestations
+Manifestation/Concern Treatment Considerations/Other
+Poor infantile feeding
+Special feeding techniques, incl special nipples or gavage feeding by nasogastric tube, are typically necessary for the 1st weeks to months of life to assure adequate nutrition & avoid poor growth.
+Persons diagnosed w/PWS typically do not require a gastrostomy tube since feeding will improve w/time.
+Developmental delay /
+Intellectual disability
+See Developmental Delay / Intellectual Disability
+Management Issues.
+Hypogonadism
+• Consider hCG treatment in infancy for cryptorchidism.
+• Orchiopexy as needed for cryptorchidism
+Individualized treatment by endocrinologist for hormone replacement therapy at puberty & beyond
+The possibility of osteoporosis & fertility/ pregnancy are important to consider in the treatment plan.
+Endocrine manifestations
+GH treatment:
+• Normalizes height, ↑ lean body mass, ↓ fat mass,
+& ↑ mobility, which are beneficial to weight mgmt.
+• Treatment in 1st yr of life assists in developmental milestones.
+• In young children, dose is similar to that for persons w/isolated GH deficiency (i.e., ~1 mg/m2/ day) but GH dose must be individualized as child grows.
+• The adult dose of GH is 20%-25% of the dose recommended in children.
+• Therapy can be started in infancy or at time of diagnosis.
+• Obtain sleep study before initiation of GH therapy & 4-8 wks after starting GH therapy to ensure that
+GH treatment has not caused or worsened sleep-disordered breathing. 1
+• To avoid overtreatment, monitor growth velocity, head circumference,
+& serum IGF-1.
+Treatment for precocious puberty, type 2 diabetes, hypothyroidism, &/or central adrenal insufficiency as directed by endocrinology
+Hyperphagia/Obesity
+Dietary mgmt:
+• Consultation w/dietician w/close follow up when weight centiles begin ↑ (typically age 18-36 mos)
+• Well-balanced, low-calorie diet, 2 regular exercise,
+& close supervision to minimize food stealing & prevent obesity (maintain BMI z score of <2)
+• Adequate intake of vitamins & minerals as assessed by dietician; prescription for vitamin/ mineral supplementation when indicated, esp for calcium & vitamin D
+GH therapy (See Endocrine manifestations in this table.)
+• The same program is appropriate if obesity is present at any time.
+• Locking the kitchen, refrigerator,
+&/or cupboards is often needed once the child can open the refrigerator & cupboards.
+• Gastric bypass is not recommended in PWS, as it does not appear to correct the lack of satiety & will not prevent overeating. In addition, complication rates are high. 3
+Diazoxide choline (See Table 7.)
+Acute gastrointestinal manifestations
+Vomiting &/or loss of appetite may signal a lifethreatening illness (gastric inflammation or necrosis) requiring immediate hospitalization &/or surgery.
+Use of antidiarrheal medications can lead to severe colonic distention, necrosis, & rupture.
+Neurobehavioral manifestations
+• ABA therapy in childhood helps ameliorate some of the common behavioral issues.
+• Standard pharmacologic therapy for behavioral issues is helpful in many persons.
+• Affected persons generally require a sheltered employment environment.
+
+Table 8. continued from previous page.
+Manifestation/Concern Treatment Considerations/Other
+Dermatologic manifestations
+Consider topiramate (25-50 mg/day) or N-acetylcysteine
+(450-1,200 mg/day) to ↓ or eliminate skin picking if not managed w/distraction or covering lesions. 4
+A history of frequent nose bleeds or rectal bleeding should prompt eval for skin sores secondary to picking.
+Ophthalmologic manifestations
+Treatment of strabismus &/or refractive errors per ophthalmologist
+Sleep issues
+• Individualized treatment depending on cause, which may incl tonsillectomy & adenoidectomy
+&/or CPAP or BiPAP , as in general population.
+• Modafinil can be used to treat excessive daytime sleepiness that is unrelated to degree of sleep apnea.
+Skeletal issues
+Mgmt of scoliosis & hip dysplasia as in general population
+• Spinal casting & bracing are typically undertaken early in life, depending on degree of spine curvature.
+• Nonsurgical treatment for hip dysplasia is usually adequate.
+• Calcium & vitamin D supplementation
+• Low bone density: implementation of sex steroid therapy, GH therapy, or bisphosphonate therapy as clinically indicated
+Seizures Standardized treatment w/ASM by experienced neurologist
+• Many ASMs may be effective; none has been demonstrated effective specifically for PWS.
+• Education of parents/caregivers 5
+Decreased saliva production
+Manage w/products developed for treatment of dry mouth such as special toothpastes, gels, mouthwash, & gum 6
+Dental evals & dental hygiene should be considered every 3-4 mos beginning when teeth are present
+Family/Community
+• Ensure appropriate social work involvement to connect families w/local resources, respite, & support.
+• Coordinate care to manage multiple subspecialty appointments, equipment, medications, & supplies.
+• Issues of guardianship, wills, trusts, & advocacy should be investigated no later than adolescence.
+• Ongoing assessment of need for home nursing
+• Consider involvement in adaptive sports or Special Olympics.
+• Support organizations for PWS are very helpful & exist in many countries.
+ABA = applied behavioral analysis; ASM = anti-seizure medication; BiPAP = bilevel positive airway pressure; BMI = body mass index;
+CPAP = continuous positive airway pressure; GH = growth hormone; hGC = human chorionic gonadotropin; IGF-1 = insulin-like growth factor 1; PWS = Prader-Willi syndrome
+1. Miller et al [2006b]
+2. Caloric needs of infants and children with PWS are typically 60%-80% of the recommended daily allowance. The energy requirement of adults with PWS rarely exceeds 1,200-1,400 kcal/day.
+3. Scheimann et al [2012], Gantz et al [2022]
+4. Bonnot et al [2016]
+5. Education of parents/caregivers regarding common seizure presentations is appropriate. For information on non-medical interventions and coping strategies for children diagnosed with epilepsy, see Epilepsy Foundation Toolbox.
+6. Ritwik & Vu [2021]
+Developmental Delay / Intellectual Disability Management Issues
+The following information represents typical management recommendations for individuals with developmental delay / intellectual disability in the United States; standard recommendations may vary from country to country.
+
+Ages 0-3 years. Referral to an early intervention program is recommended for access to occupational, physical, speech, and feeding therapy as well as infant mental health services, special educators, and sensory impairment specialists. In the US, early intervention is a federally funded program available in all states that provides inhome services to target individual therapy needs.
+Ages 3-5 years. In the US, developmental preschool through the local public school district is recommended.
+Before placement, an evaluation is made to determine needed services and therapies and an individualized education plan (IEP) is developed for those who qualify based on established motor, language, social, or cognitive delay. The early intervention program typically assists with this transition. Developmental preschool is center based; for children too medically unstable to attend, home-based services are provided.
+All ages. Consultation with a developmental pediatrician is recommended to ensure the involvement of appropriate community, state, and educational agencies (US) and to support parents in maximizing quality of life. Some issues to consider:
+• IEP services:
+⚬ An IEP provides specially designed instruction and related services to children who qualify.
+⚬ IEP services will be reviewed annually to determine whether any changes are needed.
+⚬ Special education law requires that children participating in an IEP be in the least restrictive environment feasible at school and included in general education as much as possible, when and where appropriate.
+⚬ Vision consultants should be a part of the child’s IEP team to support access to academic material.
+⚬ Physical and occupational therapy and speech services will be provided in the IEP to the extent that the need affects the child’s access to academic material. Beyond that, private supportive therapies based on the affected individual’s needs may be considered. Specific recommendations regarding type of therapy can be made by a developmental pediatrician.
+⚬ As a child enters the teen years, a transition plan should be discussed and incorporated in the IEP .
+For those receiving IEP services, the public school district is required to provide services until age 21.
+• A 504 plan (Section 504: a US federal statute that prohibits discrimination based on disability) can be considered for those who require accommodations or modifications such as front-of-class seating, assistive technology devices, classroom scribes, extra time between classes, modified assignments, and enlarged text.
+• Developmental Disabilities Administration (DDA) enrollment is recommended. DDA is a US public agency that provides services and support to qualified individuals. Eligibility differs by state but is typically determined by diagnosis and/or associated cognitive/adaptive disabilities.
+• Families with limited income and resources may also qualify for supplemental security income (SSI) for their child with a disability.
+Motor Dysfunction
+Gross motor dysfunction
+• Physical therapy is recommended to maximize mobility and to reduce the risk for later-onset orthopedic complications (e.g., contractures, scoliosis, hip dislocation).
+• Consider use of durable medical equipment and positioning devices as needed (e.g., wheelchairs, walkers, bath chairs, orthotics, adaptive strollers).
+• For muscle tone abnormalities including hypertonia or dystonia, consider involving appropriate specialists to aid in management of baclofen, tizanidine, Botox®, anti-parkinsonian medications, or orthopedic procedures.
+
+Fine motor dysfunction. Occupational therapy is recommended for difficulty with fine motor skills that affect adaptive function such as feeding, grooming, dressing, and writing.
+Oral motor dysfunction should be assessed at each visit and clinical feeding evaluations and/or radiographic swallowing studies should be obtained for choking/gagging during feeds, poor weight gain, frequent respiratory illnesses, or feeding refusal that is not otherwise explained. Assuming that the child is safe to eat by mouth, feeding therapy (typically from an occupational or speech therapist) is recommended to help improve coordination or sensory-related feeding issues. Feeds can be thickened or chilled for safety. When feeding dysfunction is severe, an NG-tube or G-tube may be necessary.
+Speech, language, and communication issues. Speech-language evaluation should be considered early in development for children who have delayed communication milestones or who are not yet talking. Evaluation for alternative means of communication (e.g., augmentative and alternative communication [AAC]) is appropriate for individuals who have speech or receptive and expressive language difficulties. An AAC evaluation should be completed by a speech-language pathologist who has expertise in the area. This evaluation typically takes into account cognitive abilities, sensory impairments, and motor skills to determine the most appropriate form of communication. AAC devices can range from low-tech, such as picture exchange communication, to high-tech, such as voice-generating devices. Contrary to popular belief, AAC devices do not hinder verbal development of speech, but rather support optimal speech and language development. Many children will continue to require AAC into later childhood and adulthood, while some may use their AAC for a shorter time to help aid speech and language development.
+Social/Behavioral Concerns
+Children may qualify for and benefit from interventions used in treatment of autism spectrum disorder, including applied behavior analysis (ABA). ABA therapy is targeted to the individual child's behavioral, social, and adaptive strengths and weaknesses and typically performed one on one with a board-certified behavior analyst.
+Consultation with a developmental pediatrician may be helpful in guiding parents through appropriate behavior management strategies or providing prescription medications, such as medication used to treat obsessivecompulsive symptoms or psychosis, when necessary.
+Concerns about serious aggressive or destructive behavior can be addressed by a pediatric psychiatrist.
+Surveillance
+Health supervision guidelines from the American Academy of Pediatrics (AAP) have been published
+[McCandless 2011] (full text). A multidisciplinary approach to care was recently published based on a survey of a group of experts on PWS and literature review [Duis et al 2019].
+Table 9. Prader-Willi Syndrome: Recommended Surveillance
+System/Concern Evaluation Frequency
+Developmental delay /
+Intellectual disability Monitor developmental progress & educational needs. At each visit
+Cryptorchidism Monitor testicular position, as cryptorchidism may recur after orchidopexy. Annually
+
+Table 9. continued from previous page.
+System/Concern Evaluation Frequency
+Endocrine
+Glycosylated hemoglobin concentration (Hgb A1c)
+&/or glucose tolerance test to assess for diabetes
+Annually if obese or beginning in adolescence or w/rapid significant weight gain or other symptoms (e.g., polyuria/polydipsia)
+For persons on diazoxide choline: measure fasting blood glucose
+• Daily during titration period to determine appropriate dose
+• 1x/month when maintenance dose is determined; unless blood fasting glucose is >100 mg/dL, in which case monitor more frequently
+For persons on diazoxide choline: serum Hgb A1c
+Prior to starting treatment (must be optimized before starting medication) & every 3 mos while on therapy
+Free thyroxine & TSH levels to assess for hypothyroidism Every 6-12 mos beginning in infancy
+Assess for central adrenal insufficiency As needed based on symptoms & during illness
+& surgery
+Growth/Appetite/
+Obesity
+• Monitor height, weight, & BMI. 1
+• Growth charts for affected infants & children not treated w/GH have been published, 2 & growth charts for GH-treated children w/PWS have been developed. 3
+• Every month in infancy
+• Every 6 mos in 1st decade of life
+• At least annually thereafter
+• More frequently if caregivers identify rapid weight gain
+Behavioral/Psychiatric
+Assess for presence of behavioral findings & obsessivecompulsive features w/family or caregivers. Annually after age 2 yrs
+• Assess for psychosis.
+• Evidence of radical behavior change, hallucinations, delusions, or disorientation should prompt psychiatry eval.
+Annually in adolescents & adults
+Dermatologic Skin exam for sores &/or signs/symptoms of cutaneous infection At each visit
+Vision Ophthalmologic exam to assess for strabismus &/or refractive errors Annually
+Sleep
+Assess for snoring, frequent nocturnal awakening, & new behavioral issues w/family or caregivers. Annually
+Evaluate respiratory status during sleep w/sleep study.
+Prior to initiation of GH therapy & 4-8 wks after starting GH therapy, & if clinical symptoms arise thereafter (e.g., snoring, frequent nocturnal awakening, behavioral issues)
+Overnight sleep study followed by multiple sleep latency testing & video EEG
+In those w/excessive daytime sleepiness / narcolepsy / cataplexy
+Scoliosis
+Clinical exam for scoliosis At each visit beginning when child can sit independently
+Spine radiographs for scoliosis in those w/:
+• Clinical findings suggestive of scoliosis
+• Obesity
+Annually
+Osteoporosis Bone densitometry by DXA scan Every 2 yrs beginning in adolescence
+
+Table 9. continued from previous page.
+System/Concern Evaluation Frequency
+Seizures Assess for new seizures or monitor those w/seizures as clinically indicated. At each visit
+Dental Dental eval At least every 6 mos after teeth erupt or every 3-4 mos if dental issues are present
+Family/Community
+Assess family need for social work support (e.g., palliative/respite care, home nursing, other local resources), care coordination, or follow-up genetic counseling if new questions arise (e.g., family planning).
+At each visit
+BMI = body mass index; DXA = dual-energy x-ray absorptiometry; GH = growth hormone; Hgb = hemoglobin; TSH = thyroidstimulating hormone
+1. Weight in kg, height in m2
+2. Butler et al [2011], Butler et al [2015]
+3. Butler et al [2016]
+Agents/Circumstances to Avoid
+Unsupervised access to food should be avoided, as hyperphagia may result in rapid ingestion and fatal choking, silent aspiration, and exposure to spoiled food.
+Emetics are typically ineffective for induction of vomiting after ingestion of uncooked/spoiled food items, with potential toxicity from repeated administration. Instead, a nasogastric tube should be used for gastric decompression.
+Antidiarrheal medications can cause severe colonic distention, necrosis, and rupture in individuals with PWS and should be avoided. Abdominal distention, bloating, pain, lethargy, loss of appetite, and/or vomiting may be signs of life-threatening gastric inflammation or necrosis. Individuals with these symptoms should be urgently evaluated by a medical professional and may require hospitalization. Radiographic imaging and possibly emergency surgery may be required.
+Sedatives and other medications. People with PWS may have unusual reactions to standard dosages of medications. Use extreme caution in giving medications, especially those that may cause sedation; prolonged and exaggerated responses have been reported. The presence of obesity may also affect appropriate dosing.
+Evaluation of Relatives at Risk
+See Genetic Counseling for issues related to testing of at-risk relatives for genetic counseling purposes.
+Pregnancy Management
+Pregnancy is rare in women with PWS. Pregnancies in those with PWS require more frequent monitoring, given the high pain threshold observed in individuals with PWS, particularly in those who are obese.
+Therapies Under Investigation
+Several additional Phase II clinical trials are ongoing for treatment of hyperphagia in individuals with PWS, including investigations of oxytocin, canabadiolvarin, a melanin-concentrating hormone receptor 1 antagonist, a compound that activates bitter taste receptors in the gut, and cannabidiol.
+There is an ongoing Phase II clinical trial of pitolisant for treatment of excessive daytime somnolence, as well as narcolepsy/cataplexy.
+
+An ongoing Phase III clinical trial is investigating ARD-101, a bitter taste receptor agonist, for treatment of hyperphagia.
+Transcutaneous vagal nerve stimulation showed significant positive effects on decreasing the frequency and intensity of temper outbursts in a small study in adults with PWS. Larger, placebo-controlled studies are being planned to determine the reproducibility and duration of effects [Manning et al 2019].
+Search ClinicalTrials.gov in the US and EU Clinical Trials Register in Europe for access to information on clinical studies for a wide range of diseases and conditions. In addition, see a detailed review by Mahmoud et al
+[2023] of the clinical trials involving PWS.
+Genetic Counseling
+Genetic counseling is the process of providing individuals and families with information on the nature, mode(s) of inheritance, and implications of genetic disorders to help them make informed medical and personal decisions. The following section deals with genetic risk assessment and the use of family history and genetic testing to clarify genetic status for family members; it is not meant to address all personal, cultural, or ethical issues that may arise or to substitute for consultation with a genetics professional. —ED.
+Mode of Inheritance
+Individuals with Prader-Willi syndrome (PWS) typically represent simplex cases (i.e., a single affected family member) and have the disorder as the result of a de novo genetic alteration. The vast majority of families have a recurrence risk of less than 1%. However, certain etiologies involve a recurrence risk as high as 50%, and a scenario with a risk of almost 100% (i.e., a mother with a 15/15 Robertsonian translocation), though very unlikely, is theoretically possible. Reliable PWS recurrence risk assessment therefore requires identification of the genetic mechanism of PWS in the proband (i.e., a 15q deletion, uniparental disomy [UPD] 15, or an imprinting defect) and the underlying genetic etiology, as well as parental testing to discern the presence of a predisposing genetic alternation (i.e., a parental chromosome rearrangement or paternal heterozygosity for an imprinting center deletion).
+Risk to Family Members
+Parents of a proband. The parents of the proband are unaffected.
+Sibs of a proband
+• The risk to sibs of a proband with PWS depends on the underlying genetic mechanism and genetic etiology of PWS in the proband and the genetic status of the parents (see Tables 10 and 11).
+• Once a diagnosis of PWS is established in the proband through identification of abnormal DNA methylation at 15q11.2-q13 and an underlying genetic mechanism (15q deletion, maternal UPD 15, or an imprinting defect) has been identified on oligo-SNP combination array (OSA), the genetic etiology should be determined for recurrence risk assessment. Recommended testing to discern genetic etiology in the proband and the genetic status of the parents is summarized in Tables 10 and 11 (see also Figure 1).
+
+Table 10. Risks to Sibs of a Proband with Prader-Willi Syndrome by Genetic Mechanism
+Genetic Mechanism Possible Genetic Etiologies Proportion of PWS
+Recommended Testing to Distinguish
+Genetic Etiology & Discern Presence of
+Predisposing Parental Genetic
+Alternation
+Risk to Sibs 15q deletion
+De novo deletion 60%-70% • Proband: karyotype & FISH 1
+• Father: karyotype & FISH (to identify cryptic translocation or paracentric inversion of 15q11.2)
+<1% 2
+Deletion resulting from unbalanced chromosome rearrangement
+<1% Up to 25%
+UPD 15
+De novo UPD 15 ~30%-40% Proband: karyotype
+• If proband has normal karyotype, then karyotype in father 3
+• If proband has marker chromosome, then karyotype in both parents
+• If proband has 15/15
+Robertsonian translocation, then karyotype in mother
+<1%
+UPD 15 w/predisposing chromosomal abnormality
+(e.g., paternal 15/15
+Robertsonian translocation, marker chromosome)
+<1% <1% to 100% 4
+Imprinting center (IC) deletion
+De novo <0.5% • Proband: no additional testing
+• Father: DNA methylation &
+OSA or MS-MLPA.
+<1% 2
+IC deletion inherited from father <0.5% 5 50%
+Imprinting defect by epimutation De novo 2%-4% No additional testing <1%
+MS-MLPA = methylation-specific multiplex ligation-dependent probe amplification; OSA = oligo-small nucleotide polymorphism
+(SNP) combination array; PWS = Prader-Willi syndrome; UPD = uniparental disomy
+1. Oligo-SNP combination array (OSA) does not detect translocations & inversions involving proximal 15q.
+2. Germline mosaicism in the father is rare but has been observed in cases of 15q11.2 deletions [Kokkonen & Leisti 2000, Fernández-
+Novoa et al 2001] and IC deletions [Buiting et al 2003; Wey et al 2005; D Driscoll, personal observation].
+3. If the father has a 15/15 Robertsonian translocation, aberrant segregation at meiosis I could result in a nullisomic sperm; this, combined with monosomy rescue to disomy, would result in an embryo with maternal isodisomic UPD 15.
+4. Empiric data suggest that the risk for recurrence in most of these cases would also be less than 1%, although the theoretic risk would be much higher.
+5. Half of imprinting center (IC) deletions are inherited from the father; the other half are de novo.
+Table 11. Risks to Sibs of a Proband with Prader-Willi Syndrome by Genetic Mechanism and Genetic Etiology
+Genetic Mechanism
+Recommended Testing to Distinguish
+Genetic Etiology & Discern Presence of
+Predisposing Parental Genetic
+Alternation
+Genetic Etiology Proportion of PWS Risk to Sibs 15q deletion
+• Proband: karyotype & FISH 1
+• Father: karyotype & FISH (to identify cryptic translocation or paracentric inversion of 15q11.2)
+De novo deletion 60%-70% <1% 2
+Deletion resulting from unbalanced chromosome rearrangement
+<1% Up to 25%
+
+Table 11. continued from previous page.
+Genetic Mechanism
+Recommended Testing to Distinguish
+Genetic Etiology & Discern Presence of
+Predisposing Parental Genetic
+Alternation
+Genetic Etiology Proportion of PWS Risk to Sibs
+UPD 15
+Proband: karyotype
+• If proband has normal karyotype, then karyotype in father 3
+• If proband has marker chromosome, then karyotype in both parents
+• If proband has 15/15
+Robertsonian translocation, then karyotype in mother
+De novo UPD 15 ~30%-40% <1%
+UPD 15 w/predisposing chromosomal abnormality
+(e.g., paternal 15/15
+Robertsonian translocation, marker chromosome)
+<1% <1% to 100% 4
+Imprinting center (IC) deletion
+• Proband: no additional testing
+• Father: DNA methylation &
+OSA (or MS-MLPA)
+De novo <0.5% <1% 2
+IC deletion inherited from father <0.5% 5 50%
+Imprinting defect by epimutation No additional testing De novo ~2%-4% <1%
+MS-MLPA = methylation-specific multiplex ligation-dependent probe amplification; OSA = oligo-small nucleotide polymorphism
+(SNP) combination array; PWS = Prader-Willi syndrome; UPD = uniparental disomy
+1. Oligo-SNP combination array (OSA) does not detect translocations & inversions involving proximal 15q.
+2. Germline mosaicism in the father is rare but has been observed in cases of 15q11.2 deletions [Kokkonen & Leisti 2000, Fernández-
+Novoa et al 2001] and imprinting center (IC) deletions [Buiting et al 2003; Wey et al 2005; D Driscoll, personal observation].
+3. If the father has a 15/15 Robertsonian translocation, aberrant segregation at meiosis I could result in a nullisomic sperm; this, combined with monosomy rescue to disomy, would result in an embryo with maternal isodisomic UPD 15.
+4. Empiric data suggest that the risk for recurrence in most of these cases would also be less than 1%, although the theoretic risk would be much higher.
+5. Half of IC deletions are inherited from the father; the other half are de novo.
+Offspring of a proband
+• With rare exceptions in females, individuals with PWS do not reproduce. No male with genetically confirmed PWS has ever been reported to have reproduced.
+• The risk to offspring should be determined in the context of formal genetic counseling.
+Other family members
+• If a chromosome rearrangement (e.g., translocation or inversion) is identified in the proband and a parent, the sibs of the carrier parent should be offered genetic counseling and the option of genetic testing.
+• If a proband's father is heterozygous for an imprinting center deletion, the father's sibs are also at risk of having the imprinting center deletion.
+Related Genetic Counseling Issues
+Family planning
+• The optimal time for determination of genetic risk and discussion of the availability of prenatal testing is before pregnancy.
+• It is appropriate to offer genetic counseling (including discussion of potential risks to offspring and reproductive options) to the parents of affected individuals.
+
+Prenatal Testing
+Families who have a child with PWS. Once the causative genetic mechanism has been identified in the proband, prenatal testing for PWS is possible [Butler 2017]. The approach to prenatal testing depends on the molecular mechanism identified in the proband; prenatal detection of all three molecular classes of PWS are possible. Note that DNA methylation analysis at the 5' SNRPN locus is the most reliable method to identify imprinting defects in prenatal tissue [Glenn et al 2000, Beygo et al 2019].
+Pregnancies in which no family history of PWS exists. PWS may be a possibility in the following situations:
+• If a 15q11.2 deletion is suspected on cytogenetic studies from testing of cells obtained by chorionic villus sampling (CVS) or amniocentesis, OSA is indicated. In this instance, parent-of-origin studies should be performed after confirmation of a deletion to determine if the deletion is maternally derived (fetus has
+Angelman syndrome) or paternally derived (fetus has PWS).
+• If trisomy 15 or mosaic trisomy 15 is detected on testing of cells obtained by CVS, and if subsequent testing of cells obtained by amniocentesis reveals 46 chromosomes, the possibility of trisomy rescue leading to Angelman syndrome (paternal UPD) through loss of a maternal chromosome 15 or PWS
+(maternal UPD) through loss of a paternal chromosome 15 should be considered. In this instance, parentof-origin (UPD) studies or DNA methylation analysis on amniocytes should be considered.
+• If an inherited or de novo translocation involving chromosome 15 is present or if a supernumerary chromosome derived from chromosome 15 is detected, OSA (to rule out a deletion) and parent-of-origin or DNA methylation studies (to rule out the possibility of UPD) are indicated.
+Noninvasive prenatal tests (NIPT) using fetal cell-free DNA is available for testing for deletions of 15q11.2 but has a high false positive rate (unlike testing for the major trisomy conditions [13, 18, and 21], which has high sensitivity and specificity). Also, NIPT will not distinguish an AS deletion from a PWS deletion and will not detect UPD and imprinting defects.
+Preimplantation genetic testing (PGT) may be an option for some families in which an imprinting center deletion has been identified. PGT can also be used in cases of familial translocation to rule out UPD.
+Differences in perspective may exist among medical professionals and within families regarding the use of prenatal and preimplantation genetic testing. While most health care professionals would consider use of prenatal and preimplantation genetic testing to be a personal decision, discussion of these issues may be helpful.
+Resources
+GeneReviews staff has selected the following disease-specific and/or umbrella support organizations and/or registries for the benefit of individuals with this disorder and their families. GeneReviews is not responsible for the information provided by other organizations. For information on selection criteria, click here.
+• International Prader-Willi Syndrome Organisation (IPWSO)
+Salisbury House
+Station Road
+United Kingdom
+Email: info@ipwso.org www.ipwso.org
+• International Prader-Willi Syndrome Organisation: Members Around the World
+Our members are constituted PWS Associations representing families around the world.
+
+PWS Associations
+• Medical Home Portal
+• Prader-Willi Syndrome Association USA
+Phone: 941-312-0400 www.pwsausa.org
+• Foundation for Prader-Willi Research
+Phone: 888-322-5487
+Email: info@fpwr.org www.fpwr.org
+• Prader-Willi Syndrome Association UK
+United Kingdom
+Phone: +44 (0)1332 365676
+Email: admin@pwsa.co.uk pwsa.co.uk
+Molecular Genetics
+Information in the Molecular Genetics and OMIM tables may differ from that elsewhere in the GeneReview: tables may contain more recent information. —ED.
+Table A. Prader-Willi Syndrome: Genes and Databases
+Critical Region Gene Chromosome Locus Protein ClinVar
+PWCR Unknown 15q11.2 Unknown
+Data are compiled from the following standard references: gene from HGNC; chromosome locus from OMIM; protein from UniProt.
+For a description of databases (Locus Specific, HGMD, ClinVar) to which links are provided, click here.
+Table B. OMIM Entries for Prader-Willi Syndrome (View All in OMIM) 137142 GAMMA-AMINOBUTYRIC ACID RECEPTOR, ALPHA-5; GABRA5 137192 GAMMA-AMINOBUTYRIC ACID RECEPTOR, BETA-3; GABRB3 176270 PRADER-WILLI SYNDROME; PWS 182279 SMALL NUCLEAR RIBONUCLEOPROTEIN POLYPEPTIDE N; SNRPN 600161 PRADER-WILLI/ANGELMAN REGION RNA 1; PW AR1 600233 GAMMA-AMINOBUTYRIC ACID RECEPTOR, GAMMA-3; GABRG3 601491 IMPRINTED IN PRADER-WILLI SYNDROME; IPW 601623 UBIQUITIN-PROTEIN LIGASE E3A; UBE3A 602117 NECDIN; NDN 603856 MAKORIN 3; MKRN3 603857 MKRN3 ANTISENSE RNA; MKRN3AS 605283 MAGE-LIKE 2; MAGEL2
+
+Table B. continued from previous page.
+605436 SMALL NUCLEOLAR RNA, C/D BOX, 116-1; SNORD116-1 605837 HECT DOMAIN AND RCC1-LIKE DOMAIN 2; HERC2 605855 ATPase, PHOSPHOLIPID-TRANSPORTING, 10A; ATP10A 609837 SMALL NUCLEOLAR RNA, C/D BOX, 115-1; SNORD115-1 610922 NUCLEAR PORE ASSOCIATED PROTEIN 1; NPAP1 611215 PRADER-WILLI REGION NONCODING RNA 1; PWRN1 611409 OCA2 MELANOSOMAL TRANSMEMBRANE PROTEIN; OCA2
+Molecular Pathogenesis
+The Prader-Willi syndrome (PWS) critical region (PWCR) is localized to a 5- to 6-Mb genomic region on the proximal long arm of chromosome 15 (15q11.2-q13) (see Figure 2). It lies within a smaller 2.5-Mb differentially imprinted region. PWS is a contiguous gene disorder; studies thus far indicate that the complete phenotype is due to the loss of expression of several genes [Cassidy et al 2012]. However, it has been shown that the loss of expression of the SNORD116 gene cluster plays a major role in the phenotype [Tan et al 2020]. PWS is also an imprinted condition, since the expression of relevant genes in the 15q11.2-q13 region is dependent on parental origin [Cassidy et al 2012].
+The genomic and epigenetic changes causing PWS all lead to a loss of expression of the normally paternally expressed genes on chromosome 15q11.2-q13. Absence of the paternally inherited copy of these genes, or failure to express them, causes total absence of expression for those genes in the affected individual because the maternal contribution for these genes has been programmed by epigenetic factors to be silenced [Cassidy &
+Driscoll 2009, Cassidy et al 2012].
+Deletion mechanism. An interstitial 15q11.2-q13 microdeletion on the paternal allele accounts for 60%-70% of individuals with PWS. The vast majority of deletions have one of two common proximal breakpoints (BP1 or
+BP2) and a common distal breakpoint (BP3) resulting in a 5- to 6-Mb deletion (see Figure 2). Multiple tandem repeats flank the common breakpoints (BP1, BP2, and BP3). These low copy 250- to 400-kb repeat sequences are subject to nonhomologous pairing during meiosis, leading to deletions (causing PWS or Angelman syndrome
+[AS] depending on parental origin), duplications (both maternal and paternal), triplications, and inverted duplication of chromosome 15. About 8% of individuals with PWS have unique or atypical-sized deletions caused by a variety of etiologies, including unbalanced translocations [Kim et al 2012, Butler et al 2019a].
+Atypical deletions may result in clinical features that are milder or more severe than typical individuals with
+PWS.
+Imprinting center deletion. Small deletions of the promoter region and the proximal upstream region of
+SNRPN (including the putative imprinting control element) have been identified in individuals with PWS who have maternal-specific DNA methylation patterns but do not have a 15q11.2-q13 deletion or maternal uniparental disomy (UPD).
+Other individuals have biparental inheritance but maternal-only DNA methylation patterns in this region without detectable abnormalities in the imprinting center. These individuals are considered to have an imprinting defect by an epimutation.
+Genes of interest in this region. The following genes have been mapped within the PWS/AS critical region (see
+Figure 2):
+
+• ATP10A was originally thought to have preferential maternal expression, but subsequent publications in mice [DuBose et al 2010] and humans [Hogart et al 2008] have cast doubt on this gene being imprinted.
+Rather, it may have random monoallelic expression [Hogart et al 2008].
+• GABRB3, GABRA5, and GABRG3 are all GABA receptor subunit genes involved in neurotransmission within the brain.
+• HERC2 shuttles between the nucleus and cytoplasm and functions as an E3 ubiquitin ligase for the ubiquitination and degradation of target proteins, as an activator of other E3 ubiquitin ligases, and as an adaptor for assembly of DNA damage response proteins. The OCA2-HERC2 locus is responsible for the greatest proportion of eye color variation in humans [Suarez et al 2021]. This probably explains why individuals with PWS who have a deletion that encompasses this region are generally hypopigmented compared to their family members.
+• IPW is a long noncoding RNA located between SNORD116-1 and SNORD115-1. It has been shown to be a regulator of the DLK1-DIO3 imprinted region on chromosome 14, and it may be involved in regulating other non-chromosome 15 imprinted regions in the genome [Stelzer et al 2014]. Its role in PWS in unclear, but interestingly this locus is included in all seven individuals with a SNORD116 deletion who have many of the major features of PWS [Tan et al 2020].
+• MAGEL2 is transcribed only by the paternal allele and expressed predominantly in the brain. Individuals with loss-of-function variants in the paternal allele of MAGEL2 have Schaaf-Y ang syndrome, a disorder with features that overlap with PWS.
+• MKRN3 encodes a zinc finger protein expressed only from the paternal chromosome. Paternally inherited loss-of-function variants in MKRN3 are a cause of familial central precocious puberty in humans [Abreu et al 2013, Macedo et al 2014].
+• NDN is only paternally expressed and encodes a DNA-binding protein that acts as an antiapoptotic or survival factor in the early development of the nervous system [Andrieu et al 2006]. It may play a role in gonadotropin-releasing hormone neurons [Chung et al 2020].
+• NPAP1 is an intronless gene that is biallelically expressed in adult testes but monoallelically expressed in the fetal brain.
+• OCA2 encodes a melanosomal protein, and pathogenic variants in this gene cause oculocutaneous albinism type 2; its deletion is associated with the hypopigmentation frequently seen in individuals with
+PWS.
+• PWRN1, expressed in testes, demonstrates lower expression in the prostate, heart, kidneys, liver, lungs, skeletal muscles, trachea, spinal cord, and fetal brain; it is shown to have monoallelic expression in the fetal brain.
+• SNORD115 (snoRNA HBII-52) is a cluster of C/D small nucleolar RNAs (snoRNAs) and consists of approximately 47 copies. It is almost exclusively expressed in neurons and only from the paternal contribution. It has been proposed that SNORD115 promotes the generation of the serotonin 2c receptor.
+However, there are some rare individuals with PWS whose deletion does not include this locus. Thus, it is not a major contributor to the PWS phenotype, but its absence may contribute to some of the behavioral features of PWS [Chung et al 2020].
+• SNORD116 (snoRNA HBII-85). Evidence suggests that the snoRNA SNORD116 cluster, which consists of approximately 24 gene copies, is causative of many of the major features of PWS. There have been a few rare individuals with a SNORD116 deletion described in the literature who have many of the major features of PWS [Tan et al 2020]. The snoRNAs are probably involved in the modification of mRNA by alternative splicing, and each snoRNA gene may have multiple targets; however, no definitive targets have yet been found for SNORD116.
+• SNURF-SNRPN (typically abbreviated as just SNRPN) is a complex bicistronic gene encoding two different proteins. Exons 4-10 were described first and encode the protein SmN, which is a spliceosomal protein involved in mRNA splicing. SNURF is encoded by exons 1-3 and produces a polypeptide of
+
+unknown function. It also serves as the host for the seven snoRNA genes located telomerically, which are regulated by the expression of SNURF-SNRPN [Chung et al 2020].
+• UBE3A is an E3 ubiquitin ligase involved in protein degradation in the brain and is associated with AS.
+Imprinted genes in the region. A number of the genes in the PWCR (MKRN3, MAGEL2, NDN, NPAP1,
+PWRN1, SNORD116, IPW, SNORD115, SNURF-SNRPN) are subject to genomic imprinting, thus accounting for the fact that the PWS phenotype results only when the paternally contributed PWCR is absent. DNA methylation, which is involved in the process of genomic imprinting, has been demonstrated for several of the genes identified within the PWCR [Cassidy et al 2012, Beygo et al 2019, Chung et al 2020]. Upstream of SNRPN, very small deletions of the putative imprinting control element for the PWCR have been identified in a few individuals with PWS who have maternal-specific DNA methylation patterns but have neither the usual large paternally derived deletion of the PWS/AS critical region nor maternal UPD [Cassidy et al 2012, Beygo et al 2019]. Other individuals demonstrate sporadic imprinting defects that are epimutations [Beygo et al 2019].
+Chapter Notes
+Author Notes
+Daniel J Driscoll, MD, PhD, FAAP , FFACMGG
+Professor of Pediatrics and Genetics
+The John T & Winifred M Hayward Professor of Genetics Research
+Division of Genetics and Metabolism
+Department of Pediatrics
+University of Florida College of Medicine
+Gainesville, Florida, USA
+Email: driscdj@peds.ufl.edu
+Dr Driscoll is board certified in Pediatrics, Clinical Genetics, and Clinical Cytogenetics. He has been conducting clinical and laboratory research on Prader-Willi syndrome (PWS) since the late 1980s. He has been a major contributor to the understanding of the genetics of PWS and genomic imprinting in the PWS critical region, as well as to the elucidation of the natural history of PWS. His group first developed the technique (DNA methylation analysis) that is used around the world to diagnose PWS and also elucidated the nutritional phases of PWS that has gained wide acceptance by PWS experts.
+Dr Driscoll is widely published on PWS and a major spokesperson on PWS in the US and internationally. He has had an active PWS clinic for the last 32 years and was the principal investigator for the PWS component of the
+NIH-funded 12-year national Rare Disease Center grant on the natural history of PWS. He served on the
+Prader-Willi Syndrome Association | USA (PWSA | USA) Board of Directors for 21 years and as Chair of the
+Clinical Advisory Board for PWSA | USA for 23 years. He is currently the Chair of the Clinical and Scientific
+Advisory Board for the International Prader-Willi Syndrome Organization (IPWSO).
+Jennifer L Miller, MD, MS, FAAP
+Professor of Pediatrics
+Division of Endocrinology
+University of Florida
+Gainesville, Florida, USA
+Email: millejl@peds.ufl.edu
+Dr Miller is a Pediatric Endocrinologist who specializes in the care and treatment of individuals with PWS and other causes of childhood obesity. She has conducted many clinical trials for individuals with PWS, as well as clinical trials for other genetic obesity conditions and hypothalamic obesity. She is a member of the Scientific
+
+Advisory Board for the Foundation for Prader-Willi Syndrome Research (FPWR) and the Clinical Advisory
+Board for PWSA | USA.
+Suzanne B Cassidy, MD, FFACMGG
+Clinical Professor of Pediatrics
+Division of Medical Genetics
+University of California, San Francisco
+San Francisco, California, USA
+Email: suzannecassidy@comcast.net
+Dr Cassidy is a Clinical Geneticist who has specialized in PWS clinically and in her clinical research throughout her career in academic medicine. She has conducted multidisciplinary clinics for people with PWS for 40 years.
+A founding member of IPWSO, she is currently on the IPWSO Clinical and Scientific Advisory Board and the
+PWSA | USA Clinical and Scientific Advisory Board. She has been a frequent speaker about PWS at educational and medical conferences around the world. She is an editor of Management of Genetic Syndromes, a resource book now in its fourth edition.
+Acknowledgments
+All the authors of this GeneReview acknowledge the incredible value of participation in clinical and scientific advisory boards of the IPWSO and the PWSA | USA, as well as from the scientific and medical conferences these organizations hold. We are grateful for the research support to the authors provided by a number of organizations throughout the years, including the NIH, US Department of Defense, March of Dimes, PWSA |
+USA, FPWR, and the Hayward and Schiller Foundations.
+Much knowledge of clinical findings and insight into management has been gleaned from families of people with
+PWS over many years of contact. We are all grateful to the colleagues who worked with us in our respective PWS clinics and in our clinical and laboratory research on PWS throughout the years, as well as the knowledge gained from other experts on PWS whom we have consulted on a wide range of issues over the years. The authors would also like to acknowledge Carlos Sulsona for his expert assistance with the figures.
+Author History
+Suzanne B Cassidy, MD, FFACMGG (1998-present)
+Daniel J Driscoll, MD, PhD, FFACMGG, FAAP (2012-present)
+Jennifer L Miller, MD, MS, FAAP (2012-present)
+Stuart Schwartz, PhD, FACMG; Laboratory Corporation of America (1998-2023)
+Revision History
+• 19 February 2026 (sw) Revision: diazoxide choline approved as targeted therapy for hyperphagia in PWS
+• 5 December 2024 (ma) Revision: PWS growth charts added to Management
+• 2 November 2023 (dd) Revision: Angelman syndrome added to Figure 1
+• 9 March 2023 (sw) Comprehensive update posted live
+• 4 February 2016 (ha) Comprehensive update posted live
+• 11 October 2012 (me) Comprehensive update posted live
+• 24 March 2008 (me) Comprehensive update posted live
+• 16 June 2005 (me) Comprehensive update posted live
+• 1 May 2003 (me) Comprehensive update posted live
+• 13 November 2000 (me) Comprehensive update posted live
+• 6 October 1998 (pb) Review posted live
+• Spring 1997 (sc) Original submission
+
+References
+Published Guidelines / Consensus Statements
+Beygo J, Buiting K, Ramsden SC, Ellis R, Clayton-Smith J, Kanber D. Update of the EMQN/ACGS best practice guidelines for molecular analysis of Prader-Willi and Angelman syndromes. Eur J Hum Genet.
+2019;27:1326-40. [PubMed]
+Deal CL, Tony M, Höybye C, Allen DB, Tauber M, Christiansen JS; 2011 Growth hormone in Prader-Willi
+Syndrome Clinical Care Guidelines Workshop Participants. Growth Hormone Research Society workshop summary: consensus guidelines for recombinant human growth hormone therapy in Prader-Willi syndrome. Available online. 2013. Accessed 10-30-23.
+Duis J, van Wattum PJ, Scheimann A, Salehi P , Brokamp E, Fairbrother L, Childers A, Shelton AR,
+Bingham NC, Shoemaker AH, Miller JL. A multidisciplinary approach to the clinical management of
+Prader-Willi syndrome. Mol Genet Genomic Med. 2019;7:e514. [PubMed]
+International Prader-Willi Syndrome Organization Clinical and Scientific Advisory Board. Guides for doctors: consensus documents for infants, children, adolescents, and adults with PWS. Available online.
+Accessed 10-30-23.
+McCandless SE, Committee on Genetics. Clinical report -- health supervision for children with Prader-
+Willi Syndrome. Available online. 2011. Accessed 10-30-23.
+Literature Cited
+Abreu AP , Dauber A, Macedo DB, Noel SD, Brito VN, Gill JC, Cukier P , Thompson IR, Navarro VM, Gagliardi
+PC, Rodrigues T, Kochi C, Longui CA, Beckers D, de Zegher F , Montenegro LR, Mendonca BB, Carroll RS,
+Hirschhorn JN, Latronico AC, Kaiser UB. Central precocious puberty caused by mutations in the imprinted gene MKRN3. N Engl J Med. 2013;368:2467-75. PubMed PMID: 23738509.
+Alves C, Franco RR. Prader-Willi syndrome: endocrine manifestations and management. Arch Endocrinol
+Metab. 2020;64:223-34. PubMed PMID: 32555988.
+Andrieu D, Meziane H, Marly F , Angelats C, Fernandez PA, Muscatelli F . Sensory defects in Necdin deficient mice result from a loss of sensory neurons correlated within an increase of developmental programmed cell death. BMC Dev Biol. 2006;6:56 PubMed PMID: 17116257.
+Ayet-Roger A, Joga-Elvira L, Caixàs A, and Corripio R. Cognitive and adaptive effects of early growth hormone treatment in Prader-Willi syndrome patients: a cohort study. J Clin Med. 2022;11:1592. PubMed PMID:
+35329918.
+Bakker NE, W olffenbuttel KP , Looijenga LH, Hokken-Koelega AC. Testes in infants with Prader-Willi syndrome: human chorionic gonadotropin treatment, surgery and histology. J Urol. 2015;193:291-8. PubMed
+PMID: 25109686.
+Ben-Abdallah-Bouhjar I, Hannachi H, Labalme A, Gmidène A, Mougou S, Soyah N, Gribaa M, Sanlaville D,
+Elghezal H, Saad A. Chromosomal microarray analysis of functional Xq27-qter disomy and deletion 3p26.3 in a boy with Prader-Willi like features and hypotonia. Eur J Med Genet. 2012;55:461-5. PubMed PMID:
+22683462.
+Bennett JA, Germani T, Haqq AM, Zwaigenbaum L. Autism spectrum disorder in Prader-Willi syndrome: a systematic review. Am J Med Genet A. 2015;167A:2936-44. PubMed PMID: 26331980.
+
+Beygo J, Buiting K, Ramsden SC, Ellis R, Clayton-Smith J, Kanber D. Update of the EMQN/ACGS best practice guidelines for molecular analysis of Prader-Willi and Angelman syndromes. Eur J Hum Genet.
+2019;27:1326-40. PubMed PMID: 31235867.
+Bohonowych JE, Vrana-Diaz C, Miller JL, McCandless SE, Strong TV . Incidence of strabismus, strabismus surgeries, and other vision conditions in Prader-Willi syndrome: data from the Global Prader-Willi
+Syndrome Registry. BMC Ophthalmol. 2021:21;296 PubMed PMID: 34380467.
+Bonaglia MC, Ciccone R, Gimelli G, Gimelli S, Marelli S, Verheij J, Giorda R, Grasso R, Borgatti R, Pagone F ,
+Rodrigueq L, Martinez-Frias ML, van Ravenswaaij C, Zuffardi O. Detailed phenotype-genotype study in five patients with chromosome 6q16 deletion: narrowing the critical region for Prader-Willi-like phenotype. Eur
+J Hum Genet. 2008;16:1443-9. PubMed PMID: 18648397.
+Bonnefond A, Raimondo A, Stutzmann F , Ghoussaini M, Ramachandrappa S, Bersten DC, Durand E, Vatin V ,
+Balkau B, Lantieri O, Raverdy V , Pattou F , Van Hul W , Van Gaal L, Peet DJ, Weill J, Miller JL, Horber F ,
+Goldstone AP , Driscoll DJ, Bruning JB, Meyre D, Whitelaw ML, Froguel P . Loss-of-function mutations in
+SIM1 contribute to obesity and Prader-Willi-like features. J Clin Invest. 2013;123:3037-41. PubMed PMID:
+23778136.
+Bonnot O, Cohen D, Thuilleaux D, Consoli A, Cabal S, Tauber M. Psychotropic treatment sin Prader-Willi syndrome: a critical review of published literature. Eur J Pediatr. 2016;175: 9-18 PubMed PMID: 26584571.
+Boyar FZ, Whitney MM, Lossie AC, Gray BA, Keller KL, Stalker HJ, Zori RT, Geffken G, Mutch J, Edge PJ,
+Voeller KS, Williams CA, Driscoll DJ. A family with a grand-maternally derived interstitial duplication of proximal 15q. Clin Genet. 2001;60:421-30. PubMed PMID: 11846734.
+Bruni O, Verrillo E, Novelli L, Ferri R. Prader-Willi syndrome: sorting out the relationships between obesity, hypersomnia, and sleep apnea. Curr Opin Pulm Med. 2010;16:568-73. PubMed PMID: 20814307.
+Buiting K, Gross S, Lich C, Gillessen-Kaesbach G, el-Maarri O, Horsthemke B. Epimutations in Prader-Willi and Angelman syndromes: a molecular study of 136 patients with an imprinting defect. Am J Hum Genet.
+2003;72:571-7. PubMed PMID: 12545427.
+Burman P , Ritzen EM, Lindgren AC. Endocrine dysfunction in Prader-Willi syndrome: a review with special reference to GH. Endocr Rev. 2001;22:787-99 PubMed PMID: 11739333.
+Butler MG. Benefits and limitations of prenatal screening for Prader-Willi syndrome. Prenat Diagn.
+2017;37:81-94. PubMed PMID: 27537837.
+Butler MG, Hartin SN, Hossain W A, Manzardo AM, Kimonis V , Dykens E, Gold JA, Kim SJ, Weisensel N,
+Tamura R, Miller JL, Driscoll DJ. Molecular genetic classification in Prader-Willi syndrome: a multisite cohort study. J Med Genet. 2019a;56:149-53. PubMed PMID: 29730598.
+Butler MG, Lee J, Cox DM, Manzardo AM, Gold JA, Miller JL, Roof E, Dykens E, Kimonis V , Driscoll DJ.
+Growth charts for Prader-Willi syndrome during growth hormone treatment. Clin Pediatr (Phila).
+2016;55:957-74. PubMed PMID: 26842920.
+Butler MG, Lee J, Manzardo AM, Gold JA, Miller JL, Kimonis V , Driscoll DJ. Growth charts for non-growth hormone treated Prader-Willi syndrome. Pediatrics. 2015;135:e126-35. PubMed PMID: 25489013.
+Butler MG, Manzardo AM, Heinemann J, Loker C, Loker J. Causes of death in Prader-Willi syndrome: Prader-
+Willi Syndrome Association (USA) 40-year mortality survey. Genet Med. 2017;19:635-42. PubMed PMID:
+27854358.
+Butler MG, Matthews NA, Patel N, Surampalli A, Gold JA, Khare M, Thompson T, Cassidy SB, Kimonis VE.
+Impact of genetic subtypes of Prader-Willi syndrome with growth hormone therapy on intelligence and body mass index. Am J Med Genet A. 2019b;179:1826-35. PubMed PMID: 31313492.
+
+Butler MG, Sturich J, Lee J, Myers SE, Whitman BY , Gold JA, Kimonis V , Scheimann A, Terrazas N, Driscoll DJ.
+Growth standards of infants with Prader-Willi syndrome. Pediatrics. 2011;127:687-95 PubMed PMID:
+21402637.
+Butler MG, Sturich J, Myers SE, Gold JA, Kimonis V , Driscoll DJ. Is gestation in Prader-Willi syndrome affected by the genetic subtype? J Assist Reprod Genet. 2009;26:461-6. PubMed PMID: 19760168.
+Cassidy SB, Driscoll DJ. Prader-Willi Syndrome. Eur J Hum Genet. 2009;17:3-13. PubMed PMID: 18781185.
+Cassidy SB, Schwartz S, Miller JL, Driscoll DJ. Prader-Willi syndrome. Genet Med. 2012;14:10-26. PubMed
+PMID: 22237428.
+Chung MS, Langouët M, Chamberlain SJ, Carmichael GG. Prader-Willi syndrome: reflections on seminal studies and future therapies. Open Biol. 2020;10:200195. PubMed PMID: 32961075.
+de Lind van Wijngaarden RF , Otten BJ, Festen DA, Joosten KF , de Jong FH, Sweep FC, Hokken-Koelega AC.
+High prevalence of central adrenal insufficiency in patients with Prader-Willi syndrome. J Clin Endocrinol
+Metab. 2008;93:1649-54. PubMed PMID: 18303077.
+Desch L, Marle N, Mosca-Boidron AL, Faivre L, Eliade M, Payet M, Ragon C, Thevenon J, Aral B, Ragot S,
+Ardalan A, Dhouibi N, Bensignor C, Thauvin-Robinet C, El Chehadeh S, Callier P . 6q16.3q23.3 duplication associated with Prader-Willi-like syndrome. Mol Cytogenet. 2015;8:42 PubMed PMID: 26110021.
+de Vries BB, Fryns JP , Butler MG, Canziani F , Wesby-van Swaay E, van Hemel JO, Oostra BA, Halley DJ,
+Niermeijer MF . Clinical and molecular studies in fragile X patients with a Prader-Willi-like phenotype. J
+Med Genet. 1993;30:761-6. PubMed PMID: 8411072.
+Diene G, Mimoun E, Feigerlova E, Caula S, Molinas C, Grandjean H, Tauber M, et al. Endocrine disorders in children with Prader-Willi syndrome--data from 142 children of the French database. Horm Res Paediatr.
+2010;74:121-8. PubMed PMID: 20395666.
+Dimitropoulos A, Ferranti A, Lemler M. Expressive and receptive language in Prader-Willi syndrome: report on genetic subtype differences. J Commun Disord. 2013;46:193-201 PubMed PMID: 23295077.
+DuBose AJ, Johnstone KA, Smith EY , Hallett RA, Resnick JL. Atp10a, a gene adjacent to the PWS/AS gene cluster, is not imprinted in mouse and is insensitive to the PWS-IC. Neurogenetics. 2010;11:145-51. PubMed
+PMID: 19894069.
+Duis J, van Wattum PJ, Scheimann A, Salehi P , Brokamp E, Fairbrother L, Childers A, Shelton AR, Bingham NC,
+Shoemaker AH, Miller JL. A multidisciplinary approach to the clinical management of Prader-Willi syndrome. Mol Genet Genomic Med. 2019;7:e514. PubMed PMID: 30697974.
+Dykens EM. Aging in rare intellectual disability syndromes. Dev Disabil Res Rev. 2013;18:75-83. PubMed
+PMID: 23949831.
+Dykens EM. Are jigsaw puzzle skills 'spared' in persons with Prader-Willi syndrome? J Child Psychol Psychiatry.
+2002;43:343-52. PubMed PMID: 11944876.
+Eldar-Geva T, Hirsch HJ, Benarroch F , Rubinstein O, Gross-Tsur V . Hypogonadism in females with Prader-Willi syndrome from infancy to adulthood: variable combinations of a primary gonadal defect and hypothalamic dysfunction. Eur J Endocrinol. 2010;162:377-84. PubMed PMID: 19946044.
+Eldar-Geva T, Hirsch HJ, Rabinowitz R, Benarroch F , Rubinstein O, Gross-Tsur V . Primary ovarian dysfunction contributes to the hypogonadism in women with Prader-Willi Syndrome. Horm Res. 2009;72:153-9. PubMed
+PMID: 19729946.
+El Khattabi L, Guimiot F , Pipiras E, Andrieux J, Baumann C, Bouquillon S, Delezoide AL, Delobel B, Demurger
+F , Dessuant H, Drunat S, Dubourg C, Dupont C, Faivre L, Holder-Espinasse M, Jaillard S, Journel H, Lyonnet
+S, Malan V , Masurel A, Marle N, Missirian C, Moerman A, Moncla A, Odent S, Palumbo O, Palumbo P ,
+Ravel A, Romana S, Tabet AC, Valduga M, Vermelle M, Carella M, Dupont JM, Verloes A, Benzacken B,
+
+Delahaye A. Incomplete penetrance and phenotypic variability of 6q16 deletions including SIM1. Eur J Hum
+Genet. 2015;23:1010-8. PubMed PMID: 25351778.
+Fernández-Novoa MC, Vargas MT, Vizmanos JL, Garnacho C, Martínez JJ, Sanz P , Lluch D. Prader-Willi syndrome large deletion on two brothers. Is this the exception that confirm the rule? Rev Neurol.
+2001;32:935-8. PubMed PMID: 11424049.
+Festen DA, de Weerd AW , van den Bossche RA, Joosten K, Hoeve H, Hokken-Koelega AC. Sleep-related breathing disorders in prepubertal children with Prader-Willi syndrome and effects of growth hormone treatment. J Clin Endocrinol Metab. 2006;91:4911-5 PubMed PMID: 17003096.
+Gantz MG, Driscoll DJ, Miller JL, Duis JB, Butler MG, Gourash L, Forster J, Scheimann AO. Critical review of bariatric surgical outcomes in patients with Prader-Willi syndrome and other hyperphagic disorders.
+Obesity (Silver Spring). 2022;30:973-81. PubMed PMID: 35416416.
+Gilmour J, Skuse D, Pembrey M. Hyperphagic short stature and Prader-Willi syndrome: a comparison of behavioural phenotypes, genotypes and indices of stress. Br J Psychiatry. 2001;179:129-37 PubMed PMID:
+11483474.
+Glenn CC, Deng G, Michaelis RC, Tarleton J, Phelan MC, Surh L, Y ang TP , Driscoll DJ. DNA methylation analysis with respect to prenatal diagnosis of the Angelman and Prader-Willi syndromes and imprinting.
+Prenat Diagn. 2000;20:300-6. PubMed PMID: 10740202.
+Godler DE, Ling L, Gamage D, Baker EK, Bui M, Field MJ, Rogers C, Butler MG, Murgia A, Leonardi E, Polli R,
+Schwartz CE, Skinner CD, Alliende AM, Santa Maria L, Pitt J, Greaves R, Francis D, Oertel R, Wang M,
+Simons C, Amor DJ. Feasibility of screening for chromosome 15 imprinting disorders in 16 579 newborns by using a novel genomic workflow. JAMA Netw Open. 2022;5:e2141911. PubMed PMID: 34982160.
+Gross N, Rabinowitz R, Gross-Tsur V , Hirsch HJ, Eldar-Geva T. Prader-Willi syndrome can be diagnosed prenatally. Am J Med Genet A. 2015;167A:80-5. PubMed PMID: 25338954.
+Gross RD, Gisser R, Cherpes G, Hartman K, Maheshwary R. Subclinical dysphagia in persons with Prader-Willi syndrome. Am J Med Genet A. 2017;173:384-94. PubMed PMID: 27759943.
+Gross-Tsur V , Hirsch HJ, Benarroch F , Eldar-Geva T. The FSH-inhibin axis in Prader-Willi syndrome:
+Heterogeneity of gonadal dysfunction. Reprod Biol Endocrinol. 2012;10:39 PubMed PMID: 22559970.
+Grugni G, Marzullo P , Ragusa L, Sartorio A, Trifiro G, Liuzzi A, Crino A. Impairment of GH responsiveness to combined GH-releasing hormone and arginine administration in adult patients with Prader-Willi syndrome.
+Clin Endocrinol (Oxf). 2006;65:492-9 PubMed PMID: 16984242.
+Hirsch HJ, Eldar-Geva T, Benarroch F , Rubinstein O, Gross-Tsur V . Primary testicular dysfunction is a major contributor to abnormal pubertal development in males with Prader-Willi syndrome. J Clin Endocrinol
+Metab. 2009;94:2262-8 PubMed PMID: 19401370.
+Hogart A, Patzel KA, LaSalle JM. Gender influences monoallelic expression of ATP10A in human brain. Hum
+Genet. 2008;124:235-42. PubMed PMID: 18726118.
+Hosoki K, Kagami M, Tanaka T, Kubota M, Kurosawa K, Kato M, Uetake K, Tohyama J, Ogata T, Saitoh S.
+Maternal uniparental disomy 14 syndrome demonstrates Prader-Willi syndrome-like phenotype. J Pediatr.
+2009;155:900-903.e1. PubMed PMID: 19800077.
+Höybye C. Five-years growth hormone (GH) treatment in adults with Prader-Willi syndrome. Acta Paediatr.
+2007;96:410-3 PubMed PMID: 17407467.
+Höybye C, Holland AJ, Driscoll DJ, et al. Time for a general approval of growth hormone treatment in adults with Prader-Willi syndrome. Orphanet J Rare Dis. 2021;16:69. PubMed PMID: 33557878.
+Ishii A, Ihara H, Ogata H, Sayama M, Gito M, Murakami N, Ayabe T, Oto Y , Takahashi A, Nagai T. Autistic, aberrant, and food-related behaviors in adolescents and young adults with Prader-Willi syndrome: the effects of age and genotype. Behav Neurol. 2017;2017:4615451. PubMed PMID: 29440778.
+
+Kim SJ, Miller JL, Kuipers PJ, German JR, Beaudet AL, Sahoo T, Driscoll DJ. Unique and atypical deletions in
+Prader-Willi syndrome reveal distinct phenotypes. Eur J Hum Genet. 2012;20:283-90. PubMed PMID:
+22045295.
+Kokkonen H, Leisti J. An unexpected recurrence of Angelman syndrome suggestive of maternal germ-line mosaicism of del(15)(q11q13) in a Finnish family. Hum Genet. 2000;107:83-5. PubMed PMID: 10982040.
+Lossie AC, Whitney MM, Amidon D, Dong HJ, Chen P , Theriaque D, Hutson A, Nicholls RD, Zori RT, Williams
+CA, Driscoll DJ. Distinct phenotypes distinguish the molecular classes of Angelman syndrome. J Med Genet.
+2001;38:834-45. PubMed PMID: 11748306.
+Lukusa T, Fryns JP . Pure distal monosomy 10q26 in a patient displaying clinical features of Prader-Willi syndrome during infancy and distinct behavioural phenotype in adolescence. Genet Couns. 2000;11:119-26.
+PubMed PMID: 10893663.
+Macedo DB, Abreu AP , Reis AC, Montenegro LR, Dauber A, Beneduzzi D, Cukier P , Silveira LF , Teles MG,
+Carroll RS, Junior GG, Filho GG, Gucev Z, Arnhold IJ, de Castro M, Moreira AC, Martinelli CE Jr,
+Hirschhorn JN, Mendonca BB, Brito VN, Antonini SR, Kaiser UB, Latronico AC. Central precocious puberty that appears to be sporadic caused by paternally inherited mutations in the imprinted gene makorin ring finger 3. J Clin Endocrinol Metab. 2014;99:E1097-103. PubMed PMID: 24628548.
+Mahmoud R, Kimonis V , Butler MG. Clinical trials in Prader-Willi syndrome: a review. Int J Mol Sci.
+2023;24:2150. PubMed PMID: 36768472.
+Mahmoud R, Leonenko A, Butler MG, Flodman P , Gold JA, Miller JL, Roof E, Dykens E, Driscoll DJ, Kimonis
+V . Influence of molecular classes and growth hormone treatment on growth and dysmorphology in Prader-
+Willi syndrome: a multicenter study. Clin Genet. 2021;100:29-39. PubMed PMID: 33615449.
+Maillard AM, Ruef A, Pizzagalli F , Migliavacca E, Hippolyte L, Adaszewski S, Dukart J, Ferrari C, Conus P ,
+Männik K, Zazhytska M, Siffredi V , Maeder P , Kutalik Z, Kherif F , Hadjikhani N, Beckmann JS, Reymond A,
+Draganski B, Jacquemont S. The 16p11.2 locus modulates brain structures common to autism, schizophrenia and obesity. Mol Psychiatry. 2015;20:140-7. PubMed PMID: 25421402.
+Manning KE, Beresford-Webb JA, Aman LCS, Ring HA, Watson PC, Porges SW , Oliver C, Jennings SR, Holland
+AJ. Transcutaneous vagus nerve stimulation (t-VNS): a novel effective treatment for temper outbursts in adults with Prader-Willi Syndrome indicated by results from a non-blind study. PLoS One.
+2019;14:e0223750. PubMed PMID: 31794560.
+McCandless SE. Clinical report—health supervision for children with Prader-Willi syndrome. Pediatrics.
+2011;127:195-204. PubMed PMID: 21187304.
+Miller J, Silverstein J, Shuster J, Driscoll DJ, Wagner M. Short-term effects of growth hormone on sleep abnormalities in Prader-Willi syndrome. J Clin Endocrinol Metab. 2006b;91:413-7. PubMed PMID:
+16317059.
+Miller JL, Gevers E, Bridges N, Y anovski JA, Salehi P , Obrynba KS, Felner EI, Bird LM, Shoemaker AH, Angulo
+M, Butler MG, Stevenson D, Goldstone AP , Wilding J, Lah M, Shaikh MG, Littlejohn E, Abuzzahab MJ,
+Fleischman A, Hirano P , Y en K, Cowen NM, Bhatnagar A; C601/C602 Investigators. Diazoxide choline extended-release tablet in people with Prader-Willi syndrome: results from long-term open-label study.
+Obesity (Silver Spring). 2024;32:252-61. PubMed PMID: 37919617.
+Miller JL, Goldstone AP , Couch JA, Shuster J, He G, Driscoll DJ, Liu Y , Schmalfuss IM. Pituitary abnormalities in Prader-Willi syndrome and early onset morbid obesity. Am J Med Genet A. 2008;146A:570-7. PubMed
+PMID: 17431897.
+Miller JL, Lynn CH, Driscoll DC, Goldstone AP , Gold JA, Kimonis V , Dykens E, Butler MG, Shuster JJ, Driscoll
+DJ. Nutritional phases in Prader-Willi syndrome. Am J Med Genet A. 2011;155A:1040-9. PubMed PMID:
+21465655.
+
+Pacoricona Alfaro DL, Lemoine P , Ehlinger V , Molinas C, Diene G, Valette M, Pinto G, Coupaye M, Poitou-
+Bernert C, Thuilleaux D, Arnaud C, Tauber M. Causes of death in Prader-Willi syndrome: lessons from 11 years' experience of a national reference center. Orphanet J Rare Dis. 2019;14:238. PubMed PMID: 31684997.
+Priano L, Grugni G, Miscio G, Guastamacchia G, T offolet L, Sartorio A, Mauro A. Sleep cycling alternating pattern (CAP) expression is associated with hypersomnia and GH secretory pattern in Prader-Willi syndrome. Sleep Med. 2006;7:627-33 PubMed PMID: 17023209.
+Proffitt J, Osann K, McManus B, Kimonis VE, Heinemann J, Butler MG, Stevenson DA, Gold JA. Contributing factors of mortality in Prader-Willi syndrome. Am J Med Genet A. 2019;179:196-205. PubMed PMID:
+30569567.
+Ritwik P , Vu J. Bridging oral and systemic health in children with Prader-Willi syndrome: Case reports and dental treatment recommendations. Curr Pediatr Rev. 2021;17:336-44. PubMed PMID: 34517804.
+Rocha CF , Paiva CL. Prader-Willi-like phenotypes: a systematic review of their chromosomal abnormalities.
+Genet Mol Res. 2014;13:2290-8. PubMed PMID: 24737477.
+Rosenberg AGW , Pellikaan K, Poitou C, Goldstone AP , Høybye C, Markovic T, Grugni G, Crinò A, Caixàs A,
+Coupaye M, Van Den Berg SAA, Van Der Lely AJ, De Graaff LCG. Central adrenal insufficiency is rare in adults with Prader-Willi syndrome. J Clin Endocrinol Metab. 2020;105:e2563-71. PubMed PMID: 32232324.
+Rosenberg AGW , Wellink CM, Tellez Garcia JM, Pellikaan K, Van Abswoude DH, Davidse K, Van Zutven
+LJCM, Brüggenwirth HT, Resnick JL, Van der Lely AJ, De Graaff LCG. Health problems in adults with
+Prader-Willi syndrome of different genetic subtypes: cohort study, meta-analysis and review of the literature.
+J Clin Med. 2022;11:4033. PubMed PMID: 35887798.
+Scheimann AO, Butler MG, Miller JL, Lee PD, Stevenson DA, Heinemann J, Driscoll DJ. Letter to the editor:
+Long-term experience with duodenal switch in adolescents. Obes Surg. 2012;22:517-8.
+Schwartz L, Caixàs A, Dimitropoulos A, Dykens E, Duis J, Einfeld S, Gallagher L, Holland A, Rice L, Roof E,
+Salehi P , Strong T, Taylor B, Woodcock K. Behavioral features in Prader-Willi syndrome (PWS): consensus paper from the International PWS Clinical Trial Consortium. J Neurodev Disord. 2021;13:25. PubMed
+PMID: 34148559.
+Stagi S, Lapi E, Pantaleo M, Chiarelli F , Seminara S, de Martino M. Type II diabetes and impaired glucose tolerance due to severe hyperinsulinism in patients with 1p36 deletion syndrome and a Prader-Willi-like phenotype. BMC Med Genet. 2014;15:16. PubMed PMID: 24479866.
+Stelzer Y , Sagi I, Y anuka O, Eiges R, Benvenisty N. The noncoding RNA IPW regulates the imprinted DLK1-
+DIO3 locus in an induced pluripotent stem cell model of Prader-Willi syndrome. Nat Genet. 2014;46:551-7.
+PubMed PMID: 24816254.
+Suarez P , Baumer K, Hall D. Further insight into the global variability of the OCA2-HERC2 locus for human pigmentation from multiallelic markers. Sci Rep. 2021;11:22530. PubMed PMID: 34795370.
+Takeshita E, Murakami M. Sakuta R, Nagai T. Evaluating the frequency and characteristics of seizures in 142
+Japanese patients with Prader-Willi syndrome. Am J Med Genet A. 2013;161A:2052-5. PubMed PMID:
+23824702.
+Tan Q, Potter KJ, Burnett LC, Orsso CE, Inman M, Ryman DC, Haqq AM. Prader-Willi-like phenotype caused by an atypical 15q11.2 microdeletion. Genes (Basel). 2020;11:128. PubMed PMID: 31991769.
+Tauber M, Hoybye C. Endocrine disorders in Prader-Willi syndrome: a model to understand and treat hypothalamic dysfunction. Lancet Diabetes Endocrinol. 2021;9:235-46. PubMed PMID: 33647242.
+Trizno AA, Jones AS, Carry PM, Georgopoulos G. The prevalence and treatment of hip dysplasia in Prader-Willi syndrome (PWS). J Pediatr Orthop. 2018;38:e151-e156. PubMed PMID: 29309382.
+Tsuyusaki Y , Y oshihashi H, Furuya N, Adachi M, Osaka H, Y amamoto K, Kurosawa K. 1p36 deletion syndrome associated with Prader-Willi-like phenotype. Pediatr Int. 2010;52:547-50. PubMed PMID: 20113418.
+
+Wey E, Bartholdi D, Riegel M, Nazlican H, Horsthemke B, Schinzel A, Baumer A. Mosaic imprinting defect in a patient with an almost typical expression of the Prader-Willi syndrome. Eur J Hum Genet. 2005;13:273-7.
+PubMed PMID: 15578038.
+Whittington J, Holland A. Cognition in people with Prader-Willi syndrome: insights into genetic influences on cognitive and social development. Neurosci Biobehav Rev. 2017;72:153-67. PubMed PMID: 27836461.
+Whittington JE, Holland AJ, Webb T. Ageing in people with Prader-Willi syndrome: mortality in the UK population cohort and morbidity in an older sample of adults. Psychol Med. 2015;45:615-21. PubMed PMID:
+25088280.
+Y ang L, Zhan GD, Ding JJ, Wang HJ, Ma D, Huang GY , Zhou WH. Psychiatric illness and intellectual disability in the Prader-Willi syndrome with different molecular defects—a meta analysis. PLoS One. 2013;8:e72640
+PubMed PMID: 23967326.
+License
+GeneReviews® chapters are owned by the University of Washington. Permission is hereby granted to reproduce, distribute, and translate copies of content materials for noncommercial research purposes only, provided that (i) credit for source (https://www.genereviews.org) and copyright (© 1993-2026 University of Washington) are included with each copy; (ii) a link to the original material is provided whenever the material is published elsewhere on the Web; and (iii) reproducers, distributors, and/or translators comply with the GeneReviews® Copyright Notice and Usage Disclaimer. No further modifications are allowed. For clarity, excerpts of GeneReviews chapters for use in lab reports and clinic notes are a permitted use.
+For more information, see the GeneReviews® Copyright Notice and Usage Disclaimer.
+For questions regarding permissions or whether a specified use is allowed, contact: addmast@wu.edu

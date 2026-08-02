@@ -1,28 +1,970 @@
-=== RAG_CORPUS_PLACEHOLDER 待填充：本文件尚未粘贴原文，灌库时会被跳过 ===
+NLM Citation: Northrup H, Koenig MK, Pearson DA, et al. Tuberous
+Sclerosis Complex. 1999 Jul 13 [Updated 2024 Aug 1]. In: Adam MP ,
+Bick S, Mirzaa GM, et al., editors. GeneReviews® [Internet]. Seattle
+(WA): University of Washington, Seattle; 1993-2026.
+Bookshelf URL: https://www.ncbi.nlm.nih.gov/books/
+Synonym: Bourneville Disease
+Hope Northrup, MD, FACMG,1 Mary Kay Koenig, MD,2 Deborah A Pearson, PhD,3 and Kit Sing Au, PhD1
+Created: July 13, 1999; Updated: August 1, 2024.
+Summary
+Clinical characteristics
+Tuberous sclerosis complex (TSC) involves abnormalities of the skin (hypomelanotic macules, confetti skin lesions, facial angiofibromas, shagreen patches, fibrous cephalic plaques, ungual fibromas); brain (subependymal nodules, cortical tubers, and subependymal giant cell astrocytomas [SEGAs], seizures, TSC-associated neuropsychiatric disorder [TAND]); kidneys (benign renal angiomyolipomas, epithelial cysts, oncocytoma, renal cell carcinoma); heart (rhabdomyomas, arrhythmias); and lungs (lymphangioleiomyomatosis [LAM], multifocal micronodular pneumonocyte hyperplasia). Central nervous system-related problems (including TAND) are the leading cause of morbidity, whereas kidney disease is the leading cause of mortality.
+Diagnosis/testing
+The clinical diagnosis of TSC can be established in a proband based on clinical diagnostic criteria (presence of two major clinical features or one major clinical feature and two or more minor features). The molecular diagnosis can be established in a proband with a heterozygous pathogenic variant in TSC1 or TSC2 identified by molecular genetic testing.
+Management
+Targeted therapies: Treatment with an mTOR inhibitor for enlarging SEGAs, intractable epilepsy, renal angiomyolipomas that are >4 cm, rapidly growing renal angiomyolipomas that are >3 cm, and LAM. Topical mTOR inhibitors for facial angiofibromas.
+Author Affiliations: 1 Division of Medical Genetics, Department of Pediatrics, McGovern Medical School at the
+University of Texas Health Science Center at Houston (UTHealth); Children's Memorial Hermann Hospital, Houston,
+Texas; Email: hope.northrup@uth.tmc.edu; Email: kit-sing.au@uth.tmc.edu. 2 Division of Child and Adolescent
+Neurology, Department of Pediatrics, McGovern Medical School at the University of Texas Health Science Center at
+Houston (UTHealth); Children's Memorial Hermann Hospital, Houston, Texas; Email: mary.k.koenig@uth.tmc.edu. 3
+Department of Psychiatry and Behavioral Sciences, Division of Child and Adolescent Psychiatry, McGovern Medical
+School at the University of Texas Health Science Center at Houston (UTHealth), Houston, Texas; Email:
+deborah.a.pearson@uth.tmc.edu.
+Copyright © 1993-2026, University of Washington, Seattle. GeneReviews is a registered trademark of the University of
+Washington, Seattle. All rights reserved. Test.
 
-来源：GeneReviews - Tuberous Sclerosis Complex
-NBK ID：NBK1220
-链接：https://www.ncbi.nlm.nih.gov/books/NBK1220/
-入库归属：桶 A（鉴别诊断）｜condition = 结节性硬化症｜gene = TSC1/TSC2
+Treatment of manifestations: Neurosurgery for enlarging SEGAs that are causing life-threatening neurologic symptoms. Seizure treatments include vigabatrin, other anti-seizure medications, dietary therapy, and epilepsy surgery. Referral to a neurodevelopmental specialist and/or psychiatrist for TAND; applied behavior analysis for autism spectrum disorder; consideration of medication for those with attention-deficit/hyperactivity disorder.
+Treatment of renal cysts per nephrologist and surgical specialists. Secondary therapy options for renal angiomyolipomas that are >4 cm or rapidly growing renal angiomyolipomas that are >3 cm include selective embolization followed by corticosteroids, kidney-sparing resection, or ablative therapy. Embolization followed by corticosteroids for renal angiomyolipomas with acute hemorrhage. Treatment of retinal astrocytic hamartoma per ophthalmologist; treatment of extrarenal angiomyolipomas per surgeon and/or oncologist; treatment of neuroendocrine tumors per endocrinologist, surgeon, and/or oncologist.
+Surveillance: Detailed annual dermatologic examination. Brain MRI every one to three years in asymptomatic individuals with TSC younger than age 25 years to monitor for new occurrence of SEGAs; those with asymptomatic SEGAs in childhood should continue to be imaged periodically in adulthood; for those with large or growing SEGAs or SEGA-causing ventricular enlargement, more frequent brain MRIs as deemed clinically appropriate. Assessment with neurologist for manifestations of seizures at each visit; EEG in asymptomatic infants every six weeks up to age 12 months, every three months up to age 24 months, and in individuals with known or suspected seizure activity as clinically indicated; prolonged video EEG in those with suspected seizures and normal routine EEG. Screening for TAND at least annually with comprehensive formal evaluation for
+TAND at key developmental time points. Abdominal MRI to assess for new or progression of angiomyolipoma and cystic kidney disease every one to three years; assess kidney function (glomerular filtration rate and blood pressure) at least annually. Echocardiogram every one to three years in asymptomatic infants and children with cardiac rhabdomyomas until regression is documented; echocardiogram in those with symptomatic cardiac rhabdomyomas per cardiologist. Clinical screening for LAM symptoms (exertional dyspnea and shortness of breath) at each visit in females older than age 18 years and males and females with respiratory symptoms; highresolution CT every five to seven years in asymptomatic females without lung cysts beginning after age 18 years and continuing through menopause; for those with LAM-related cystic lung disease on CT, follow-up scan intervals are determined on an individual basis. Annual ophthalmology evaluation; vision testing for those on vigabatrin therapy. Surveillance for neuroendocrine tumors per endocrinologist. Detailed dental examination every six months with panoramic radiographs by age seven years.
+Agents/circumstances to avoid: Smoking; estrogen use; nephrectomy.
+Evaluation of relatives at risk: It is appropriate to evaluate apparently asymptomatic older and younger at-risk relatives (including children) of an affected individual in order to identify as early as possible those who would benefit from surveillance and early treatment.
+Pregnancy management: Discussion of the risks and benefits of using a given anti-seizure medication during pregnancy should ideally take place prior to conception.
+Genetic counseling
+TSC is inherited in an autosomal dominant manner. About one third of individuals diagnosed with TSC have an affected parent; two thirds of individuals with TSC have the disorder as the result of a de novo pathogenic variant. Each child of an individual with TSC has a 50% chance of inheriting the TSC-related pathogenic variant.
+If the TSC-related pathogenic variant has been identified in an affected family member, predictive testing for atrisk asymptomatic family members and prenatal/preimplantation genetic testing is possible.
 
-对应测试用例 tc_04。注意：本篇的 Management 章节含依维莫司（everolimus）等明确药名
-与剂量方案，是全部语料里合规风险最高的一篇，务必依赖脚本过滤，不要手工节选。
+Diagnosis
+Consensus clinical diagnostic criteria for tuberous sclerosis complex (TSC) have been published [Northrup et al 2021] (full text).
+Suggestive Findings
+TSC should be suspected in individuals with either one major clinical feature or two or more minor features.
+Major features
+• Hypomelanotic macules (≥3 macules that are at least 5 mm in diameter)
+• Angiofibromas (≥3) or fibrous cephalic plaque
+• Shagreen patch
+• Ungual fibromas (≥2)
+• Subependymal nodules (SENs) (≥2)
+• Multiple cortical tubers and/or radial migration lines
+• Subependymal giant cell astrocytoma (SEGA)
+• Renal angiomyolipomas (≥2) (See Clinical Diagnosis, * Note.)
+• Cardiac rhabdomyoma
+• Lymphangioleiomyomatosis (LAM) (See Clinical Diagnosis, * Note.)
+• Multiple retinal nodular hamartomas
+Minor features
+• "Confetti" skin lesions (numerous 1- to 3-mm hypopigmented macules scattered across regions of the body such as the arms and legs)
+• Sclerotic bone lesions
+• Dental enamel pits (>3)
+• Intraoral fibromas (≥2)
+• Multiple renal cysts (≥2)
+• Extrarenal hamartomas
+• Retinal achromic patch
+Establishing the Diagnosis
+The clinical diagnosis of TSC can be established in a proband based on clinical diagnostic criteria [Northrup et al 2021]. The molecular diagnosis can be established in a proband with a heterozygous pathogenic variant in
+TSC1 or TSC2 identified by molecular genetic testing.
+Clinical Diagnosis
+A definite clinical diagnosis of TSC can be established in a proband with two major features (see * Note) or one major feature with two or more minor features (see Suggestive Findings).
+* Note: The combination of LAM and renal angiomyolipomas without additional features does not meet the clinical diagnostic criteria for a definite diagnosis.
+Molecular Diagnosis
+The molecular diagnosis of TSC is established in a proband with a heterozygous pathogenic (or likely pathogenic) variant in either TSC1 or TSC2 identified by molecular genetic testing (see Table 1).
 
---- 操作步骤 ---
+Note: (1) Clinical manifestations of TSC develop over time; therefore, identification of a TSC1 or TSC2 pathogenic variant is sufficient to establish the diagnosis [Northrup et al 2021]. (2) Per ACMG/AMP variant interpretation guidelines, the terms "pathogenic variant" and "likely pathogenic variant" are synonymous in a clinical setting, meaning that both are considered diagnostic and can be used for clinical decision making
+[Richards et al 2015]. Reference to "pathogenic variants" in this GeneReview is understood to include likely pathogenic variants. (3) Identification of a heterozygous TSC1 or TSC2 variant of uncertain significance (VUS) does not establish or rule out the diagnosis.
+Molecular genetic testing approaches can include concurrent gene testing or use of a multigene panel:
+• Concurrent gene testing. Perform sequence analysis and gene-targeted deletion/duplication analysis of
+TSC1 and TSC2.
+Note: If no pathogenic variant is identified, somatic mosaicism for a pathogenic variant should be considered [Peron et al 2018, Klonowska et al 2023]. DNA testing of other tissues (e.g., tumors, saliva, skin, and/or hair follicles) is warranted when somatic mosaicism is suspected and routine molecular genetic testing has not identified a pathogenic variant. High-coverage sequencing is needed to identify mosaic variants with low allele frequency. If a VUS is suspected to affect splicing, mRNA sequencing should be considered. For more information on somatic mosaicism as a cause of TSC, click here (pdf).
+• A multigene panel that includes TSC1, TSC2, and other genes of interest (see Differential Diagnosis) may be considered to identify the genetic cause when the diagnosis of TSC is less certain in order to limit identification of variants of uncertain significance and pathogenic variants in genes that do not explain the underlying phenotype. Note: (1) The genes included in the panel and the diagnostic sensitivity of the testing used for each gene vary by laboratory and are likely to change over time. (2) Some multigene panels may include genes not associated with the condition discussed in this GeneReview. (3) In some laboratories, panel options may include a custom laboratory-designed panel and/or custom phenotypefocused exome analysis that includes genes specified by the clinician. (4) Methods used in a panel may include sequence analysis, deletion/duplication analysis, and/or other non-sequencing-based tests. For this disorder a multigene panel that also includes deletion/duplication analysis is recommended (see Table 1).
+For an introduction to multigene panels click here. More detailed information for clinicians ordering genetic tests can be found here.
+Table 1. Molecular Genetic Testing Used in Tuberous Sclerosis Complex
+Gene 1, 2
+Proportion of TSC
+Attributed to Pathogenic
+Variants in Gene
+Method
+Proportion of Pathogenic Variants 3 Identified by Method
+Familial cases Simplex cases 4
+TSC1 ~25% 5
+Sequence analysis 6, 7 ~9.8% ~15.5%
+Gene-targeted deletion/ duplication analysis 8 ~0.1% ~0.5%
+TSC2 ~70% 5
+Sequence analysis 6 13.8% ~53%
+Gene-targeted deletion/ duplication analysis 8 ~0.2% 9 ~2% 9
 
-1. 打开上面的链接，在网页正文区全选复制。
-2. 删除本文件的全部内容（含本行说明），把原文粘贴进来，以 UTF-8 保存。
-3. 回到项目根目录运行 python scripts/rag_builder.py --dry-run 检查切分统计。
+Table 1. continued from previous page.
+Gene 1, 2
+Proportion of TSC
+Attributed to Pathogenic
+Variants in Gene
+Method
+Proportion of Pathogenic Variants 3 Identified by Method
+Familial cases Simplex cases 4
+Unknown ~5% 10, 11 NA
+TSC = tuberous sclerosis complex
+1. Genes are listed in alphabetic order.
+2. See Table A. Genes and Databases for chromosome locus and protein.
+3. See Molecular Genetics for information on variants detected in these genes.
+4. Simplex case = single occurrence in a family
+5. Of the more than 10,000 individuals with TSC in whom pathogenic variants have been identified, ~26% of probands had a pathogenic variant in TSC1 and ~74% had a pathogenic variant in TSC2 [Sancak et al 2005, Au et al 2007, Tyburczy et al 2015, Peron et al 2018] (see Table A, TSC databases).
+6. Sequence analysis detects variants that are benign, likely benign, of uncertain significance, likely pathogenic, or pathogenic. Variants may include missense, nonsense, and splice site variants and small intragenic deletions/insertions; typically, exon or whole-gene deletions/duplications are not detected. For issues to consider in interpretation of sequence analysis results, click here.
+7. TSC1 pathogenic variants are primarily small deletions and insertions and pathogenic nonsense variants detected by sequence analysis.
+8. Gene-targeted deletion/duplication analysis detects intragenic deletions or duplications. Methods used may include a range of techniques such as quantitative PCR, long-range PCR, multiplex ligation-dependent probe amplification (MLPA), and a gene-targeted microarray designed to detect single-exon deletions or duplications.
+9. TSC2 pathogenic variants include a significant number of large (exon and whole-gene) deletions and rearrangements that cannot be detected by sequence analysis of exons and thus require gene-targeted deletion/duplication analysis for detection.
+10. Sancak et al [2005], Au et al [2007], Kwiatkowski [2010], Peron et al [2018] (See Table A, LOVD TSC databases.)
+11. Inferring from the 5% detection rate for somatic mosaicism [Kozlowski et al 2007, Qin et al 2010] among the 15% of individuals with TSC who do not have a pathogenic variant identified on molecular genetic testing of TSC1 or TSC2, the authors conclude that at least 1% of persons with TSC have somatic mosaicism for a TSC1 or TSC2 pathogenic variant [H Northrup, MK Koenig, DA Pearson,
+& KS Au, personal observation].
+Clinical Characteristics
+Clinical Description
+Tuberous sclerosis complex (TSC) involves abnormalities primarily of the skin, brain, kidneys, heart, and lungs
+(see Table 2), although any organ system can be involved. Central nervous system (CNS)-related problems
+(including TSC-associated neuropsychiatric disorder [TAND]) are the leading cause of morbidity, whereas kidney disease is the leading cause of mortality [Amin et al 2017, Canevini et al 2018, de Vries et al 2018, Lu et al 2018]. TSC exhibits both inter- and intrafamilial variability.
+Table 2. Tuberous Sclerosis Complex: Frequency of Select Features
+Feature % of Persons w/Feature Comment
+Skin lesions ~100%
+Hypomelanotic macules, "confetti" skin lesions, facial angiofibromas, shagreen patches, fibrous cephalic plaques, ungual fibromas
 
---- 三条硬要求 ---
+Table 2. continued from previous page.
+Feature % of Persons w/Feature Comment
+CNS manifestations
+Subependymal nodules ~80% 1
+Cortical tubers ~80%
+Subependymal giant cell astrocytoma 25% 1
+Seizures ~80%
+TSC-associated neuropsychiatric disorder >90%
+Behavioral, psychiatric, intellectual, academic, neuropsychological, & psychosocial difficulties
+Kidney lesions
+Benign renal angiomyolipoma 70%
+Epithelial cysts 20%-30%
+Renal cell carcinoma <3%
+Cardiac rhabdomyomas 47%-67%
+Lymphangioleiomyomatosis Up to 80% of females
+Retinal lesions 30%-50%
+CNS = central nervous system; TSC = tuberous sclerosis complex
+1. Kochare et al [2014], Kingswood et al [2017]
+Skin
+The skin is affected in virtually 100% of individuals with TSC. Skin lesions include hypomelanotic macules
+(~90% of individuals), "confetti" skin lesions (frequency varies widely from 3% of children to ≤58% overall), facial angiofibromas (~75%), shagreen patches (~50%), fibrous cephalic plaques, and ungual fibromas (20% overall but ≤80% in older affected adults). Among the skin lesions, facial angiofibromas cause the most disfigurement. None of the skin lesions results in serious medical problems [Teng et al 2014, Nguyen et al 2018].
+Central Nervous System (CNS)
+The brain lesions of TSC, including subependymal nodules (SENs) and cortical tubers, occur in approximately 80% of affected individuals, and subependymal giant cell astrocytomas (SEGAs) develop in up to 25% of all individuals with TSC [Kochare et al 2014, Kingswood et al 2017]. Individuals with SEGAs presenting with acute deterioration due to obstructive hydrocephalus should undergo urgent surgical treatment for their SEGA.
+Minimally invasive surgical techniques with an experienced surgical team may reduce morbidity and mortality.
+For large tumors, treatment of the hydrocephalus with cerebrospinal fluid (CSF) diversion such as a temporary ventricular drain or ventriculoperitoneal shunt may be required. Mammalian target of rapamycin (mTOR) inhibitor treatment is the primary recommended therapy for growing or large SEGAs, those causing mild-tomoderate symptoms including asymptomatic ventriculomegaly, individuals who are not surgical candidates, and those who prefer medical management to surgery. The EXIST-1 clinical trial found that everolimus treatment resulted in >30% reduction in SEGA volume in 65%-79% of individuals. This effect was maintained for up to three years [Krueger et al 2013a]. Optimal outcome is associated with early detection and treatment.
+Seizures
+More than 80% of individuals with TSC have seizures, with most displaying features of focal or partial-onset seizures. Up to 75% of affected individuals develop seizures prior to age two years; caregivers should be educated to recognize seizures, especially when they are not present at the time of diagnosis. Two thirds of individuals with TSC experience drug-resistant epilepsy. Developmental delays, autism spectrum disorder, and psychiatric disorders demonstrate a strong association with early-onset and drug-resistant epilepsy.
 
-1. 必须保留章节标题行，例如 Clinical Characteristics、Clinical Description、
-   Diagnosis、Differential Diagnosis、Management。灌库脚本靠这些独立成行的标题
-   做章节过滤，标题丢失会导致整篇内容落入 preamble 而被全部跳过。
+Early recognition and control of seizures is highly correlated with improved developmental and neurologic outcomes in infants with TSC. Epileptiform activity on EEG can predict the eventual development of epilepsy;
+pre-emptive treatment with vigabatrin, before the onset of clinical seizures, may prevent infantile spasms and/or delay seizure onset. Pre-emptive treatment with vigabatrin has not, however, been shown to improve developmental or neurologic outcomes over that achieved by early recognition and control of clinical seizures alone.
+TSC-Associated Neuropsychiatric Disorder (TAND)
+TAND refers to the interrelated functional and clinical manifestations of brain dysfunction common in individuals with TSC, including behavioral, psychiatric, intellectual, academic, neuropsychological, and psychosocial difficulties [de Vries 2010a]. Recent studies have provided refined TAND clusters that include concerns in the domains of scholastic, neuropsychological, autism spectrum disorder-like, dysregulated behavior, overactive/impulsive behavior, mood/anxiety, and eat/sleep [de Vries et al 2020b, de Vries et al 2021].
+Although more than 90% of children and adults with TSC will experience one or more TAND(s) in their lifetime, only 20% ever receive evaluation and intervention for them [Krueger 2013, de Vries et al 2015, Alperin et al 2021, de Vries et al 2021, Marcinkowska et al 2022]. Presence of TAND has been closely associated with clinical outcome and quality of life [Krueger 2013]. Unaddressed TAND contributes significantly to poor outcome [Lennert et al 2013, Rentz et al 2015].
+Autism spectrum disorder (ASD). Individuals with TSC are at high risk for ASD, with an estimated prevalence of 16%-61% [Gillberg et al 1994, Bolton et al 2002, Wong 2006, de Vries et al 2007, Chung et al 2011, Numis et al 2011, Spurling Jeste et al 2014, Kingswood et al 2017, Zwaigenbaum et al 2021]. Signs of ASD in individuals with
+TSC emerge as early as age nine months [McDonald et al 2017]. ASD classification at age 12 months was predictive of confirmation of ASD by age two years using the Autism Diagnostic Observation Schedule, Second
+Edition (ADOS-2) [Capal et al 2017b]. Specific behaviors most likely to distinguish an infant with TSC who will go on to have ASD are the quality of social overtures, facial expressions, and abnormal repetitive interests and behaviors [Capal et al 2021]. Individuals with TSC who have SEGAs are nearly twice as likely to have ASD
+[Kothare et al 2014], and treatment with everolimus has been found to reduce SEGA size, seizures, and features of ASD [Hwang et al 2016, Kilincaslan et al 2017]. Neurofunctional impairments closely associated with ASD, including impaired language pathways [Lewis et al 2013] and atypical face processing [Spurling Jeste et al 2014,
+Scherrer et al 2020], have been noted in persons with TSC. Also, tubers affecting the fusiform gyrus (involved in high-order visual information including face processing) provide a 3.7-fold increased risk for developing ASD
+[Cohen et al 2023]. Children with TSC and ASD are at higher risk for global cognitive impairment than are children with TSC who do not have ASD [Jeste et al 2008]; children with TSC and ASD are also at higher risk for having intellectual disability than children with idiopathic ASD [Mitchell et al 2022]. The ASD profile in toddlers with TSC has been found to have "complete convergence" with young children with nonsyndromic ASD [Jeste et al 2016]. Males with TSC have a higher risk for ASD than females [de Vries et al 2020a]. In children with TSC,
+ASD has been associated with a higher rate of sleep disorders as compared to children with TSC who do not have ASD [Moavero et al 2022]. However, sleep problems are more frequent in the TSC population as a whole relative to the general pediatric population [Zambrelli et al 2021]. Higher levels of ASD manifestations in children with TSC have also been found to be associated with greater levels of family distress [Uematsu et al 2020].
+Attention-deficit/hyperactivity disorder (ADHD) is another common (and potentially seriously debilitating) condition closely associated with TSC. Estimates of ADHD prevalence in individuals with TSC range from 21% to 52% [Gillberg et al 1994, Prather & de Vries 2004, Muzykewicz et al 2007, Kopp et al 2008, Chung et al 2011,
+Kingswood et al 2017, Ding et al 2021]. Deficits in attention (particularly in dual-task performance), cognitive flexibility, and memory have also been noted in neuropsychological studies of children and adults with TSC
+[Ridler et al 2007, de Vries et al 2009, Tierney et al 2011, Curatolo et al 2015, de Vries et al 2015].
 
-2. 不要手动删除 Management / Treatment / Surveillance 章节。脚本会自动识别并
-   强制丢弃，保留原样才能在日志里算出准确的过滤条数，这是 PRD 中 AC10 的校验依据。
+Learning and cognitive impairment. Individuals with TSC are at high risk for having intellectual disability, with prevalence rates estimated between 44% and 64% [Joinson et al 2003, Goh et al 2005, van Eeghen et al 2012a]. Approximately 36%-58% of children with TSC have serious academic difficulties (e.g., learning disabilities) requiring intervention [de Vries 2010b, Curatolo et al 2015, Kingswood et al 2017]. Even toddlers with TSC present with TAND concerns as well as language delays [McDonald et al 2024]; language delays at age 12 months are associated with a higher risk of an ASD diagnosis at age 36 months [Schoenberger et al 2020]. No significant age or sex differences have been found for academic concerns or neuropsychological deficits [de Vries et al 2020a].
+The risk of learning and cognitive impairment increases significantly if seizure activity is not controlled. A number of investigations have demonstrated that a history of infantile spasms and/or poor seizure control in general is associated with lower intellectual ability [Joinson et al 2003, Goh et al 2005, Bolton et al 2015, Capal et al 2017a, Wu et al 2019, Gupta et al 2020]. In a small sample (n=6), a dramatic relationship between seizure activity and intellectual impairment was found [Humphrey et al [2014]; estimated intelligence quotient (IQ) dropped from 92 (prior to infantile spasms) to 73 (if infantile spasms duration was <1 month) to 62 (if infantile spasms duration was >1 month). Larger studies have also found that TSC-related epilepsy is associated with an increased risk of intellectual disability, with a risk of severe intellectual disability being associated with epilepsy onset before age two years [Gupta et al 2020, Marcinkowska et al 2022].
+Disruptive behaviors and emotional problems are another cluster of debilitating conditions associated with
+TSC. Aggression has been noted in many individuals with TSC (13%-58%) [de Vries et al 2007, Kopp et al 2008,
+Staley et al 2008, Chung et al 2011, Eden et al 2014, Kingswood et al 2017, Wilde et al 2017], as has self-injurious behavior (27%-41%) [de Vries et al 2007, Eden et al 2014, Wilde et al 2017]. Even after controlling for intellectual disability, TSC2-related TSC was associated with a higher rate of self-injurious behaviors [de Vries et al 2020a].
+Individuals with TSC are also at high risk for anxiety (9%-48%) [de Vries et al 2007, Muzykewicz et al 2007,
+Kopp et al 2008, Chung et al 2011, Kingswood et al 2017] and depression (6%-43%) [de Vries et al 2015,
+Kingswood et al 2017].
+Given that neuropsychiatric concerns are more frequent in individuals with TSC and that many children and adults with TSC have multiple neuropsychiatric concerns [Toldo et al 2019, Ding et al 2021, Marcinkowska et al 2022], international consensus recommendations for diagnosis and treatment of TAND have been developed [de
+Vries et al 2023]. Specific recommendations include lifelong monitoring for the emergence of TAND, with screenings at least annually coupled with referral for appropriate follow-up care. Key components of a TAND intervention plan include recognizing the impact of physical health problems and the important role of caregivers and families.
+Kidneys
+Kidney disease is the leading cause of early death (50%) in individuals with TSC [Amin et al 2017]. An estimated 80% of children with TSC have an identifiable kidney lesion by a mean age of 10.5 years [Ewalt et al 1998].
+Five different kidney lesions occur in TSC: benign renal angiomyolipoma (AMLs; 70% of affected individuals);
+epithelial cysts (20%-30%) [Sancak et al 2005, Au et al 2007]; oncocytoma (benign adenomatous hamartoma)
+(<1%); malignant AMLs (<1%); and renal cell carcinoma (RCC; <3%) [Patel et al 2005].
+Benign renal AMLs are comprised of abnormal blood vessels, sheets of smooth muscle, and mature adipose tissue. In children, benign renal AMLs tend to increase in size or number over time. Benign renal AMLs can cause life-threatening bleeding and can replace renal parenchyma, leading to end-stage kidney disease (ESKD).
+Kidney cysts have an epithelial lining of hypertrophic hyperplastic eosinophilic cells. Some affected individuals have features of both TSC caused by deletion of TSC2 and autosomal dominant polycystic kidney disease
+(ADPKD) caused by deletion of PKD1. In these individuals, progressive enlargement of the cysts may compress
 
-3. 不要改文件名。脚本按文件名推断来源、病种与所属数据桶。
+functional parenchyma and lead to ESKD [Martignoni et al 2002]. Individuals with the TSC2/PKD1 contiguous gene deletion syndrome are also at risk of developing complications of ADPKD, which include cystic lesions in other organs (e.g., the liver) and Berry aneurysms.
+Malignant renal AMLs and RCC may result in death. Although rare, these two tumors are much more common in individuals with TSC than in the general population [Pea et al 1998]. It is estimated that 2%-5% of persons with TSC will develop RCC. The typical age of diagnosis of RCC in those with TSC is 28-30 years – much earlier than the age of diagnosis for sporadic RCC [Crino et al 2006, Borkowska et al 2011]. Note: Common imaging techniques may not distinguish fat-poor renal AMLs from RCC. Immunologic staining for HMB-45 antibody for AMLs and cytokeratin for RCC is recommended to distinguish these tumors.
+Heart
+Cardiac rhabdomyomas are present in ~50% of individuals with TSC [Kocabaş et al 2013, Ebrahimi-Fakhari et al 2018]. These tumors have been documented to regress with time and eventually disappear. Cardiac rhabdomyomas are often largest during the neonatal period. If cardiac outflow obstruction does not occur at birth, the individual is unlikely to have health problems from these tumors later, with the exception of some individuals who develop arrhythmias. It is postulated that cardiac arrhythmias result from rests of persistent cells that remain after the rhabdomyomas regress. Cardiac rhabdomyomas with outflow obstruction [Chen et al 2021, Nespoli et al 2021, Tsuchihashi et al 2021] and cardiac arrhythmias [Öztunç et al 2015, Ninic et al 2017,
+Silva-Sánchez et al 2021] have been successfully treated with mTOR inhibitors.
+Lung
+Lymphangioleiomyomatosis (LAM) of the lung primarily affects women and has been estimated to occur in approximately 30%-40% of females with TSC; however, one study suggested that the diagnosis of LAM is age dependent and occurs in up to 80% of women with TSC by age 40 years [Henske et al 2016]. Cystic findings consistent with LAM are observed in 10%-12% of males with TSC [Northrup et al 2013]. LAM unrelated to TSC is rare.
+The mean age of diagnosis for LAM in those with TSC is 28 years. Individuals with TSC-associated LAM may present with shortness of breath or hemoptysis [Taveira-DaSilva et al 2015]. Chest radiographs reveal a diffuse reticular pattern and CT examination shows diffuse interstitial changes with infiltrates and cystic changes.
+Pneumothorax and chylothorax may occur in individuals affected by LAM. Only 5%-10% of women with TSCrelated LAM develop respiratory failure [Henske et al 2016].
+Multifocal micronodular pneumonocyte hyperplasia (MMPH) is characterized by multiple nodular proliferations of type II pneumocytes. While MMPH does not have known prognostic or physiologic consequences, there have been at least two reports of respiratory failure associated with MMPH [Cancellieri et al 2002, Kobashi et al 2008]. The precise prevalence of MMPH in individuals with TSC is not known but may be as high as 40%-58% [Franz et al 2001, Muzykewicz et al 2009]. Males and females are equally likely to have MMPH, and it may occur in the presence or absence of LAM. MMPH can be confused with atypical adenomatous hyperplasia, which is a premalignant lesion that is not clearly associated with TSC.
+Eyes
+The retinal lesions of TSC include hamartomas (elevated mulberry lesions or plaque-like lesions), observed in 34% of individuals with TSC [Öhnell et al 2024]. These lesions are relatively rare in the general population; a case series of 3,573 healthy term newborns identified only two infants with retinal hamartomas [Li et al 2013].
+Achromic patches (similar to the hypopigmented skin lesions) have been noted in 34% of individuals with TSC, while the general population incidence is 1:20,000 [Öhnell et al 2024].
 
-完整清单与合规说明见 ../SOURCES.md
+Extrarenal AMLs
+Extrarenal AMLs, including hepatic and pancreatic, have been reported. Hepatic AMLs are reported in 10%-15% of individuals with TSC and are most often observed in individuals who also have renal AMLs [Black et al 2012, Jóźwiak et al 2018].
+Neuroendocrine Tumors (NETs)
+Functional and non-functional pancreatic NETs have been increasingly identified in individuals with TSC due to recommended abdominal MRI surveillance in individuals with TSC [Krueger et al 2013b]. The most common functional pancreatic NETs reported in individuals with TSC are insulinomas, but gastrinomas, glucagonomas,
+ACTHomas, and GHomas have also been described. There is also a growing number of reports of nonfunctional NETs, with pancreatic NETs being the most common [Mowrey et al 2021, Evans et al 2022]. TSCrelated pancreatic NETs present earlier; there is no clear evidence that they are more aggressive than sporadic pancreatic NETs [Arya et al 2023]. Malignant and recurrent non-functional pancreatic NETs have been described in association with TSC [Mowrey et al 2021, Sauter et al 2021]. Pancreatic NETs have been seen more commonly associated with TSC2 pathogenic variants [Mowrey et al 2021]. Based on the current data, standard surveillance and management is recommended for non-functional pancreatic NETs in association with TSC
+[Arya et al 2023].
+Sclerotic Bone Lesions
+Sclerotic bone lesions are common in individuals with TSC. In one study, 51/70 (73%) children with TSC who underwent abdominal imaging had sclerotic bone lesions. These lesions were discovered much more frequently after surveillance imaging of the abdomen and lungs became standard of care in individuals with TSC. Sclerotic bone lesions in TSC are commonly observed in the posterior vertebral elements and increase in size and number over time [Boronat et al 2016]. Although sclerotic bone lesions are included in the diagnostic criteria for TSC, they do not cause any medical issues [Boronat & Barber 2018, Northrup et al 2021].
+Oral and Dental Manifestations
+Multiple dental findings are observed in individuals with TSC; the two most common are dental pitting and intraoral fibromas. Dental pitting (small depressions in the dental enamel) results in increased susceptibility to formation of dental caries. Intraoral fibromas are usually observed on the gingival surfaces. Intraoral fibromas typically occur after oral trauma or as a side effect of some anti-seizure medications [Teng et al 2014].
+Phenotype Correlations by Gene
+TSC2 pathogenic variants are associated with a more severe phenotype than TSC1 pathogenic variants. A higher percentage of individuals with more severe features of TSC have a de novo TSC2 pathogenic variant versus a de novo TSC1 pathogenic variant [Au et al 2007]. Individuals representing simplex cases (i.e., a single occurrence in a family) are more likely to have a TSC2 pathogenic variant, while those with familial TSC have an almost equal proportion of TSC1 and TSC2 pathogenic variants [Peron et al 2018].
+Individuals with a TSC2 pathogenic variant are at greater risk for:
+• Increased number of renal AMLs (>4) (P=0.044) [Luo et al 2022], renal angiomyolipoma (P=0.006) [Ng et al 2022], and renal malignancy [Y ang et al 2014];
+• Significant developmental delays by age 24 months [Farach et al 2019], intellectual disability (P <0.001)
+[Ng et al 2022], low IQ [Numis et al 2011], ASD, and infantile spasms [Numis et al 2011];
+• Cardiac rhabdomyomas (P=0.004) [Ng et al 2022];
+• Facial angiofibromas (P=0.026) [Ng et al 2022].
+
+Genotype-Phenotype Correlations
+TSC2
+• Females with pathogenic variants in the carboxy terminus of tuberin, the TSC2 gene product, may have increased incidence and/or severity of LAM [Strizheva et al 2001].
+• Some pathogenic TSC2 missense variants – including but not limited to p.Arg622Trp, p.Arg905Gln, p.Ser1036Pro, p.Arg1200Trp, p.Gln1503Pro, p.Gly1579Ser, p.Arg1713His, and c.4255_4256delCA (see
+Table 8) – are associated with milder disease [Khare et al 2001, O'Connor et al 2003, Mayer et al 2004,
+Jansen et al 2006, Wentink et al 2012, Farach et al 2017, Fox et al 2017, Farach et al 2023]. Many of the pathogenic variants associated with milder disease have been identified in individuals with a family history of TSC.
+• Renal cystic disease may be more severe in individuals with small TSC2 pathogenic variants (single- to few-base pair insertions, deletions, and single-nucleotide variants).
+Penetrance
+The penetrance of TSC appears to be 100%. Rare instances of apparent non-penetrance have been reported;
+however, molecular studies revealed the presence of two different pathogenic variants in the family and gonadal mosaicism in others [Connor et al 1986, Webb & Osborne 1991, Rose et al 1999].
+Nomenclature
+Terms used in the past to describe findings in TSC that are now outdated or inappropriate but have not yet been eliminated from the medical literature include the following:
+• Adenoma sebaceum. Used previously to describe facial lesions that are now better characterized as facial angiofibromas because the lesions have no "sebaceous" elements
+• Myomata. Replaced by the more precise terms "cardiac rhabdomyomas" and "cortical tubers"
+• White ash leaf spots. Used previously to describe the hypopigmented macules; now discouraged because the hypopigmented macules can be any shape or size. Hypopigmented macules of a certain size and shape are not more or less indicative of TSC.
+• Epiloia. Used to describe individuals with TSC and epilepsy
+Prevalence
+The incidence of TSC may be as high as 1:5,800 live births [Osborne et al 1991] but is generally estimated at between 1:6,000 and 1:10,000 live births [Northrup et al 2021].
+Genetically Related (Allelic) Disorders
+No phenotypes other than those discussed in this GeneReview are known to be associated with germline pathogenic variants in TSC1 or TSC2.
+TSC2/PKD1 contiguous gene deletion syndrome. A contiguous gene deletion syndrome in which PKD1 and the adjacent TSC2 are disrupted by deletion has been described [Consugar et al 2008]. In individuals with this syndrome, the phenotype of tuberous sclerosis complex (TSC) and severe autosomal dominant polycystic kidney disease is usually evident in utero or is diagnosed in infancy.
+Sporadic tumors (including SEGAs, renal AMLs, cardiac rhabdomyomas, pulmonary LAM, perivascular epithelioid cell tumors, urothelial carcinomas, and hepatocellular carcinomas) occurring as single tumors in the absence of any other findings of TSC can contain a somatic variant in TSC1 or TSC2 that is not present in the germline. In these circumstances, predisposition to these tumors is not heritable. A study on isolated single
+
+hepatic AMLs found that 10/12 had a somatic low-allele-frequency TSC2 pathogenic variant [Giannikou et al 2023].
+Differential Diagnosis
+Many of the features of tuberous sclerosis complex (TSC) are nonspecific and can be seen as isolated findings or as a feature of another condition.
+Skin findings
+• Hypopigmented macules have been observed in 0.8% of newborns in some studies and in most individuals have no medical significance [Alper & Holmes 1983]. A study by V anderhooft et al [1996] determined that three or more hypopigmented macules are much more likely to be seen in an individual who will be diagnosed with TSC. Other conditions with hypopigmented macules as part of the phenotype include vitiligo, nevus depigmentus, nevus anemicus, piebaldism, and Vogt-Koyanagi-Harada syndrome.
+Associated findings can usually distinguish these conditions from TSC.
+• Angiofibromas. A single facial angiofibroma or even two is not diagnostic of TSC (see Clinical
+Diagnosis). On physical examination, acne vulgaris, acne rosacea, or multiple trichoepithelioma (see
+CYLD Cutaneous Syndrome, Table 3) can be mistaken for angiofibromas, but biopsy easily distinguishes among them.
+• The shagreen patch of TSC is quite specific based on location and appearance. Shagreen patch must be distinguished from "connective tissue nevus," which encompasses a variety of skin lesions with excessive dermal connective tissue that are not necessarily associated with TSC.
+• Ungual fibromas can result from trauma, but generally traumatic ungual fibromas are single lesions and their presence can be explained (e.g., by a particular manner of holding a golf club). Ungual fibromas must be distinguished from epithelial inclusion cysts, verruca vulgaris, and infantile digital fibromatosis.
+Simple kidney cysts are common in the general population, observed in 25% of individuals age >40 years and 50% of individuals age >50 years, but uncommon in individuals age <30 years (see StatPearls).
+Renal angiomyolipomas (AMLs) are rare tumors that can occur in individuals with no other clinical manifestations of TSC. Sporadic AMLs can have loss of heterozygosity for TSC2, leading to the conclusion that they occur as a result of loss of function of TSC2 in individuals not affected with TSC (see Genetically Related
+Disorders, Sporadic tumors).
+Lymphangioleiomyomatosis (LAM). Some women with LAM also have benign renal AMLs but no other findings of TSC. These individuals do not transmit TSC or LAM to their offspring. Individuals with LAM and benign renal AMLs who have no other features of TSC do not meet diagnostic criteria for TSC [Northrup et al 2021].
+Cardiac rhabdomyomas. It is estimated that 90%-95% of infants with a prenatal diagnosis of two or more cardiac rhabdomyomas will have TSC. Multiple cardiac rhabdomyomas can be observed as an isolated sporadic finding, but this is unusual (see Genetically Related Disorders, Sporadic tumors).
+
+Genes of Interest in the Differential Diagnosis of Tuberous Sclerosis
+Complex
+Table 3. Genes of Interest in the Differential Diagnosis of Tuberous Sclerosis Complex
+System Gene(s) Disorder MOI Features of Disorder
+Overlapping w/TSC Distinguishing Features
+Skin CYLD CYLD cutaneous syndrome AD
+Multiple facial papules (incl cylindromas, spiradenomas,
+& trichepitheliomas)
+Facial angiofibromas in TSC
+Kidneys
+ALG5
+ALG9
+DNAJB11
+GANAB
+IFT140
+PKD1 1
+PKD2
+Polycystic kidney disease, autosomal dominant AD Kidney cysts
+Renal AMLs, LAM, cardiac rhabdomyomas, & skin & brain manifestations in TSC
+CDC73 CDC73-related disorders AD Kidney cysts Renal AML in TSC
+Lungs
+DICER1 DICER1 tumor predisposition AD Lung cysts &/or pneumothorax LAM in TSC
+FLCN Birt-Hogg-Dubé syndrome
+(BHDS) AD Lung cysts &/or pneumothorax
+• Characteristic skin lesions in
+BHDS incl fibrofolliculomas, acrochordons, oral papules, cutaneous collagenomas, & epidermal cysts. Facial angiofibromas have been reported in persons w/BHDS but are more common in persons w/TSC.
+Central nervous system
+FLNA FLNA deficiency XL
+Periventricular nodular heterotopia (may be misdiagnosed initially as
+TSC)
+SENs & cortical tubers in TSC
+PDGFB
+PDGFRB
+SLC20A2
+XPR1
+Primary familial brain calcification (PFBC) AD Intracerebral calcifications Calcifications around ventricles are calcified SENs in TSC.
+TREX1
+Retinal vasculopathy w/ cerebral leukoencephalopathy & systemic manifestations
+AD
+• Multisystem disorder involving brain, kidney, & eye
+• Focal neurologic symptoms
+• Seizures
+• Mass lesions on brain imaging
+Distinct eye lesions (hamartomas & achromic patches) & brain findings
+(SENs & cortical tubers) in TSC
+AD = autosomal dominant; AMLs = angiomyolipomas; LAM = lymphangioleiomyomatosis; MOI = mode of inheritance; SENs = subependymal nodules; TSC = tuberous sclerosis complex; XL = X-linked
+1. See also Genetically Related Disorders, TSC2/PKD1 contiguous gene deletion syndrome.
+Management
+Consensus clinical management and surveillance recommendations for individuals with tuberous sclerosis complex (TSC) have been published [Northrup et al 2021] (full text).
+
+Evaluations Following Initial Diagnosis
+To establish the extent of disease and needs in an individual diagnosed with TSC, the evaluations summarized in
+Table 4 (if not performed as part of the evaluation that led to the diagnosis) are recommended by the
+International Tuberous Sclerosis Consensus Conference [Northrup et al 2021] (full text).
+Table 4. Tuberous Sclerosis Complex: Recommended Evaluations Following Initial Diagnosis
+System/Concern Evaluation Comment
+Skin Detailed dermatologic exam
+Central nervous system
+Brain MRI for tubers, SENs, migrational defects, & SEGAs
+• Neurologic eval for manifestations of seizures
+• Baseline EEG while awake & asleep
+• During infancy, educate parents to recognize infantile spasms as well as other seizure types even if none have occurred at time of diagnosis.
+• Infantile spasms are a neurologic emergency in infants w/TSC requiring immediate eval & treatment.
+• If baseline EEG is abnormal or if TAND is present: 24-hr video EEG to assess for subclinical seizure activity
+• Earlier recognition & treatment of epilepsy in infancy is assoc w/better long-term neurologic outcome.
+• Parent/caregiver education & training re TAND manifestations (e.g., ASD,
+ADHD, language & anxiety disorders)
+• Comprehensive eval for all manifestations using TAND
+Checklist 1
+• To ensure families are monitoring for emerging TAND manifestations 1
+• Unaddressed TAND manifestations contribute significantly to poor outcome.
+Kidney
+Blood pressure
+Serum creatinine To determine GFR & assess renal function
+Abdominal MRI To assess for renal AMLs & kidney cysts
+Cardiology
+Echocardiogram In those birth to age 18 yrs; esp if age <3 yrs to assess for cardiac rhabdomyomas
+EKG at all ages To assess for underlying conduction defects
+Pulmonary
+Baseline chest CT In all females & in males w/pulmonary symptoms age >18 yrs
+Baseline PFT & 6-min walk test
+In those w/evidence of cystic lung disease c/w LAM on screening chest CT & in persons w/respiratory symptoms
+In adults, inquire about tobacco exposure, signs of chyle leak, & other pulmonary manifestations (e.g., dyspnea, cough, & spontaneous pneumothorax)
+Ophthalmology Complete ophthalmologic eval Incl dilated fundoscopy to assess for retinal lesions & visual field defects
+Teeth Detailed clinical dental inspection
+
+Table 4. continued from previous page.
+System/Concern Evaluation Comment
+Genetic counseling By genetics professionals 2
+To obtain a pedigree & inform affected persons & their families re nature, MOI, & implications of TSC to facilitate medical & personal decision making
+ADHD = attention-deficit/hyperactivity disorder; AML = angiomyolipomas; ASD = autism spectrum disorder; c/w = consistent with;
+GFR = glomerular filtration rate; LAM = lymphangioleiomyomatosis; MOI = mode of inheritance; PFT = pulmonary function testing;
+SEGAs = subependymal giant cell astrocytomas; SENs = subependymal nodules; TAND = TSC-associated neuropsychiatric disorder;
+TSC = tuberous sclerosis complex
+1. A simple screening questionnaire available at no cost to address the significant gap between clinical need associated with TAND and those receiving intervention for these needs [de Vries et al 2015, Leclezio & de Vries 2015]
+2. Medical geneticist, certified genetic counselor, certified advanced genetic nurse
+Treatment of Manifestations
+Targeted Therapies
+In GeneReviews, a targeted therapy is one that addresses the specific underlying mechanism of disease causation
+(regardless of whether the therapy is significantly efficacious for one or more manifestation of the genetic condition);
+would otherwise not be considered without knowledge of the underlying genetic cause of the condition; or could lead to a cure. —ED
+Table 5. Tuberous Sclerosis Complex: Targeted Therapies
+Treatment Class Mechanism of Action Specific Drugs Comment
+Mammalian target of rapamycin (mTOR) inhibitor
+Blocks binding of accessory protein raptor (regulatory-associated protein of mTOR) to mTOR
+Rapamycin & rapalogs
+(sirolimus & everolimus) mTOR inhibitors replace the function w/in the cell normally provided by the hamartin/tuberin multimer.
+Supportive Care
+Supportive care to improve quality of life, maximize function, and reduce complications is recommended. This ideally involves multidisciplinary care by specialists in relevant fields (see Table 6).
+Table 6. Tuberous Sclerosis Complex: Treatment of Manifestations
+Manifestation/
+Concern Treatment Considerations/Other
+Facial angiofibromas Topical mTOR inhibitor
+Oral mTOR inhibitors prescribed for FDA indications
+(e.g., SEGAs, AMLs) may ↓ presence/size of facial angiofibromas; topical mTOR inhibitors can be used alone or in combination w/oral mTOR inhibitors to treat facial angiofibromas.
+SEGAs
+• mTOR inhibitor (See Table 5.)
+• Resection by neurosurgeon if size of SEGA causes life-threatening neurologic symptoms mTOR inhibitor treatment is the recommended therapy for growing or large SEGAs, for those w/mildto-moderate symptoms incl asymptomatic ventriculomegaly, & for those who are either not surgical candidates or who prefer medical mgmt to surgery.
+
+Table 6. continued from previous page.
+Manifestation/
+Concern Treatment Considerations/Other
+Seizures
+Treatments incl:
+• Vigabatrin
+• Standard ASMs
+• mTOR inhibitors for intractable epilepsy
+(See Table 5.)
+• Dietary therapy
+• Epilepsy surgery
+Note: Vigabatrin is recommended as first-line treatment for TSC-related infantile spasms. If abatement of infantile spasms does not occur w/in 2 weeks, ACTH or prednisolone can be added as second-line therapy.
+• If sharp or poly-spike waves develop on presymptomatic EEG, treatment w/vigabatrin should be considered to prevent infantile spams & delay onset of focal seizures.
+• Early seizure control is correlated w/improved developmental & neurologic outcomes.
+• Other than for infantile spasms, seizure treatment should generally follow that of other epilepsies. Everolimus & a specific formulation of cannabidiol have been evaluated in randomized controlled clinical trials to treat
+TSC-related seizures & were effective; however, no comparative efficacy data exists to recommend any specific ASM, everolimus, or cannabidiol over another.
+• Up to two thirds of seizures in persons w/TSC may be resistant to polydrug therapy w/ASMs
+& mTOR inhibitors; epilepsy surgery should be considered for persons w/refractory epilepsy &
+TSC.
+TAND
+• Refer to neurodevelopmental specialist &/or psychiatry based on features.
+• ABA therapy for ASD
+• Consider medication for ADHD.
+Renal cysts Treatment per nephrologist & surgical specialists
+Renal AML
+AML that is asymptomatic, growing, & >4 cm or growing rapidly & >3 cm: mTOR inhibitor (See
+Table 5.)
+Avoid nephrectomy because of high incidence of complications & ↑ risk for future renal insufficiency, end-stage kidney failure, & the poor prognosis that results from chronic kidney disease.
+Second-line treatment for asymptomatic AML:
+selective embolization followed by corticosteroids, kidney-sparing resection, or ablative therapy for exophytic lesions
+AML w/acute hemorrhage: embolization followed by corticosteroids
+Cardiac rhabdomyomas
+• Consider use of an mTOR inhibitor (see
+Table 5) if outflow obstruction is severe.
+• Alternative treatment is open heart surgery.
+LAM mTOR inhibitor (See Table 5.) Official guidelines for diagnosis & mgmt of LAM have been published. 1
+Retinal astrocytic hamartomas
+• Treatment per ophthalmologist
+• Monitor for signs of rapid growth or effects on vision.
+Extrarenal AML
+• Consider use of mTOR inhibitor if rapid growth or local issues w/compression to potentially avoid surgery.
+• Surgery if indicated
+
+Table 6. continued from previous page.
+Manifestation/
+Concern Treatment Considerations/Other
+NET s Treatment per endocrinologist, surgeon, &/or oncologist
+ABA = applied behavior analysis; ACTH = adrenocorticotropic hormone; ADHD = attention-deficit/hyperactivity disorder; AML = angiomyolipoma; ASD = autism spectrum disorder; ASM = anti-seizure medication; LAM = lymphangioleiomyomatosis; NETs = neuroendocrine tumors; SEGAs = subependymal giant cell astrocytomas; TAND = TSC-associated neuropsychiatric disorder
+1. McCormack et al [2016], Gupta et al [2017]
+Surveillance
+To monitor existing manifestations, the individual's response to supportive care, and the emergence of new manifestations, the evaluations summarized in Table 7 are recommended (adapted from Northrup et al [2021],
+Table 3).
+Table 7. Tuberous Sclerosis Complex: Recommended Surveillance
+System/Concern Evaluation Frequency
+Skin Detailed clinical dermatologic exam Annually
+SEGAs Brain MRI
+In those w/o SEGAs: every 1-3 yrs until age 25 yrs in asymptomatic persons (no CNS-related symptoms) to monitor for new occurrence of SEGAs
+In those w/known asymptomatic SEGAs:
+• Continue imaging periodically throughout adulthood to monitor for SEGA growth.
+• For large or growing SEGAs causing ventricular enlargement w/o symptoms, brain MRI should be performed more frequently; these persons & their families should be educated re potential for new symptoms.
+Seizures
+Assessment w/neurologist for clinical manifestations of seizures At each visit
+EEG
+• In asymptomatic infants: every 6 wks up to age 12 mos;
+every 3 mos up to age 24 mos 1
+• In those w/known or suspected seizures: as clinically indicated
+• If infantile spams or focal seizures are suspected but cannot be confirmed clinically or on routine EEG, prolonged video
+EEG that includes sleep should be performed.
+TAND
+Screening for TAND using validated screening tools (e.g., TAND
+Checklist)
+At least annually or more frequently as needed
+Comprehensive formal eval for
+TAND
+In infancy (age 0-3 yrs), preschool (age 3-6 yrs), pre-middle school
+(age 6-9 yrs), adolescence (age 12-16 yrs), early adulthood (age 18-25 yrs), & as needed thereafter
+Referral for further eval when any concerns are identified on screening As needed
+
+Table 7. continued from previous page.
+System/Concern Evaluation Frequency
+Renal AMLs & cysts /
+Extrarenal AMLs
+Abdominal MRI to assess for new or progression of AMLs & renal cystic disease
+Every 1-3 yrs
+Assessment of renal function (incl determination of GFR) & blood pressure
+At least annually
+Cardiac
+Echocardiogram
+• Every 1-3 yrs in asymptomatic infants & children w/ cardiac rhabdomyomas until regression of lesions begins
+• Frequency per cardiologist in those w/symptomatic cardiac rhabdomyomas
+Additional diagnostic assessment
+(e.g., EKG) per cardiologist In those w/symptomatic cardiac rhabdomyomas
+Pulmonary
+• Clinical screening (targeted history) for LAM symptoms
+(e.g., exertional dyspnea & shortness of breath)
+• Counseling regarding ↑ risk of LAM assoc w/smoking & estrogen use
+At each visit in all females age >18 yrs & in males & females w/ respiratory symptoms
+High-resolution lung CT
+• Every 5-7 yrs through menopause in asymptomatic persons at risk for LAM who have no evidence of lung cysts on baseline high-resolution CT
+• For persons w/cystic lung disease consistent w/LAM on
+CT, follow-up imaging should be determined on an individual basis (e.g., presence of symptoms, ability to perform reliable PFTs, pre-existing use of mTOR inhibitor, response to treatment, & development of other pulmonary complications).
+Ophthalmologic
+Ophthalmologic eval Annually
+Vision testing
+For those on vigabatrin therapy: w/in 4 weeks of therapy initiation, at 3-mo intervals while on treatment, & 3-6 mos after treatment is discontinued because of the risk for peripheral visual field restriction (see Sabril® prescribing information).
+NET s Per endocrinologist Per endocrinologist
+Dental
+Detailed dental exam Every 6 mos
+Panoramic radiographs By age 7 yrs, if not performed previously
+AML = angiomyolipoma; CNS = central nervous system; GFR = glomerular filtration rate; LAM = lymphangioleiomyomatosis; NETs = neuroendocrine tumors; PFTs = pulmonary function tests; SEGAs = subependymal giant cell astrocytomas; TAND = TSC-associated neuropsychiatric disorder; TSC = tuberous sclerosis complex
+1. Abnormal EEG frequently precedes onset of clinical seizures.
+Agents/Circumstances to Avoid
+Avoid the following:
+• Smoking
+• Estrogen use in adolescent and adult females
+• Nephrectomy (See Table 6, Renal AML.)
+
+Evaluation of Relatives at Risk
+It is appropriate to evaluate apparently asymptomatic older and younger at-risk relatives (including children) of an affected individual in order to identify as early as possible those who would benefit from surveillance and early treatment. Evaluations can include:
+• Molecular genetic testing if the pathogenic variant in the family is known;
+• If the pathogenic variant in the family is not known, physical examination and imaging studies (skin examination, retinal examination, brain imaging, and renal MRI examination) to assess for the clinical features of TSC (see Clinical Diagnosis).
+See Genetic Counseling for issues related to testing of at-risk relatives for genetic counseling purposes.
+Pregnancy Management
+In general, women with epilepsy or a seizure disorder from any cause are at greater risk for mortality during pregnancy than pregnant women without a seizure disorder; use of anti-seizure medication (ASM) during pregnancy reduces this risk. However, exposure to ASMs may increase the risk for adverse fetal outcome
+(depending on the drug used, the dose, and the stage of pregnancy at which medication is taken). Nevertheless, the risk of an adverse outcome to the fetus from ASM exposure is often less than that associated with exposure to an untreated maternal seizure disorder. Therefore, use of ASMs to treat a maternal seizure disorder during pregnancy is typically recommended. Discussion of the risks and benefits of using a given ASM during pregnancy should ideally take place prior to conception. Transitioning to a lower-risk medication prior to pregnancy may be possible [Sarma et al 2016].
+See MotherToBaby for more information on medication use during pregnancy.
+Therapies Under Investigation
+Many clinical trials are assessing the effect of drug therapy on the manifestations of TSC (see ClinicalTrials.gov in the US and EU Clinical Trials Register in Europe).
+Genetic Counseling
+Genetic counseling is the process of providing individuals and families with information on the nature, mode(s) of inheritance, and implications of genetic disorders to help them make informed medical and personal decisions. The following section deals with genetic risk assessment and the use of family history and genetic testing to clarify genetic status for family members; it is not meant to address all personal, cultural, or ethical issues that may arise or to substitute for consultation with a genetics professional. —ED.
+Mode of Inheritance
+Tuberous sclerosis complex (TSC) is inherited in an autosomal dominant manner.
+Risk to Family Members
+Parents of a proband
+• About one third of individuals diagnosed with TSC have an affected parent.
+• Two thirds of individuals with TSC have the disorder as the result of a de novo TSC1 or TSC2 pathogenic variant. Individuals representing simplex cases (i.e., a single occurrence in a family) are more likely to have a TSC2 pathogenic variant than a TSC1 pathogenic variant [Au et al 2007].
+
+• If the proband appears to be the only affected family member, recommended evaluations for the parents of the proband include:
+⚬ Molecular genetic testing if the TSC-related pathogenic variant has been identified in the proband;
+⚬ Skin examination, retinal examination, brain imaging, and renal MRI if the TSC-related pathogenic variant has not been identified in the proband. Evaluation of parents may determine that one is affected but has escaped previous diagnosis because of a milder phenotypic presentation.
+• If a molecular diagnosis has been established in the proband, the pathogenic variant identified in the proband is not identified in either parent, and parental identity testing has confirmed biological maternity and paternity, the following possibilities should be considered:
+⚬ The proband has a de novo pathogenic variant.
+⚬ The proband inherited a pathogenic variant from a parent with gonadal (or somatic and gonadal) mosaicism.* Parental gonadal mosaicism has been reported in several families [Rose et al 1999, Y e et al 2022]. Note: Testing of parental leukocyte DNA may not detect all instances of somatic mosaicism and will not detect a pathogenic variant that is present in the germ (gonadal) cells only.
+* A parent with somatic and gonadal mosaicism for a TSC-related pathogenic variant may be mildly/minimally affected [Y e et al 2022].
+• The family history of some individuals diagnosed with TSC may appear to be negative because of failure to recognize the disorder in family members or early death of the parent before the recognition of symptoms. Therefore, an apparently negative family history cannot be confirmed unless appropriate clinical evaluation or (if a molecular diagnosis has been established in the proband) molecular genetic testing has demonstrated that neither parent is heterozygous for the pathogenic variant identified in the proband.
+Sibs of a proband. The risk to the sibs of the proband depends on the clinical/genetic status of the proband's parents:
+• If a parent is affected and/or known to have a TSC1 or TSC2 pathogenic variant, the risk to the sibs of inheriting the pathogenic variant is 50%.
+⚬ Although the penetrance of TSC is thought to be 100% (see Penetrance), clinical variability is observed among affected family members. Heterozygous females tend to have milder neurologic features than heterozygous males [Sancak et al 2005, Au et al 2007] and lower rates of impulsivity, overactivity, autism spectrum disorder, and attention-deficit/hyperactivity disorder [de Vries et al 2020a].
+• If the proband represents a simplex case and has a known TSC-related pathogenic variant that cannot be detected in the leukocyte DNA of either parent, the recurrence risk to sibs is low (~1%-2%) but greater than that of the general population because of the possibility of parental gonadal mosaicism [Rose et al 1999, Y e et al 2022].
+• If the TSC-related pathogenic variant identified in the proband is known to have occurred as a postzygotic event (i.e., the proband has somatic mosaicism for the pathogenic variant) (see Establishing the
+Diagnosis), it is presumed that neither parent has the pathogenic variant and that the risk to the sibs of the proband is not increased over that of the general population.
+• If the proband represents a simplex case and the parents are clinically unaffected (based on skin examination, retinal examination, brain imaging, and renal imaging) but their genetic status is unknown, the risk to the sibs of a proband appears to be low but increased over that of the general population because of the possibility of parental gonadal mosaicism [Rose et al 1999, Y e et al 2022].
+Offspring of a proband. Each child of an individual with TSC has a 50% chance of inheriting the TSC-related pathogenic variant.
+
+Other family members. The risk to other family members depends on the status of the proband's parents: if a parent is affected and/or is known to have the familial pathogenic variant, the parent's family members may be at risk.
+Related Genetic Counseling Issues
+See Management, Evaluation of Relatives at Risk for information on evaluating at-risk relatives for the purpose of early diagnosis and treatment.
+Predictive testing (i.e., testing of asymptomatic at-risk individuals)
+• Predictive testing for at-risk asymptomatic family members requires prior identification of the TSC1 or
+TSC2 pathogenic variant in the family.
+• Predictive testing of at-risk family members (including children) is recommended in order to guide medical management [Touraine et al 2022]. Special consideration should be given to education of the children and their parents prior to genetic testing. A plan should be established for the manner in which results are given to the parents and their children.
+• Potential consequences of such testing – including but not limited to socioeconomic changes and the need for long-term follow up and evaluation arrangements for individuals with a positive test result – as well as the capabilities and limitations of predictive testing should be discussed in the context of formal genetic counseling prior to testing.
+Family planning
+• The optimal time for determination of genetic risk and discussion of the availability of prenatal/ preimplantation genetic testing is before pregnancy.
+• It is appropriate to offer genetic counseling (including discussion of potential risks to offspring and reproductive options) to young adults who are affected or at risk.
+DNA banking. Because it is likely that testing methodology and our understanding of genes, pathogenic mechanisms, and diseases will improve in the future, consideration should be given to banking DNA from probands in whom a molecular diagnosis has not been confirmed (i.e., the causative pathogenic mechanism is unknown). For more information, see Huang et al [2022].
+Prenatal Testing and Preimplantation Genetic Testing
+High-risk pregnancies
+• Molecular genetic testing. If the TSC-related pathogenic variant has been identified in an affected family member, prenatal and preimplantation genetic testing for TSC are possible.
+• Fetal imaging studies. For families in which a TSC-related pathogenic variant has not been identified, high-resolution ultrasound examination for tumors is possible; however, its sensitivity is unknown. Fetal
+MRI may be of use in the evaluation of TSC in fetuses at 50% risk.
+Note: The cardiac tumors are generally not detected until the third trimester.
+Low-risk pregnancies. When cardiac lesions consistent with rhabdomyoma are identified on fetal ultrasound examination, the risk to the fetus with no known family history of TSC of having TSC is 90%-95% [Northrup et al 2013].
+Differences in perspective may exist among medical professionals and within families regarding the use of prenatal and preimplantation genetic testing. While most health care professionals would consider use of prenatal and preimplantation genetic testing to be a personal decision, discussion of these issues may be helpful.
+
+Resources
+GeneReviews staff has selected the following disease-specific and/or umbrella support organizations and/or registries for the benefit of individuals with this disorder and their families. GeneReviews is not responsible for the information provided by other organizations. For information on selection criteria, click here.
+• Medical Home Portal
+Tuberous Sclerosis Complex (TSC)
+• MedlinePlus
+Tuberous sclerosis
+• NCBI Genes and Disease
+Tuberous sclerosis
+• Tuberous Sclerosis Complex (TSC) Alliance
+Phone: 800-225-6872; 301-562-9890 (Toll-Free)
+Email: info@tsalliance.org tsalliance.org
+• American Epilepsy Society (AES) aesnet.org
+• Epilepsy Foundation
+Phone: 800-332-1000
+Email: ContactUs@efa.org epilepsy.com
+• The LAM Foundation
+Phone: 513-777-6889; 877-287-3526
+Email: info@thelamfoundation.org thelamfoundation.org
+Molecular Genetics
+Information in the Molecular Genetics and OMIM tables may differ from that elsewhere in the GeneReview: tables may contain more recent information. —ED.
+Table A. Tuberous Sclerosis Complex: Genes and Databases
+Gene Chromosome Locus Protein Locus-Specific
+Databases
+HGMD ClinVar
+TSC1 9q34.13 Hamartin Tuberous sclerosis database (TSC1)
+TSC1 TSC1
+TSC2 16p13.3 Tuberin Tuberous sclerosis database (TSC2)
+TSC2 TSC2
+Data are compiled from the following standard references: gene from HGNC; chromosome locus from OMIM; protein from UniProt.
+For a description of databases (Locus Specific, HGMD, ClinVar) to which links are provided, click here.
+Table B. OMIM Entries for Tuberous Sclerosis Complex (View All in OMIM) 191092 TSC COMPLEX SUBUNIT 2; TSC2 191100 TUBEROUS SCLEROSIS 1; TSC1 605284 TSC COMPLEX SUBUNIT 1; TSC1
+
+Table B. continued from previous page.
+613254 TUBEROUS SCLEROSIS 2; TSC2
+Molecular Pathogenesis
+Hamartin (protein encoded by TSC1) and tuberin (protein encoded by TSC2) form heterodimers that act to downregulate cell growth in response to the insulin signaling pathway in cells. When either hamartin or tuberin is not produced, cell growth is constantly turned on resulting in cell overgrowth. Overgrowth of cells causes production of benign tumors (hamartomas and hamartias). This explains the origin of the tumors in individuals with tuberous sclerosis complex (TSC). The molecular pathogenesis also explains why mTOR inhibitors work to stabilize and/or shrink the tumors in individuals with TSC.
+Additionally, because tuberin and hamartin are subjected to regulation by multiple cell signaling pathways, somatic pathogenic variants and environmental factors affecting these pathways are expected to modify disease severity in individuals with only one normal germline copy of TSC1 or TSC2.
+A pathogenic variant is defined as a variant that clearly inactivates the function of hamartin or tuberin (i.e., outof-frame indel or nonsense variant), prevents protein synthesis (i.e., large genomic deletion), or whose effect on protein function has been established by functional assessment (see LOVD Database – TSC1, LOVD Database –
+TSC2, Hoogeveen-Westerveld et al [2012], and Hoogeveen-Westerveld et al [2013]). Other TSC1 or TSC2 variants whose effects on function are less certain do not meet the criteria for diagnosis of TSC.
+Mechanism of disease causation. Loss of function
+Table 8. Pathogenic Variants Referenced in This GeneReview by Gene
+Gene Reference Sequences DNA Nucleotide Change Predicted Protein
+Change Comment
+TSC2 NM_000548.5
+NP_000539.2 c.1864C>T p.Arg622Trp
+See Genotype-Phenotype
+Correlations.
+c.2714G>A p.Arg905Gln c.3106T>C p.Ser1036Pro c.3598C>T p.Arg1200Trp c.4508A>C p.Gln1503Pro c.4735G>A p.Gly1579Ser c.5138G>A p.Arg1713His c.4255_4256delCA See footnote 1.
+Variants listed in the table have been provided by the authors. GeneReviews staff have not independently verified the classification of variants.
+GeneReviews follows the standard naming conventions of the Human Genome Variation Society (varnomen.hgvs.org). See Quick
+Reference for an explanation of nomenclature.
+1. This DNA nucleotide change results in creation of a cryptic splice donor site that gives rise to the inframe deletion p.Gln1419_Ser1449del rather than the predicted nonsense variant p.Gly1419ValfsTer104 [Farach et al 2023].
+Chapter Notes
+Revision History
+• 1 August 2024 (sw) Comprehensive update posted live
+• 12 July 2018 (sw) Comprehensive update posted live
+• 3 September 2015 (me) Comprehensive update posted live
+• 23 November 2011 (me) Comprehensive update posted live
+
+• 7 May 2009 (me) Comprehensive update posted live
+• 5 December 2005 (me) Comprehensive update posted live
+• 29 August 2003 (me) Comprehensive update posted live
+• 18 April 2001 (me) Comprehensive update posted live
+• 13 July 1999 (pb) Review posted live
+• 5 February 1999 (hn) Original submission
+References
+Published Guidelines / Consensus Statements
+Gupta N, Finlay GA, Kotloff RM, Strange C, Wilson KC, Y oung LR, Taveira-DaSilva AM, Johnson SR,
+Cottin V , Sahn SA, Ryu JH, Seyama K, Inoue Y , Downey GP , Han MK, Colby TV , Wikenheiser-Brokamp
+KA, Meyer CA, Smith K, Moss J, McCormack FX; ATS Assembly on Clinical Problems.
+Lymphangioleiomyomatosis diagnosis and management: high-resolution chest computed tomography, transbronchial lung biopsy, and pleural disease management. An official American Thoracic Society/
+Japanese Respiratory Society Clinical Practice Guideline. Am J Respir Crit Care Med. 2017;196:1337-48.
+[PubMed]
+McCormack FX, Gupta N, Finlay GR, Y oung LR, Taveira-DaSilva AM, Glasgow CG, Steagall WK, Johnson
+SR, Sahn SA, Ryu JH, Strange C, Seyama K, Sullivan EJ, Kotloff RM, Downey GP , Chapman JT, Han MK,
+D'Armiento JM, Inoue Y , Henske EP , Bissler JJ, Colby TV , Kinder BW , Wikenheiser-Brokamp KA, Brown
+KK, Cordier JF , Meyer C, Cottin V , Brozek JL, Smith K, Wilson KC, Moss J; ATS/JRS Committee on
+Lymphangioleiomyomatosis. Official American Thoracic Society/Japanese Respiratory Society clinical practice guidelines: lymphangioleiomyomatosis diagnosis and management. Am J Respir Crit Care Med.
+2016;194:748-61. [PubMed]
+Northrup H, Aronow ME, Bebin EM, Bissler J, Darling TN, de Vries PJ, Frost MD, Fuchs Z, Gosnell ES,
+Gupta N, Jansen AC, Jóźwiak S, Kingswood JC, Knilans TK, McCormack FX, Pounders A, Roberds SL,
+Rodriguez-Buritica DF , Roth J, Sampson JR, Sparagana S, Thiele EA, Weiner HL, Wheless JW , Towbin AJ,
+Krueger DA; International Tuberous Sclerosis Complex Consensus Group. Updated international tuberous sclerosis complex diagnostic criteria and surveillance and management recommendations. Pediatr Neurol.
+2021;123:50-66. [PubMed]
+Literature Cited
+Alper JC, Holmes LB. The incidence and significance of birthmarks in a cohort of 4,641 newborns. Pediatr
+Dermatol. 1983;1:58–68. PubMed PMID: 6679890.
+Alperin S, Krueger DA, Franz DN, Agricola KD, Stires G, Horn PS, Capal JK. Symptom rates and profile clustering in tuberous sclerosis complex-associated neuropsychiatric disorders (TAND). J Neurodev Disord.
+2021;13:60. PubMed PMID: 34903167.
+Amin S, Lux A, Calder N, Laugharne M, Osborne J, O'callaghan F . Causes of mortality in individuals with tuberous sclerosis complex. Dev Med Child Neurol. 2017;59:612-7. PubMed PMID: 27935023.
+Arya S, Ventin M, Nebbia M, Fernandez-Del Castillo C, Lionetto G, Qadan M, Lillemoe KD, Deshpande V ,
+Catalano OA, Thiele EA, Ferrone CR. Long-term outcomes of tuberous sclerosis complex-associated nonfunctional pancreatic neuroendocrine tumors: should we be more conservative? Ann Surg Oncol.
+2023;30:7748-55. PubMed PMID: 37648887.
+Au KS, Williams AT, Roach ES, Batchelor L, Sparagana SP , Delgado MR, Wheless JW , Baumgartner JE, Roa BB,
+Wilson CM, Smith-Knuppel TK, Cheung MY , Whittemore VH, King TM, Northrup H. Genotype/phenotype
+
+correlation in 325 individuals referred for a diagnosis of tuberous sclerosis complex in the United States.
+Genet Med. 2007;9:88–100. PubMed PMID: 17304050.
+Black ME, Hedgire SS, Camposano S, Paul E, Harisinghani M, Thiele EA. Hepatic manifestations of tuberous sclerosis complex: a genotypic and phenotypic analysis. Clin Genet. 2012;82:552-7. PubMed PMID:
+22251200.
+Bolton PF , Clifford M, Tye C, Maclean C, Humphrey A, le Maréchal K, Higgins JN, Neville BG, Rijsdjik F , Y ates
+JR, et al. Intellectual abilities in tuberous sclerosis complex: risk factors and correlates from the Tuberous
+Sclerosis 2000 Study. Psychol Med. 2015;45:2321-31. PubMed PMID: 25827976.
+Bolton PF , Park RJ, Higgins JN, Griffiths PD, Pickles A. Neuro-epileptic determinants of autism spectrum disorders in tuberous sclerosis complex. Brain. 2002;125:1247–55. PubMed PMID: 12023313.
+Borkowska J, Schwartz RA, Kotulska K, Jozwiak S. Tuberous sclerosis complex: tumors and tumorigenesis. Int J
+Dermatol. 2011;50:13–20. PubMed PMID: 21182496.
+Boronat S, Barber I. Less common manifestations in TSC. Am J Med Genet C Semin Med Genet.
+2018;178:348-54. PubMed PMID: 30156054.
+Boronat S, Barber I, Pargaonkar V , Chang J, Thiele EA. Sclerotic bone lesions at abdominal magnetic resonance imaging in children with tuberous sclerosis complex. Pediatr Radiol. 2016;46:689-94. PubMed PMID:
+26965910.
+Cancellieri A, Poletti V , Corrin B. Respiratory failure due to micronodular type II pneumocyte hyperplasia.
+Histopathology. 2002;41:263–5. PubMed PMID: 12207789.
+Canevini MP , Kotulska-Jozwiak K, Curatolo P , La Briola F , Peron A, Słowińska M, Strzelecka J, Vignoli A,
+Jóźwiak S. Current concepts on epilepsy management in tuberous sclerosis complex. Am J Med Genet C
+Semin Med Genet. 2018;178:299-308. PubMed PMID: 30255982.
+Capal JK, Bernardino-Cuesta B, Horn PS, Murray D, Byars AW , Bing NM, Kent B, Pearson DA, Sahin M,
+Krueger DA; TACERN Study Group. Influence of seizures on early development in tuberous sclerosis complex. Epilepsy Behav. 2017a;70:245-52. PubMed PMID: 28457992.
+Capal JK, Horn PS, Murray DS, Byars AW , Bing NM, Kent B, Bucher LA, Williams ME, O'Kelley S, Pearson DA,
+Sahin M, Krueger DA; TACERN Study Group. Utility of the Autism Observation Scale for infants in early identification of autism in tuberous sclerosis complex. Pediatr Neurol. 2017b;75:80-6. PubMed PMID:
+28844798.
+Capal JK, Williams ME, Pearson DA, Kissinger R, Horn PS, Murray D, Currans K, Kent B, Bebin M, Northrup
+H, Wu JY , Sahin M, Krueger DA; TACERN Study Group. Profile of autism spectrum disorder in tuberous sclerosis complex: results from a longitudinal, prospective, multisite study. Ann Neurol. 2021;90:874-86.
+PubMed PMID: 34668231.
+Chen XQ, Wang YY , Zhang MN, Lu Q, Pang LY , Liu LY , Li YF , Zou LP . Sirolimus can increase the disappearance rate of cardiac rhabdomyomas associated with tuberous sclerosis: a prospective cohort and self-controlled case series study. J Pediatr. 2021;233:150-5.e4 PubMed PMID: 33631166.
+Chung TK, Lynch ER, Fiser CJ, Nelson DA, Agricola K, Tudor C, Franz DN, Krueger DA. Psychiatric comorbidity and treatment response in patients with tuberous sclerosis complex. Ann Clin Psychiatry.
+2011;23:263–9. PubMed PMID: 22073383.
+Cohen AL, Kroeck MR, Wall J, McManus P , Ovchinnikova A, Sahin M, Krueger DA, Bebin EM, Northrup H,
+Wu JY , W arfield SK, Peters JM, Fox MD; Tuberous Sclerosis Complex Autism Center of Excellence Network
+Study Group. Tubers affecting the fusiform face area are associated with autism diagnosis. Ann Neurol.
+2023;93:577-90. PubMed PMID: 36394118.
+Connor JM, Stephenson JB, Hadley MD. Non-penetrance in tuberous sclerosis. Lancet. 1986;2:1275. PubMed
+PMID: 2878149.
+
+Consugar MB, Wong WC, Lundquist PA, Rossetti S, Kubly VJ, Walker DL, Rangel LJ, Aspinwall R, Niaudet WP ,
+Ozen S, David A, Velinov M, Bergstralh EJ, Bae KT, Chapman AB, Guay-Woodford LM, Grantham JJ, Torres
+VE, Sampson JR, Dawson BD, Harris PC, et al. Characterization of large rearrangements in autosomal dominant polycystic kidney disease and the PKD1/TSC2 contiguous gene syndrome. Kidney Int.
+2008;74:1468–79. PubMed PMID: 18818683.
+Crino PB, Nathanson KL, Henske EP . The tuberous sclerosis complex. N Engl J Med. 2006;355:1345–56.
+PubMed PMID: 17005952.
+Curatolo P , Moavero R, de Vries PJ. Neurological and neuropsychiatric aspects of tuberous sclerosis complex.
+Lancet Neurol. 2015;14:733–45. PubMed PMID: 26067126.
+de Vries PJ. Neurodevelopmental, psychiatric, and cognitive aspects of tuberous sclerosis complex. In:
+Kwiatkowski DJ, Whittemore VH, Thiele EA, eds. Tuberous Sclerosis Complex: Genes, Clinical Features, and
+Therapeutics. Weinheim, Germany: Wiley-Blackwell; 2010a:229267.
+de Vries PJ. Targeted treatments for cognitive and neurodevelopmental disorders in tuberous sclerosis complex.
+Neurotherapeutics. 2010b;7:275–82. PubMed PMID: 20643380.
+de Vries PJ, Belousova E, Benedik MP , Carter T, Cottin V , Curatolo P , Dahlin M, D'Amato L, Beaure d'Augères
+G, Ferreira JC, Feucht M, Fladrowski C, Hertzberg C, Jozwiak S, Lawson JA, Macaya A, Marques R, Nabbout
+R, O'Callaghan F , Qin J, Sander V , Sauter M, Shah S, Takahashi Y , Touraine R, Y ouroukos S, Zonnenberg B,
+Kingswood JC, Jansen AC; TOSCA Investigators. Tuberous sclerosis complex-associated neuropsychiatric disorders (TAND): new findings on age, sex, and genotype in relation to intellectual phenotype. Front
+Neurol. 2020a;11:603. PubMed PMID: 32733359.
+de Vries PJ, Belousova E, Benedik MP , Carter T, Cottin V , Curatolo P , D'Amato L, Beure d'Augères G, Ferreira
+JC, Feucht M, Fladrowski C, Hertzberg C, Jozwiak S, Lawson JA, Macaya A, Marques R, Nabbout R,
+O'Callaghan F , Qin J, Sander V , Sauter M, Shah S, Takahashi Y , Touraine R, Y ouroukos S, Zonnenberg B,
+Kingswood JC, Jansen AC; TOSCA Consortium and TOSCA Investigators. Natural clusters of tuberous sclerosis complex (TSC)-associated neuropsychiatric disorders (TAND): new findings from the TOSCA
+TAND research project. J Neurodev Disord. 2020b;12:24. PubMed PMID: 32873244.
+de Vries PJ, Gardiner J, Bolton PF . Neuropsychological attention deficits in tuberous sclerosis complex (TSC).
+Am J Med Genet A. 2009;149A:387–95. PubMed PMID: 19215038.
+de Vries PJ, Heunis TM, Vanclooster S, Chambers N, Bissell S, Byars AW , Flinn J, Gipson TT, van Eeghen AM,
+Waltereit R, Capal JK, Cukier S, Davis PE, Smith C, Kingswood JC, Schoeters E, Srivastava S, Takei M,
+Gardner-Lubbe S, Kumm AJ, Krueger DA, Sahin M, De Waele L, Jansen AC. International consensus recommendations for the identification and treatment of tuberous sclerosis complex-associated neuropsychiatric disorders (TAND). J Neurodev Disord. 2023;15:32. PubMed PMID: 37710171.
+de Vries PJ, Hunt A, Bolton PF . The psychopathologies of children and adolescents with tuberous sclerosis complex (TSC): a postal survey of UK families. Eur Child Adolesc Psychiatry. 2007;16:16–24. PubMed
+PMID: 17268883.
+de Vries PJ, Leclezio L, Gardner-Lubbe S, Krueger D, Sahin M, Sparagana S, De Waele L, Jansen A. Multivariate data analysis identifies natural clusters of tuberous sclerosis complex associated neuropsychiatric disorders
+(TAND). Orphanet J Rare Dis. 2021;16:447. PubMed PMID: 34689816.
+de Vries PJ, Whittemore VH, Leclezio L, Byars AW , Dunn D, Ess KC, Hook D, King BH, Sahin M, Jansen A.
+Tuberous sclerosis associated neuropsychiatric disorders (TAND) and the TAND Checklist. Pediatr Neurol.
+2015;52:25–35. PubMed PMID: 25532776.
+de Vries PJ, Wilde L, de Vries MC, Moavero R, Pearson DA, Curatolo P . A clinical update on tuberous sclerosis complex-associated neuropsychiatric disorders (TAND). Am J Med Genet C Semin Med Genet.
+2018;178:309-20. PubMed PMID: 30117265.
+
+Ding Y , Wang J, Zhou H, Li T, Zhou S, Wang Y . Assessment of tuberous sclerosis-associated neuropsychiatric disorders using the MINI-KID tool: a pediatric case-control study. Orphanet J Rare Dis. 2021;16:181.
+PubMed PMID: 33865427.
+Ebrahimi-Fakhari D, Mann LL, Poryo M, Graf N, von Kries R, Heinrich B, Ebrahimi-Fakhari D, Flotats-
+Bastardas M, Gortner L, Zemlin M, Meyer S. Incidence of tuberous sclerosis and age at first diagnosis: new data and emerging trends from a national, prospective surveillance study. Orphanet J Rare Dis. 2018;13:117.
+PubMed PMID: 30016967.
+Eden KE, de Vries PJ, Moss J, Richards C, Oliver C. Self-injury and aggression in tuberous sclerosis complex:
+cross syndrome comparison and associated risk markers. J Neurodev Disord. 2014;6:10. PubMed PMID:
+24822087.
+Evans LM, Geenen KR, O'Shea A, Hedgire SS, Ferrone CR, Thiele EA. Tuberous sclerosis complex-associated nonfunctional pancreatic neuroendocrine tumors: management and surgical outcomes. Am J Med Genet A.
+2022;188:2666-71. PubMed PMID: 35612824.
+Ewalt DH, Sheffield E, Sparagana SP , Delgado MR, Roach ES. Renal lesion growth in children with tuberous sclerosis complex. J Urol. 1998;160:141–5. PubMed PMID: 9628635.
+Farach LS, Gibson WT, Sparagana SP , Nellist M, Stumpel CT, Hietala M, Friedman E, Pearson DA, Creighton SP ,
+Wagemans A, Segel R, Ben-Shalom E, Au KS, Northrup H. TSC2 c.1864C>T variant associated with mild cases of tuberous sclerosis complex. Am J Med Genet A. 2017;173:771–5. PubMed PMID: 28211972.
+Farach LS, Northrup H, Nellist M, van Unen L, Hillman P , Klonowska K, Ekong R, Crino PB, Au KS. Mild TSC phenotype and non-penetrance associated with a frameshift variant in TSC2 prompts caution in evaluating pathogenicity of frameshift variants. Gene. 2023;877:147566. PubMed PMID: 37311496.
+Farach LS, Pearson DA, Woodhouse JP , Schraw JM, Sahin M, Krueger DA, Wu JY , Bebin EM, Lupo PJ, Au KS,
+Northrup H; TACERN Study Group. Tuberous sclerosis complex genotypes and developmental phenotype.
+Pediatr Neurol. 2019;96:58-63. PubMed PMID: 31005478.
+Fox J, Ben-Shachar S, Uliel S, Svirsky R, Saitsu H, Matsumoto N, Fattal-Valevski A. Rare familial TSC2 gene mutation associated with atypical phenotype presentation of tuberous sclerosis complex. Am J Med Genet A.
+2017;173:744–8. PubMed PMID: 28127866.
+Franz DN, Brody A, Meyer C, Leonard J, Chuck G, Dabora S, Sethuraman G, Colby TV , Kwiatkowski DJ,
+McCormack FX. Mutational and radiographic analysis of pulmonary disease consistent with lymphangioleiomyomatosis and micronodular pneumocyte hyperplasia in women with tuberous sclerosis.
+Am J Respir Crit Care Med. 2001;164:661–8. PubMed PMID: 11520734.
+Giannikou K, Klonowska K, Tsuji J, Wu S, Zhu Z, Probst CK, Kao KZ, Wu CL, Rodig S, Marino-Enriquez A,
+Zen Y , Schaefer IM, Kwiatkowski DJ. TSC2 inactivation, low mutation burden and high macrophage infiltration characterize hepatic angiomyolipomas. Histopathology. 2023;83:569-81. PubMed PMID:
+37679051.
+Gillberg IC, Gillberg C, Ahlsén G. Autistic behaviour and attention deficits in tuberous sclerosis: a populationbased study. Dev Med Child Neurol. 1994;36:50–6. PubMed PMID: 8132114.
+Goh S, Kwiatkowski DJ, Dorer DJ, Thiele EA. Infantile spasms and intellectual outcomes in children with tuberous sclerosis complex. Neurology. 2005;65:235–8. PubMed PMID: 16043792.
+Gupta A, de Bruyn G, Tousseyn S, Krishnan B, Lagae L, Agarwal N; TSC Natural History Database Consortium.
+Epilepsy and neurodevelopmental comorbidities in tuberous sclerosis complex: a natural history study.
+Pediatr Neurol. 2020;106:10-16. PubMed PMID: 32139167.
+Gupta N, Finlay GA, Kotloff RM, Strange C, Wilson KC, Y oung LR, Taveira-DaSilva AM, Johnson SR, Cottin V ,
+Sahn SA, Ryu JH, Seyama K, Inoue Y , Downey GP , Han MK, Colby TV , Wikenheiser-Brokamp KA, Meyer
+CA, Smith K, Moss J, McCormack FX; ATS Assembly on Clinical Problems. Lymphangioleiomyomatosis
+
+diagnosis and management: high-resolution chest computed tomography, transbronchial lung biopsy, and pleural disease management. An official American Thoracic Society/Japanese Respiratory Society Clinical
+Practice Guideline. Am J Respir Crit Care Med. 2017;196:1337–48. PubMed PMID: 29140122.
+Henske EP , Jóźwiak S, Kingswood JC, Sampson JR, Thiele EA. Tuberous sclerosis complex. Nat Rev Dis Primers.
+2016;2:16035. PubMed PMID: 27226234.
+Hoogeveen-Westerveld M, Ekong R, Povey S, Karbassi I, Batish SD, den Dunnen JT, van Eeghen A, Thiele E,
+Mayer K, Dies K, Wen L, Thompson C, Sparagana SP , Davies P , Aalfs C, van den Ouweland A, Halley D,
+Nellist M. Functional assessment of TSC1 missense variants identified in individuals with tuberous sclerosis complex. Hum Mutat. 2012;33:476–9. PubMed PMID: 22161988.
+Hoogeveen-Westerveld M, Ekong R, Povey S, Mayer K, Lannoy N, Elmslie F , Bebin M, Dies K, Thompson C,
+Sparagana SP , Davies P , van Eeghen AM, Thiele EA, van den Ouweland A, Halley D, Nellist M. Functional assessment of TSC2 variants identified in individuals with tuberous sclerosis complex. Hum Mutat.
+2013;34:167–75. PubMed PMID: 22903760.
+Huang SJ, Amendola LM, Sternen DL. Variation among DNA banking consent forms: points for clinicians to bank on. J Community Genet. 2022;13:389-97. PubMed PMID: 35834113.
+Humphrey A, MacLean C, Ploubidis GB, Granader Y , Clifford M, Haslop M, Neville BG, Y ates JR, Bolton PF , et al Intellectual development before and after the onset of infantile spasms: a controlled prospective longitudinal study in tuberous sclerosis. Epilepsia. 2014;55:108–16. PubMed PMID: 24417555.
+Hwang SK, Lee JH, Y ang J, Lim CS, Lee JA, Lee YS, Lee K, Kaang BK. Everolimus improves neuropsychiatric symptoms in a patient with tuberous sclerosis carrying a novel TSC2 mutation. Mol Brain. 2016;9:56.
+PubMed PMID: 27216612.
+Jansen AC, Sancak O, D'Agostino MD, Badhwar A, Roberts P , Gobbi G, Wilkinson R, Melanson D, Tampieri D,
+Koenekoop R, Gans M, Maat-Kievit A, Goedbloed M, van den Ouweland AM, Nellist M, Pandolfo M,
+McQueen M, Sims K, Thiele EA, Dubeau F , Andermann F , Kwiatkowski DJ, Halley DJ, Andermann E.
+Unusually mild tuberous sclerosis phenotype is associated with TSC2 R905Q mutation. Ann Neurol.
+2006;60:528–39. PubMed PMID: 17120248.
+Jeste SS, Sahin M, Bolton P , Ploubidis GB, Humphrey A. Characterization of autism in young children with tuberous sclerosis complex. J Child Neurol. 2008;23:520–5. PubMed PMID: 18160549.
+Jeste SS, Varcin KJ, Hellemann GS, Gulsrud AC, Bhatt R, Kasari C, Wu JY , Sahin M, Nelson CA. Symptom profiles of autism spectrum disorder in tuberous sclerosis complex. Neurology. 2016;87:766–72. PubMed
+PMID: 27440144.
+Joinson C, O'Callaghan FJ, Osborne JP , Martyn C, Harris T, Bolton PF . Learning disability and epilepsy in an epidemiological sample of individuals with tuberous sclerosis complex. Psychol Med. 2003;33:335–44.
+PubMed PMID: 12622312.
+Jóźwiak S, Sadowski K, Borkowska J, Domańska-Pakieła D, Chmielewski D, Jurkiewicz E, Jaworski M, Urbańska
+M, Ogrodnik M, Słowińska M, Kotulska K. Liver angiomyolipomas in tuberous sclerosis complex-their incidence and course. Pediatr Neurol. 2018;78:20-6. PubMed PMID: 29249553.
+Khare L, Strizheva GD, Bailey JN, Au KS, Northrup H, Smith M, Smalley SL, Henske EP . A novel missense mutation in the GTPase activating protein homology region of TSC2 in two large families with tuberous sclerosis complex. J Med Genet. 2001;38:347–9. PubMed PMID: 11403047.
+Kilincaslan A, Kok BE, Tekturk P , Y alcinkaya C, Ozkara C, Y apici Z. Beneficial effects of everolimus on autism and attention-deficit/hyperactivity disorder symptoms in a group of patients with tuberous sclerosis complex. J Child Adolesc Psychopharmacol. 2017;27:383–8. PubMed PMID: 27797585.
+Kingswood JC, d’ Augères GB, Belousova E, Ferreira JC, Carter T, Castellana R, Cottin V , Curatolo P , Dahlin M, de Vries PJ, Feucht M, Fladrowski C, Gislimberti G, Hertzberg C, Jozwiak S, Lawson JA, Macaya A, Nabbout
+
+R, O’Callaghan F , Benedik MP , Qin J, Marques R, Sander V , Sauter M, Takahashi Y , Touraine R, Y ouroukos S,
+Zonneberg B, Jansen AC. TuberOus SClerosis registry to increase disease Awareness (TOSCA)–baseline data on 2093 patients. Orphanet J Rare Dis. 2017;12:2. PubMed PMID: 28057044.
+Klonowska K, Giannikou K, Grevelink JM, Boeszoermenyi B, Thorner AR, Herbert ZT, Afrin A, Treichel AM,
+Hamieh L, Kotulska K, Jozwiak S, Moss J, Darling TN, Kwiatkowski DJ. Comprehensive genetic and phenotype analysis of 95 individuals with mosaic tuberous sclerosis complex. Am J Hum Genet.
+2023;110:979-88. PubMed PMID: 37141891.
+Kobashi Y , Sugui T, Irei T, Nakata M, Oka M. Clinicopathological analysis of multifocal micronodular pneumocyte hyperplasia associated with tuberous sclerosis in Japan. Respirology. 2008;13:1076–81. PubMed
+PMID: 18699800.
+Kocabaş A, Ekici F , Cetin Iİ, Emir S, Demir HA, Arı ME, Değerliyurt A, Güven A. Cardiac rhabdomyomas associated with TSC in 11 children: presentation to outcome. Pediatr Hematol Oncol. 2013;30:71-9. PubMed
+PMID: 23151153.
+Kochare SV , Singh K, Hochman T, Chalifoux JR, Staley BA, Weiner HL, Menzer K, Devinsky KM. Genotype/ phenotype in tuberous sclerosis complex: associations with clinical and radiologic manifestations.
+2014;55:1020-4.
+Kopp CM, Muzykewicz DA, Staley BA, Thiele EA, Pulsifer MB. Behavior problems in children with tuberous sclerosis complex and parental stress. Epilepsy Behav. 2008;13:505–10. PubMed PMID: 18602868.
+Kothare SV , Singh K, Chalifoux JR, Staley BA, Weiner HL, Menzer K, Devinsky O. Severity of manifestations in tuberous sclerosis complex in relation to genotype. Epilepsia. 2014;55:1025–9. PubMed PMID: 24917535.
+Kozlowski P , Roberts P , Dabora S, Franz D, Bissler J, Northrup H, Au KS, Lazarus R, Domanska-Pakiela D,
+Kotulska K, Jozwiak S, Kwiatkowski DJ. Identification of 54 large deletions/duplications in TSC1 and TSC2 using MLPA, and genotype-phenotype correlations. Hum Genet. 2007;121:389–400. PubMed PMID:
+17287951.
+Krueger DA. Management of CNS-related disease manifestations in patients with tuberous sclerosis complex.
+Curr Treat Options Neurol. 2013;15:618–33. PubMed PMID: 23852707.
+Krueger DA, Care MM, Agricola K, Tudor C, Mays M, Franz DN. Everolimus long-term safety and efficacy in supependymal giant cell astrocytoma. Neurology. 2013a;80:574-80. PubMed PMID: 23325902.
+Krueger DA, Northrup H; International Tuberous Sclerosis Complex Consensus Group. Tuberous sclerosis complex surveillance and management: recommendations of the 2012 International Tuberous Sclerosis
+Complex Consensus Conference. Pediatr Neurol. 2013b;49:255-65. PubMed PMID: 24053983.
+Kwiatkowski DJ. Genetics of tuberous sclerosis complex. In: Kwiatkowski DJ, Whittemore VH, Thiele EA, eds.
+Tuberous Sclerosis Complex: Genes, Clinical Features, and Therapeutics. Weinheim: Wiley-Blackwell;
+2010:29-57.
+Leclezio L, de Vries PJ. Advances in the treatment of tuberous sclerosis complex. Curr Opin Psychiatry.
+2015;28:113–20. PubMed PMID: 25602245.
+Lennert B, Farrelly E, Sacco P , Pira G, Frost M. Resource utilization in children with tuberous sclerosis complex and associated seizures: a retrospective chart review study. J Child Neurol. 2013;28:461–9. PubMed PMID:
+22772159.
+Lewis WW , Sahin M, Scherrer B, Peters JM, Suarez RO, Vogel-Farley VK, Jeste SS, Gregas MC, Prabhu SP ,
+Nelson CA 3rd, W arfield SK. Impaired language pathways in tuberous sclerosis complex patients with autism spectrum disorders. Cereb Cortex. 2013;23:1526–32. PubMed PMID: 22661408.
+Li LH, Li N, Zhao JY , Fei P , Zhang GM, Mao JB, Rychwalski PJ. Findings of perinatal ocular examination performed on 3573, healthy full-term newborns. Br J Ophthalmol. 2013;97:588–91. PubMed PMID:
+23426739.
+
+Lu DS, Karas PJ, Krueger DA, Weiner HL. Central nervous system manifestations of tuberous sclerosis complex.
+Am J Med Genet C Semin Med Genet. 2018;178:291-8. PubMed PMID: 30230171.
+Luo C, Zhang Y , Zhang YS, Zhang MX, Ning J, Chen MF , Li Y , Qi L, Zu XB, Li YL, Cai Y . Renal phenotypes correlate with genotypes in unrelated individuals with tuberous sclerosis complex in China. Orphanet J Rare
+Dis. 2022;17:288. PubMed PMID: 35870981.
+Marcinkowska AB, Jóźwiak S, Tarasewicz A, Dębska-Ślizień A, Szurowska E. Tuberous sclerosis complex patients' needs and difficulties-results of TAND questionnaire analysis in Polish adult population. J Clin
+Med. 2022;11:6536. PubMed PMID: 36362764.
+Martignoni G, Bonetti F , Pea M, Tardanico R, Brunelli M, Eble JN. Renal disease in adults with TSC2/PKD1 contiguous gene syndrome. Am J Surg Pathol. 2002;26:198–205. PubMed PMID: 11812941.
+Mayer K, Goedbloed M, van Zijl K, Nellist M, Rott HD. Characterization of a novel TSC2 missense mutation in the GAP related domain associated with minimal clinical manifestations of tuberous sclerosis. J Med Genet.
+2004;41:e64. PubMed PMID: 15121792.
+McCormack FX, Gupta N, Finlay GR, Y oung LR, Taveira-DaSilva AM, Glasgow CG, Steagall WK, Johnson SR,
+Sahn SA, Ryu JH, Strange C, Seyama K, Sullivan EJ, Kotloff RM, Downey GP , Chapman JT, Han MK,
+D'Armiento JM, Inoue Y , Henske EP , Bissler JJ, Colby TV , Kinder BW , Wikenheiser-Brokamp KA, Brown
+KK, Cordier JF , Meyer C, Cottin V , Brozek JL, Smith K, Wilson KC, Moss J; ATS/JRS Committee on
+Lymphangioleiomyomatosis. Official American Thoracic Society/Japanese Respiratory Society clinical practice guidelines: lymphangioleiomyomatosis diagnosis and management. Am J Respir Crit Care Med.
+2016;194:748–61. PubMed PMID: 27628078.
+McDonald NM, Jacobs S, Hyde C, Kasari C, Jeste SS. Measurement of developmental and behavioral concerns in toddlers with tuberous sclerosis complex. Pediatr Neurol. 2024;155:62-7. PubMed PMID: 38603983.
+McDonald NM, Varcin KJ, Bhatt R, Wu JY , Sahin M, Nelson CA, Jeste SS. Early autism symptoms in infants with tuberous sclerosis complex. Autism Research. 2017;10:1981–1990. PubMed PMID: 28801991.
+Mitchell RA, Mitchell M, Williams K. The autism spectrum disorder phenotype in children with tuberous sclerosis complex: a systematic review and meta-analysis. Dev Med Child Neurol. 2022;64:1214-29. PubMed
+PMID: 35724267.
+Moavero R, Voci A, La Briola F , Matricardi S, Toldo I, Mancardi MM, Negrin S, Messana T, Mazzone L,
+Valeriani M, Curatolo P , Bruni O. Sleep disorders and neuropsychiatric disorders in a pediatric sample of tuberous sclerosis complex: a questionnaire-based study. Sleep Med. 2022;89:65-70. PubMed PMID:
+34915263.
+Mowrey K, Northrup H, Rougeau P , Hashmi SS, Krueger DA, Ebrahimi-Fakhari D, Towbin AJ, Trout AT, Capal
+JK, Franz DN, Rodriguez-Buritica D. Frequency, progression, and current management: report of 16 new cases of nonfunctional pancreatic neuroendocrine tumors in tuberous sclerosis complex and comparison with previous reports. Front Neurol. 2021;12:627672. PubMed PMID: 33897589.
+Muzykewicz DA, Newberry P , Danforth N, Halpern EF , Thiele EA. Psychiatric comorbid conditions in a clinic population of 241 patients with tuberous sclerosis complex. Epilepsy Behav. 2007;11:506–13. PubMed PMID:
+17936687.
+Muzykewicz DA, Sharma A, Muse V , Numis AL, Rajagopal J, Thiele EA. TSC1 and TSC2 mutations in patients with lymphangioleiomyomatosis and tuberous sclerosis complex. J Med Genet. 2009;46:465–8. PubMed
+PMID: 19419980.
+Nespoli LF , Albani E, Corti C, Spaccini L, Alfei E, Daniele I, Zuccotti GV , Lista G, Calcaterra V , Mannarino S.
+Efficacy of everolimus low-dose treatment for cardiac rhabdomyomas in neonatal tuberous sclerosis: case report and literature review. Pediatr Rep. 2021;13:104-12 PubMed PMID: 33804320.
+
+Ng SY , Luk HM, Hau EW , Cheng SS, Yu KP , Ho S, Mok MT, Lo IF . Genotype/phenotype correlation in 123
+Chinese patients with tuberous sclerosis complex. Eur J Med Genet. 2022;65:104573. PubMed PMID:
+35918040.
+Nguyen QD, DarConte MD, Hebert AA. The cutaneous manifestations of tuberous sclerosis complex. Am J Med
+Genet C Semin Med Genet. 2018;178:321-5. PubMed PMID: 30246432.
+Ninic S, Kalaba M, Jovicic B, Vukomanovic V , Prijic S, Vucetic B, Kravljanac R, Vujic A, Kosutic J. Successful use of sirolimus for refractory atrial ectopic tachycardia in a child with cardiac rhabdomyoma. Ann Noninvasive
+Electrocardiol. 2017;22:e12435. PubMed PMID: 28217909.
+Northrup H, Aronow ME, Bebin EM, Bissler J, Darling TN, de Vries PJ, Frost MD, Fuchs Z, Gosnell ES, Gupta
+N, Jansen AC, Jóźwiak S, Kingswood JC, Knilans TK, McCormack FX, Pounders A, Roberds SL, Rodriguez-
+Buritica DF , Roth J, Sampson JR, Sparagana S, Thiele EA, Weiner HL, Wheless JW , Towbin AJ, Krueger DA;
+International Tuberous Sclerosis Complex Consensus Group. Updated international tuberous sclerosis complex diagnostic criteria and surveillance and management recommendations. Pediatr Neurol.
+2021;123:50–66. PubMed PMID: 34399110.
+Northrup H, Krueger DA; International Tuberous Sclerosis Complex Consensus Group. Tuberous sclerosis complex diagnostic criteria update: recommendations of the 2012 International Tuberous Sclerosis Complex
+Consensus Conference. Pediatr Neurol. 2013;49:243–54. PubMed PMID: 24053982.
+Numis AL, Major P , Montenegro MA, Muzykewicz DA, Pulsifer MB, Thiele EA. Identification of risk factors for autism spectrum disorders in tuberous sclerosis complex. Neurology. 2011;76:981–7. PubMed PMID:
+21403110.
+O'Connor SE, Kwiatkowski DJ, Roberts PS, Wollmann RL, Huttenlocher PR. A family with seizures and minor features of tuberous sclerosis and a novel TSC2 mutation. Neurology. 2003;61:409–12. PubMed PMID:
+12913212.
+Öhnell HM, Kjellström U, Eklund E, Pearsson K, Bekassy Z, Gränse L. Ophthalmic manifestations in children with tuberous sclerosis complex. Acta Ophthalmol. 2024;102:421-7. PubMed PMID: 37991117.
+Osborne JP , Fryer A, Webb D. Epidemiology of tuberous sclerosis. Ann N Y Acad Sci. 1991;615:125–7. PubMed
+PMID: 2039137.
+Öztunç F , Atik SU, Günes AO. Everolimus treatment of a newborn with rhabdomyoma causing severe arrhythmia. Cardiol Y oung. 2015;25:1411-4. PubMed PMID: 26339757.
+Patel U, Simpson E, Kingswood JC, Saggar-Malik AK. Tuberose sclerosis complex: analysis of growth rates aids differentiation of renal cell carcinoma from atypical or minimal-fat-containing angiomyolipoma. Clin
+Radiol. 2005;60:665–73. PubMed PMID: 16038693.
+Pea M, Bonetti F , Martignoni G, Henske EP , Manfrin E, Colato C, Bernstein J. Apparent renal cell carcinomas in tuberous sclerosis are heterogeneous: the identification of malignant epithelioid angiomyolipoma. Am J Surg
+Pathol. 1998;22:180–7. PubMed PMID: 9500218.
+Peron A, Au KS, Northrup H. Genetics, genomics, and genotype-phenotype correlations of TSC: insights for clinical practice. Am J Med Genet C Semin Med Genet. 2018;178:281-90. PubMed PMID: 30255984.
+Prather P , de Vries PJ. Behavioral and cognitive aspects of tuberous sclerosis complex. J Child Neurol.
+2004;19:666–74. PubMed PMID: 15563012.
+Qin W , Kozlowski P , Taillon BE, Bouffard P , Holmes AJ, Janne P , Camposano S, Thiele E, Franz D, Kwiatkowski
+DJ. Ultra deep sequencing detects a low rate of mosaic mutations in tuberous sclerosis complex. Hum Genet.
+2010;127:573–82. PubMed PMID: 20165957.
+Rentz AM, Skalicky AM, Liu Z, Wheless JW , Dunn DW , Frost MD, Nakagawa J, Magestro M, Prestifilippo J.
+Tuberous sclerosis complex: a survey of health care resource use and health burden. Pediatr Neurol.
+2015;52:435–41. PubMed PMID: 25771998.
+
+Richards S, Aziz N, Bale S, Bick D, Das S, Gastier-Foster J, Grody WW , Hegde M, Lyon E, Spector E,
+Voelkerding K, Rehm HL; ACMG Laboratory Quality Assurance Committee. Standards and guidelines for the interpretation of sequence variants: a joint consensus recommendation of the American College of
+Medical Genetics and Genomics and the Association for Molecular Pathology. Genet Med. 2015;17:405-24.
+PubMed PMID: 25741868.
+Ridler K, Suckling J, Higgins NJ, de Vries PJ, Stephenson CM, Bolton PF , Bullmore ET. Neuroanatomical correlates of memory deficits in tuberous sclerosis complex. Cereb Cortex. 2007;17:261–71. PubMed PMID:
+16603714.
+Rose VM, Au KS, Pollom G, Roach ES, Prashner HR, Northrup H. Germ-line mosaicism in tuberous sclerosis:
+how common? Am J Hum Genet. 1999;64:986–92. PubMed PMID: 10090883.
+Sancak O, Nellist M, Goedbloed M, Elfferich P , Wouters C, Maat-Kievit A, Zonnenberg B, Verhoef S, Halley D, van den Ouweland A. Mutational analysis of the TSC1 and TSC2 genes in a diagnostic setting: genotype-phenotype correlations and comparison of diagnostic DNA techniques in tuberous sclerosis complex. Eur J
+Hum Genet. 2005;13:731–41. PubMed PMID: 15798777.
+Sarma AK, Khandker N, Kurczewski L, Brophy GM. Medical management of epileptic seizures: challenges and solutions. Neuropsychiatr Dis Treat. 2016;12:467–85. PubMed PMID: 26966367.
+Sauter M, Belousova E, Benedik MP , Carter T, Cottin V , Curatolo P , Dahlin M, D'Amato L, d'Augères GB, de
+Vries PJ, Ferreira JC, Feucht M, Fladrowski C, Hertzberg C, Jozwiak S, Lawson JA, Macaya A, Marques R,
+Nabbout R, O'Callaghan F , Qin J, Sander V , Shah S, Takahashi Y , Touraine R, Y ouroukos S, Zonnenberg B,
+Jansen A, Kingswood JC; TOSCA investigators. Rare manifestations and malignancies in tuberous sclerosis complex: findings from the TuberOus SClerosis registry to increAse disease awareness (TOSCA). Orphanet J
+Rare Dis. 2021;16:301. PubMed PMID: 34229737.
+Scherrer B, Prohl AK, Taquet M, Kapur K, Peters JM, Tomas-Fernandez X, Davis PE, M Bebin E, Krueger DA,
+Northrup H, Y Wu J, Sahin M, W arfield SK. The connectivity fingerprint of the fusiform gyrus captures the risk of developing autism in infants with tuberous sclerosis complex. Cereb Cortex. 2020;30:2199-214.
+PubMed PMID: 31812987.
+Schoenberger A, Capal JK, Ondracek A, Horn PS, Murray D, Byars AW , Pearson DA, Williams ME, Bebin M,
+Northrup H, Wu JY , Sahin M, Krueger DA. Language predictors of autism spectrum disorder in young children with tuberous sclerosis complex. Epilepsy Behav. 2020;103:106844. PubMed PMID: 31864941.
+Silva-Sánchez MP , Alvarado-Socarras JL, Castro-Monsalve J, Meneses KM, Santiago J, Prada CE. Everolimus for severe arrhythmias in tuberous sclerosis complex related cardiac rhabdomyomas. Am J Med Genet A.
+2021;185:1525-31 PubMed PMID: 33590972.
+Spurling Jeste S, Wu JY , Senturk D, Varcin K, Ko J, McCarthy B, Shimizu C, Dies K, Vogel-Farley V , Sahin M,
+Nelson CA 3rd. Early developmental trajectories associated with ASD in infants with tuberous sclerosis complex. Neurology. 2014;83:160–8. PubMed PMID: 24920850.
+Staley BA, Montenegro MA, Major P , Muzykewicz DA, Halpern EF , Kopp CM, Newberry P , Thiele EA. Selfinjurious behavior and tuberous sclerosis complex: frequency and possible associations in a population of 257 patients. Epilepsy Behav. 2008;13:650–3. PubMed PMID: 18703161.
+Strizheva GD, Carsillo T, Kruger WD, Sullivan EJ, Ryu JH, Henske EP . The spectrum of mutations in TSC1 and
+TSC2 in women with tuberous sclerosis and lymphangiomyomatosis. Am J Respir Crit Care Med.
+2001;163:253–8. PubMed PMID: 11208653.
+Taveira-DaSilva AM, Jones AM, Julien-Williams P , Y ao J, Stylianou M, Moss J. Severity and outcome of cystic lung disease in women with tuberous sclerosis complex. Eur Respir J. 2015;45:171-80 PubMed PMID:
+25537563.
+
+Teng JM, Cowen EW , Wataya-Kaneda M, Gosnell ES, Witman PM, Hebert AA, Mlynarczyk G, Soltani K,
+Darling TN. Dermatologic and dental aspects of the 2012 International Tuberous Sclerosis Complex
+Consensus Statements. JAMA Dermatol. 2014;150:1095-101. PubMed PMID: 25029267.
+Tierney KM, McCartney DL, Serfontein JR, de Vries PJ. Neuropsychological attention skills and related behaviours in adults with tuberous sclerosis complex. Behav Genet. 2011;41:437–44. PubMed PMID:
+21191642.
+Toldo I, Brasson V , Miscioscia M, Pelizza MF , Manara R, Sartori S, Mantegazza G, Vecchi M, Nosadini M, Gatta
+M. Tuberous sclerosis-associated neuropsychiatric disorders: a paediatric cohort study. Dev Med Child
+Neurol. 2019;61:168-73. PubMed PMID: 30298907.
+Touraine R, Hauet Q, Harzallah I, Baruteau AE. Tuberous sclerosis complex: genetic counselling and perinatal follow-up. Arch Pediatr. 2022;29:5S3-5S7.
+Tsuchihashi T, Tsuno Y , Kakimoto N, Riko M, Kumagai T. Use of everolimus for cardiac rhabdomyomas in a very-low-birthweight infant. Pediatr Int. 2021;63:726-7 PubMed PMID: 34038023.
+Tyburczy ME, Dies KA, Glass J, Camposano S, Chekaluk Y , Thorner AR, Lin L, Krueger D, Franz DN, Thiele
+EA, Sahin M, Kwiatkowski DJ. Mosaic and intronic mutations in TSC1/TSC2 explain the majority of TSC patients with no mutation identified by conventional testing. PLoS Genet. 2015;11:e1005637. PubMed
+PMID: 26540169.
+Uematsu M, Numata-Uematsu Y , Aihara Y , Kobayashi T, Fujikawa M, Togashi N, Shiihara T, Ohashi K, Hattori
+A, Saitoh S, Kure S. Behavioral problems and family distress in tuberous sclerosis complex. Epilepsy Behav.
+2020;111:107321. PubMed PMID: 32698109.
+van Eeghen AM, Black ME, Pulsifer MB, Kwiatkowski DJ, Thiele EA. Genotype and cognitive phenotype of patients with tuberous sclerosis complex. Eur J Hum Genet. 2012a;20:510–5. PubMed PMID: 22189265.
+V anderhooft SL, Francis JS, Pagon RA, Smith LT, Sybert VP . Prevalence of hypopigmented macules in a healthy population. J Pediatr. 1996;129:355–61. PubMed PMID: 8804323.
+Webb DW , Osborne JP . Non-penetrance in tuberous sclerosis. J Med Genet. 1991;28:417–9. PubMed PMID:
+1870099.
+Wentink M, Nellist M, Hoogeveen-Westerveld M, Zonnenberg B, van der Kolk D, van Essen T, Park SM, Woods
+G, Cohn-Hokke P , Brussel W , Smeets E, Brooks A, Halley D, van den Ouweland A, Maat-Kievit A.
+Functional characterization of the TSC2 c.3598C>T (p.R1200W) missense mutation that co-segregates with tuberous sclerosis complex in mildly affected kindreds. Clin Genet. 2012;81:453–61. PubMed PMID:
+21332470.
+Wilde L, Eden K, de Vries P , Moss J, Welham A, Oliver C. Self-injury and aggression in adults with tuberous sclerosis complex: frequency, associated person characteristics, and implications for assessment. Res Dev
+Disabil. 2017;64:119–30. PubMed PMID: 28411579.
+Wong V . Study of the relationship between tuberous sclerosis complex and autistic disorder. J Child Neurol.
+2006;21:199–204. PubMed PMID: 16901420.
+Wu JY , Goyal M, Peters JM, Krueger D, Sahin M, Northrup H, Au KS, O'Kelley S, Williams M, Pearson DA,
+Hanson E, Byars AW , Krefting J, Beasley M, Cutter G, Limdi N, Bebin EM. Scalp EEG spikes predict impending epilepsy in TSC infants: a longitudinal observational study. Epilepsia. 2019;60:2428-36. PubMed
+PMID: 31691264.
+Y ang P , Cornejo KM, Sadow PM, Cheng L, Wang M, Xiao Y , Jiang Z, Oliva E, Jozwiak S, Nussbaum RL, Feldman
+AS, Paul E, Thiele EA, Yu JJ, Henske EP , Kwiatkowski DJ, Y oung RH, Wu CL. Renal cell carcinoma in tuberous sclerosis complex. Am J Surg Pathol. 2014;38:895–909. PubMed PMID: 24832166.
+Y e Z, Lin S, Zhao X, Bennett MF , Brown NJ, Wallis M, Gao X, Sun L, Wu J, Vedururu R, Witkowski T, Gardiner
+F , Stutterd C, Duan J, Mullen SA, McGillivray G, Bodek S, Valente G, Reagan M, Y ao Y , Li L, Chen L, Boys A,
+
+Adikari TN, Cao D, Hu Z, Beshay V , Zhang VW , Berkovic SF , Scheffer IE, Liao J, Hildebrand MS. Mosaicism in tuberous sclerosis complex: lowering the threshold for clinical reporting. Hum Mutat. 2022;43:1956-69.
+PubMed PMID: 36030538.
+Zambrelli E, Turner K, Peron A, Leidi A, La Briola F , Vignoli A, Canevini MP . Sleep and behavior in children and adolescents with tuberous sclerosis complex. Am J Med Genet A. 2021;185:1421-9. PubMed PMID:
+33650172.
+Zwaigenbaum L, Bryson SE, Brian J, Smith IM, Sacrey L, Armstrong V , Roberts W , Szatmari P , Garon N,
+Vaillancourt T, Roncadin C. Assessment of autism symptoms from 6 to 18 months of age using the Autism
+Observation Scale for Infants in a prospective high-risk cohort. Child Dev. 2021;92:1187-98. PubMed PMID:
+33368222.
+License
+GeneReviews® chapters are owned by the University of Washington. Permission is hereby granted to reproduce, distribute, and translate copies of content materials for noncommercial research purposes only, provided that (i) credit for source (https://www.genereviews.org) and copyright (© 1993-2026 University of Washington) are included with each copy; (ii) a link to the original material is provided whenever the material is published elsewhere on the Web; and (iii) reproducers, distributors, and/or translators comply with the GeneReviews® Copyright Notice and Usage Disclaimer. No further modifications are allowed. For clarity, excerpts of GeneReviews chapters for use in lab reports and clinic notes are a permitted use.
+For more information, see the GeneReviews® Copyright Notice and Usage Disclaimer.
+For questions regarding permissions or whether a specified use is allowed, contact: addmast@wu.edu
