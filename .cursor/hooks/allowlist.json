@@ -10,6 +10,9 @@
     ".cursorindexingignore"
   ],
 
+  "writable_via_confirm": [
+  ],
+
   "confirm": [
     "AGENTS.md",
     "README.md",
@@ -20,6 +23,7 @@
     ".env.example",
     "docs/**",
     "data/**",
+    "TASK_TRACKER.md",
     ".cursor/hooks.json",
     ".cursor/mcp.json",
     ".cursor/hooks/**"
