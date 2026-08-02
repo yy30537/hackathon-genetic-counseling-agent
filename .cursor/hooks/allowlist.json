@@ -4,6 +4,7 @@
   "writable": [
     "main.py",
     "app.py",
+    ".streamlit/config.toml",
     "scripts/*.py",
     ".cursor/rules/*.mdc",
     ".githooks/*",

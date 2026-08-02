@@ -56,7 +56,7 @@ Pydantic 模型：`ScreeningResponse`。允许一层「数组套简单对象」�
 | `disclaimer` | String | Required | 桶 C 免责声明逐字原文，**后端硬编码填充，不经 LLM** |
 | `mcp_translation` | String | Required | MCP 标准化过程原始输出，供前端调试面板展示 |
 | `retrieved_chunks` | Array\<Chunk\> | Required | RAG 命中切片，供前端调试面板展示 |
-| `confidence_level` | Integer | Optional | 0–100 整数，**仅在本次 MVP 后的迭代版本（PRD C6）支持**。代表筛查系统自身匹配结果的可信度（基于 HPO 匹配数 × 文献命中数 × 变异与表型对齐度的综合评分），**不代表用户确诊的可能性**。当前 MVP 阶段后端可不返回该字段；前端必须以字段缺失时不渲染该行为准。 |
+| `confidence_level` | Integer | Optional | 0–100 整数，**仅在本次 MVP 后的迭代版本（PRD C6）支持**。代表筛查系统自身匹配结果的可信度（基于 HPO 匹配数 × 文献命中数 × 变异与表型对齐度的综合评分），**不代表用户确诊的可能性**。当前 MVP 阶段后端必须省略该字段，不得返回 `null`；前端必须以字段缺失时不渲染该行为准。 |
 
 ### 子对象定义
 
@@ -92,7 +92,9 @@ Pydantic 模型：`ScreeningResponse`。允许一层「数组套简单对象」�
 ### Pydantic 声明
 
 ```python
-from typing import List, Literal, Optional
+from typing import Annotated, List, Literal, Optional
+
+from pydantic import Field
 
 
 class HpoTerm(BaseModel):
@@ -125,8 +127,11 @@ class ScreeningResponse(BaseModel):
     disclaimer: str
     mcp_translation: str
     retrieved_chunks: List[Chunk]
-    confidence_level: Optional[int] = None  # 0–100；见 PRD C6，仅 Roadmap 阶段使用
+    confidence_level: Optional[Annotated[int, Field(ge=0, le=100)]] = None
 ```
+
+MVP 的 FastAPI 路由必须使用 `response_model_exclude_none=True`（或在组装响应时完全省略该键），
+确保未启用 C6 时响应中不存在 `confidence_level: null`。
 
 ---
 
@@ -144,8 +149,12 @@ class ErrorResponse(BaseModel):
 | HTTP 状态码 | `error_code` | 触发条件 |
 |---|---|---|
 | 422 | `INVALID_INPUT` | `symptoms` 或 `gene_report` 为空 / 全空白 |
+| 422 | `HPO_NO_MATCH` | 输入非空，但 M3 提取出的全部英文关键词均未命中 HPO |
 | 500 | `MISSING_API_KEY` | 后端未从 `.env` 读取到 `MINIMAX_API_KEY` |
 | 502 | `MINIMAX_API_ERROR` | Minimax 接口返回非 200、超时，或返回内容无法解析为约定 JSON |
+
+`MINIMAX_API_KEY` 缺失时，后端在启动阶段记录配置错误但不得终止服务；随后由
+`POST /api/screen` 返回 HTTP 500 `MISSING_API_KEY`，以保证错误仍符合本契约。
 
 ---
 
@@ -162,7 +171,7 @@ class ErrorResponse(BaseModel):
 | I1 | `disclaimer` 必须**逐字等于** [data/knowledge/bucket_c_compliance.json](../data/knowledge/bucket_c_compliance.json) 中的原文（首尾空白除外），由后端硬编码填充 | 靠 prompt 祈使模型输出免责声明不可靠。这是 Non-Device CDS 定位的结构性保障，不是文案偏好 |
 | I2 | `next_steps` 必须同时出现「儿童发育行为科」与「医学遗传科」 | 产品的落点是把用户交还给专科医生，缺任一科室即断链 |
 | I3 | `comparisons[].explanation`、`vus_reassurance`、`next_steps` 三者中禁止出现「确诊」「患有」「即为」「需服用」「建议用药」及场景专属药名 | 越过这条线即构成诊断与用药建议，丧失豁免资格 |
-| I4 | 每项 `hpo_id` 以 `HP:` 开头；`hpo_terms` 数量不低于用例声明的 `min_hpo_terms` | 表型标准化是 MCP 存在的意义，返回空数组等于这一环没跑 |
+| I4 | HTTP 200 响应中每项 `hpo_id` 以 `HP:` 开头，且 `hpo_terms` 数量不低于用例声明的 `min_hpo_terms`；无命中必须改走 HTTP 422 `HPO_NO_MATCH` | 表型标准化是 MCP 存在的意义，成功响应返回空数组等于这一环没跑 |
 | I5 | `comparisons` 中不得出现用例 `forbid_conditions_any` 列出的病种 | 禁止为了给答案而硬凑罕见病。阴性对照用例 `tc_05` 专门验这条 |
 | I6 | `retrieved_chunks` 的 `bucket` 需覆盖用例声明的 `expect_buckets`（通常为 A/B/C 全覆盖） | 三个桶各自驱动一块输出，缺桶意味着对应分区是模型编的 |
 

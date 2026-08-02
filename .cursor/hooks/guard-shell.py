@@ -12,7 +12,7 @@ import re
 import sys
 
 RISKY = [
-    (r"\bmkdir\b", "创建新目录", "本项目禁止新建顶层目录（AGENTS.md 第 2 节）。确认这不是在造 frontend/ 或 backend/。"),
+    (r"\bmkdir\b", "创建新目录", "除 .streamlit/ 配置目录外，本项目禁止新建顶层目录（AGENTS.md 第 2 节）。确认这不是在造 frontend/ 或 backend/。"),
     (r"\brm\s+(-[a-zA-Z]*[rf][a-zA-Z]*\s+)+", "递归或强制删除", "递归删除不可逆，确认目标路径无误。"),
     (r"\bgit\s+push\b.*(--force|-f)\b", "强制推送", "强制推送会覆盖远端历史，可能抹掉队友的提交。"),
     (r"\bgit\s+reset\s+--hard\b", "硬重置", "硬重置会丢弃未提交的改动。"),
@@ -20,7 +20,7 @@ RISKY = [
     (r"\bgit\s+clean\b", "清理未跟踪文件", "会删除未跟踪文件，可能包含尚未提交的语料或 .env。"),
     (r"\bgit\s+config\b", "修改 git 配置", "git 配置由人类掌管，智能体不得代改（AGENTS.md 第 6 节）。"),
     (r"\bmv\s+.*\b(main|app|config)\.py\b", "移动核心入口文件", "config.py 用自身位置推导数据目录，移动入口会静默打断 import 链。"),
-    (r">\s*\.gitignore\b|>>\s*\.gitignore\b", "改写 .gitignore", ".gitignore 中 data/knowledge/raw/*、HPO-MCP-Server/、chroma_db/ 三条不得丢失。"),
+    (r">\s*\.gitignore\b|>>\s*\.gitignore\b", "改写 .gitignore", ".gitignore 中 HPO-MCP-Server/、chroma_db/ 两条不得丢失。"),
     (r"\bpip\s+install\b(?!.*-r\s)", "临时安装依赖", "装完请同步更新 requirements.txt，否则队友环境会缺包。"),
 ]
 

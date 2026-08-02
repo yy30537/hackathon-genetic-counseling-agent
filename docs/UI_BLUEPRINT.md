@@ -19,7 +19,7 @@
 | 主题 | 必须新建 `.streamlit/config.toml` 钉死浅色主题（见 §1.5）。不钉死则 OS 深色模式下文字不可读 |
 | 样式注入 | 全部样式由**一次** `st.markdown(CSS, unsafe_allow_html=True)` 注入，位置在 `st.set_page_config()` 之后、任何内容之前。禁止散落多处注入 |
 | JS | 零 JavaScript。禁止 `components.html` 承载业务渲染 |
-| 后端地址 | 从 `.env` 读 `BACKEND_URL`，缺省 `http://127.0.0.1:8000`；请求 `POST {BACKEND_URL}/api/screen`，超时 120s |
+| 后端地址 | `from config import BACKEND_URL`；`config.py` 是唯一读取 `.env` 的入口。请求 `POST {BACKEND_URL}/api/screen`，超时 120s |
 | 数据来源 | 前端只消费 `POST /api/screen` 的响应。禁止直连 Minimax / ChromaDB / HPO |
 | 会话 | 单轮单结果。`st.session_state` 只存一份，禁止历史列表、禁止登录入口、禁止侧边栏（W1/W2） |
 | Mock | 常量 `USE_MOCK: bool` 切换。为 True 时读 fixtures 文件而不发请求，渲染路径与真实响应完全一致 |
@@ -377,6 +377,7 @@ match(comparison, chunks):
 | `error_code` | HTTP | 标题文案 | 附加提示（`small` 灰字） |
 |---|---|---|---|
 | `INVALID_INPUT` | 422 | 输入还需要补全 | 请检查两个输入框是否都已填写。 |
+| `HPO_NO_MATCH` | 422 | 暂未匹配到标准表型术语 | 请补充更具体的表现描述，或携带原始记录咨询儿童发育行为科。 |
 | `MISSING_API_KEY` | 500 | 后端缺少模型密钥 | 请检查项目根目录 `.env` 中的 `MINIMAX_API_KEY`。 |
 | `MINIMAX_API_ERROR` | 502 | 模型服务暂时不可用 | 这通常是限流或超时，稍后重试即可。 |
 | （连接失败/超时，无响应体） | — | 无法连接后端服务 | 请确认已执行 `uvicorn main:app --reload --port 8000`。 |
@@ -404,7 +405,7 @@ match(comparison, chunks):
 
 ### C-16 无比对静默态（`comparisons == []`）
 
-- 一块无卡片的弱提示：`本次未匹配到相关指南条目。`，其下 `small` 灰字：`这不代表有问题，也不代表有问题，只说明知识库里没有可比对的文献特征。请以医生面诊为准。`
+- 一块无卡片的弱提示：`本次未匹配到相关指南条目。`，其下 `small` 灰字：`这不代表存在问题，也不代表可以排除问题，只说明知识库里没有可比对的文献特征。请以医生面诊为准。`
 - **绝对禁止**在此处渲染任何推测性内容、"可能的方向"或让模型补写的兜底文案。这是 AC3 / I8 的前端落点。
 
 ### C-17 ConfidenceLine ← `confidence_level`（仅 PRD C6 Roadmap 阶段）
@@ -540,7 +541,7 @@ div[data-baseweb="notification"]{ background:var(--bucket-c-soft) !important;
 ```text
 常量与工具
   USE_MOCK: bool
-  BACKEND_URL: str                      # 从 .env 读，缺省 http://127.0.0.1:8000
+  BACKEND_URL: str                      # from config import BACKEND_URL；禁止在 app.py 读 .env
   CSS: str                              # §7 全文
   load_fallback_disclaimer() -> str     # 读 bucket_c_compliance.json 中 is_disclaimer 的 text
   load_mock(kind: str) -> dict          # kind in {"success", "error"}

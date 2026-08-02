@@ -10,7 +10,10 @@ alwaysApply: true
 
 # 目录禁令
 
-**禁止创建任何新的顶层目录。** 现存 6 个即全部：`docs/` `data/` `scripts/` `.cursor/` `.githooks/` `HPO-MCP-Server/`。
+除前端主题配置目录 `.streamlit/` 外，**禁止创建任何新的顶层目录**。允许的 7 个顶层目录为：
+`docs/` `data/` `scripts/` `.cursor/` `.githooks/` `.streamlit/` `HPO-MCP-Server/`。
+
+`.streamlit/` 是唯一架构例外，只允许包含前端智能体维护的 `config.toml`，不得承载业务代码。
 
 以下名字出现即架构漂移，一律拒绝：
 
@@ -29,6 +32,7 @@ frontend/  backend/  src/  app/  api/  components/  utils/  lib/  tests/  common
 |---|---|
 | `main.py` | 后端智能体 |
 | `app.py` | 前端智能体 |
+| `.streamlit/config.toml` | 前端智能体 |
 | `scripts/*.py` | RAG / 验收智能体 |
 | `config.py` `docs/**` `data/**` `.env*` `.gitignore` `requirements.txt` | 人类，只读 |
 

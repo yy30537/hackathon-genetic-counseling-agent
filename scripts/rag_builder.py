@@ -2,7 +2,9 @@
 
 双来源语料：
   1. data/knowledge/*.json  精编切片，始终入库，合规安全核心。
-  2. data/knowledge/raw/*.txt  手动下载的 GeneReviews / PubMed 原文，需经章节过滤与用药词拦截。
+  2. data/knowledge/raw/*.{txt,pdf}  手动下载的 GeneReviews / PubMed 原文，需经章节过滤与用药词拦截。
+     同一来源同时存在 .txt（已填充）与 .pdf 时优先用 .txt；.txt 仍是占位文件则回退到 .pdf。
+     .pdf 由 pypdf 抽取文本后，先做章节标题归一化，再走与 .txt 完全一致的两道合规闸门。
 
 用法（在项目根目录执行）：
     python scripts/rag_builder.py            # 增量重建（先清空 collection）
@@ -51,11 +53,47 @@ SECTION_DENY = [
     "treatment of manifestations",
     "surveillance",
     "agents and circumstances to avoid",
+    "agents/circumstances to avoid",
     "therapies under investigation",
     "pregnancy management",
     "evaluations following initial diagnosis",
     "prevention of primary manifestations",
     "prevention of secondary complications",
+]
+
+# GeneReviews / PubMed 常见章节标题全集，用于 PDF 抽取后的标题归一化。
+# pypdf 抽取常把标题混入正文，导致 is_heading 认不出、整篇落入 preamble 或 deny 章节漏网。
+# 归一化会把这些短语强制拆到独立成行，让下游的 section_verdict 照常识别并强制丢弃 deny 章节。
+# 只会让闸门更严（可能多切几刀），不会放宽。既含 allow 也含 deny，deny 优先被隔离。
+KNOWN_HEADINGS = [
+    "Summary",
+    "Abstract",
+    "Clinical Characteristics",
+    "Clinical Description",
+    "Diagnosis",
+    "Suggestive Findings",
+    "Establishing the Diagnosis",
+    "Differential Diagnosis",
+    "Genotype-Phenotype Correlations",
+    "Phenotype Correlations",
+    "Genotype-Phenotype Correlation",
+    "Nomenclature",
+    "Prevalence",
+    "Genetically Related (Allelic) Disorders",
+    "Molecular Genetics",
+    "Genetic Counseling",
+    # 以下为 deny 章节标题，必须被识别以强制丢弃。
+    "Management",
+    "Evaluations Following Initial Diagnosis",
+    "Treatment of Manifestations",
+    "Prevention of Primary Manifestations",
+    "Prevention of Secondary Complications",
+    "Surveillance",
+    "Agents/Circumstances to Avoid",
+    "Agents and Circumstances to Avoid",
+    "Evaluation of Relatives at Risk",
+    "Pregnancy Management",
+    "Therapies Under Investigation",
 ]
 
 # 兜底：即便章节过滤放行，命中以下词的切片一律丢弃。
@@ -69,17 +107,17 @@ DRUG_PATTERNS = [
 ]
 DRUG_RE = re.compile("|".join(DRUG_PATTERNS), re.IGNORECASE)
 
-# 文件名 -> (病种, 基因, 来源类型)
+# 文件名 stem -> (病种, 基因, 来源类型)。同一 stem 的 .txt 与 .pdf 共用此条目。
 RAW_FILE_META = {
-    "genereviews_mecp2_rett.txt": ("Rett 综合征 / MECP2 相关疾病", "MECP2", "genereviews"),
-    "genereviews_fmr1_fragile_x.txt": ("脆性 X 综合征", "FMR1", "genereviews"),
-    "genereviews_ube3a_angelman.txt": ("安格曼综合征", "UBE3A", "genereviews"),
-    "genereviews_tsc.txt": ("结节性硬化症", "TSC1/TSC2", "genereviews"),
-    "genereviews_nsd1_sotos.txt": ("Sotos 综合征", "NSD1", "genereviews"),
-    "genereviews_prader_willi.txt": ("Prader-Willi 综合征", "15q11.2-q13", "genereviews"),
-    "pubmed_33921431_wes_value.txt": ("全外显子测序的诊断价值", "", "pubmed"),
-    "pubmed_37878314_vus_acmg.txt": ("VUS 重分类数据", "", "pubmed"),
-    "aap_asd_guideline_abstract.txt": ("ASD 初级保健指南", "", "aap"),
+    "genereviews_mecp2_rett": ("Rett 综合征 / MECP2 相关疾病", "MECP2", "genereviews"),
+    "genereviews_fmr1_fragile_x": ("脆性 X 综合征", "FMR1", "genereviews"),
+    "genereviews_ube3a_angelman": ("安格曼综合征", "UBE3A", "genereviews"),
+    "genereviews_tsc": ("结节性硬化症", "TSC1/TSC2", "genereviews"),
+    "genereviews_nsd1_sotos": ("Sotos 综合征", "NSD1", "genereviews"),
+    "genereviews_prader_willi": ("Prader-Willi 综合征", "15q11.2-q13", "genereviews"),
+    "pubmed_33921431_wes_value": ("全外显子测序的诊断价值", "", "pubmed"),
+    "pubmed_37878314_vus_acmg": ("VUS 重分类数据", "", "pubmed"),
+    "aap_asd_guideline_abstract": ("ASD 初级保健指南", "", "aap"),
 }
 
 # PubMed 与 AAP 属于科普/证据类，归入桶 B；GeneReviews 属于鉴别规则，归入桶 A。
@@ -88,6 +126,52 @@ RAW_BUCKET = {"genereviews": "A", "pubmed": "B", "aap": "A"}
 # 占位文件哨兵。data/knowledge/raw/ 下预置了同名空壳文件用于提示下载，
 # 内容含此标记即视为尚未填充，直接跳过，避免把说明文字灌进向量库。
 PLACEHOLDER_MARK = "RAG_CORPUS_PLACEHOLDER"
+
+
+# 整行匹配已知标题（允许行尾页码与多余空白/标点）。pypdf 抽取的 GeneReviews
+# 仍把真实标题单独成行，故 PDF 只在「整行等于已知标题」处切段，既能识别 Management
+# 等 deny 章节，又不会像通用 is_heading 那样把正文里的短句误判成标题而丢内容。
+_KNOWN_HEADING_RE = re.compile(
+    r"^(?:" + "|".join(
+        r"\s+".join(re.escape(tok) for tok in h.split())
+        for h in sorted(KNOWN_HEADINGS, key=len, reverse=True)
+    ) + r")\s*\d{0,3}$",
+    re.IGNORECASE,
+)
+
+
+def extract_pdf_text(path: Path) -> str:
+    """用 pypdf 逐页抽取纯文本。缺依赖时给出可操作的报错。"""
+    try:
+        import pypdf
+    except ImportError as exc:
+        raise SystemExit(
+            f"解析 {path.name} 需要 pypdf。请在 requirements.txt 加入 pypdf 后执行 "
+            "`pip install pypdf`（requirements.txt 属人类维护，改动请人工确认）。"
+        ) from exc
+    reader = pypdf.PdfReader(str(path))
+    return "\n".join((page.extract_text() or "") for page in reader.pages)
+
+
+def is_known_heading(line: str) -> bool:
+    """整行（去多余空白与行尾标点）恰为已知章节标题时才算标题。"""
+    s = re.sub(r"\s+", " ", line).strip().rstrip(":.。 ")
+    return bool(_KNOWN_HEADING_RE.match(s))
+
+
+def split_sections_pdf(text: str):
+    """PDF 专用：仅在已知标题行处切段，其余行一律并入当前章节正文。"""
+    sections, title, buf = [], "__preamble__", []
+    for line in text.splitlines():
+        if is_known_heading(line):
+            if buf:
+                sections.append((title, "\n".join(buf)))
+            title, buf = re.sub(r"\s+", " ", line).strip(), []
+        else:
+            buf.append(line)
+    if buf:
+        sections.append((title, "\n".join(buf)))
+    return sections
 
 
 def is_heading(line: str) -> bool:
@@ -179,27 +263,50 @@ def load_raw():
     if not RAW_DIR.exists():
         return docs, stats
 
-    for path in sorted(RAW_DIR.glob("*.txt")):
-        meta = RAW_FILE_META.get(path.name)
-        if meta is None:
-            print(f"  [跳过] {path.name} 不在 SOURCES.md 清单中，文件名需完全一致")
+    for stem, (condition, gene, origin) in RAW_FILE_META.items():
+        txt_path = RAW_DIR / f"{stem}.txt"
+        pdf_path = RAW_DIR / f"{stem}.pdf"
+
+        # 来源优先级：已填充的 .txt > .pdf > 占位 .txt（跳过）> 缺失。
+        text, src_path, is_pdf = None, None, False
+        if txt_path.exists():
+            raw_txt = txt_path.read_text(encoding="utf-8")
+            if PLACEHOLDER_MARK not in raw_txt:
+                text, src_path = raw_txt, txt_path
+        if text is None and pdf_path.exists():
+            text, src_path, is_pdf = extract_pdf_text(pdf_path), pdf_path, True
+        if text is None:
+            if txt_path.exists():
+                stats["placeholders"] += 1
+                print(f"  [待填充] {stem}.txt 仍是占位文件，且无同名 .pdf")
+            else:
+                print(f"  [缺失] {stem} 未找到 .txt 或 .pdf")
             continue
 
-        text = path.read_text(encoding="utf-8")
-        if PLACEHOLDER_MARK in text:
-            stats["placeholders"] += 1
-            print(f"  [待填充] {path.name} 仍是占位文件，尚未粘贴原文")
-            continue
-
-        condition, gene, origin = meta
         bucket = RAW_BUCKET[origin]
         stats["files"] += 1
         kept = 0
 
-        for title, body in split_sections(text):
+        # 切段策略按来源区分：
+        #   .txt（人工粘贴、标题干净）走通用 is_heading 切段；
+        #   GeneReviews PDF 有规范章节，只在已知标题行切段以精准丢弃 Management 等；
+        #   PubMed / AAP PDF 无该章节结构，整篇作为 Abstract 描述性内容，
+        #     仍逐切片过用药词兜底扫描（契合 SOURCES.md 对摘要/证据类语料的处理）。
+        if not is_pdf:
+            sections = split_sections(text)
+        elif origin == "genereviews":
+            sections = split_sections_pdf(text)
+        else:
+            sections = [("Abstract", text)]
+        for title, body in sections:
             verdict = section_verdict(title)
             if verdict == "deny":
                 stats["denied_sections"] += 1
+                # 禁入章节仍执行第二道逐切片扫描，验证原文中的用药内容确实被拦截。
+                # 整个章节无论是否命中药词都不会进入 docs，不会放宽章节闸门。
+                stats["drug_blocked"] += sum(
+                    1 for chunk in chunk_text(body) if DRUG_RE.search(chunk)
+                )
                 continue
             if verdict == "skip":
                 stats["skipped_sections"] += 1
@@ -210,11 +317,11 @@ def load_raw():
                     stats["drug_blocked"] += 1
                     continue
                 docs.append({
-                    "id": f"{path.stem}__{re.sub(r'[^a-z0-9]+', '_', title.lower())[:40]}__{i}",
+                    "id": f"{stem}__{re.sub(r'[^a-z0-9]+', '_', title.lower())[:40]}__{i}",
                     "text": chunk,
                     "metadata": {
                         "bucket": bucket,
-                        "source": path.stem,
+                        "source": stem,
                         "condition": condition,
                         "gene": gene,
                         "origin": origin,
@@ -222,7 +329,7 @@ def load_raw():
                     },
                 })
                 kept += 1
-        print(f"  [已收录] {path.name} -> {kept} 条切片")
+        print(f"  [已收录] {src_path.name} -> {kept} 条切片")
 
     return docs, stats
 

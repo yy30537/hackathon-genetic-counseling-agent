@@ -24,6 +24,7 @@
 |---|---|---|
 | `main.py` | 后端智能体 | 只读 |
 | `app.py` | 前端智能体 | 只读 |
+| `.streamlit/config.toml` | 前端智能体 | 只读 |
 | `scripts/*.py` | RAG / 验收智能体 | 只读 |
 | `config.py` | **人类** | 只读，改动须人工确认 |
 | `docs/**` | **人类** | 只读，改动须人工确认 |
@@ -34,7 +35,10 @@
 
 ## 2. 目录禁令
 
-**禁止创建任何新的顶层目录。** 已存在的 6 个是全部：`docs/` `data/` `scripts/` `.cursor/` `.githooks/` `HPO-MCP-Server/`。
+除前端主题配置目录 `.streamlit/` 外，**禁止创建任何新的顶层目录**。允许的 7 个顶层目录为：
+`docs/` `data/` `scripts/` `.cursor/` `.githooks/` `.streamlit/` `HPO-MCP-Server/`。
+
+`.streamlit/` 是唯一架构例外，只允许包含前端智能体维护的 `config.toml`，不得承载业务代码。
 
 以下目录名被明确禁止，出现即视为架构漂移：
 
@@ -77,7 +81,7 @@ python scripts/run_acceptance.py     # AC1-AC6 自动断言，退出码 0 才算
 改完 RAG 跑：
 
 ```bash
-python scripts/rag_builder.py --dry-run   # 确认「丢弃干预章节」与「用药词拦截」计数 > 0
+python scripts/rag_builder.py --dry-run   # 有原文语料时，两项过滤计数必须 > 0；无原文时允许为 0
 ```
 
 ## 6. Git 轨道约定
@@ -86,7 +90,7 @@ python scripts/rag_builder.py --dry-run   # 确认「丢弃干预章节」与「
 
 | 分支前缀 | 允许改动 |
 |---|---|
-| `feat/fe-*` | `app.py` |
+| `feat/fe-*` | `app.py`、`.streamlit/config.toml` |
 | `feat/be-*` | `main.py` |
 | `feat/rag-*` | `scripts/**` |
 | `main` / `feat/infra-*` | 不限 |
@@ -99,9 +103,9 @@ git config core.hooksPath .githooks
 
 ## 7. 禁止事项速查
 
-- 禁止 `mkdir` 任何新目录
+- 除首次创建 `.streamlit/` 外，禁止 `mkdir` 任何新顶层目录
 - 禁止移动 `main.py` / `app.py` / `config.py`
-- 禁止改写 `.gitignore` 中这三条：`data/knowledge/raw/*`（GeneReviews 版权限制）、`HPO-MCP-Server/`、`chroma_db/`
+- 禁止改写 `.gitignore` 中 `HPO-MCP-Server/`、`chroma_db/` 两条
 - 禁止提交 `.env`
 - 禁止 `pip install` 后不更新 `requirements.txt`
 - 禁止实现 PRD §1.4 的 Won't Have（登录、会话持久化、诊断结论、用药建议、多模态）

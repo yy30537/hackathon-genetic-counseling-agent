@@ -9,8 +9,7 @@ __pycache__/
 # 本地向量库（由 scripts/rag_builder.py 重新生成）
 chroma_db/
 
-# 下载的原文语料。GeneReviews 版权归 University of Washington，
-# 允许本地使用但限制再分发，故不纳入版本控制。
+# 原文语料是否提交由人类按来源授权逐项审核；项目规则不再强制忽略整个目录。
 # data/knowledge/raw/*
 #!data/knowledge/raw/.gitkeep
 

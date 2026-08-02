@@ -199,13 +199,14 @@ def main() -> int:
     failures: list[str] = []
 
     for pdf in pdfs:
+        stem = pdf.stem
         target_name = f"{pdf.stem}.txt"
-        if target_name not in RAW_FILE_META:
+        if stem not in RAW_FILE_META:
             print(f"  [跳过] {pdf.name} 不在 SOURCES.md 清单中，文件名需完全一致")
             continue
 
         body, stats = extract(pdf)
-        _, _, origin = RAW_FILE_META[target_name]
+        _, _, origin = RAW_FILE_META[stem]
 
         print(f"\n{pdf.name}")
         print(
