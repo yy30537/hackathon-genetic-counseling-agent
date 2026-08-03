@@ -1,18 +1,28 @@
 """把 PRD 的验收标准 AC1-AC8 变成可执行门禁。
 
-用法：
+用法:
     # 先启动后端
-    uvicorn main:app --reload --port 8000
+    uvicorn main:app --port 8000
     # 再运行
     python scripts/run_acceptance.py
     python scripts/run_acceptance.py --case tc_01_rett   # 只跑单个用例
 
-全部通过退出码 0，任一失败退出码 1。
+实现要点:
+  * 读 data/test_cases/tc_*.json,字段逐字对应 schema.md §3 / I1-I9
+  * 含 setup.mode 的用例(missing_api_key / minimax_timeout / hpo_no_match)由
+    脚本起一个临时 uvicorn 子进程,以 ASD_MOCK 环境变量注入 mock 行为;
+    避免依赖真实失效或线上偶发不命中
+  * 退出码:0 全过,1 任一失败
 """
-
 import argparse
 import json
+import os
+import signal
+import socket
+import subprocess
 import sys
+import time
+from contextlib import contextmanager
 from pathlib import Path
 
 import requests
@@ -22,13 +32,73 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import BACKEND_URL, TEST_CASE_DIR, official_disclaimer  # noqa: E402
 
 CASE_DIR = TEST_CASE_DIR
-ENDPOINT = f"{BACKEND_URL}/api/screen"
-TIMEOUT = 120
+TIMEOUT = 30
 
 REQUIRED_FIELDS = [
     "status", "hpo_terms", "comparisons", "vus_reassurance",
     "next_steps", "disclaimer", "mcp_translation", "retrieved_chunks",
 ]
+
+# 跟 40-compliance.mdc 同步的禁词
+_BANNED_BASE = ["确诊", "患有", "即为", "需服用", "建议用药"]
+_BANNED_CONF = ["概率", "可能性", "几率", "概率", "患病概率", "确诊概率"]
+
+# 桶 C disclaimer 原文
+DISCLAIMER_BUCKET_C: str = official_disclaimer().strip()
+
+
+# ---------- setup 模式子进程管理 ----------
+
+
+def _pick_free_port() -> int:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind(("127.0.0.1", 0))
+        return s.getsockname()[1]
+
+
+@contextmanager
+def mock_backend(mock_mode: str):
+    """起一个临时 uvicorn 子进程,通过 /tmp/asd_mock 文件通道注入 mock 行为。"""
+    port = _pick_free_port()
+    mock_file = Path("/tmp/asd_mock")
+    mock_file.write_text(mock_mode, encoding="utf-8")
+    log_path = Path("/tmp") / f"uvicorn-acceptance-{mock_mode}.log"
+    log_f = open(log_path, "w")
+    proc = subprocess.Popen(
+        [sys.executable, "-m", "uvicorn", "main:app", "--port", str(port)],
+        cwd=str(Path(__file__).resolve().parent.parent),
+        stdout=log_f,
+        stderr=subprocess.STDOUT,
+        preexec_fn=os.setsid,
+    )
+    try:
+        # 等服务起来
+        for _ in range(40):
+            try:
+                with socket.create_connection(("127.0.0.1", port), timeout=0.5):
+                    break
+            except OSError:
+                time.sleep(0.25)
+        else:
+            raise RuntimeError(f"mock 后端未在端口 {port} 起来: {log_path}")
+        yield f"http://127.0.0.1:{port}/api/screen"
+    finally:
+        try:
+            os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
+            proc.wait(timeout=5)
+        except Exception:
+            try:
+                os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+            except Exception:
+                pass
+        log_f.close()
+        try:
+            mock_file.unlink()
+        except FileNotFoundError:
+            pass
+
+
+# ---------- 断言 ----------
 
 
 def check_success(case, body, failures):
@@ -38,7 +108,7 @@ def check_success(case, body, failures):
     for f in REQUIRED_FIELDS:
         if f not in body:
             failures.append(f"AC1 响应缺失字段 `{f}`")
-    if failures:
+    if any(f"AC1" in x for x in failures):
         return
 
     # AC2 HPO 标准化
@@ -51,17 +121,16 @@ def check_success(case, body, failures):
         if not str(t.get("hpo_id", "")).startswith("HP:"):
             failures.append(f"AC2 hpo_id 格式非法：{t.get('hpo_id')!r}")
 
-    # AC4 免责声明逐字一致 + 就诊科室
+    # AC4 disclaimer 逐字 + 必含科室
     if exp.get("require_disclaimer"):
-        if body["disclaimer"].strip() != official_disclaimer().strip():
+        if body["disclaimer"].strip() != DISCLAIMER_BUCKET_C:
             failures.append("AC4 disclaimer 与桶 C 原文不一致（必须逐字相同）")
     steps = " ".join(body.get("next_steps", []))
     for dept in exp.get("require_next_steps_departments", []):
         if dept not in steps:
             failures.append(f"AC4 next_steps 缺少就诊科室「{dept}」")
 
-    # AC5 禁用词扫描。范围不含 disclaimer 与 retrieved_chunks，
-    # 因为前者是法定免责原文、后者是知识库原文，本就允许出现「确诊」等词。
+    # AC5 禁词扫描
     scope = " ".join(
         [c.get("explanation", "") for c in body.get("comparisons", [])]
         + [body.get("vus_reassurance", "")]
@@ -89,6 +158,32 @@ def check_success(case, body, failures):
         if b not in buckets:
             failures.append(f"retrieved_chunks 未覆盖数据桶 {b}（实际 {sorted(buckets)}）")
 
+    # schema I8：comparisons==[] 时 vus_reassurance 必含「未匹配到」
+    if not body.get("comparisons"):
+        vus = body.get("vus_reassurance", "")
+        if "未匹配到" not in vus:
+            failures.append(
+                "schema I8 comparisons=[] 时 vus_reassurance 须含「未匹配到」"
+            )
+
+    # schema I9：confidence_level 字段若存在必须是 0-100 整数;不得为 null
+    if "confidence_level" in body:
+        cl = body["confidence_level"]
+        if cl is None:
+            failures.append("schema I9 confidence_level 不得为 null（应字段缺失或为整数）")
+        elif not isinstance(cl, int) or not 0 <= cl <= 100:
+            failures.append(f"schema I9 confidence_level 非法：{cl!r}")
+        # 措辞扫描：v.us_reassurance + next_steps + confidence_level 任意文案
+        conf_text = str(cl) if not isinstance(cl, dict) else json.dumps(cl, ensure_ascii=False)
+        conf_scope = " ".join(
+            [body.get("vus_reassurance", "")]
+            + body.get("next_steps", [])
+            + [conf_text]
+        )
+        for w in _BANNED_CONF:
+            if w in conf_scope:
+                failures.append(f"schema I9 措辞含禁用词「{w}」")
+
 
 def check_error(case, body, failures):
     exp = case["expect"]
@@ -102,17 +197,27 @@ def check_error(case, body, failures):
         failures.append("AC6 error_message 为空，前端无法展示错误态")
 
 
-def run_case(path: Path):
+def run_case(path: Path, default_url: str):
     case = json.loads(path.read_text(encoding="utf-8"))
     exp = case["expect"]
     failures = []
+    setup = case.get("setup", {})
+    mode = setup.get("mode") if isinstance(setup, dict) else None
 
-    try:
-        resp = requests.post(ENDPOINT, json=case["input"], timeout=TIMEOUT)
-    except requests.exceptions.ConnectionError:
-        return case, ["无法连接后端，请先运行 uvicorn main:app --port 8000"]
-    except requests.exceptions.Timeout:
-        return case, [f"请求超时（>{TIMEOUT}s）"]
+    # setup 模式:起临时子进程
+    if mode:
+        try:
+            with mock_backend(mode) as url:
+                resp = requests.post(url, json=case["input"], timeout=TIMEOUT)
+        except Exception as e:
+            return case, [f"setup 模式 {mode} 启动失败: {e}"]
+    else:
+        try:
+            resp = requests.post(default_url, json=case["input"], timeout=TIMEOUT)
+        except requests.exceptions.ConnectionError:
+            return case, ["无法连接后端，请先运行 uvicorn main:app --port 8000"]
+        except requests.exceptions.Timeout:
+            return case, [f"请求超时（>{TIMEOUT}s）"]
 
     want_status = exp.get("http_status", 200)
     if resp.status_code != want_status:
@@ -132,28 +237,33 @@ def run_case(path: Path):
     return case, failures
 
 
+# ---------- 主入口 ----------
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--case", help="只运行指定用例 id")
     args = parser.parse_args()
 
+    default_url = f"{BACKEND_URL}/api/screen"
+
     paths = sorted(CASE_DIR.glob("tc_*.json"))
     if args.case:
         paths = [p for p in paths if p.stem == args.case]
         if not paths:
-            print(f"未找到用例 {args.case}")
+            print(f"未找到用例 {args.case}", file=sys.stderr)
             return 1
 
-    print(f"目标后端：{ENDPOINT}")
-    print(f"用例数量：{len(paths)}\n")
+    print(f"目标后端(默认): {default_url}")
+    print(f"用例数量: {len(paths)}\n")
 
     passed = 0
     for path in paths:
-        case, failures = run_case(path)
+        case, failures = run_case(path, default_url)
         if failures:
-            print(f"[失败] {case['id']} — {case['title']}")
+            print(f"[失败] {case['id']} — {case['title']}", file=sys.stderr)
             for f in failures:
-                print(f"        {f}")
+                print(f"        {f}", file=sys.stderr)
         else:
             passed += 1
             print(f"[通过] {case['id']} — {case['title']}")
@@ -161,7 +271,7 @@ def main():
     total = len(paths)
     print(f"\n通过 {passed}/{total}")
     if passed != total:
-        print("验收未通过，PRD 的 AC1-AC8 存在未满足项。")
+        print("验收未通过，PRD 的 AC1-AC8 存在未满足项。", file=sys.stderr)
         return 1
     print("全部通过。")
     return 0
