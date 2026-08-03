@@ -26,6 +26,7 @@ BUCKET_C_PATH = Path(__file__).resolve().parent / "data" / "knowledge" / "bucket
 
 # §7 全文 CSS（注入一次）
 CSS: str = """
+<style>
 :root{
   --bg-canvas:#FAFAF7; --bg-surface:#FFFFFF; --bg-panel:#F4F3EE;
   --brand:#5B8C85; --brand-strong:#47726C; --brand-soft:#E4EFEC;
@@ -106,6 +107,7 @@ html, body, [class*="css"]{ font-family:var(--font-sans); color:var(--text-prima
 .stTextArea textarea[aria-label="基因报告原文"]{ font-family:var(--font-mono); font-size:13px; line-height:1.7; }
 div[data-baseweb="notification"]{ background:var(--bucket-c-soft) !important;
   border-left:4px solid var(--bucket-c) !important; color:var(--text-primary) !important; }
+</style>
 """
 
 
