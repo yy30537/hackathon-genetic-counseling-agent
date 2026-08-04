@@ -130,16 +130,24 @@ def load_mock(kind: str) -> dict:
     return json.loads(p.read_text(encoding="utf-8"))
 
 
-def call_backend(symptoms: str, gene_report: str) -> Tuple[str, Dict[str, Any]]:
-    """POST 到后端,返回 (stage, payload_or_err)。stage ∈ {"success","error"}。"""
+def call_backend(symptoms: str, gene_report: str, pdf_bytes: bytes | None = None, pdf_name: str = "report.pdf") -> Tuple[str, Dict[str, Any]]:
+    """POST 到后端,返回 (stage, payload_or_err)。"""
     if USE_MOCK:
         return "success", load_mock("success")
     try:
-        r = requests.post(
-            f"{BACKEND_URL_LOCAL}/api/screen",
-            json={"symptoms": symptoms, "gene_report": gene_report},
-            timeout=120,
-        )
+        if pdf_bytes:
+            r = requests.post(
+                f"{BACKEND_URL_LOCAL}/api/screen",
+                data={"symptoms": symptoms},
+                files={"pdf_file": (pdf_name, pdf_bytes, "application/pdf")},
+                timeout=120,
+            )
+        else:
+            r = requests.post(
+                f"{BACKEND_URL_LOCAL}/api/screen",
+                json={"symptoms": symptoms, "gene_report": gene_report},
+                timeout=120,
+            )
     except requests.exceptions.ConnectionError:
         return "error", {"error_code": "CONNECTION_ERROR", "error_message": "无法连接后端服务，请确认已执行 uvicorn main:app --port 8000。"}
     except requests.exceptions.Timeout:
@@ -377,8 +385,19 @@ def render_intake_form(disabled: bool) -> None:
             "孩子的情况", key="symptoms", height=96,
             placeholder=placeholder_s, disabled=disabled,
         )
+        uploaded = st.file_uploader(
+            "上传基因报告 PDF（首期支持可复制文本 PDF）",
+            type=["pdf"], key="gene_report_pdf", disabled=disabled,
+            help="文件仅用于本次解析，不会保存。扫描件或图片型 PDF 暂不支持。",
+        )
+        if uploaded is not None:
+            pdf_bytes = uploaded.getvalue()
+            st.session_state.pdf_bytes = pdf_bytes
+            st.session_state.pdf_name = uploaded.name
+            st.caption(f"已选择 {uploaded.name} · {len(pdf_bytes) / 1024:.1f} KB。提交后由后端提取文本。")
         st.text_area(
-            "基因报告原文", key="gene_report", height=120,
+            "基因报告原文（也可直接粘贴；上传 PDF 后可补充或覆盖）",
+            key="gene_report", height=120,
             placeholder=placeholder_g, disabled=disabled,
         )
         submitted = st.form_submit_button(
@@ -387,12 +406,15 @@ def render_intake_form(disabled: bool) -> None:
     if submitted:
         s = (st.session_state.get("symptoms") or "").strip()
         g = (st.session_state.get("gene_report") or "").strip()
-        if not s or not g:
-            st.warning("请同时填写「孩子的情况」与「基因报告原文」后再提交。")
+        pdf_bytes = st.session_state.get("pdf_bytes")
+        if not s or (not g and not pdf_bytes):
+            st.warning("请填写「孩子的情况」，并粘贴报告原文或上传 PDF 后再提交。")
             return
         st.session_state.stage = "loading"
         with st.spinner(""):
-            stage, payload = call_backend(s, g)
+            stage, payload = call_backend(
+                s, g, pdf_bytes=pdf_bytes, pdf_name=st.session_state.get("pdf_name", "report.pdf")
+            )
         st.session_state.stage = stage
         st.session_state.payload = payload
         st.rerun()
@@ -490,6 +512,10 @@ def main() -> None:
         st.session_state.stage = "idle"
     if "payload" not in st.session_state:
         st.session_state.payload = None
+    if "pdf_bytes" not in st.session_state:
+        st.session_state.pdf_bytes = None
+    if "pdf_name" not in st.session_state:
+        st.session_state.pdf_name = "report.pdf"
 
     render_header()
 

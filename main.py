@@ -6,6 +6,7 @@
 启动：uvicorn main:app --reload --port 8000
 """
 import asyncio
+import io
 import json
 import logging
 import os
@@ -675,6 +676,41 @@ async def synthesize_report(
         raise
 
 
+PDF_MAX_BYTES = 15 * 1024 * 1024
+PDF_MAX_PAGES = 50
+PDF_MIN_TEXT_CHARS = 80
+PDF_MAX_TEXT_CHARS = 250_000
+
+
+def _extract_pdf_report(pdf_bytes: bytes, filename: str) -> str:
+    """在内存中提取文本型 PDF；不保存上传文件。"""
+    if not pdf_bytes or len(pdf_bytes) > PDF_MAX_BYTES:
+        raise ScreeningError(422, "PDF_TOO_LARGE", "PDF 文件为空或超过 15 MB 限制。")
+    if not filename.lower().endswith(".pdf"):
+        raise ScreeningError(422, "PDF_INVALID_TYPE", "仅支持 PDF 文件。")
+    try:
+        from pypdf import PdfReader
+        reader = PdfReader(io.BytesIO(pdf_bytes), strict=False)
+        if len(reader.pages) > PDF_MAX_PAGES:
+            raise ScreeningError(422, "PDF_TOO_MANY_PAGES", "PDF 页数超过 50 页限制。")
+        pages = [(page.extract_text() or "") for page in reader.pages]
+    except ScreeningError:
+        raise
+    except Exception as exc:
+        logger.info("PDF 解析失败: type=%s", type(exc).__name__)
+        raise ScreeningError(422, "PDF_PARSE_ERROR", "PDF 无法读取，可能已损坏或受密码保护。") from exc
+    raw = "\n".join(pages)
+    text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", " ", raw)
+    text = re.sub(r"[ \t]+", " ", text)
+    text = re.sub(r"\n{3,}", "\n\n", text).strip()
+    if len(text) < PDF_MIN_TEXT_CHARS:
+        raise ScreeningError(422, "PDF_NO_TEXT", "未提取到足够文本；该 PDF 可能是扫描件，请先进行 OCR 或粘贴报告原文。")
+    if len(text) > PDF_MAX_TEXT_CHARS:
+        text = text[:PDF_MAX_TEXT_CHARS]
+    logger.info("PDF parsed: pages=%d chars=%d", len(pages), len(text))
+    return text
+
+
 # ---------- 端点 ----------
 
 
@@ -683,8 +719,31 @@ async def synthesize_report(
     response_model=ScreeningResponse,
     response_model_exclude_none=True,
 )
-async def screen(payload: ScreeningRequest) -> ScreeningResponse:
-    """全系统唯一业务端点。"""
+async def screen(request: Request) -> ScreeningResponse:
+    """全系统唯一业务端点。支持 JSON 与 multipart/form-data 两种入口。"""
+    content_type = (request.headers.get("content-type") or "").lower()
+    if content_type.startswith("multipart/form-data"):
+        try:
+            form = await request.form()
+        except Exception as exc:
+            raise ScreeningError(422, "INVALID_INPUT", "无法解析上传的表单数据。") from exc
+        symptoms = str(form.get("symptoms") or "").strip()
+        pdf_file = form.get("pdf_file")
+        if pdf_file is None or not getattr(pdf_file, "filename", ""):
+            raise ScreeningError(422, "INVALID_INPUT", "请上传 PDF 文件或粘贴报告原文。")
+        pdf_bytes = await pdf_file.read() if hasattr(pdf_file, "read") else b""
+        gene_report = _extract_pdf_report(pdf_bytes, pdf_file.filename)
+        payload = ScreeningRequest(symptoms=symptoms, gene_report=gene_report)
+    else:
+        try:
+            body = await request.json()
+        except Exception as exc:
+            raise ScreeningError(422, "INVALID_INPUT", "请求体不是合法 JSON。") from exc
+        try:
+            payload = ScreeningRequest(**body)
+        except Exception as exc:
+            raise ScreeningError(422, "INVALID_INPUT", "请求体字段不完整。") from exc
+
     if not payload.symptoms.strip() or not payload.gene_report.strip():
         raise ScreeningError(
             422, "INVALID_INPUT", "症状描述与基因报告均为必填项，请补全后重新提交。"
