@@ -32,7 +32,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import BACKEND_URL, TEST_CASE_DIR, official_disclaimer  # noqa: E402
 
 CASE_DIR = TEST_CASE_DIR
-TIMEOUT = 30
+# M3 是推理模型，带 RAG 切片的长提示词要先跑一段思维链，单次往返常在 30-90 秒。
+# 这是客户端等待时长，不是对响应速度的断言。
+TIMEOUT = 180
 
 REQUIRED_FIELDS = [
     "status", "hpo_terms", "comparisons", "vus_reassurance",
@@ -73,12 +75,13 @@ def mock_backend(mock_mode: str):
     )
     try:
         # 等服务起来
-        for _ in range(40):
+        # lifespan 要加载 ChromaDB 的 SentenceTransformer，冷启动可达一分钟
+        for _ in range(240):
             try:
                 with socket.create_connection(("127.0.0.1", port), timeout=0.5):
                     break
             except OSError:
-                time.sleep(0.25)
+                time.sleep(0.5)
         else:
             raise RuntimeError(f"mock 后端未在端口 {port} 起来: {log_path}")
         yield f"http://127.0.0.1:{port}/api/screen"

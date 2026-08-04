@@ -46,6 +46,79 @@ CIRCLED = "①②③④⑤⑥⑦⑧⑨"
 FIXTURES_DIR = Path(__file__).resolve().parent / "data" / "fixtures"
 BUCKET_C_PATH = Path(__file__).resolve().parent / "data" / "knowledge" / "bucket_c_compliance.json"
 
+# 路演示例：合成数据，非真实病例（文案对齐 data/test_cases/tc_01–tc_05）
+EXAMPLE_CASES: List[Dict[str, str]] = [
+    {
+        "label": "Rett / MECP2",
+        "symptoms": (
+            "我女儿快3岁了。她1岁多的时候明明会喊爸爸妈妈，还会指东西要，"
+            "可是从1岁半开始，会说的词一个一个都没了，现在基本上不说话了。"
+            "最让我心慌的是她的手，以前会自己抓饼干吃，现在整天在胸前搓来搓去、"
+            "绞来绞去，像在洗手一样，停都停不下来，也不会拿东西了。"
+            "体检说她头围长得比同龄孩子慢。走路也是晃晃悠悠的，两只脚岔得很开。"
+            "有时候醒着的时候会突然喘得很急，过一会儿又憋着不呼吸。"
+        ),
+        "gene_report": (
+            "全外显子组测序（WES）报告：检出 MECP2 基因杂合错义变异 "
+            "c.455C>G (p.Pro152Arg)，ACMG 分级为临床意义未明（VUS）。"
+            "未检出其他与临床表型相关的致病或可能致病变异。"
+        ),
+    },
+    {
+        "label": "安格曼 / UBE3A",
+        "symptoms": (
+            "孩子4岁了，一个字都不会说，只会啊啊叫。他特别爱笑，一天到晚咯咯咯地笑，"
+            "有时候一点小事就笑得停不下来，谁看了都说这孩子真开心，但我们知道不对劲。"
+            "走路的时候两条腿分得特别开，手老是举得高高的、胳膊肘弯着，看着像小木偶。"
+            "晚上几乎不睡，折腾到凌晨两三点。上个月还抽过一次，眼睛往上翻，手脚僵硬。"
+        ),
+        "gene_report": (
+            "基因检测报告：15q11.2-q13 区域母源片段缺失，UBE3A 基因表达缺失。"
+            "甲基化分析异常。"
+        ),
+    },
+    {
+        "label": "脆性 X / FMR1",
+        "symptoms": (
+            "我儿子6岁，从小就不肯看人的眼睛，你跟他说话他就把头扭开，"
+            "有生人来家里他能躲到桌子底下不出来。高兴或者紧张的时候就使劲拍手，"
+            "一拍好几分钟。他脸比别的孩子长一些，耳朵也特别大，额头挺凸的。"
+            "老师说他一节课都坐不住，屁股像长了钉子，写两个字就要站起来跑。"
+            "而且特别容易焦虑，换个座位、走另一条路回家都能让他崩溃大哭。"
+        ),
+        "gene_report": (
+            "FMR1 基因检测：CGG 三核苷酸重复次数 > 200 次，呈全突变范围，伴异常甲基化。"
+        ),
+    },
+    {
+        "label": "结节性硬化 / TSC2",
+        "symptoms": (
+            "宝宝现在1岁8个月。他身上有好几块白色的斑，形状有点像柳树叶子，"
+            "后背和大腿上加起来能数出五六块，出生没多久就有了，一直没消。"
+            "大概7个月大的时候开始一阵一阵地点头、两只胳膊往前抱，一次连着好几十下，"
+            "我们一开始以为他是困了。最近发现他会的东西变少了，本来会拍手再见，"
+            "现在不会了，叫名字也不太理人。"
+        ),
+        "gene_report": (
+            "全外显子组测序：TSC2 基因杂合变异 c.4375C>T (p.Arg1459Trp)，"
+            "临床意义未明（VUS）。"
+        ),
+    },
+    {
+        "label": "阴性对照 / ASD",
+        "symptoms": (
+            "孩子3岁半，不太跟小朋友玩，别人叫他名字经常没反应，但听到广告音乐就会跑过来。"
+            "喜欢把小汽车排成一长排，谁动一下就大哭。说话会说，但常常是重复别人的话，"
+            "你问他要不要吃苹果，他就跟着说要不要吃苹果。喜欢转圈圈，也喜欢盯着洗衣机看很久。"
+            "身体上没什么特别的，个子体重都正常，没抽过筋。"
+        ),
+        "gene_report": (
+            "全外显子组测序（WES）报告：未检出与临床表型相关的致病性或可能致病性变异。"
+            "检出 3 个临床意义未明变异（VUS），均位于目前与神经发育疾病无明确关联的基因。"
+        ),
+    },
+]
+
 # §7 全文 CSS（注入一次）
 CSS: str = """
 <style>
@@ -123,6 +196,16 @@ html, body, [class*="css"]{ font-family:var(--font-sans); color:var(--text-prima
   background:var(--brand); color:#fff; border:none; border-radius:var(--radius);
   font-weight:600; padding:10px 20px; }
 .stButton>button:hover, .stFormSubmitButton>button:hover{ background:var(--brand-strong); color:#fff; }
+/* 示例填充与「加入症状描述」是次要动作，弱化为描边样式，不与主提交按钮抢视觉权重 */
+.stButton>button[kind="secondary"]{ background:var(--bg-surface); color:var(--brand-strong);
+  border:1px solid var(--border); font-weight:500; font-size:13px; padding:6px 12px; }
+.stButton>button[kind="secondary"]:hover{ background:var(--brand-soft);
+  color:var(--brand-strong); border-color:var(--brand); }
+.stChatMessage{ background:var(--bg-surface); border:1px solid var(--border);
+                border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:12px; }
+.stChatMessage p{ font-size:16px; line-height:1.8; }
+.ced-examples{ margin-bottom:12px; }
+.ced-examples-label{ font-size:13px; line-height:1.6; color:var(--text-muted-strong); margin-bottom:8px; }
 .stTextArea textarea{ background:var(--bg-surface); border:1px solid var(--border);
   border-radius:var(--radius); font-size:16px; line-height:1.8; color:var(--text-primary); }
 .stTextArea textarea:focus{ border-color:var(--brand); box-shadow:none; }
@@ -199,6 +282,36 @@ def call_backend(symptoms: str, gene_report: str, pdf_bytes: bytes | None = None
         body = r.json()
     except ValueError:
         _dlog("H1", "app.py:189", "non-200 BAD_JSON", {"status": r.status_code, "body_head": r.text[:200]})
+        body = {"error_code": "BAD_JSON", "error_message": f"HTTP {r.status_code}"}
+    return "error", body
+
+
+def call_clarify(utterance: str, picked: List[str]) -> Tuple[str, Dict[str, Any]]:
+    """POST 到澄清端点，返回 (stage, payload_or_err)。stage ∈ {"success","error"}。
+
+    与 call_backend 同构：前端唯一的出口仍是 HTTP，不直连模型或向量库。
+    """
+    try:
+        r = requests.post(
+            f"{BACKEND_URL_LOCAL}/api/clarify",
+            json={"utterance": utterance, "picked": picked},
+            timeout=120,
+        )
+    except requests.exceptions.ConnectionError:
+        return "error", {"error_code": "CONNECTION_ERROR", "error_message": "无法连接后端服务，请确认已执行 uvicorn main:app --port 8000。"}
+    except requests.exceptions.Timeout:
+        return "error", {"error_code": "TIMEOUT", "error_message": "请求超时，请稍后重试。"}
+    except Exception as e:
+        return "error", {"error_code": "UNKNOWN", "error_message": f"请求异常：{type(e).__name__}"}
+
+    if r.status_code == 200:
+        try:
+            return "success", r.json()
+        except ValueError:
+            return "error", {"error_code": "BAD_JSON", "error_message": "后端响应不是合法 JSON。"}
+    try:
+        body = r.json()
+    except ValueError:
         body = {"error_code": "BAD_JSON", "error_message": f"HTTP {r.status_code}"}
     return "error", body
 
@@ -390,7 +503,7 @@ def render_error(err: dict) -> None:
     code = err.get("error_code", "")
     msg = err.get("error_message", "后端未返回错误详情")
     titles = {
-        "INVALID_INPUT": ("输入还需要补全", "请检查两个输入框是否都已填写。"),
+        "INVALID_INPUT": ("输入还需要补全", "请先通过上方聊天勾选症状描述后再提交。"),
         "HPO_NO_MATCH": ("暂未匹配到标准表型术语", "请补充更具体的表现描述，或携带原始记录咨询儿童发育行为科。"),
         "MISSING_API_KEY": ("后端缺少模型密钥", "请检查项目根目录 .env 中的 MINIMAX_API_KEY。"),
         "MINIMAX_API_ERROR": ("模型服务暂时不可用", "这通常是限流或超时，稍后重试即可。"),
@@ -408,18 +521,151 @@ def render_error(err: dict) -> None:
     )
 
 
-def render_intake_form(disabled: bool) -> None:
-    placeholder_s = (
-        "孩子3岁，会说的词都不说了，总是搓手绞手，走路不太稳。"
+def render_chat_panel(disabled: bool) -> None:
+    """聊天式症状澄清：口语描述 -> 后端反推候选表型 -> 勾选后回填症状框。
+
+    对话只存在于本次会话的内存里，不落盘、不做历史持久化（PRD W2）。
+    候选只承载表型，不含任何病名，措辞由后端合规闸门把关。
+    """
+    st.markdown(
+        '<div class="ced-section-title">先聊两句，我帮你把话变成医学表述</div>'
+        '<div class="ced-note" style="margin-bottom:12px">'
+        "用平常话说说孩子的表现就行。我会列出几条相关的医学表现供你确认，"
+        "它们是待核对的候选描述，不是结论。"
+        "</div>",
+        unsafe_allow_html=True,
     )
+
+    msgs = st.session_state.chat_msgs
+    if not msgs:
+        st.markdown(
+            '<div class="ced-note" style="margin-bottom:12px">'
+            "例如：孩子快三岁了，本来会喊爸爸妈妈，现在都不说了，整天在胸前搓手。"
+            "</div>",
+            unsafe_allow_html=True,
+        )
+
+    for idx, msg in enumerate(msgs):
+        with st.chat_message(msg["role"]):
+            if msg.get("error"):
+                render_error(msg["error"])
+                continue
+            st.markdown(
+                f'<div class="ced-cmp-body">{html.escape(msg.get("text", ""))}</div>',
+                unsafe_allow_html=True,
+            )
+            options = msg.get("options") or []
+            if not options:
+                continue
+            if idx != len(msgs) - 1:
+                st.markdown(
+                    '<div class="ced-note">'
+                    + html.escape("、".join(o["name"] for o in options))
+                    + "</div>",
+                    unsafe_allow_html=True,
+                )
+                continue
+            for o in options:
+                st.checkbox(
+                    f"{o['plain']}　（{o['name']}　{o['hpo_id']}）",
+                    key=f"chat_opt_{idx}_{o['hpo_id']}",
+                    disabled=disabled,
+                )
+            if st.button(
+                "把勾选的表现加入症状描述",
+                key=f"chat_apply_{idx}",
+                disabled=disabled,
+                use_container_width=True,
+            ):
+                chosen = [
+                    o for o in options
+                    if st.session_state.get(f"chat_opt_{idx}_{o['hpo_id']}")
+                ]
+                if not chosen:
+                    st.warning("请先勾选至少一条符合孩子情况的表现。")
+                else:
+                    names = "、".join(o["name"] for o in chosen)
+                    prev = (st.session_state.get("symptoms") or "").strip()
+                    addition = f"孩子还有这些表现：{names}。"
+                    st.session_state.symptoms = (
+                        f"{prev}\n{addition}" if prev else addition
+                    )
+                    for o in chosen:
+                        if o["hpo_id"] not in st.session_state.picked_ids:
+                            st.session_state.picked_ids.append(o["hpo_id"])
+                    st.session_state.chat_msgs.append({
+                        "role": "assistant",
+                        "text": f"已加入症状描述：{names}。你可以继续补充，或直接生成信息整理单。",
+                        "options": [],
+                    })
+                    st.rerun()
+
+    utterance = st.chat_input(
+        "说说孩子最近的表现…", key="chat_input", disabled=disabled
+    )
+    if utterance and utterance.strip():
+        st.session_state.chat_msgs.append(
+            {"role": "user", "text": utterance.strip(), "options": []}
+        )
+        with st.spinner(""):
+            stage, payload = call_clarify(
+                utterance.strip(), st.session_state.picked_ids
+            )
+        if stage == "success":
+            st.session_state.chat_msgs.append({
+                "role": "assistant",
+                "text": payload.get("reply", ""),
+                "options": payload.get("options", []),
+            })
+            st.session_state.clarify_trace = payload.get("mcp_translation", "")
+        elif (payload or {}).get("error_code") == "HPO_NO_MATCH":
+            # 无命中不阻断对话：软跳过本轮，不写入 symptoms，报告自然忽略
+            st.session_state.chat_msgs.append({
+                "role": "assistant",
+                "text": (
+                    "这段描述暂时对不上标准术语，我们先跳过。"
+                    "你可以换个说法，或继续描述孩子的其他表现。"
+                ),
+                "options": [],
+            })
+        else:
+            st.session_state.chat_msgs.append({
+                "role": "assistant", "text": "", "options": [], "error": payload,
+            })
+        st.rerun()
+
+    st.markdown('<div style="margin-bottom:24px"></div>', unsafe_allow_html=True)
+
+
+def render_example_buttons(disabled: bool) -> None:
+    """一键填入合成示例，路演时免去现场打字。"""
+    st.markdown(
+        '<div class="ced-examples">'
+        '<div class="ced-examples-label">示例 · 合成数据，非真实病例 — 点击填入后可再点「生成信息整理单」</div>'
+        "</div>",
+        unsafe_allow_html=True,
+    )
+    cols = st.columns(len(EXAMPLE_CASES))
+    for i, case in enumerate(EXAMPLE_CASES):
+        with cols[i]:
+            if st.button(
+                case["label"],
+                key=f"example_fill_{i}",
+                disabled=disabled,
+                use_container_width=True,
+            ):
+                st.session_state.symptoms = case["symptoms"]
+                st.session_state.gene_report = case["gene_report"]
+                st.session_state.gene_report_method = "粘贴基因报告文本"
+                st.rerun()
+
+
+def render_intake_form(disabled: bool) -> None:
     placeholder_g = (
         "全外显子测序（WES）检出 MECP2 基因错义变异 c.455C>G (p.Pro152Arg)，"
         "临床意义未明（VUS）。"
     )
-    st.text_area(
-        "孩子的情况", key="symptoms", height=96,
-        placeholder=placeholder_s, disabled=disabled,
-    )
+    # 「孩子的情况」由聊天勾选写入 session_state.symptoms，询问页不再展示该文本框
     st.markdown(
         '<div class="ced-section-title" style="margin:16px 0 4px">附上基因报告原文（可选）</div>'
         '<div class="ced-note" style="margin-bottom:8px">没有报告也能生成整理单；填写/上传报告后，系统比对会同步参考基因报告内容。</div>',
@@ -511,6 +757,15 @@ def render_evidence_panel(payload: dict) -> None:
         unsafe_allow_html=True,
     )
     if stage != "success" or not payload:
+        trace = st.session_state.get("clarify_trace") or ""
+        if trace:
+            st.markdown(
+                '<div class="ced-chunk">'
+                '<div class="ced-chunk-head"><div class="ced-cmp-title" style="font-size:14px">澄清对话的术语检索过程 (MCP)</div></div>'
+                f'<div class="ced-chunk-text">{html.escape(trace)}</div>'
+                "</div>",
+                unsafe_allow_html=True,
+            )
         st.markdown(
             '<div class="ced-note">生成报告后，这里会列出本次引用的全部知识库原文。</div>',
             unsafe_allow_html=True,
@@ -599,6 +854,13 @@ def main() -> None:
         st.session_state.pdf_bytes = None
     if "pdf_name" not in st.session_state:
         st.session_state.pdf_name = "report.pdf"
+    # 澄清对话只活在本次会话内存里，刷新即清空（PRD W2 禁止会话历史持久化）
+    if "chat_msgs" not in st.session_state:
+        st.session_state.chat_msgs = []
+    if "picked_ids" not in st.session_state:
+        st.session_state.picked_ids = []
+    if "clarify_trace" not in st.session_state:
+        st.session_state.clarify_trace = ""
 
     render_header()
 
@@ -620,9 +882,16 @@ def main() -> None:
             render_comparisons(comparisons, refs)
             render_next_steps(payload.get("next_steps", []))
             render_confidence_line(payload.get("confidence_level"))
+            # 报告页不展示聊天与采集区，避免问答历史干扰阅读
+            if st.button("修改输入，重新整理", use_container_width=True):
+                st.session_state.stage = "idle"
+                st.rerun()
         elif stage == "error":
             render_error(payload or {})
-        render_intake_form(disabled=(stage == "loading"))
+
+        if stage != "success":
+            render_chat_panel(disabled=(stage == "loading"))
+            render_intake_form(disabled=(stage == "loading"))
 
     with right:
         render_evidence_panel(st.session_state.payload or {})

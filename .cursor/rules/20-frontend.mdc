@@ -19,8 +19,9 @@ import chromadb
 from sentence_transformers import SentenceTransformer
 requests.post("https://api.minimax.io/v1/chat/completions", ...)
 
-# 唯一允许的出口
-requests.post(f"{BACKEND_URL}/api/screen", json={...})
+# 仅有的两个出口
+requests.post(f"{BACKEND_URL}/api/screen", json={...})    # 出报告
+requests.post(f"{BACKEND_URL}/api/clarify", json={...})   # 症状澄清候选
 ```
 
 一切 MCP、RAG 与大模型调用都发生在后端（PRD 第 33 行断言）。

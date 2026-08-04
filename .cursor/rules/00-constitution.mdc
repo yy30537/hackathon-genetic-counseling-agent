@@ -6,7 +6,9 @@ alwaysApply: true
 # 架构基线
 
 根目录单体，**不是 monorepo**。后端 `main.py`、前端 `app.py`、共享配置 `config.py` 全部在根目录。
-前后端边界由 `POST /api/screen` 的 HTTP 契约承载，**不由目录承载**。
+前后端边界由 HTTP 契约承载，**不由目录承载**。当前共两个端点：
+`POST /api/screen` 出报告（主端点），`POST /api/clarify` 做症状澄清。
+前端一切模型与检索调用只经这两条，不得新增第三个端点。
 
 # 目录禁令
 

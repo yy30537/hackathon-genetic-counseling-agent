@@ -12,7 +12,7 @@ import logging
 import os
 import re
 import time
-from contextlib import asynccontextmanager
+from contextlib import AsyncExitStack, asynccontextmanager
 from pathlib import Path
 from typing import Annotated, Any, List, Literal, Optional
 
@@ -63,7 +63,7 @@ def _dlog(hypothesis: str, location: str, message: str, data: dict) -> None:
 
 class ScreeningRequest(BaseModel):
     symptoms: str
-    gene_report: str
+    gene_report: str = ""
 
 
 class HpoTerm(BaseModel):
@@ -100,6 +100,29 @@ class ScreeningResponse(BaseModel):
     confidence_level: Optional[Annotated[int, Field(ge=0, le=100)]] = None
 
 
+# ---------- 澄清对话契约（POST /api/clarify） ----------
+
+
+class ClarifyRequest(BaseModel):
+    utterance: str
+    picked: List[str] = []
+
+
+class SymptomOption(BaseModel):
+    hpo_id: str
+    name: str
+    plain: str
+    matched_text: str = ""
+
+
+class ClarifyResponse(BaseModel):
+    status: Literal["success"] = "success"
+    reply: str
+    options: List[SymptomOption]
+    mcp_translation: str
+    disclaimer: str
+
+
 class ErrorResponse(BaseModel):
     status: Literal["error"] = "error"
     error_code: str
@@ -134,6 +157,25 @@ if _mock_path.exists():
 
 def path_exists(p: str) -> bool:
     return bool(p) and Path(p).exists()
+
+
+def _resolve_mcp_entry(raw: str) -> str:
+    """把 HPO_MCP_SERVER_PATH 归一到可执行入口，取不到返回空串。
+
+    .env 很容易填成仓库目录而不是编译产物。`node <目录>` 只报 Cannot find module
+    然后静默退回离线规则，现象与「压根没配」一模一样，现场极难定位，故在此替配置兜底。
+    """
+    if not raw:
+        return ""
+    p = Path(raw)
+    if p.is_file():
+        return str(p)
+    if p.is_dir():
+        entry = p / "build" / "index.js"
+        if entry.is_file():
+            logger.info("HPO_MCP_SERVER_PATH 指向目录，已自动定位入口：%s", entry)
+            return str(entry)
+    return ""
 
 
 # ---------- 离线版 HPO 词典（避免线上查询抖动） ----------
@@ -426,8 +468,41 @@ def _offline_retrieve(hpo_terms: List[HpoTerm], gene_report: str) -> List[Chunk]
 
 # ---------- LLM 调用 ----------
 
-async def call_minimax(system: str, user: str, *, json_mode: bool = True) -> dict:
-    """调 M3。失败统一抛 ScreeningError(502, MINIMAX_API_ERROR)，不透传原文。"""
+# M3 是推理模型：即便开了 json_object 模式，正文前仍会带 <think>…</think> 思维链，
+# 直接 json.loads 必然失败。这里统一剥壳后再解析。
+_THINK_RE = re.compile(r"<think>.*?</think>", re.DOTALL)
+_FENCE_RE = re.compile(r"^```(?:json)?\s*|\s*```$", re.MULTILINE)
+
+
+def _extract_json(content: str) -> Optional[dict]:
+    """从 M3 返回的正文里抽出 JSON 对象。抽不到返回 None，由调用方转 502。"""
+    if not isinstance(content, str):
+        return None
+    text = _THINK_RE.sub("", content)
+    text = _FENCE_RE.sub("", text).strip()
+    try:
+        parsed = json.loads(text)
+        return parsed if isinstance(parsed, dict) else None
+    except (ValueError, json.JSONDecodeError):
+        pass
+    start, end = text.find("{"), text.rfind("}")
+    if start == -1 or end <= start:
+        return None
+    try:
+        parsed = json.loads(text[start:end + 1])
+        return parsed if isinstance(parsed, dict) else None
+    except (ValueError, json.JSONDecodeError):
+        return None
+
+
+async def call_minimax(
+    system: str, user: str, *, json_mode: bool = True, timeout: float = 90.0
+) -> dict:
+    """调 M3。失败统一抛 ScreeningError(502, MINIMAX_API_ERROR)，不透传原文。
+
+    M3 会先跑一段思维链再出正文，带 RAG 切片的长提示词经常超过 30 秒。
+    默认 90 秒仍小于前端的 120 秒上限；澄清链路提示词短，调用方会传更小的值。
+    """
     if MOCK_MODE == "minimax_timeout":
         raise ScreeningError(
             502, "MINIMAX_API_ERROR",
@@ -451,7 +526,7 @@ async def call_minimax(system: str, user: str, *, json_mode: bool = True) -> dic
     url = f"{MINIMAX_BASE_URL.rstrip('/')}/chat/completions"
     headers = {"Authorization": f"Bearer {MINIMAX_API_KEY}", "Content-Type": "application/json"}
     try:
-        async with httpx.AsyncClient(timeout=30.0) as client:
+        async with httpx.AsyncClient(timeout=timeout) as client:
             r = await client.post(url, headers=headers, json=payload)
     except (httpx.TimeoutException, httpx.HTTPError) as e:
         raise ScreeningError(
@@ -466,12 +541,18 @@ async def call_minimax(system: str, user: str, *, json_mode: bool = True) -> dic
     try:
         data = r.json()
         content = data["choices"][0]["message"]["content"]
-        return json.loads(content)
-    except (KeyError, ValueError, json.JSONDecodeError):
+    except (KeyError, ValueError):
+        raise ScreeningError(
+            502, "MINIMAX_API_ERROR",
+            "调用 Minimax M3 失败：响应结构不符合预期。",
+        )
+    parsed = _extract_json(content)
+    if parsed is None:
         raise ScreeningError(
             502, "MINIMAX_API_ERROR",
             "调用 Minimax M3 失败：响应无法解析为 JSON。",
         )
+    return parsed
 
 
 def _build_system_prompt() -> str:
@@ -548,26 +629,39 @@ def _offline_synthesize(
         })
 
     # 桶 B → 写固定话术,不直引桶 B 原文（避免桶 B 原文里的「确诊工具」命中禁词）
-    has_vus = re.search(r"VUS|未明|临床意义", request.gene_report, re.IGNORECASE)
-    vus_reassurance = (
-        "看到报告上「临床意义未明（VUS）」时感到不安是非常正常的，但请先不要过度担心。"
-        "VUS 可以理解为基因这本说明书里遇到的「生僻字」——它只代表目前全球医学数据库"
-        "积累的证据还不足以判断它的含义，而不是一张下了结论的通知单。"
-        "大规模变异数据分析显示，在接受广泛基因组检测的人群中，高达 41% 的个体"
-        "都会收到至少一个 VUS 报告；而经过平均近三年的重新分类过程后，其中"
-        "高达 80.2% 最终被证实为完全无害的良性改变。"
-        "国际指南明确要求临床医生不得仅凭一个 VUS 就对孩子采取激进的医疗干预。"
-        + (" 全外显子测序（WES）的核心价值在于精确解释发病机制、并据此制定有针对性的"
-           "监测方案。" if re.search(r"WES|外显子", request.gene_report, re.IGNORECASE) else "")
-    )
-
-    next_steps = [
-        "携带本信息整理单与完整的基因测序报告原件，前往正规三甲医疗机构的儿童发育行为科就诊。",
-        "同时预约医学遗传科门诊，就报告中变异的解读与是否需要父母验证测序，向专业医生当面咨询。",
-        "就诊前用手机录下孩子相关行为表现的短视频，并记录每天发生的大致频次与持续时长。",
-        "整理并向医生说明关键表现发生与发展的具体时间点，帮助医生更高效地评估。",
-        "若后续出现愣神、肢体抽动等疑似发作性表现，请及时记录并尽快告知就诊医生。",
-    ]
+    # 基因报告可选：未提供时不套用 VUS 安抚，改用症状向中性说明
+    if not (request.gene_report or "").strip():
+        vus_reassurance = (
+            "本次未附上基因报告原文。以下整理仅基于您描述或勾选的症状表现，"
+            "与知识库中的文献特征做客观比对，便于您带到门诊与医生当面沟通。"
+            "若之后拿到基因测序报告，可再携带本整理单一并交给医学遗传科解读。"
+        )
+        next_steps = [
+            "携带本信息整理单，前往正规三甲医疗机构的儿童发育行为科就诊。",
+            "同时预约医学遗传科门诊，向专业医生当面咨询是否需要进一步基因检测或解读。",
+            "就诊前用手机录下孩子相关行为表现的短视频，并记录每天发生的大致频次与持续时长。",
+            "整理并向医生说明关键表现发生与发展的具体时间点，帮助医生更高效地评估。",
+            "若后续出现愣神、肢体抽动等疑似发作性表现，请及时记录并尽快告知就诊医生。",
+        ]
+    else:
+        vus_reassurance = (
+            "看到报告上「临床意义未明（VUS）」时感到不安是非常正常的，但请先不要过度担心。"
+            "VUS 可以理解为基因这本说明书里遇到的「生僻字」——它只代表目前全球医学数据库"
+            "积累的证据还不足以判断它的含义，而不是一张下了结论的通知单。"
+            "大规模变异数据分析显示，在接受广泛基因组检测的人群中，高达 41% 的个体"
+            "都会收到至少一个 VUS 报告；而经过平均近三年的重新分类过程后，其中"
+            "高达 80.2% 最终被证实为完全无害的良性改变。"
+            "国际指南明确要求临床医生不得仅凭一个 VUS 就对孩子采取激进的医疗干预。"
+            + (" 全外显子测序（WES）的核心价值在于精确解释发病机制、并据此制定有针对性的"
+               "监测方案。" if re.search(r"WES|外显子", request.gene_report, re.IGNORECASE) else "")
+        )
+        next_steps = [
+            "携带本信息整理单与完整的基因测序报告原件，前往正规三甲医疗机构的儿童发育行为科就诊。",
+            "同时预约医学遗传科门诊，就报告中变异的解读与是否需要父母验证测序，向专业医生当面咨询。",
+            "就诊前用手机录下孩子相关行为表现的短视频，并记录每天发生的大致频次与持续时长。",
+            "整理并向医生说明关键表现发生与发展的具体时间点，帮助医生更高效地评估。",
+            "若后续出现愣神、肢体抽动等疑似发作性表现，请及时记录并尽快告知就诊医生。",
+        ]
 
     return {
         "comparisons": comparisons[:3],
@@ -583,45 +677,118 @@ def _offline_synthesize(
 async def lifespan(app: FastAPI):
     """常驻资源：MCP session 与 ChromaDB client。
 
-    由于 sandbox 网络受限，MCP stdio 子进程与 ChromaDB 持久化客户端的常驻初始化
-    在异常时降级为离线兜底（规则式 HPO 翻译 + JSON 桶检索），不影响 HTTP 契约。
+    MCP stdio 子进程必须活到进程退出：每请求重启会累积 1-2 秒冷启动，
+    逐词查询能拖到十几秒。用 AsyncExitStack 把它的生命周期绑在 lifespan 上。
+
+    MCP 或 ChromaDB 初始化失败时降级为离线兜底（规则式 HPO 翻译 + JSON 桶检索），
+    HTTP 契约不变。
     """
     app.state.hpo = None
+    app.state.hpo_lock = asyncio.Lock()
     app.state.chroma = None
     app.state.collection = None
-    try:
-        if path_exists(HPO_MCP_SERVER_PATH):
-            # 真链路：MCP stdio session（M3 阶段启用）
-            pass
-    except Exception as e:
-        logger.warning("HPO MCP 启动降级为离线模式：%s", e)
 
-    try:
-        if path_exists(CHROMA_PATH):
-            import chromadb
-            from chromadb.utils import embedding_functions
-            client = chromadb.PersistentClient(path=CHROMA_PATH)
+    async with AsyncExitStack() as stack:
+        entry = _resolve_mcp_entry(HPO_MCP_SERVER_PATH)
+        if entry:
             try:
-                app.state.collection = client.get_collection(
-                    COLLECTION_NAME,
-                    embedding_function=embedding_functions.SentenceTransformerEmbeddingFunction(
-                        model_name=EMBEDDING_MODEL
-                    ),
-                )
-                logger.info("Chroma collection 已加载：count=%d", app.state.collection.count())
-            except Exception as e:
-                logger.warning("Chroma collection 加载降级为离线 JSON 桶：%s", e)
-    except Exception as e:
-        logger.warning("Chroma 启动降级为离线模式：%s", e)
+                from mcp import ClientSession, StdioServerParameters
+                from mcp.client.stdio import stdio_client
 
-    logger.info("MINIMAX_API_KEY present: %s", bool(MINIMAX_API_KEY))
-    logger.info("MOCK_MODE=%s", MOCK_MODE or "<off>")
-    yield
+                read, write = await stack.enter_async_context(
+                    stdio_client(
+                        StdioServerParameters(command="node", args=[entry])
+                    )
+                )
+                session = await stack.enter_async_context(ClientSession(read, write))
+                await session.initialize()
+                app.state.hpo = session
+                logger.info("HPO MCP 会话已建立：%s", entry)
+            except Exception as e:
+                app.state.hpo = None
+                logger.warning("HPO MCP 启动降级为离线模式：%s", e)
+        else:
+            logger.warning(
+                "HPO_MCP_SERVER_PATH 无效（%s），HPO 查询降级为离线规则。"
+                "请在 .env 中填写编译产物的绝对路径，形如 …/HPO-MCP-Server/build/index.js。",
+                HPO_MCP_SERVER_PATH or "<未配置>",
+            )
+
+        try:
+            if path_exists(CHROMA_PATH):
+                import chromadb
+                from chromadb.utils import embedding_functions
+                client = chromadb.PersistentClient(path=CHROMA_PATH)
+                try:
+                    app.state.collection = client.get_collection(
+                        COLLECTION_NAME,
+                        embedding_function=embedding_functions.SentenceTransformerEmbeddingFunction(
+                            model_name=EMBEDDING_MODEL
+                        ),
+                    )
+                    logger.info("Chroma collection 已加载：count=%d", app.state.collection.count())
+                except Exception as e:
+                    logger.warning("Chroma collection 加载降级为离线 JSON 桶：%s", e)
+        except Exception as e:
+            logger.warning("Chroma 启动降级为离线模式：%s", e)
+
+        logger.info("MINIMAX_API_KEY present: %s", bool(MINIMAX_API_KEY))
+        logger.info("MOCK_MODE=%s", MOCK_MODE or "<off>")
+        yield
+
     app.state.hpo = None
     app.state.collection = None
 
 
 app = FastAPI(title="ASD-GenDecoder Backend", lifespan=lifespan)
+
+
+# ---------- MCP 调用封装 ----------
+
+# HPO-MCP-Server 返回的是给人看的纯文本，不是 JSON。逐行形如：
+#   • HP:0000733: Motor stereotypy
+_HPO_LINE_RE = re.compile(r"^[•*\-]\s*(HP:\d{7})\s*:\s*(.+?)\s*$")
+
+
+def _parse_hpo_lines(text: str) -> List[tuple]:
+    """从 MCP 文本响应里抽出 [(hpo_id, english_name), ...]，保持原顺序去重。"""
+    out: List[tuple] = []
+    seen: set = set()
+    for raw in (text or "").splitlines():
+        m = _HPO_LINE_RE.match(raw.strip())
+        if not m:
+            continue
+        hpo_id = m.group(1)
+        if hpo_id in seen:
+            continue
+        seen.add(hpo_id)
+        out.append((hpo_id, m.group(2).strip()))
+    return out
+
+
+async def _mcp_call(tool: str, args: dict) -> str:
+    """调常驻 MCP 会话的某个工具，返回拼接后的纯文本。
+
+    单会话跨请求共享，用 lock 串行化避免并发请求的 id 交叉。
+    会话不可用或调用异常时返回空串，由调用方走离线兜底，不抛给用户。
+    """
+    session = getattr(app.state, "hpo", None)
+    if session is None:
+        return ""
+    lock = getattr(app.state, "hpo_lock", None)
+    try:
+        if lock is None:
+            res = await session.call_tool(tool, args)
+        else:
+            async with lock:
+                res = await session.call_tool(tool, args)
+    except Exception as e:
+        logger.warning("MCP 调用 %s 失败：%s", tool, e)
+        return ""
+    parts = [
+        c.text for c in getattr(res, "content", []) or [] if getattr(c, "text", None)
+    ]
+    return "\n".join(parts)
 
 
 # ---------- 流水线 ----------
@@ -663,6 +830,83 @@ def retrieve_chunks(hpo_terms: List[HpoTerm], gene_report: str) -> List[Chunk]:
     return _offline_retrieve(hpo_terms, gene_report)
 
 
+_BANNED_WORDS = ["确诊", "患有", "即为", "需服用", "建议用药"]
+
+# 输出侧的用药闸门，与 scripts/rag_builder.py 的 DRUG_PATTERNS 同源。
+# 灌库侧挡的是「药名进向量库」，这里挡的是「药名进响应」——家长的诱导话术本身
+# 就带着药名，模型即便是拒绝式复述也会被逐字扫描判为违规，必须整份丢弃改走离线版。
+_DRUG_PATTERNS = [
+    r"everolimus", r"sirolimus", r"risperidone", r"aripiprazole", r"valproat",
+    r"carbamazepine", r"lamotrigine", r"levetiracetam", r"vigabatrin",
+    r"clonazepam", r"melatonin", r"methylphenidate", r"fluoxetine", r"sertraline",
+    r"\bmg/kg\b", r"\bdosage\b", r"\bdosing\b", r"\bprescrib",
+    r"利培酮", r"阿立哌唑", r"丙戊酸", r"卡马西平", r"左乙拉西坦", r"氨己烯酸",
+    r"抗癫痫药", r"精神药物", r"剂量", r"服药", r"吃药", r"处方",
+]
+_DRUG_RE = re.compile("|".join(_DRUG_PATTERNS), re.IGNORECASE)
+
+
+def _normalize_report(report: dict) -> dict:
+    """把 M3 返回的报告规整成契约形状。
+
+    模型偶尔会把 matched_anchors 写成顿号分隔的字符串而不是数组，
+    直接喂给 Comparison(**c) 会抛 pydantic 异常，变成不符合契约的裸 500。
+    这里统一收口，形状对不上的条目丢弃而不是让请求崩掉。
+    """
+    comparisons: List[dict] = []
+    for c in report.get("comparisons") or []:
+        if not isinstance(c, dict):
+            continue
+        anchors = c.get("matched_anchors")
+        if isinstance(anchors, str):
+            anchors = [a for a in re.split(r"[、,，;；/]", anchors) if a.strip()]
+        elif isinstance(anchors, list):
+            anchors = [str(a) for a in anchors if str(a).strip()]
+        else:
+            anchors = []
+        item = {
+            "condition": str(c.get("condition") or "").strip(),
+            "gene": str(c.get("gene") or "").strip(),
+            "matched_anchors": [a.strip() for a in anchors],
+            "explanation": str(c.get("explanation") or "").strip(),
+            "source": str(c.get("source") or "").strip(),
+        }
+        if not item["condition"] or not item["explanation"]:
+            continue
+        comparisons.append(item)
+
+    steps = [
+        str(s).strip()
+        for s in (report.get("next_steps") or [])
+        if str(s).strip()
+    ]
+    return {
+        "comparisons": comparisons,
+        "vus_reassurance": str(report.get("vus_reassurance") or "").strip(),
+        "next_steps": steps,
+    }
+
+
+def _report_banned_hits(report: dict) -> List[str]:
+    """扫描 LLM 报告里的禁用词与用药词，返回命中列表。
+
+    扫描范围严格对齐 AC5：comparisons[].explanation / vus_reassurance / next_steps。
+    不含 disclaimer 与 retrieved_chunks——前者是法定免责原文，后者是知识库原文，
+    两者本就允许出现这些词。
+    """
+    parts: List[str] = []
+    for c in report.get("comparisons") or []:
+        if isinstance(c, dict):
+            parts.append(str(c.get("explanation") or ""))
+    parts.append(str(report.get("vus_reassurance") or ""))
+    for s in report.get("next_steps") or []:
+        parts.append(str(s))
+    scan = " ".join(parts)
+    hits = [w for w in _BANNED_WORDS if w in scan]
+    hits.extend(sorted({m.group(0) for m in _DRUG_RE.finditer(scan)}))
+    return hits
+
+
 async def synthesize_report(
     request: ScreeningRequest,
     hpo_terms: List[HpoTerm],
@@ -685,7 +929,7 @@ async def synthesize_report(
             _build_user_prompt(request, hpo_terms, chunks),
         )
     try:
-        return await call_minimax(
+        report = await call_minimax(
             _build_system_prompt(),
             _build_user_prompt(request, hpo_terms, chunks),
         )
@@ -695,6 +939,308 @@ async def synthesize_report(
             logger.warning("M3 不可达，降级为离线合成：%s", e.error_message)
             return _offline_synthesize(request, hpo_terms, chunks)
         raise
+
+    report = _normalize_report(report)
+    if not report["comparisons"] or not report["vus_reassurance"]:
+        logger.warning("M3 报告结构不完整，改用离线合成")
+        return _offline_synthesize(request, hpo_terms, chunks)
+
+    dirty = _report_banned_hits(report)
+    if dirty:
+        # 靠 prompt 祈使模型别说「确诊」不可靠，这里做结构性拦截：
+        # 命中禁用词即整份丢弃，改用由桶 A/B 原文拼装的离线版本（不变量 I3 / AC5）。
+        logger.warning("M3 报告命中禁用词 %s，改用离线合成", dirty)
+        return _offline_synthesize(request, hpo_terms, chunks)
+    return report
+
+
+# ---------- 澄清对话流水线 ----------
+
+# 离线兜底时 _HPO_RULES 的 name 是中文，而 HPO API 只索引英文，
+# 这里给规则表补一份英文检索词，保证降级路径也能查 MCP。
+_HPO_EN_HINTS = {
+    "刻板动作": "stereotypic movements",
+    "语言发育倒退": "loss of speech",
+    "异常面容": "abnormal facial shape",
+    "步态不稳": "unsteady gait",
+    "呼吸节律异常": "abnormal breathing rhythm",
+    "不恰当的笑": "inappropriate laughter",
+    "癫痫发作": "seizure",
+    "睡眠节律紊乱": "sleep disturbance",
+    "焦虑": "anxiety",
+    "注意力缺陷多动": "attention deficit hyperactivity",
+    "皮肤色素减退斑": "hypopigmented skin macule",
+    "过度生长": "overgrowth",
+    "喂养困难": "feeding difficulties",
+    "食欲过盛": "hyperphagia",
+    "社交沟通缺陷": "impaired social interaction",
+    "局限重复行为": "restricted repetitive behavior",
+    "多动": "hyperactivity",
+    "皮肤色素异常": "abnormal skin pigmentation",
+    "婴儿痉挛": "infantile spasms",
+}
+
+# 规则表里已知的 hpo_id -> 中文名，用于免 LLM 直接回填，并作为「本知识库覆盖得到」的排序信号。
+_RULE_ID_TO_NAME = {r["hpo_id"]: r["name"] for r in _HPO_RULES}
+
+_CLARIFY_MAX_OPTIONS = 5
+_CLARIFY_MIN_OPTIONS = 3
+
+# 澄清链路要连调两次 M3，单次上限压到 45 秒，两次加上 MCP 往返仍在前端 120 秒之内。
+_CLARIFY_LLM_TIMEOUT = 45.0
+
+_SEEDS_PER_KEYWORD = 3
+
+
+def _clarify_offline_seeds(utterance: str) -> List[tuple]:
+    """离线兜底：直接用规则表命中，返回 [(hpo_id, 英文检索词, 命中原话), ...]。"""
+    seeds: List[tuple] = []
+    for rule in _HPO_RULES:
+        for pat in rule["patterns"]:
+            m = re.search(pat, utterance)
+            if m:
+                seeds.append((
+                    rule["hpo_id"],
+                    _HPO_EN_HINTS.get(rule["name"], rule["name"]),
+                    m.group(0),
+                ))
+                break
+    return seeds
+
+
+def _matched_fragment(hpo_id: str, utterance: str) -> str:
+    """回查触发该表型的原话片段。查不到返回空串。"""
+    for rule in _HPO_RULES:
+        if rule["hpo_id"] != hpo_id:
+            continue
+        for pat in rule["patterns"]:
+            m = re.search(pat, utterance)
+            if m:
+                return m.group(0)
+    return ""
+
+
+def _interleave(groups: List[List[tuple]]) -> List[tuple]:
+    """按组轮转取值。家长一句话往往说了好几件事，逐组轮转能保证每件都有候选，
+    否则第一个关键词的同义词会把 5 个名额占满。"""
+    out: List[tuple] = []
+    for i in range(max((len(g) for g in groups), default=0)):
+        for g in groups:
+            if i < len(g):
+                out.append(g[i])
+    return out
+
+
+async def _clarify_keywords(utterance: str) -> List[str]:
+    """M3 把口语抽成 1-4 个英文 HPO 检索词。M3 不可达时降级到规则表的英文提示词。"""
+    system = (
+        "你是医学表型术语抽取器，不做诊断、不提疾病名、不提药物。"
+        "把家长的中文口语描述抽成 1 到 4 个用于检索人类表型本体（HPO）的英文关键词短语，"
+        "全部小写，只描述可观察的表现，不要出现任何疾病名称或基因名称。"
+        '只返回严格 JSON：{"keywords": ["...", "..."]}'
+    )
+    try:
+        data = await call_minimax(
+            system, f"家长口语描述：{utterance}", timeout=_CLARIFY_LLM_TIMEOUT
+        )
+        raw = data.get("keywords") or []
+        clean = [str(k).strip() for k in raw if str(k).strip()][:4]
+        if clean:
+            return clean
+    except ScreeningError as e:
+        if e.error_code != "MINIMAX_API_ERROR":
+            raise
+        logger.warning("M3 抽词不可达，降级为规则表英文提示词：%s", e.error_message)
+
+    hints = [en for _, en, _ in _clarify_offline_seeds(utterance)][:4]
+    return hints or ["developmental delay"]
+
+
+async def _clarify_collect(utterance: str, picked: List[str]) -> tuple:
+    """检索 + 扩展候选。返回 (candidates, log_lines)。
+
+    candidates 为 [(hpo_id, english_name, matched_text), ...]，已剔除 picked。
+    MCP 不可用时退回规则表种子，保证聊天框在离线环境下仍可用。
+    """
+    picked_set = {p.strip() for p in picked if p and p.strip()}
+    log_lines: List[str] = []
+    seen: set = set()
+    groups: List[List[tuple]] = []
+    expanded: List[tuple] = []
+
+    keywords = await _clarify_keywords(utterance)
+    log_lines.append("抽取英文检索词：{}".format("、".join(keywords)))
+
+    for kw in keywords:
+        text = await _mcp_call("search_hpo_terms", {"query": kw, "max": 5})
+        hits = _parse_hpo_lines(text)
+        if not hits:
+            continue
+        group: List[tuple] = []
+        for hpo_id, name in hits:
+            if hpo_id in seen:
+                continue
+            seen.add(hpo_id)
+            group.append((hpo_id, name, _matched_fragment(hpo_id, utterance)))
+            if len(group) >= _SEEDS_PER_KEYWORD:
+                break
+        if group:
+            groups.append(group)
+            log_lines.append(
+                "search_hpo_terms(«{}») 命中 {} 条，取前 {} 条".format(
+                    kw, len(hits), len(group)
+                )
+            )
+
+    seeds = _interleave(groups)
+
+    if not seeds:
+        # MCP 不可用或全部无命中：退回规则表，仍能给出候选
+        for hpo_id, en, matched in _clarify_offline_seeds(utterance):
+            if hpo_id in seen:
+                continue
+            seen.add(hpo_id)
+            seeds.append((hpo_id, _RULE_ID_TO_NAME.get(hpo_id, en), matched))
+        if seeds:
+            log_lines.append("MCP 未返回结果，改用离线规则表种子 {} 条".format(len(seeds)))
+
+    # 候选扩展：往下取细粒度子节点，叶子节点改取兄弟层
+    for hpo_id, _, _ in seeds[:4]:
+        text = await _mcp_call("get_hpo_children", {"id": hpo_id, "max": 8})
+        children = _parse_hpo_lines(text)
+        if not children:
+            parent_text = await _mcp_call("get_hpo_parents", {"id": hpo_id, "max": 3})
+            for parent_id, _pname in _parse_hpo_lines(parent_text):
+                sib_text = await _mcp_call(
+                    "get_hpo_children", {"id": parent_id, "max": 8}
+                )
+                children.extend(_parse_hpo_lines(sib_text))
+        for child_id, child_name in children:
+            if child_id in seen:
+                continue
+            seen.add(child_id)
+            expanded.append((child_id, child_name, ""))
+    if expanded:
+        log_lines.append("层级扩展补充候选 {} 条".format(len(expanded)))
+
+    pool = [c for c in seeds + expanded if c[0] not in picked_set]
+    return pool, log_lines
+
+
+def _rank_candidates(pool: List[tuple]) -> List[tuple]:
+    """知识库覆盖得到的表型优先，保证用户勾选后 RAG 能召回对应桶 A 切片。"""
+    covered = [c for c in pool if c[0] in _RULE_ID_TO_NAME]
+    rest = [c for c in pool if c[0] not in _RULE_ID_TO_NAME]
+    return (covered + rest)[:_CLARIFY_MAX_OPTIONS]
+
+
+async def _clarify_localize(utterance: str, picks: List[tuple]) -> tuple:
+    """M3 回填中文表型名与家长口语问法。返回 (reply, {hpo_id: (name, plain)})。
+
+    规则表已覆盖的 hpo_id 直接用本地中文名，不依赖 M3；M3 只负责补齐其余条目与引导语。
+    解析失败时全部回落到模板，不阻断整条链路。
+    """
+    fallback_reply = "谢谢你的描述。下面几条是和你说的情况相关的表现，选出符合孩子的，我帮你整理进症状描述。"
+    mapping = {}
+    for hpo_id, en_name, _ in picks:
+        local = _RULE_ID_TO_NAME.get(hpo_id)
+        base = local or en_name
+        mapping[hpo_id] = (base, f"孩子有没有「{base}」这样的表现？")
+
+    system = (
+        "你是把医学表型术语翻译成家长听得懂的白话的翻译官。"
+        "严禁诊断、严禁定性、严禁提及任何疾病名称、基因名称、药物名称或剂量。"
+        "对每个 HPO 条目给出中文标准表型名 name，以及一句面向家长的确认问句 plain（25 字以内，只问表现）。"
+        "reply 是一句中性引导语，40 字以内，不得暗示任何结论。"
+        '只返回严格 JSON：{"reply": "...", "items": [{"hpo_id": "HP:0000733", "name": "...", "plain": "..."}]}'
+    )
+    listing = "\n".join(f"{hpo_id} = {en_name}" for hpo_id, en_name, _ in picks)
+    try:
+        data = await call_minimax(
+            system,
+            f"家长原话：{utterance}\n待翻译的 HPO 条目：\n{listing}",
+            timeout=_CLARIFY_LLM_TIMEOUT,
+        )
+    except ScreeningError as e:
+        if e.error_code != "MINIMAX_API_ERROR":
+            raise
+        logger.warning("M3 回填不可达，使用模板问法：%s", e.error_message)
+        return fallback_reply, mapping
+
+    reply = str(data.get("reply") or "").strip() or fallback_reply
+    for item in data.get("items") or []:
+        if not isinstance(item, dict):
+            continue
+        hpo_id = str(item.get("hpo_id") or "").strip()
+        if hpo_id not in mapping:
+            continue
+        name = str(item.get("name") or "").strip() or mapping[hpo_id][0]
+        plain = str(item.get("plain") or "").strip() or mapping[hpo_id][1]
+        mapping[hpo_id] = (name, plain)
+    return reply, mapping
+
+
+# ---------- 澄清对话合规收口 ----------
+
+# 病名黑名单里要剔除的通用词：留着会把正常表型描述也误杀
+_BLACKLIST_STOPWORDS = {
+    "syndrome", "syndromes", "complex", "related", "disorder", "disorders",
+    "disease", "diseases", "and", "the", "of",
+}
+_CN_BLACKLIST_STOPWORDS = {"综合征", "相关疾病", "疾病", "基础标准与初级保健"}
+
+_SAFE_REPLY = "谢谢你的描述。下面几条是和你说的情况相关的表现，选出符合孩子的，我帮你整理进症状描述。"
+
+
+def _build_condition_blacklist() -> set:
+    """从桶 A 抽病名与基因名。聊天候选只承载表型，出现病名即视为滑向诊断。"""
+    words: set = set()
+    for entry in _load_bucket_json("bucket_a_differential.json"):
+        raw = f"{entry.get('condition', '')} / {entry.get('gene', '')}"
+        for token in re.findall(r"[A-Za-z][A-Za-z0-9.\-]{1,}", raw):
+            if token.lower() not in _BLACKLIST_STOPWORDS:
+                words.add(token.lower())
+        for run in re.findall(r"[\u4e00-\u9fa5]{2,}", raw):
+            if run in _CN_BLACKLIST_STOPWORDS:
+                continue
+            words.add(run)
+            trimmed = run
+            for suffix in ("综合征", "相关疾病"):
+                trimmed = trimmed.replace(suffix, "")
+            if trimmed.endswith("症") and len(trimmed) >= 4:
+                trimmed = trimmed[:-1]
+            if len(trimmed) >= 2 and trimmed not in _CN_BLACKLIST_STOPWORDS:
+                words.add(trimmed)
+    return words
+
+
+_CONDITION_BLACKLIST: set = set()
+
+
+def _condition_blacklist() -> set:
+    global _CONDITION_BLACKLIST
+    if not _CONDITION_BLACKLIST:
+        try:
+            _CONDITION_BLACKLIST = _build_condition_blacklist()
+        except Exception as e:
+            logger.warning("桶 A 病名黑名单构建失败，退回仅禁词扫描：%s", e)
+            _CONDITION_BLACKLIST = {"__unavailable__"}
+    return _CONDITION_BLACKLIST
+
+
+def _scrub_clarify(text: str) -> bool:
+    """澄清输出的合规闸门。命中禁用词、用药词或桶 A 病名/基因名即判脏。
+
+    禁用词是字面子串匹配，否定句式（如「这不是确诊结论」）同样算违规。
+    """
+    if not text:
+        return True
+    if any(w in text for w in _BANNED_WORDS):
+        return False
+    if _DRUG_RE.search(text):
+        return False
+    low = text.lower()
+    return not any(bad in low for bad in _condition_blacklist())
 
 
 PDF_MAX_BYTES = 15 * 1024 * 1024
@@ -733,6 +1279,72 @@ def _extract_pdf_report(pdf_bytes: bytes, filename: str) -> str:
 
 
 # ---------- 端点 ----------
+
+
+@app.post("/api/clarify", response_model=ClarifyResponse)
+async def clarify(payload: ClarifyRequest) -> ClarifyResponse:
+    """澄清端点：把家长口语反推为 3-5 个候选表型，供前端勾选后回填症状框。
+
+    只产出表型候选，不产出任何结论；报告仍由 POST /api/screen 生成。
+    """
+    if not payload.utterance.strip():
+        raise ScreeningError(
+            422, "INVALID_INPUT", "请先描述孩子的表现，再让我帮你整理。"
+        )
+
+    if MOCK_MODE == "missing_api_key" or (
+        not MINIMAX_API_KEY and MOCK_MODE != "hpo_no_match"
+    ):
+        raise ScreeningError(
+            500, "MISSING_API_KEY", "后端未配置 MINIMAX_API_KEY，请联系管理员。"
+        )
+
+    pool, log_lines = await _clarify_collect(payload.utterance, payload.picked)
+    picks = _rank_candidates(pool)
+    if not picks:
+        raise ScreeningError(
+            422, "HPO_NO_MATCH",
+            "暂未匹配到标准表型术语，换个说法描述孩子的具体表现再试试。",
+        )
+
+    reply, mapping = await _clarify_localize(payload.utterance, picks)
+
+    options: List[SymptomOption] = []
+    for hpo_id, en_name, matched in picks:
+        name, plain = mapping.get(hpo_id, (en_name, ""))
+        if not _scrub_clarify(name) or not _scrub_clarify(plain):
+            logger.warning("澄清候选被合规闸门剔除：%s（%s）", hpo_id, name)
+            continue
+        options.append(
+            SymptomOption(
+                hpo_id=hpo_id, name=name, plain=plain, matched_text=matched
+            )
+        )
+
+    if not options:
+        raise ScreeningError(
+            422, "HPO_NO_MATCH",
+            "暂未匹配到标准表型术语，换个说法描述孩子的具体表现再试试。",
+        )
+    if len(options) < _CLARIFY_MIN_OPTIONS:
+        logger.warning("澄清候选仅 %d 条，少于期望的 %d 条", len(options), _CLARIFY_MIN_OPTIONS)
+
+    if not _scrub_clarify(reply):
+        logger.warning("澄清引导语被合规闸门替换")
+        reply = _SAFE_REPLY
+
+    log_lines.append(
+        "最终候选 {} 条：{}".format(
+            len(options),
+            "；".join(f"{o.hpo_id} ({o.name})" for o in options),
+        )
+    )
+    return ClarifyResponse(
+        reply=reply,
+        options=options,
+        mcp_translation="。".join(log_lines) + "。",
+        disclaimer=official_disclaimer(),
+    )
 
 
 @app.post(
@@ -789,9 +1401,9 @@ async def screen(request: Request) -> ScreeningResponse:
         except Exception as exc:
             raise ScreeningError(422, "INVALID_INPUT", "请求体字段不完整。") from exc
 
-    if not payload.symptoms.strip() or not payload.gene_report.strip():
+    if not payload.symptoms.strip():
         raise ScreeningError(
-            422, "INVALID_INPUT", "症状描述与基因报告均为必填项，请补全后重新提交。"
+            422, "INVALID_INPUT", "症状描述为必填项，请补全后重新提交。"
         )
 
     if MOCK_MODE == "missing_api_key" or (not MINIMAX_API_KEY and MOCK_MODE != "hpo_no_match"):
@@ -829,7 +1441,18 @@ async def screen(request: Request) -> ScreeningResponse:
         )
 
     report = await synthesize_report(payload, hpo_terms, chunks)
-    comparisons = [Comparison(**c) for c in report.get("comparisons", [])]
+    # 无基因报告时：安抚与下一步统一走症状向文案，避免 LLM 仍按 VUS 口吻发挥
+    if not payload.gene_report.strip():
+        offline = _offline_synthesize(payload, hpo_terms, chunks)
+        report["vus_reassurance"] = offline["vus_reassurance"]
+        report["next_steps"] = offline["next_steps"]
+    try:
+        comparisons = [Comparison(**c) for c in report.get("comparisons", [])]
+    except (TypeError, ValueError) as e:
+        # 兜底护栏：任何形状意外都不得逃逸成裸 500，改走离线合成保住契约
+        logger.warning("报告结构装配失败，改用离线合成：%s", e)
+        report = _offline_synthesize(payload, hpo_terms, chunks)
+        comparisons = [Comparison(**c) for c in report.get("comparisons", [])]
     _dlog("H1", "main.py:789", "screen success",
           {"n_chunks": len(chunks), "n_comparisons": len(comparisons)})
     return ScreeningResponse(

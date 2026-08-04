@@ -6,9 +6,23 @@ alwaysApply: false
 
 # 唯一事实来源
 
-响应结构以 [docs/schema.md](../../docs/schema.md) 为准，**禁止发明字段**。成功响应必含八个字段，缺一即 AC1 失败：
+响应结构以 [docs/schema.md](../../docs/schema.md) 为准，**禁止发明字段**。`POST /api/screen`
+成功响应必含八个字段，缺一即 AC1 失败：
 
 `status` `hpo_terms` `comparisons` `vus_reassurance` `next_steps` `disclaimer` `mcp_translation` `retrieved_chunks`
+
+`POST /api/clarify` 是澄清端点，返回 `status` `reply` `options` `mcp_translation` `disclaimer` 五个字段。
+它只产出候选表型供用户勾选，**不产出任何结论**；报告一律走 `/api/screen`。
+
+# LLM 输出必须过闸门再出门
+
+M3 是推理模型，正文前带 `<think>…</think>`，直接 `json.loads` 必然失败——`_extract_json`
+负责剥壳。剥壳之后还有两道**不得绕过**的闸门，靠 prompt 祈使模型不说禁忌词是不可靠的：
+
+- `_normalize_report` 把形状规整到契约（模型会把 `matched_anchors` 写成字符串），
+  形状对不上的条目丢弃，不得让 pydantic 异常逃逸成裸 500。
+- `_report_banned_hits` 扫禁用词与用药词，命中即整份丢弃改走 `_offline_synthesize`。
+  用药词表与 `scripts/rag_builder.py` 的 `DRUG_PATTERNS` 同源，两端都不得放宽。
 
 # disclaimer 必须硬填充
 
