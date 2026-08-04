@@ -837,9 +837,28 @@ def main() -> None:
             render_next_steps(payload.get("next_steps", []))
             render_confidence_line(payload.get("confidence_level"))
             # 报告页不展示聊天与采集区，避免问答历史干扰阅读
-            if st.button("修改输入，重新整理", use_container_width=True):
-                st.session_state.stage = "idle"
-                st.rerun()
+            act_a, act_b = st.columns(2)
+            with act_a:
+                if st.button("重新生成", use_container_width=True, key="restart_fresh"):
+                    st.session_state.stage = "idle"
+                    st.session_state.payload = None
+                    st.session_state.chat_msgs = []
+                    st.session_state.picked_ids = []
+                    st.session_state.symptoms = ""
+                    st.session_state.gene_report = ""
+                    st.session_state.gene_report_method = None
+                    st.session_state.clarify_trace = ""
+                    st.session_state.pdf_bytes = None
+                    st.session_state.pdf_name = "report.pdf"
+                    st.rerun()
+            with act_b:
+                if st.button(
+                    "补充孩子表现或迹象",
+                    use_container_width=True,
+                    key="resume_intake",
+                ):
+                    st.session_state.stage = "idle"
+                    st.rerun()
         elif stage == "error":
             render_error(payload or {})
 
