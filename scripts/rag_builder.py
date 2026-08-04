@@ -118,6 +118,7 @@ RAW_FILE_META = {
     "pubmed_33921431_wes_value": ("全外显子测序的诊断价值", "", "pubmed"),
     "pubmed_37878314_vus_acmg": ("VUS 重分类数据", "", "pubmed"),
     "aap_asd_guideline_abstract": ("ASD 初级保健指南", "", "aap"),
+    "peds_20193447": ("ASD 初级保健指南(AAP 2020 全文)", "", "aap"),
 }
 
 # PubMed 与 AAP 属于科普/证据类，归入桶 B；GeneReviews 属于鉴别规则，归入桶 A。
