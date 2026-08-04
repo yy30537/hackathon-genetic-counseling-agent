@@ -1297,9 +1297,9 @@ async def clarify(payload: ClarifyRequest) -> ClarifyResponse:
 )
 async def screen(payload: ScreeningRequest) -> ScreeningResponse:
     """全系统唯一业务端点。"""
-    if not payload.symptoms.strip() or not payload.gene_report.strip():
+    if not payload.symptoms.strip():
         raise ScreeningError(
-            422, "INVALID_INPUT", "症状描述与基因报告均为必填项，请补全后重新提交。"
+            422, "INVALID_INPUT", "症状描述为必填项，请补全后重新提交。"
         )
 
     if MOCK_MODE == "missing_api_key" or (not MINIMAX_API_KEY and MOCK_MODE != "hpo_no_match"):
@@ -1333,6 +1333,11 @@ async def screen(payload: ScreeningRequest) -> ScreeningResponse:
         )
 
     report = await synthesize_report(payload, hpo_terms, chunks)
+    # 无基因报告时：安抚与下一步统一走症状向文案，避免 LLM 仍按 VUS 口吻发挥
+    if not payload.gene_report.strip():
+        offline = _offline_synthesize(payload, hpo_terms, chunks)
+        report["vus_reassurance"] = offline["vus_reassurance"]
+        report["next_steps"] = offline["next_steps"]
     try:
         comparisons = [Comparison(**c) for c in report.get("comparisons", [])]
     except (TypeError, ValueError) as e:
