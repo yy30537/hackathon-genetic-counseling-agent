@@ -126,7 +126,7 @@ html, body, [class*="css"]{ font-family:var(--font-sans); color:var(--text-prima
 .stTextArea textarea{ background:var(--bg-surface); border:1px solid var(--border);
   border-radius:var(--radius); font-size:16px; line-height:1.8; color:var(--text-primary); }
 .stTextArea textarea:focus{ border-color:var(--brand); box-shadow:none; }
-.stTextArea textarea[aria-label="基因报告原文"]{ font-family:var(--font-mono); font-size:13px; line-height:1.7; }
+.stTextArea textarea[aria-label="粘贴基因报告文本"]{ font-family:var(--font-mono); font-size:13px; line-height:1.7; }
 div[data-baseweb="notification"]{ background:var(--bucket-c-soft) !important;
   border-left:4px solid var(--bucket-c) !important; color:var(--text-primary) !important; }
 </style>
@@ -416,42 +416,82 @@ def render_intake_form(disabled: bool) -> None:
         "全外显子测序（WES）检出 MECP2 基因错义变异 c.455C>G (p.Pro152Arg)，"
         "临床意义未明（VUS）。"
     )
-    with st.form(key="intake", clear_on_submit=False):
+    st.text_area(
+        "孩子的情况", key="symptoms", height=96,
+        placeholder=placeholder_s, disabled=disabled,
+    )
+    st.markdown(
+        '<div class="ced-section-title" style="margin:16px 0 4px">附上基因报告原文（可选）</div>'
+        '<div class="ced-note" style="margin-bottom:8px">没有报告也能生成整理单；填写/上传报告后，系统比对会同步参考基因报告内容。</div>',
+        unsafe_allow_html=True,
+    )
+    report_method = st.pills(
+        "基因报告输入方式",
+        ["粘贴基因报告文本", "上传基因报告PDF文件", "不添加文本"],
+        selection_mode="single",
+        default=None,
+        key="gene_report_method",
+        disabled=disabled,
+        label_visibility="collapsed",
+    )
+    if report_method == "粘贴基因报告文本":
         st.text_area(
-            "孩子的情况", key="symptoms", height=96,
-            placeholder=placeholder_s, disabled=disabled,
+            "粘贴基因报告文本",
+            key="gene_report",
+            height=120,
+            placeholder=placeholder_g,
+            disabled=disabled,
         )
+    elif report_method == "上传基因报告PDF文件":
         uploaded = st.file_uploader(
             "上传基因报告 PDF（首期支持可复制文本 PDF）",
-            type=["pdf"], key="gene_report_pdf", disabled=disabled,
+            type=["pdf"],
+            key="gene_report_pdf",
+            disabled=disabled,
             help="文件仅用于本次解析，不会保存。扫描件或图片型 PDF 暂不支持。",
         )
         if uploaded is not None:
             pdf_bytes = uploaded.getvalue()
             st.session_state.pdf_bytes = pdf_bytes
             st.session_state.pdf_name = uploaded.name
-            st.caption(f"已选择 {uploaded.name} · {len(pdf_bytes) / 1024:.1f} KB。提交后由后端提取文本。")
-        st.text_area(
-            "基因报告原文（也可直接粘贴；上传 PDF 后可补充或覆盖）",
-            key="gene_report", height=120,
-            placeholder=placeholder_g, disabled=disabled,
-        )
-        submitted = st.form_submit_button(
-            "生成信息整理单", type="primary", use_container_width=True, disabled=disabled,
-        )
+            st.caption(
+                f"已选择 {uploaded.name} · {len(pdf_bytes) / 1024:.1f} KB。提交后由后端提取文本。"
+            )
+        else:
+            st.session_state.pdf_bytes = None
+            st.session_state.pdf_name = "report.pdf"
+    submitted = st.button(
+        "生成信息整理单", type="primary", use_container_width=True,
+        disabled=disabled, key="submit_intake",
+    )
     if submitted:
         s = (st.session_state.get("symptoms") or "").strip()
-        g = (st.session_state.get("gene_report") or "").strip()
-        pdf_bytes = st.session_state.get("pdf_bytes")
+        report_method = st.session_state.get("gene_report_method")
+        g = (
+            (st.session_state.get("gene_report") or "").strip()
+            if report_method == "粘贴基因报告文本"
+            else ""
+        )
+        pdf_bytes = (
+            st.session_state.get("pdf_bytes")
+            if report_method == "上传基因报告PDF文件"
+            else None
+        )
         _dlog(
-            "H1", "app.py:415", "form submitted",
-            {"has_symptoms": bool(s), "has_gene_report": bool(g),
-             "has_pdf_bytes": bool(pdf_bytes),
+            "H1", "app.py:render_intake_form", "form submitted",
+            {"has_symptoms": bool(s), "report_method": report_method,
+             "has_gene_report": bool(g), "has_pdf_bytes": bool(pdf_bytes),
              "pdf_bytes_type": type(pdf_bytes).__name__ if pdf_bytes is not None else "None",
              "pdf_bytes_len": len(pdf_bytes) if isinstance(pdf_bytes, (bytes, bytearray)) else None},
         )
-        if not s or (not g and not pdf_bytes):
-            st.warning("请填写「孩子的情况」，并粘贴报告原文或上传 PDF 后再提交。")
+        if not s:
+            st.warning("请填写「孩子的情况」后再提交。")
+            return
+        if report_method == "粘贴基因报告文本" and not g:
+            st.warning("请粘贴基因报告文本，或取消该输入方式后直接提交。")
+            return
+        if report_method == "上传基因报告PDF文件" and not pdf_bytes:
+            st.warning("请上传基因报告 PDF，或取消该输入方式后直接提交。")
             return
         st.session_state.stage = "loading"
         with st.spinner(""):
