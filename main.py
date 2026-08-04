@@ -41,9 +41,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 
 class ScreeningRequest(BaseModel):
     symptoms: str
-    # 家长可能尚未拿到测序报告。缺省为空串，使调用方省略该键时也走业务错误契约，
-    # 而不是 FastAPI 的 RequestValidationError（那条路径不返回 ErrorResponse 结构）。
-    gene_report: str = ""
+    gene_report: str
 
 
 class HpoTerm(BaseModel):
@@ -474,11 +472,9 @@ def _build_user_prompt(
         for i, c in enumerate(chunks)
     )
     hpo_text = "；".join(f"{t.hpo_id} ({t.name})" for t in hpo_terms)
-    # 空基因报告要说破，否则模型会把空白当成"报告存在但内容未知"而自行补写变异信息。
-    gene_text = request.gene_report.strip() or "（家长本次未提供基因检测报告，请勿推测任何变异信息）"
     return (
         f"症状白话：{request.symptoms}\n"
-        f"基因报告：{gene_text}\n"
+        f"基因报告：{request.gene_report}\n"
         f"标准化 HPO：{hpo_text}\n"
         f"参考切片：\n{chunk_text}"
     )
@@ -530,25 +526,7 @@ def _offline_synthesize(
         })
 
     # 桶 B → 写固定话术,不直引桶 B 原文（避免桶 B 原文里的「确诊工具」命中禁词）
-    if not request.gene_report.strip():
-        # 没有报告就没有可解读的变异。此处只说明为何缺这一段，不做任何推测。
-        return {
-            "comparisons": comparisons[:3],
-            "vus_reassurance": (
-                "本次没有提交基因检测报告，所以这份整理单只梳理了行为表现层面的线索，"
-                "未对任何变异做解读。若后续拿到测序报告，可以回到这里补充，"
-                "也可以直接把报告原件带去门诊。报告上常见的「临床意义未明（VUS）」"
-                "只说明证据尚不充分，并非已经落定的结论，交由专科医生结合面诊评估即可。"
-            ),
-            "next_steps": [
-                "携带本信息整理单前往正规三甲医疗机构的儿童发育行为科就诊。",
-                "同时预约医学遗传科门诊，就是否需要安排基因检测向专业医生当面咨询。",
-                "就诊前用手机录下孩子相关行为表现的短视频，并记录每天发生的大致频次与持续时长。",
-                "整理并向医生说明关键表现发生与发展的具体时间点，帮助医生更高效地评估。",
-                "若后续出现愣神、肢体抽动等疑似发作性表现，请及时记录并尽快告知就诊医生。",
-            ],
-        }
-
+    has_vus = re.search(r"VUS|未明|临床意义", request.gene_report, re.IGNORECASE)
     vus_reassurance = (
         "看到报告上「临床意义未明（VUS）」时感到不安是非常正常的，但请先不要过度担心。"
         "VUS 可以理解为基因这本说明书里遇到的「生僻字」——它只代表目前全球医学数据库"
@@ -707,9 +685,9 @@ async def synthesize_report(
 )
 async def screen(payload: ScreeningRequest) -> ScreeningResponse:
     """全系统唯一业务端点。"""
-    if not payload.symptoms.strip():
+    if not payload.symptoms.strip() or not payload.gene_report.strip():
         raise ScreeningError(
-            422, "INVALID_INPUT", "症状描述为必填项，请补全后重新提交。"
+            422, "INVALID_INPUT", "症状描述与基因报告均为必填项，请补全后重新提交。"
         )
 
     if MOCK_MODE == "missing_api_key" or (not MINIMAX_API_KEY and MOCK_MODE != "hpo_no_match"):
