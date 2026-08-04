@@ -6,6 +6,7 @@
 import html
 import json
 import re
+import time
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
@@ -13,6 +14,27 @@ import requests
 import streamlit as st
 
 from config import BACKEND_URL  # noqa: F401  通过 config 统一读 .env
+
+# #region agent log (debug-e760bc)
+_DEBUG_LOG_PATH = Path("/Users/tori/Desktop/hackon Project/hackathon-genetic-counseling-agent/.cursor/debug-e760bc.log")
+
+def _dlog(hypothesis: str, location: str, message: str, data: dict) -> None:
+    try:
+        payload = {
+            "sessionId": "e760bc",
+            "id": f"log_{int(time.time()*1000)}_app",
+            "timestamp": int(time.time() * 1000),
+            "location": location,
+            "message": message,
+            "data": data,
+            "runId": "pre-fix",
+            "hypothesisId": hypothesis,
+        }
+        with _DEBUG_LOG_PATH.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(payload, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+# #endregion
 
 # ---------- 常量与工具 ----------
 
@@ -136,11 +158,20 @@ def call_backend(symptoms: str, gene_report: str, pdf_bytes: bytes | None = None
         return "success", load_mock("success")
     try:
         if pdf_bytes:
+            _dlog(
+                "H1", "app.py:150", "call_backend enter with pdf",
+                {"pdf_size": len(pdf_bytes), "pdf_name": pdf_name,
+                 "symptoms_len": len(symptoms or ""), "gene_report_len": len(gene_report or "")},
+            )
             r = requests.post(
                 f"{BACKEND_URL_LOCAL}/api/screen",
                 data={"symptoms": symptoms},
                 files={"pdf_file": (pdf_name, pdf_bytes, "application/pdf")},
                 timeout=120,
+            )
+            _dlog(
+                "H1", "app.py:160", "call_backend got response",
+                {"status": r.status_code, "len": len(r.content)},
             )
         else:
             r = requests.post(
@@ -149,20 +180,25 @@ def call_backend(symptoms: str, gene_report: str, pdf_bytes: bytes | None = None
                 timeout=120,
             )
     except requests.exceptions.ConnectionError:
+        _dlog("H1", "app.py:170", "call_backend ConnectionError", {"pdf_size": len(pdf_bytes) if pdf_bytes else 0})
         return "error", {"error_code": "CONNECTION_ERROR", "error_message": "无法连接后端服务，请确认已执行 uvicorn main:app --port 8000。"}
     except requests.exceptions.Timeout:
+        _dlog("H1", "app.py:172", "call_backend Timeout", {"pdf_size": len(pdf_bytes) if pdf_bytes else 0})
         return "error", {"error_code": "TIMEOUT", "error_message": "请求超时，请稍后重试。"}
     except Exception as e:
+        _dlog("H1", "app.py:174", "call_backend Exception", {"type": type(e).__name__, "msg": str(e)[:300]})
         return "error", {"error_code": "UNKNOWN", "error_message": f"请求异常：{type(e).__name__}"}
 
     if r.status_code == 200:
         try:
             return "success", r.json()
         except ValueError:
+            _dlog("H1", "app.py:183", "BAD_JSON", {"status": r.status_code, "body_head": r.text[:200]})
             return "error", {"error_code": "BAD_JSON", "error_message": "后端响应不是合法 JSON。"}
     try:
         body = r.json()
     except ValueError:
+        _dlog("H1", "app.py:189", "non-200 BAD_JSON", {"status": r.status_code, "body_head": r.text[:200]})
         body = {"error_code": "BAD_JSON", "error_message": f"HTTP {r.status_code}"}
     return "error", body
 
@@ -407,6 +443,13 @@ def render_intake_form(disabled: bool) -> None:
         s = (st.session_state.get("symptoms") or "").strip()
         g = (st.session_state.get("gene_report") or "").strip()
         pdf_bytes = st.session_state.get("pdf_bytes")
+        _dlog(
+            "H1", "app.py:415", "form submitted",
+            {"has_symptoms": bool(s), "has_gene_report": bool(g),
+             "has_pdf_bytes": bool(pdf_bytes),
+             "pdf_bytes_type": type(pdf_bytes).__name__ if pdf_bytes is not None else "None",
+             "pdf_bytes_len": len(pdf_bytes) if isinstance(pdf_bytes, (bytes, bytearray)) else None},
+        )
         if not s or (not g and not pdf_bytes):
             st.warning("请填写「孩子的情况」，并粘贴报告原文或上传 PDF 后再提交。")
             return

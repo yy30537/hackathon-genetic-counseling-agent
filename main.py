@@ -11,6 +11,7 @@ import json
 import logging
 import os
 import re
+import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Annotated, Any, List, Literal, Optional
@@ -36,6 +37,26 @@ from config import (
 
 logger = logging.getLogger("asd-gendecoder")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+
+_DEBUG_LOG_PATH = Path("/Users/tori/Desktop/hackon Project/hackathon-genetic-counseling-agent/.cursor/debug-e760bc.log")
+
+def _dlog(hypothesis: str, location: str, message: str, data: dict) -> None:
+    """本地 NDJSON 写入,不依赖外部 logger 级别,保证 debug 期总能落地。"""
+    try:
+        payload = {
+            "sessionId": "e760bc",
+            "id": f"log_{int(time.time()*1000)}_main",
+            "timestamp": int(time.time() * 1000),
+            "location": location,
+            "message": message,
+            "data": data,
+            "runId": "pre-fix",
+            "hypothesisId": hypothesis,
+        }
+        with _DEBUG_LOG_PATH.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(payload, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
 
 # ---------- 数据契约（docs/schema.md §2 §3） ----------
 
@@ -723,16 +744,40 @@ async def screen(request: Request) -> ScreeningResponse:
     """全系统唯一业务端点。支持 JSON 与 multipart/form-data 两种入口。"""
     content_type = (request.headers.get("content-type") or "").lower()
     if content_type.startswith("multipart/form-data"):
+        _dlog("H2", "main.py:725", "multipart enter",
+              {"ct": content_type[:60], "raw_filename_bytes_first16": (request.headers.get("content-type") or "")[:60]})
         try:
             form = await request.form()
         except Exception as exc:
+            _dlog("H2", "main.py:730", "request.form() failed",
+                  {"type": type(exc).__name__, "msg": str(exc)[:300]})
             raise ScreeningError(422, "INVALID_INPUT", "无法解析上传的表单数据。") from exc
         symptoms = str(form.get("symptoms") or "").strip()
         pdf_file = form.get("pdf_file")
-        if pdf_file is None or not getattr(pdf_file, "filename", ""):
+        fn = getattr(pdf_file, "filename", "") if pdf_file is not None else ""
+        _dlog("H2", "main.py:735", "form parsed",
+              {"has_pdf_file": pdf_file is not None, "filename": fn,
+               "filename_repr": repr(fn), "symptoms_len": len(symptoms)})
+        if pdf_file is None or not fn:
             raise ScreeningError(422, "INVALID_INPUT", "请上传 PDF 文件或粘贴报告原文。")
-        pdf_bytes = await pdf_file.read() if hasattr(pdf_file, "read") else b""
-        gene_report = _extract_pdf_report(pdf_bytes, pdf_file.filename)
+        try:
+            pdf_bytes = await pdf_file.read() if hasattr(pdf_file, "read") else b""
+        except Exception as exc:
+            _dlog("H2", "main.py:742", "pdf_file.read() failed",
+                  {"type": type(exc).__name__, "msg": str(exc)[:300]})
+            raise
+        _dlog("H2", "main.py:744", "pdf_bytes read",
+              {"size": len(pdf_bytes)})
+        try:
+            gene_report = _extract_pdf_report(pdf_bytes, fn)
+        except ScreeningError as e:
+            _dlog("H2", "main.py:748", "_extract_pdf_report ScreeningError",
+                  {"code": e.error_code, "msg": e.error_message})
+            raise
+        except Exception as exc:
+            _dlog("H2", "main.py:752", "_extract_pdf_report Exception",
+                  {"type": type(exc).__name__, "msg": str(exc)[:300]})
+            raise
         payload = ScreeningRequest(symptoms=symptoms, gene_report=gene_report)
     else:
         try:
@@ -750,6 +795,8 @@ async def screen(request: Request) -> ScreeningResponse:
         )
 
     if MOCK_MODE == "missing_api_key" or (not MINIMAX_API_KEY and MOCK_MODE != "hpo_no_match"):
+        _dlog("H1", "main.py:761", "MISSING_API_KEY raised",
+              {"has_key": bool(MINIMAX_API_KEY), "mock_mode": MOCK_MODE})
         raise ScreeningError(
             500, "MISSING_API_KEY",
             "后端未配置 MINIMAX_API_KEY，请联系管理员。",
@@ -766,6 +813,8 @@ async def screen(request: Request) -> ScreeningResponse:
 
     chunks = retrieve_chunks(hpo_terms, payload.gene_report)
     if not chunks:
+        _dlog("H1", "main.py:777", "no chunks retrieved",
+              {"n_hpo": len(hpo_terms)})
         return ScreeningResponse(
             hpo_terms=hpo_terms,
             comparisons=[],
@@ -781,6 +830,8 @@ async def screen(request: Request) -> ScreeningResponse:
 
     report = await synthesize_report(payload, hpo_terms, chunks)
     comparisons = [Comparison(**c) for c in report.get("comparisons", [])]
+    _dlog("H1", "main.py:789", "screen success",
+          {"n_chunks": len(chunks), "n_comparisons": len(comparisons)})
     return ScreeningResponse(
         hpo_terms=hpo_terms,
         comparisons=comparisons,
@@ -798,6 +849,8 @@ async def screen(request: Request) -> ScreeningResponse:
 @app.exception_handler(ScreeningError)
 async def screening_error_handler(request: Request, exc: ScreeningError) -> JSONResponse:
     """错误一律以 HTTP 状态码承载。"""
+    _dlog("H1", "main.py:813", "ScreeningError handler",
+          {"status": exc.status_code, "code": exc.error_code, "msg": exc.error_message[:200]})
     return JSONResponse(
         status_code=exc.status_code,
         content=ErrorResponse(
