@@ -7,7 +7,7 @@ __pycache__/
 .env
 
 # 本地向量库（由 scripts/rag_builder.py 重新生成）
-chroma_db/
+
 
 # 原文语料是否提交由人类按来源授权逐项审核；项目规则不再强制忽略整个目录。
 # data/knowledge/raw/*

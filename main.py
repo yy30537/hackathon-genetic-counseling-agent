@@ -6,12 +6,10 @@
 启动：uvicorn main:app --reload --port 8000
 """
 import asyncio
-import io
 import json
 import logging
 import os
 import re
-import time
 from contextlib import AsyncExitStack, asynccontextmanager
 from pathlib import Path
 from typing import Annotated, Any, List, Literal, Optional
@@ -37,26 +35,6 @@ from config import (
 
 logger = logging.getLogger("asd-gendecoder")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
-
-_DEBUG_LOG_PATH = Path("/Users/tori/Desktop/hackon Project/hackathon-genetic-counseling-agent/.cursor/debug-e760bc.log")
-
-def _dlog(hypothesis: str, location: str, message: str, data: dict) -> None:
-    """本地 NDJSON 写入,不依赖外部 logger 级别,保证 debug 期总能落地。"""
-    try:
-        payload = {
-            "sessionId": "e760bc",
-            "id": f"log_{int(time.time()*1000)}_main",
-            "timestamp": int(time.time() * 1000),
-            "location": location,
-            "message": message,
-            "data": data,
-            "runId": "pre-fix",
-            "hypothesisId": hypothesis,
-        }
-        with _DEBUG_LOG_PATH.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(payload, ensure_ascii=False) + "\n")
-    except Exception:
-        pass
 
 # ---------- 数据契约（docs/schema.md §2 §3） ----------
 
@@ -1243,41 +1221,6 @@ def _scrub_clarify(text: str) -> bool:
     return not any(bad in low for bad in _condition_blacklist())
 
 
-PDF_MAX_BYTES = 15 * 1024 * 1024
-PDF_MAX_PAGES = 50
-PDF_MIN_TEXT_CHARS = 80
-PDF_MAX_TEXT_CHARS = 250_000
-
-
-def _extract_pdf_report(pdf_bytes: bytes, filename: str) -> str:
-    """在内存中提取文本型 PDF；不保存上传文件。"""
-    if not pdf_bytes or len(pdf_bytes) > PDF_MAX_BYTES:
-        raise ScreeningError(422, "PDF_TOO_LARGE", "PDF 文件为空或超过 15 MB 限制。")
-    if not filename.lower().endswith(".pdf"):
-        raise ScreeningError(422, "PDF_INVALID_TYPE", "仅支持 PDF 文件。")
-    try:
-        from pypdf import PdfReader
-        reader = PdfReader(io.BytesIO(pdf_bytes), strict=False)
-        if len(reader.pages) > PDF_MAX_PAGES:
-            raise ScreeningError(422, "PDF_TOO_MANY_PAGES", "PDF 页数超过 50 页限制。")
-        pages = [(page.extract_text() or "") for page in reader.pages]
-    except ScreeningError:
-        raise
-    except Exception as exc:
-        logger.info("PDF 解析失败: type=%s", type(exc).__name__)
-        raise ScreeningError(422, "PDF_PARSE_ERROR", "PDF 无法读取，可能已损坏或受密码保护。") from exc
-    raw = "\n".join(pages)
-    text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", " ", raw)
-    text = re.sub(r"[ \t]+", " ", text)
-    text = re.sub(r"\n{3,}", "\n\n", text).strip()
-    if len(text) < PDF_MIN_TEXT_CHARS:
-        raise ScreeningError(422, "PDF_NO_TEXT", "未提取到足够文本；该 PDF 可能是扫描件，请先进行 OCR 或粘贴报告原文。")
-    if len(text) > PDF_MAX_TEXT_CHARS:
-        text = text[:PDF_MAX_TEXT_CHARS]
-    logger.info("PDF parsed: pages=%d chars=%d", len(pages), len(text))
-    return text
-
-
 # ---------- 端点 ----------
 
 
@@ -1352,63 +1295,14 @@ async def clarify(payload: ClarifyRequest) -> ClarifyResponse:
     response_model=ScreeningResponse,
     response_model_exclude_none=True,
 )
-async def screen(request: Request) -> ScreeningResponse:
-    """全系统唯一业务端点。支持 JSON 与 multipart/form-data 两种入口。"""
-    content_type = (request.headers.get("content-type") or "").lower()
-    if content_type.startswith("multipart/form-data"):
-        _dlog("H2", "main.py:725", "multipart enter",
-              {"ct": content_type[:60], "raw_filename_bytes_first16": (request.headers.get("content-type") or "")[:60]})
-        try:
-            form = await request.form()
-        except Exception as exc:
-            _dlog("H2", "main.py:730", "request.form() failed",
-                  {"type": type(exc).__name__, "msg": str(exc)[:300]})
-            raise ScreeningError(422, "INVALID_INPUT", "无法解析上传的表单数据。") from exc
-        symptoms = str(form.get("symptoms") or "").strip()
-        pdf_file = form.get("pdf_file")
-        fn = getattr(pdf_file, "filename", "") if pdf_file is not None else ""
-        _dlog("H2", "main.py:735", "form parsed",
-              {"has_pdf_file": pdf_file is not None, "filename": fn,
-               "filename_repr": repr(fn), "symptoms_len": len(symptoms)})
-        if pdf_file is None or not fn:
-            raise ScreeningError(422, "INVALID_INPUT", "请上传 PDF 文件或粘贴报告原文。")
-        try:
-            pdf_bytes = await pdf_file.read() if hasattr(pdf_file, "read") else b""
-        except Exception as exc:
-            _dlog("H2", "main.py:742", "pdf_file.read() failed",
-                  {"type": type(exc).__name__, "msg": str(exc)[:300]})
-            raise
-        _dlog("H2", "main.py:744", "pdf_bytes read",
-              {"size": len(pdf_bytes)})
-        try:
-            gene_report = _extract_pdf_report(pdf_bytes, fn)
-        except ScreeningError as e:
-            _dlog("H2", "main.py:748", "_extract_pdf_report ScreeningError",
-                  {"code": e.error_code, "msg": e.error_message})
-            raise
-        except Exception as exc:
-            _dlog("H2", "main.py:752", "_extract_pdf_report Exception",
-                  {"type": type(exc).__name__, "msg": str(exc)[:300]})
-            raise
-        payload = ScreeningRequest(symptoms=symptoms, gene_report=gene_report)
-    else:
-        try:
-            body = await request.json()
-        except Exception as exc:
-            raise ScreeningError(422, "INVALID_INPUT", "请求体不是合法 JSON。") from exc
-        try:
-            payload = ScreeningRequest(**body)
-        except Exception as exc:
-            raise ScreeningError(422, "INVALID_INPUT", "请求体字段不完整。") from exc
-
-    if not payload.symptoms.strip():
+async def screen(payload: ScreeningRequest) -> ScreeningResponse:
+    """全系统唯一业务端点。"""
+    if not payload.symptoms.strip() or not payload.gene_report.strip():
         raise ScreeningError(
-            422, "INVALID_INPUT", "症状描述为必填项，请补全后重新提交。"
+            422, "INVALID_INPUT", "症状描述与基因报告均为必填项，请补全后重新提交。"
         )
 
     if MOCK_MODE == "missing_api_key" or (not MINIMAX_API_KEY and MOCK_MODE != "hpo_no_match"):
-        _dlog("H1", "main.py:761", "MISSING_API_KEY raised",
-              {"has_key": bool(MINIMAX_API_KEY), "mock_mode": MOCK_MODE})
         raise ScreeningError(
             500, "MISSING_API_KEY",
             "后端未配置 MINIMAX_API_KEY，请联系管理员。",
@@ -1425,8 +1319,6 @@ async def screen(request: Request) -> ScreeningResponse:
 
     chunks = retrieve_chunks(hpo_terms, payload.gene_report)
     if not chunks:
-        _dlog("H1", "main.py:777", "no chunks retrieved",
-              {"n_hpo": len(hpo_terms)})
         return ScreeningResponse(
             hpo_terms=hpo_terms,
             comparisons=[],
@@ -1441,11 +1333,6 @@ async def screen(request: Request) -> ScreeningResponse:
         )
 
     report = await synthesize_report(payload, hpo_terms, chunks)
-    # 无基因报告时：安抚与下一步统一走症状向文案，避免 LLM 仍按 VUS 口吻发挥
-    if not payload.gene_report.strip():
-        offline = _offline_synthesize(payload, hpo_terms, chunks)
-        report["vus_reassurance"] = offline["vus_reassurance"]
-        report["next_steps"] = offline["next_steps"]
     try:
         comparisons = [Comparison(**c) for c in report.get("comparisons", [])]
     except (TypeError, ValueError) as e:
@@ -1453,8 +1340,6 @@ async def screen(request: Request) -> ScreeningResponse:
         logger.warning("报告结构装配失败，改用离线合成：%s", e)
         report = _offline_synthesize(payload, hpo_terms, chunks)
         comparisons = [Comparison(**c) for c in report.get("comparisons", [])]
-    _dlog("H1", "main.py:789", "screen success",
-          {"n_chunks": len(chunks), "n_comparisons": len(comparisons)})
     return ScreeningResponse(
         hpo_terms=hpo_terms,
         comparisons=comparisons,
@@ -1472,8 +1357,6 @@ async def screen(request: Request) -> ScreeningResponse:
 @app.exception_handler(ScreeningError)
 async def screening_error_handler(request: Request, exc: ScreeningError) -> JSONResponse:
     """错误一律以 HTTP 状态码承载。"""
-    _dlog("H1", "main.py:813", "ScreeningError handler",
-          {"status": exc.status_code, "code": exc.error_code, "msg": exc.error_message[:200]})
     return JSONResponse(
         status_code=exc.status_code,
         content=ErrorResponse(
