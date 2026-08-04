@@ -541,8 +541,12 @@ def render_chat_panel(disabled: bool) -> None:
                     st.warning("请先勾选至少一条符合孩子情况的表现。")
                 else:
                     names = "、".join(o["name"] for o in chosen)
+                    # 写入带 HPO ID，供 /api/screen 直接识别（MCP 中文名常不在离线规则表）
+                    labeled = "、".join(
+                        f"{o['name']}（{o['hpo_id']}）" for o in chosen
+                    )
                     prev = (st.session_state.get("symptoms") or "").strip()
-                    addition = f"孩子还有这些表现：{names}。"
+                    addition = f"孩子还有这些表现：{labeled}。"
                     st.session_state.symptoms = (
                         f"{prev}\n{addition}" if prev else addition
                     )

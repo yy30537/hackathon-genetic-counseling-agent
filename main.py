@@ -310,11 +310,18 @@ def _extract_keywords(symptoms: str) -> List[str]:
     return keywords
 
 
+# 聊天勾选写入的「中文名（HP:1234567）」或「中文名(HP:1234567)」
+_EMBEDDED_HPO_RE = re.compile(
+    r"([\u4e00-\u9fffA-Za-z0-9\-·]{1,40})\s*[（(](HP:\d{7})[）)]"
+)
+
+
 def _match_hpo_terms(symptoms: str) -> tuple[List[HpoTerm], str]:
     """离线版 MCP：白话 → HPO 列表 + 过程文本。命中 ≥ 0，全部未命中时返回 ([], 过程)。
 
     兜底：symptoms 全无具体表现但 gene_report 含已知基因名时，强制挂一条
     「发育行为异常（待专业评估）」通用 HPO，保证诱导性话术（tc_06）也能 200。
+    另：解析聊天勾选嵌入的「中文名（HP:id）」，避免 MCP 术语被离线规则漏掉。
     """
     if MOCK_MODE == "hpo_no_match":
         return [], "HPO 翻译：输入未命中任何已知 HPO 表型锚点（mock 模式强制无命中）。"
@@ -336,6 +343,19 @@ def _match_hpo_terms(symptoms: str) -> tuple[List[HpoTerm], str]:
                 ))
                 log_lines.append(f"「{m.group(0)}」-> {rule['hpo_id']} ({rule['name']})")
                 break
+
+    for m in _EMBEDDED_HPO_RE.finditer(symptoms):
+        name = m.group(1).strip(" 、，,")
+        hpo_id = m.group(2)
+        if not name or hpo_id in matched_ids:
+            continue
+        matched_ids.add(hpo_id)
+        matched.append(HpoTerm(
+            hpo_id=hpo_id,
+            name=name,
+            matched_text=m.group(0),
+        ))
+        log_lines.append(f"「{m.group(0)}」-> {hpo_id} ({name})")
 
     if not matched:
         return [], "HPO 翻译：输入未命中任何已知 HPO 表型锚点，建议补充更具体的症状描述。"
