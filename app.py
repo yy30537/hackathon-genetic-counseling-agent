@@ -346,7 +346,7 @@ def render_error(err: dict) -> None:
     code = err.get("error_code", "")
     msg = err.get("error_message", "后端未返回错误详情")
     titles = {
-        "INVALID_INPUT": ("输入还需要补全", "请检查两个输入框是否都已填写。"),
+        "INVALID_INPUT": ("输入还需要补全", "请检查「孩子的情况」是否已填写。"),
         "HPO_NO_MATCH": ("暂未匹配到标准表型术语", "请补充更具体的表现描述，或携带原始记录咨询儿童发育行为科。"),
         "MISSING_API_KEY": ("后端缺少模型密钥", "请检查项目根目录 .env 中的 MINIMAX_API_KEY。"),
         "MINIMAX_API_ERROR": ("模型服务暂时不可用", "这通常是限流或超时，稍后重试即可。"),
@@ -372,24 +372,44 @@ def render_intake_form(disabled: bool) -> None:
         "全外显子测序（WES）检出 MECP2 基因错义变异 c.455C>G (p.Pro152Arg)，"
         "临床意义未明（VUS）。"
     )
+    notice = st.session_state.pop("intake_notice", "")
+    if notice:
+        st.markdown(
+            f'<div class="ced-note" style="margin-bottom:8px">{html.escape(notice)}</div>',
+            unsafe_allow_html=True,
+        )
     with st.form(key="intake", clear_on_submit=False):
         st.text_area(
             "孩子的情况", key="symptoms", height=96,
             placeholder=placeholder_s, disabled=disabled,
         )
-        st.text_area(
-            "基因报告原文", key="gene_report", height=120,
-            placeholder=placeholder_g, disabled=disabled,
+        # 说明文字在展开按钮上方。基因报告非必填——
+        # 整张卡只有一个交互入口：折叠按钮本身。文本框被收起时，
+        # 后端拿到的 gene_report 是空串，触发无报告支路。
+        st.markdown(
+            '<div class="ced-note" style="margin:4px 0 -4px">'
+            "没有报告也能生成整理单；勾选并填写后，比对会同时参考报告内容。"
+            "</div>",
+            unsafe_allow_html=True,
         )
+        with st.expander("展开填写基因报告原文", expanded=False):
+            st.text_area(
+                "基因报告原文", key="gene_report", height=120,
+                placeholder=placeholder_g, disabled=disabled,
+            )
         submitted = st.form_submit_button(
             "生成信息整理单", type="primary", use_container_width=True, disabled=disabled,
         )
     if submitted:
         s = (st.session_state.get("symptoms") or "").strip()
-        g = (st.session_state.get("gene_report") or "").strip()
-        if not s or not g:
-            st.warning("请同时填写「孩子的情况」与「基因报告原文」后再提交。")
+        if not s:
+            st.warning("请先填写「孩子的情况」后再提交。")
             return
+        # 收起 expander 已经展开过、里面又填了文本的情况——
+        # expander 的可见性是用户可控的 UI 状态，不能当后端的门控信号。
+        # 直接把 session_state 里收集到的东西原样上交：
+        # 空串走后端的「未提供基因报告」支路，非空就走含报告路径。
+        g = (st.session_state.get("gene_report") or "").strip()
         st.session_state.stage = "loading"
         with st.spinner(""):
             stage, payload = call_backend(s, g)
@@ -490,6 +510,9 @@ def main() -> None:
         st.session_state.stage = "idle"
     if "payload" not in st.session_state:
         st.session_state.payload = None
+    # 上版本「附上基因报告原文（可选）」复选框已移除，遗留键清掉以免 streamlit 警告。
+    st.session_state.pop("include_gene", None)
+    st.session_state.pop("intake_notice", None)
 
     render_header()
 
