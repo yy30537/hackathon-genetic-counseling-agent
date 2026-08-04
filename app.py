@@ -631,9 +631,12 @@ def render_intake_form(disabled: bool) -> None:
         '<div class="ced-note" style="margin-bottom:8px">没有报告也能生成整理单；填写/上传报告后，系统比对会同步参考基因报告内容。</div>',
         unsafe_allow_html=True,
     )
+    # 旧会话可能残留「不添加文本」；选项已去掉，当作未选择（无基因报告）
+    if st.session_state.get("gene_report_method") == "不添加文本":
+        st.session_state.gene_report_method = None
     report_method = st.pills(
         "基因报告输入方式",
-        ["粘贴基因报告文本", "上传基因报告PDF文件", "不添加文本"],
+        ["粘贴基因报告文本", "上传基因报告PDF文件"],
         selection_mode="single",
         default=None,
         key="gene_report_method",
