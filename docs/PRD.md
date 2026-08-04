@@ -1,4 +1,4 @@
-# PRD: ASD-GenDecoder (ASD 基因解码器)
+1# PRD: ASD-GenDecoder (ASD 基因解码器)
 
 > 机器可读产品需求文档 (Machine-Readable PRD)。断言式语句，供 AI 智能体直接落地写代码。
 > 范围锁定：36 小时黑客松 MVP。凡未在 Must Have / Should Have 出现的功能，一律不写。
