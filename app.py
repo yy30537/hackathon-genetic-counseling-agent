@@ -337,7 +337,7 @@ def render_idle_hint() -> None:
         '<div class="ced-section">'
         '<div class="ced-section-title">填写下方两个输入框，生成可带去门诊的信息整理单</div>'
         '<div class="ced-note">把白话症状对应到 HPO 标准术语<br/>'
-        '与文献中的鉴别锚点做客观比对<br/>'
+        '与文献做表型–基因相关线索比对（非诊断）<br/>'
         '整理出就诊时该带什么、该说什么</div>'
         "</div>",
         unsafe_allow_html=True,
@@ -367,7 +367,13 @@ def render_reassurance(text: str) -> None:
 
 
 def render_hpo_table(hpo_terms: List[dict]) -> None:
-    st.markdown('<div class="ced-section-title">您的描述 → 医学术语</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="ced-section-title">标准化表型（供门诊参阅）</div>'
+        '<div class="ced-note" style="margin-bottom:12px">'
+        "以下为 HPO 标准术语，便于医生快速对照；右侧为家长表述线索。"
+        "</div>",
+        unsafe_allow_html=True,
+    )
     if not hpo_terms:
         st.markdown('<div class="ced-note">本次未能标准化出表型术语</div>', unsafe_allow_html=True)
         return
@@ -376,21 +382,29 @@ def render_hpo_table(hpo_terms: List[dict]) -> None:
         m = html.escape(t.get("matched_text") or "—")
         n = html.escape(t.get("name") or "—")
         hid = html.escape(t.get("hpo_id") or "")
+        hid_html = (
+            f'<span class="ced-hpoid">{hid}</span>' if hid else ""
+        )
         rows.append(
-            f'<tr><td>「{m}」</td><td><span class="ced-std">{n}</span>'
-            f'{"<span class=ced-hpoid>" + hid + "</span>" if hid else ""}</td></tr>'
+            f'<tr><td><span class="ced-std">{n}</span>{hid_html}</td>'
+            f"<td>「{m}」</td></tr>"
         )
     st.markdown(
-        '<table class="ced-hpo"><thead><tr><th>家长原话</th><th>HPO 标准术语</th></tr></thead><tbody>'
-        + "".join(rows) + "</tbody></table>",
+        '<table class="ced-hpo"><thead><tr>'
+        "<th>HPO 标准术语</th><th>家长表述线索</th>"
+        "</tr></thead><tbody>"
+        + "".join(rows)
+        + "</tbody></table>",
         unsafe_allow_html=True,
     )
 
 
 def render_comparisons(comparisons: List[dict], refs: List[List[int]]) -> None:
     st.markdown(
-        '<div class="ced-section-title">需请医生一并排除的方向</div>'
-        '<div class="ced-note" style="margin-bottom:12px">以下均为文献特征的客观比对，不是结论。</div>',
+        '<div class="ced-section-title">表型–基因鉴别比对（非诊断）</div>'
+        '<div class="ced-note" style="margin-bottom:12px">'
+        "下列为本次描述与文献鉴别要点的具体重合表型，供门诊对照；高度提示排查方向，不是结论。"
+        "</div>",
         unsafe_allow_html=True,
     )
     if not comparisons:
@@ -487,8 +501,8 @@ def render_chat_panel(disabled: bool) -> None:
     st.markdown(
         '<div class="ced-section-title">先聊两句，我帮你把话变成医学表述</div>'
         '<div class="ced-note" style="margin-bottom:12px">'
-        "用平常话说说孩子的表现就行。我会列出几条相关的医学表现供你确认，"
-        "它们是待核对的候选描述，不是结论。"
+        "用平常话说说孩子的表现就行。已说过的会先勾好，只需确认；"
+        "相关但未提到的请自行勾选。它们是待核对的候选描述，不是结论。"
         "</div>",
         unsafe_allow_html=True,
     )
@@ -523,9 +537,14 @@ def render_chat_panel(disabled: bool) -> None:
                 )
                 continue
             for o in options:
+                key = f"chat_opt_{idx}_{o['hpo_id']}"
+                if key not in st.session_state:
+                    st.session_state[key] = bool(
+                        (o.get("matched_text") or "").strip()
+                    )
                 st.checkbox(
-                    f"{o['plain']}　（{o['name']}　{o['hpo_id']}）",
-                    key=f"chat_opt_{idx}_{o['hpo_id']}",
+                    f"{o['name']}（{o['hpo_id']}）",
+                    key=key,
                     disabled=disabled,
                 )
             if st.button(
