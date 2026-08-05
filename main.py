@@ -989,6 +989,35 @@ _CLARIFY_LLM_TIMEOUT = 45.0
 
 _SEEDS_PER_KEYWORD = 3
 
+# 同义轴关键词条目：{"en", "source_span", "axis"}；可选 direction=widen|narrow（仅重试）。
+ClarifyKw = dict
+
+# 过宽英文检索词：会把 HPO 搜成噪声（如 ill appearance → 无关解剖项），笼统原话时直接丢。
+_OVERBROAD_EN = {
+    "appearing unwell",
+    "appearing ill",
+    "ill appearance",
+    "feeling unwell",
+    "unwell",
+    "something wrong",
+    "abnormality",
+    "abnormal",
+    "abnormal finding",
+    "abnormal phenotype",
+    "general abnormality",
+    "developmental delay",  # 仅作离线最终兜底，M3 首轮/重试不得主动产出
+    "abnormal behavior",
+    "neurodevelopmental abnormality",
+}
+_VAGUE_AXES = {
+    "general",
+    "generalimpression",
+    "nonspecific",
+    "other",
+    "unknown",
+    "misc",
+}
+
 
 def _clarify_offline_seeds(utterance: str) -> List[tuple]:
     """离线兜底：直接用规则表命中，返回 [(hpo_id, 英文检索词, 命中原话), ...]。"""
@@ -1029,57 +1058,284 @@ def _interleave(groups: List[List[tuple]]) -> List[tuple]:
     return out
 
 
-async def _clarify_keywords(utterance: str) -> List[str]:
-    """M3 把口语抽成 1-4 个英文 HPO 检索词。M3 不可达时降级到规则表的英文提示词。"""
+def _norm_axis(axis: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", (axis or "").strip().lower())
+
+
+def _source_span_in_utterance(span: str, utterance: str) -> bool:
+    """source_span 须能在原话中定位，防止模型编造未提及的表现轴。"""
+    s = (span or "").strip()
+    u = (utterance or "").strip()
+    if not s or not u:
+        return False
+    if s in u:
+        return True
+    # 去掉空白后再比一次，兼容模型插入空格
+    s_compact = re.sub(r"\s+", "", s)
+    u_compact = re.sub(r"\s+", "", u)
+    return bool(s_compact) and s_compact in u_compact
+
+
+def _parse_clarify_kw_items(raw: Any) -> List[ClarifyKw]:
+    """把 M3 返回的 keywords 规整为条目列表；兼容旧版纯字符串数组。"""
+    if not isinstance(raw, list):
+        return []
+    items: List[ClarifyKw] = []
+    for entry in raw[:4]:
+        if isinstance(entry, str):
+            en = entry.strip().lower()
+            if en:
+                items.append({"en": en, "source_span": "", "axis": ""})
+            continue
+        if not isinstance(entry, dict):
+            continue
+        en = str(entry.get("en") or "").strip().lower()
+        if not en:
+            continue
+        items.append(
+            {
+                "en": en,
+                "source_span": str(entry.get("source_span") or "").strip(),
+                "axis": str(entry.get("axis") or "").strip().lower(),
+                **(
+                    {"direction": str(entry.get("direction") or "").strip().lower()}
+                    if entry.get("direction")
+                    else {}
+                ),
+            }
+        )
+    return items
+
+
+def _filter_clarify_keywords(
+    items: List[ClarifyKw],
+    utterance: str,
+    *,
+    expected_axes: Optional[dict] = None,
+    stage: str = "首轮",
+) -> tuple:
+    """进 MCP 前的代码闸门。返回 (合法条目, 丢弃原因日志)。
+
+    expected_axes: 重试时传入 {source_span: axis}，axis 不一致则丢（禁止换轴）。
+    """
+    kept: List[ClarifyKw] = []
+    drops: List[str] = []
+    seen_en: set = set()
+    for item in items:
+        en = item.get("en") or ""
+        span = item.get("source_span") or ""
+        axis = item.get("axis") or ""
+        if en in seen_en:
+            drops.append(f"{stage}丢弃重复词 «{en}»")
+            continue
+        if not _source_span_in_utterance(span, utterance):
+            drops.append(f"{stage}丢弃未对齐原话 «{en}»(span={span or '∅'})")
+            continue
+        if not _scrub_clarify(en) or not _scrub_clarify(span):
+            drops.append(f"{stage}丢弃黑名单命中 «{en}»")
+            continue
+        if en in _OVERBROAD_EN or any(en == w or en.startswith(w + " ") for w in _OVERBROAD_EN):
+            drops.append(f"{stage}丢弃过宽词 «{en}»")
+            continue
+        if _norm_axis(axis) in _VAGUE_AXES:
+            drops.append(f"{stage}丢弃笼统轴 «{en}»/axis={axis}")
+            continue
+        if expected_axes is not None:
+            want = expected_axes.get(span) or expected_axes.get(re.sub(r"\s+", "", span))
+            if not want:
+                # 也按条目自带 span 的规范化键查找
+                for k, v in expected_axes.items():
+                    if _source_span_in_utterance(k, span) or _source_span_in_utterance(span, k):
+                        want = v
+                        break
+            if not want or _norm_axis(axis) != _norm_axis(want):
+                drops.append(
+                    f"{stage}丢弃换轴 «{en}»(axis={axis or '∅'}, want={want or '∅'})"
+                )
+                continue
+        if not _norm_axis(axis):
+            drops.append(f"{stage}丢弃缺 axis «{en}»")
+            continue
+        seen_en.add(en)
+        kept.append(item)
+    return kept, drops
+
+
+def _offline_keyword_items(utterance: str) -> List[ClarifyKw]:
+    """M3 不可达或闸门清空时，用规则表英文提示词凑检索词（带可对齐 span）。"""
+    items: List[ClarifyKw] = []
+    for _hid, en, matched in _clarify_offline_seeds(utterance)[:4]:
+        span = matched or utterance[: min(12, len(utterance))]
+        items.append(
+            {
+                "en": en.strip().lower(),
+                "source_span": span,
+                "axis": "offline",
+            }
+        )
+    return items
+
+
+async def _clarify_keywords(utterance: str) -> tuple:
+    """首轮：忠实 paraphrase → [{en, source_span, axis}, ...]。
+
+    返回 (items, log_lines)。M3 不可达时降级离线规则表。
+    """
+    logs: List[str] = []
     system = (
-        "你是医学表型术语抽取器，不做诊断、不提疾病名、不提药物。"
-        "把家长的中文口语描述抽成 1 到 4 个用于检索人类表型本体（HPO）的英文关键词短语，"
-        "全部小写，只描述可观察的表现，不要出现任何疾病名称或基因名称。"
-        '只返回严格 JSON：{"keywords": ["...", "..."]}'
+        "你是医学表型术语改写器，只做同义 paraphrase，不做诊断、不提疾病名、不提药物。"
+        "把家长中文口语里已经说出的可观察表现，改写成 1 到 4 个用于检索人类表型本体（HPO）的英文关键词短语。"
+        "硬约束："
+        "1) 只改写原话已有表现，禁止新增原话未提及的症状轴（例如只说「急」时不得加对视/语言/抽搐）；"
+        "2) 原话有几个独立表现就出几条，禁止凑满 4 条；"
+        "3) 每条必须给出 source_span（家长原话中的连续片段）与 axis（该表现的短英文语义轴标签，如 temper、eye_contact）；"
+        "4) en 全部小写英文，只描述可观察表现；"
+        "5) 首轮贴近原话粒度，不要主动发散到更宽的共病清单。"
+        '只返回严格 JSON：{"keywords":[{"en":"irritability","source_span":"急","axis":"temper"}]}'
     )
+    raw_items: List[ClarifyKw] = []
     try:
         data = await call_minimax(
             system, f"家长口语描述：{utterance}", timeout=_CLARIFY_LLM_TIMEOUT
         )
-        raw = data.get("keywords") or []
-        clean = [str(k).strip() for k in raw if str(k).strip()][:4]
-        if clean:
-            return clean
+        raw_items = _parse_clarify_kw_items(data.get("keywords"))
     except ScreeningError as e:
         if e.error_code != "MINIMAX_API_ERROR":
             raise
         logger.warning("M3 抽词不可达，降级为规则表英文提示词：%s", e.error_message)
+        logs.append(f"M3 抽词不可达，降级离线：{e.error_message}")
 
-    hints = [en for _, en, _ in _clarify_offline_seeds(utterance)][:4]
-    return hints or ["developmental delay"]
+    if not raw_items:
+        raw_items = _offline_keyword_items(utterance)
+        if raw_items:
+            logs.append("首轮改用离线规则表检索词 {} 条".format(len(raw_items)))
+
+    kept, drops = _filter_clarify_keywords(raw_items, utterance, stage="首轮")
+    logs.extend(drops)
+    if not kept and raw_items:
+        # 闸门清空且不是离线条目时，再试一次离线（离线 span 来自正则命中，可对齐）
+        offline = _offline_keyword_items(utterance)
+        kept, drops2 = _filter_clarify_keywords(offline, utterance, stage="离线")
+        logs.extend(drops2)
+        if kept:
+            logs.append("首轮闸门清空后改用离线规则表 {} 条".format(len(kept)))
+
+    if kept:
+        logs.append(
+            "首轮英文检索词："
+            + "、".join(
+                f"{k['en']}«{k['source_span']}»/{k['axis']}" for k in kept
+            )
+        )
+    else:
+        logs.append("首轮无合法检索词")
+    return kept, logs
 
 
-async def _clarify_collect(utterance: str, picked: List[str]) -> tuple:
-    """检索 + 扩展候选。返回 (candidates, log_lines)。
+async def _clarify_rephrase_misses(
+    utterance: str, missed: List[ClarifyKw]
+) -> tuple:
+    """同轴 miss 梯子：对未命中词在同一 axis+source_span 上 widen 或 narrow。
 
-    candidates 为 [(hpo_id, english_name, matched_text), ...]，已剔除 picked。
-    MCP 不可用时退回规则表种子，保证聊天框在离线环境下仍可用。
+    返回 (alts, log_lines)。禁止新症状轴。
     """
-    picked_set = {p.strip() for p in picked if p and p.strip()}
-    log_lines: List[str] = []
-    seen: set = set()
+    logs: List[str] = []
+    if not missed:
+        return [], logs
+
+    listing = "\n".join(
+        f"- en={m['en']}; source_span={m['source_span']}; axis={m['axis']}"
+        for m in missed
+    )
+    system = (
+        "你是医学表型同义改写器。下列英文检索词在 HPO 中未命中。"
+        "请在【同一 axis 且同一 source_span】上各给 1 到 2 个替代英文检索词，可略放大（widen）或略缩小/更笼统（narrow）。"
+        "示例：急→急躁/冲动 对应 widen；冲动→急 对应 narrow。必须英文化输出。"
+        "禁止更换 axis，禁止新的 source_span，禁止疾病名/基因名/药物，禁止联想其他症状轴。"
+        '只返回严格 JSON：{"alts":[{"en":"impulsivity","direction":"widen","axis":"temper","source_span":"急"}]}'
+    )
+    try:
+        data = await call_minimax(
+            system,
+            f"家长原话：{utterance}\n未命中条目：\n{listing}",
+            timeout=_CLARIFY_LLM_TIMEOUT,
+        )
+        raw = data.get("alts") or data.get("keywords") or []
+        alts = _parse_clarify_kw_items(raw)
+    except ScreeningError as e:
+        if e.error_code != "MINIMAX_API_ERROR":
+            raise
+        logger.warning("M3 同轴重试不可达：%s", e.error_message)
+        logs.append(f"同轴重试不可达：{e.error_message}")
+        return [], logs
+
+    # 每条未命中最多保留 2 个 alt；并强制写回原 span/axis（防模型偷换）
+    by_span = {(m["source_span"], _norm_axis(m["axis"])): m for m in missed}
+    capped: List[ClarifyKw] = []
+    counts: dict = {}
+    for alt in alts:
+        span = alt.get("source_span") or ""
+        axis_n = _norm_axis(alt.get("axis") or "")
+        parent = by_span.get((span, axis_n))
+        if parent is None:
+            # 允许 span 空白被模型改写空白时，用唯一 missed 回填
+            if len(missed) == 1 and not span:
+                parent = missed[0]
+                alt["source_span"] = parent["source_span"]
+                alt["axis"] = parent["axis"]
+            else:
+                continue
+        else:
+            alt["source_span"] = parent["source_span"]
+            alt["axis"] = parent["axis"]
+        key = (alt["source_span"], _norm_axis(alt["axis"]))
+        counts[key] = counts.get(key, 0) + 1
+        if counts[key] > 2:
+            continue
+        capped.append(alt)
+
+    expected = {m["source_span"]: m["axis"] for m in missed}
+    kept, drops = _filter_clarify_keywords(
+        capped, utterance, expected_axes=expected, stage="重试"
+    )
+    logs.extend(drops)
+    if kept:
+        logs.append(
+            "同轴重试词："
+            + "、".join(
+                f"{k['en']}[{k.get('direction') or '?'}]«{k['source_span']}»/{k['axis']}"
+                for k in kept
+            )
+        )
+    else:
+        logs.append("同轴重试无合法替代词")
+    return kept, logs
+
+
+async def _mcp_search_keyword_groups(
+    keywords: List[ClarifyKw],
+    utterance: str,
+    seen: set,
+    log_lines: List[str],
+) -> tuple:
+    """对关键词逐个 search_hpo_terms，返回 (groups, missed_keywords)。"""
     groups: List[List[tuple]] = []
-    expanded: List[tuple] = []
-
-    keywords = await _clarify_keywords(utterance)
-    log_lines.append("抽取英文检索词：{}".format("、".join(keywords)))
-
-    for kw in keywords:
+    missed: List[ClarifyKw] = []
+    for item in keywords:
+        kw = item["en"]
         text = await _mcp_call("search_hpo_terms", {"query": kw, "max": 5})
         hits = _parse_hpo_lines(text)
         if not hits:
+            missed.append(item)
+            log_lines.append(f"search_hpo_terms(«{kw}») 命中 0 条")
             continue
         group: List[tuple] = []
         for hpo_id, name in hits:
             if hpo_id in seen:
                 continue
             seen.add(hpo_id)
-            group.append((hpo_id, name, _matched_fragment(hpo_id, utterance)))
+            matched = item.get("source_span") or _matched_fragment(hpo_id, utterance)
+            group.append((hpo_id, name, matched))
             if len(group) >= _SEEDS_PER_KEYWORD:
                 break
         if group:
@@ -1089,8 +1345,43 @@ async def _clarify_collect(utterance: str, picked: List[str]) -> tuple:
                     kw, len(hits), len(group)
                 )
             )
+        else:
+            missed.append(item)
+    return groups, missed
 
+
+async def _clarify_collect(utterance: str, picked: List[str]) -> tuple:
+    """检索 + 同轴 miss 重试 + 层级扩展。返回 (candidates, log_lines)。
+
+    candidates 为 [(hpo_id, english_name, matched_text), ...]，已剔除 picked。
+    MCP 不可用时退回规则表种子，保证聊天框在离线环境下仍可用。
+    """
+    picked_set = {p.strip() for p in picked if p and p.strip()}
+    log_lines: List[str] = []
+    seen: set = set()
+    expanded: List[tuple] = []
+
+    keywords, kw_logs = await _clarify_keywords(utterance)
+    log_lines.extend(kw_logs)
+
+    groups, missed = await _mcp_search_keyword_groups(
+        keywords, utterance, seen, log_lines
+    )
     seeds = _interleave(groups)
+
+    # 首轮种子为空或存在未命中词时，做同轴 widen/narrow 梯子（不换轴）
+    if keywords and (not seeds or missed):
+        alts, alt_logs = await _clarify_rephrase_misses(
+            utterance, missed if missed else keywords
+        )
+        log_lines.extend(alt_logs)
+        if alts:
+            more_groups, _more_missed = await _mcp_search_keyword_groups(
+                alts, utterance, seen, log_lines
+            )
+            if more_groups:
+                groups.extend(more_groups)
+                seeds = _interleave(groups)
 
     if not seeds:
         # MCP 不可用或全部无命中：退回规则表，仍能给出候选

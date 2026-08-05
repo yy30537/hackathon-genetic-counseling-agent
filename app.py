@@ -4,6 +4,7 @@
 启动：streamlit run app.py（需后端 uvicorn 进程同时运行）
 """
 import html
+import io
 import json
 import re
 from pathlib import Path
@@ -657,14 +658,15 @@ def render_intake_form(disabled: bool) -> None:
             type=["pdf"],
             key="gene_report_pdf",
             disabled=disabled,
-            help="文件仅用于本次解析，不会保存。扫描件或图片型 PDF 暂不支持。",
+            help="文件仅用于本次本地提取，不会保存。扫描件或图片型 PDF 暂不支持。",
         )
         if uploaded is not None:
             pdf_bytes = uploaded.getvalue()
             st.session_state.pdf_bytes = pdf_bytes
             st.session_state.pdf_name = uploaded.name
             st.caption(
-                f"已选择 {uploaded.name} · {len(pdf_bytes) / 1024:.1f} KB。提交后由后端提取文本。"
+                f"已选择 {uploaded.name} · {len(pdf_bytes) / 1024:.1f} KB。"
+                "提交时在本地提取文本后发送（不落盘）。"
             )
         else:
             st.session_state.pdf_bytes = None
@@ -692,9 +694,31 @@ def render_intake_form(disabled: bool) -> None:
         if report_method == "粘贴基因报告文本" and not g:
             st.warning("请粘贴基因报告文本，或取消该输入方式后直接提交。")
             return
-        if report_method == "上传基因报告PDF文件" and not pdf_bytes:
-            st.warning("请上传基因报告 PDF，或取消该输入方式后直接提交。")
-            return
+        if report_method == "上传基因报告PDF文件":
+            if not pdf_bytes:
+                st.warning("请上传基因报告 PDF，或取消该输入方式后直接提交。")
+                return
+            # 本地 pypdf 抽文本 → gene_report；不改契约、不发 PDF 字节
+            try:
+                from pypdf import PdfReader
+
+                reader = PdfReader(io.BytesIO(pdf_bytes))
+                pages = []
+                for page in reader.pages:
+                    pages.append(page.extract_text() or "")
+                g = "\n".join(pages).strip()
+            except Exception:
+                st.warning(
+                    "无法读取该 PDF，请改用「粘贴基因报告文本」，"
+                    "或上传可选中文字的 PDF。"
+                )
+                return
+            if not g:
+                st.warning(
+                    "无法从 PDF 提取文字（可能是扫描件或图片型 PDF）。"
+                    "请改用粘贴，或上传可选中文本的 PDF。"
+                )
+                return
         st.session_state.stage = "loading"
         with st.spinner(""):
             stage, payload = call_backend(s, g)
