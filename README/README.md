@@ -87,5 +87,5 @@ python scripts/run_acceptance.py
 ---
 
 ## 📄 版权与许可
-本作品版权归 code viber 全体组员 共同所有，采用 [MIT License](./LICENSE) 开源，使用请署名。
+本作品版权归 赵相云，赵述华，席文杰，李集 +2026 全体组员 共同所有，采用 [MIT License](./LICENSE) 开源，使用请署名。
 > 本项目为 AIY 黑客松参赛作品，作品归团队所有；AIY 组委会仅作收录与展示。

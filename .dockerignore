@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.git/
+.cursor/
+.env
+*.pyc
+.DS_Store
+HPO-MCP-Server/node_modules/
+README/
+docs/
+.githooks/
+agent-transcripts/
