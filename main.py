@@ -215,6 +215,25 @@ _HPO_RULES: List[dict] = [
         "patterns": [r"多动", r"注意力", r"坐不住", r"ADHD"],
         "anchors": ["ADHD 症状", "极度多动"],
     },
+    # 行为问题（家长口语常描述为「打人」「暴躁」，需独立成项避免与多动/焦虑混淆）
+    {
+        "hpo_id": "HP:0000718", "name": "攻击行为",
+        "patterns": [r"打人", r"咬人", r"攻击", r"有攻击性", r"打小朋友", r"踢人",
+                     r"摔东西", r"动手"],
+        "anchors": ["ADHD 症状", "极度多动"],
+    },
+    {
+        "hpo_id": "HP:0000737", "name": "易激惹",
+        "patterns": [r"暴躁", r"易怒", r"发脾气", r"易激惹", r"脾气大",
+                     r"不耐烦", r"动不动就哭", r"情绪激动", r"情绪不稳"],
+        "anchors": ["难以控制的焦虑", "ADHD 症状"],
+    },
+    {
+        "hpo_id": "HP:0002162", "name": "活动过度",
+        "patterns": [r"做不定", r"静不下来", r"坐立不安", r"动来动去",
+                     r"停不下来", r"跑来跑去", r"满地跑"],
+        "anchors": ["ADHD 症状", "极度多动"],
+    },
     # TSC
     {
         "hpo_id": "HP:0001051", "name": "皮肤色素减退斑",
@@ -1404,6 +1423,9 @@ _HPO_EN_HINTS = {
     "睡眠节律紊乱": "sleep disturbance",
     "焦虑": "anxiety",
     "注意力缺陷多动": "attention deficit hyperactivity",
+    "攻击行为": "aggressive behavior",
+    "易激惹": "irritability",
+    "活动过度": "hyperactivity",
     "皮肤色素减退斑": "hypopigmented skin macule",
     "过度生长": "overgrowth",
     "喂养困难": "feeding difficulties",
