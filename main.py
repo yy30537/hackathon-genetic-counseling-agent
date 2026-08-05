@@ -1441,11 +1441,58 @@ _HPO_EN_HINTS = {
 # 规则表里已知的 hpo_id -> 中文名，用于免 LLM 直接回填，并作为「本知识库覆盖得到」的排序信号。
 _RULE_ID_TO_NAME = {r["hpo_id"]: r["name"] for r in _HPO_RULES}
 
+# 路演/澄清高频 HPO 中文名（规则表未覆盖时免 M3）
+_HPO_ZH_EXTRA = {
+    "HP:0012760": "社交反应性降低",
+    "HP:0012433": "社交行为异常",
+    "HP:0002332": "缺乏同伴关系",
+    "HP:5200016": "同伴关系异常",
+    "HP:5200021": "社交洞察力降低",
+    "HP:5200320": "寻求关系减少",
+    "HP:5200322": "情绪表达增强",
+    "HP:0000757": "缺乏自知力",
+    "HP:0000728": "形成同伴关系能力下降",
+    "HP:0000817": "眼神接触减少",
+    "HP:0002757": "反复骨折",
+    "HP:0003084": "长骨反复骨折",
+    "HP:0009046": "跑步困难",
+    "HP:0003551": "爬楼梯困难",
+    "HP:0000712": "情绪不稳",
+    "HP:0000733": "刻板行为",
+    "HP:0000708": "行为异常",
+    "HP:0000718": "攻击行为",
+    "HP:5200125": "对他人攻击",
+    "HP:0000739": "焦虑",
+    "HP:0007018": "注意力缺陷多动",
+}
+
+
+def _zh_hpo_name(hpo_id: str, en_name: str) -> str:
+    """优先规则表/本地词表中文名，否则回退英文。"""
+    return (
+        _RULE_ID_TO_NAME.get(hpo_id)
+        or _HPO_ZH_EXTRA.get(hpo_id)
+        or (en_name or "").strip()
+    )
+
+
+def _name_needs_zh(name: str) -> bool:
+    """名称几乎无汉字、以拉丁字母为主时，需要再译成中文。"""
+    n = (name or "").strip()
+    if not n:
+        return True
+    han = len(re.findall(r"[\u4e00-\u9fa5]", n))
+    if han >= 2:
+        return False
+    return bool(re.search(r"[A-Za-z]{3,}", n))
+
+
 _CLARIFY_MAX_OPTIONS = 5
 _CLARIFY_MIN_OPTIONS = 3
 
-# 澄清链路要连调两次 M3，单次上限压到 45 秒，两次加上 MCP 往返仍在前端 120 秒之内。
+# 澄清抽词 / 批量译中文；单次上限压到 45 秒，前端 120 秒内可覆盖。
 _CLARIFY_LLM_TIMEOUT = 45.0
+_CLARIFY_ZH_TIMEOUT = 25.0
 
 _SEEDS_PER_KEYWORD = 3
 
@@ -1928,6 +1975,17 @@ async def _clarify_collect(utterance: str, picked: List[str]) -> tuple:
             seeds.append((hpo_id, _RULE_ID_TO_NAME.get(hpo_id, en), matched))
         if seeds:
             log_lines.append("MCP 未返回结果，改用离线规则表种子 {} 条".format(len(seeds)))
+    else:
+        # MCP 已有种子时仍并入规则表真命中（如「打人」→攻击行为），保证认定项不丢
+        added = 0
+        for hpo_id, en, matched in _clarify_offline_seeds(utterance):
+            if hpo_id in seen:
+                continue
+            seen.add(hpo_id)
+            seeds.append((hpo_id, _RULE_ID_TO_NAME.get(hpo_id, en), matched))
+            added += 1
+        if added:
+            log_lines.append("并入离线规则表认定 {} 条".format(added))
 
     # 扩展过滤：子/兄弟须与本轮任一检索词主干相关，避免社交查询扩出跑步/爬楼
     kw_ens = [k["en"] for k in search_kws if (k.get("en") or "").strip()]
@@ -1937,10 +1995,11 @@ async def _clarify_collect(utterance: str, picked: List[str]) -> tuple:
             return True
         return any(_hit_related_to_keyword(en, child_name) for en in kw_ens)
 
-    # 种子已够填满选项时跳过层级扩展，省多轮串行 MCP
-    if len(seeds) >= _CLARIFY_MAX_OPTIONS:
+    # 未认定（related）候选够数时才跳过扩展；已认定占满种子时仍扩展以给出其他勾选项
+    related_seed_n = sum(1 for _h, _n, m in seeds if not (m or "").strip())
+    if related_seed_n >= _CLARIFY_MIN_OPTIONS:
         log_lines.append(
-            "种子已满 {} 条，跳过层级扩展".format(len(seeds))
+            "related 候选已够 {} 条，跳过层级扩展".format(related_seed_n)
         )
     else:
         for hpo_id, _, _ in seeds[:2]:
@@ -1971,10 +2030,23 @@ async def _clarify_collect(utterance: str, picked: List[str]) -> tuple:
 
 
 def _rank_candidates(pool: List[tuple]) -> List[tuple]:
-    """知识库覆盖得到的表型优先，保证用户勾选后 RAG 能召回对应桶 A 切片。"""
-    covered = [c for c in pool if c[0] in _RULE_ID_TO_NAME]
-    rest = [c for c in pool if c[0] not in _RULE_ID_TO_NAME]
-    return (covered + rest)[:_CLARIFY_MAX_OPTIONS]
+    """已认定项保留用于「已记下」；勾选位优先塞 related，知识库覆盖优先。"""
+    asserted = [c for c in pool if (c[2] or "").strip()]
+    related = [c for c in pool if not (c[2] or "").strip()]
+
+    def _prio(items: List[tuple]) -> List[tuple]:
+        covered = [c for c in items if c[0] in _RULE_ID_TO_NAME]
+        rest = [c for c in items if c[0] not in _RULE_ID_TO_NAME]
+        return covered + rest
+
+    out: List[tuple] = []
+    seen: set = set()
+    for c in _prio(asserted)[:3] + _prio(related)[:_CLARIFY_MAX_OPTIONS]:
+        if c[0] in seen:
+            continue
+        seen.add(c[0])
+        out.append(c)
+    return out
 
 
 def _option_plain(name: str) -> str:
@@ -1991,10 +2063,11 @@ def _plain_has_meta_or_reask(plain: str) -> bool:
     return any(w in p for w in markers)
 
 
-def _clarify_localize(utterance: str, picks: List[tuple]) -> tuple:
-    """模板回填标准表型名（不调 M3）。返回 (reply, {hpo_id: (name, plain)})。
+async def _clarify_localize(utterance: str, picks: List[tuple]) -> tuple:
+    """回填中文标准表型名。返回 (reply, {hpo_id: (name, plain)})。
 
-    plain = 规则中文名或英文名；matched 非空仅用于前端默认勾选。
+    先查规则表/本地词表；仍为英文的条目再批量调一次 M3；失败则保留英文。
+    plain = name；不写「您提到/整理为」。
     """
     del utterance  # 接口保留，便于日后按原话微调引导语
     all_asserted = bool(picks) and all((m or "").strip() for _, _, m in picks)
@@ -2004,9 +2077,48 @@ def _clarify_localize(utterance: str, picks: List[tuple]) -> tuple:
         else "谢谢你的描述。下面几条是和你说的情况相关的表现，选出符合孩子的，我帮你整理进症状描述。"
     )
     mapping: dict = {}
+    need_zh: List[tuple] = []  # (hpo_id, en_name)
     for hpo_id, en_name, _matched in picks:
-        base = _RULE_ID_TO_NAME.get(hpo_id) or en_name
+        base = _zh_hpo_name(hpo_id, en_name)
         mapping[hpo_id] = (base, _option_plain(base))
+        if _name_needs_zh(base):
+            need_zh.append((hpo_id, en_name or base))
+
+    if not need_zh:
+        return reply, mapping
+
+    listing = "\n".join(f"{hid} = {en}" for hid, en in need_zh)
+    system = (
+        "你是医学表型术语翻译官，把人类表型本体（HPO）英文名译成家长能懂的中文标准表型短名。"
+        "严禁诊断、严禁定性、严禁提及任何疾病名称、基因名称、药物名称或剂量。"
+        "每条只给中文标准表型名 name（15 字以内），plain 必须与 name 完全相同；"
+        "禁止「您提到」「整理为」「是否」「有没有」等过程句或反问。"
+        '只返回严格 JSON：{"items":[{"hpo_id":"HP:0000733","name":"刻板行为","plain":"刻板行为"}]}'
+    )
+    try:
+        data = await call_minimax(
+            system,
+            f"请翻译下列 HPO 英文名：\n{listing}",
+            timeout=_CLARIFY_ZH_TIMEOUT,
+        )
+    except ScreeningError as e:
+        if e.error_code != "MINIMAX_API_ERROR":
+            raise
+        logger.warning("澄清中文翻译不可达，保留英文名：%s", e.error_message)
+        return reply, mapping
+
+    for item in data.get("items") or []:
+        if not isinstance(item, dict):
+            continue
+        hpo_id = str(item.get("hpo_id") or "").strip()
+        if hpo_id not in mapping:
+            continue
+        name = str(item.get("name") or "").strip()
+        if not name or _name_needs_zh(name):
+            continue
+        if _plain_has_meta_or_reask(name):
+            continue
+        mapping[hpo_id] = (name, _option_plain(name))
     return reply, mapping
 
 
@@ -2102,37 +2214,72 @@ async def clarify(payload: ClarifyRequest) -> ClarifyResponse:
             "暂未匹配到标准表型术语，换个说法描述孩子的具体表现再试试。",
         )
 
-    reply, mapping = _clarify_localize(payload.utterance, picks)
-    log_lines.append("localize 使用模板（跳过 M3）")
+    reply, mapping = await _clarify_localize(payload.utterance, picks)
+    en_left = sum(1 for _, (n, _) in mapping.items() if _name_needs_zh(n))
+    if en_left:
+        log_lines.append(f"localize 中文未覆盖 {en_left} 条，保留英文")
+    else:
+        log_lines.append("localize 选项已中文化")
 
-    options: List[SymptomOption] = []
+    asserted: List[SymptomOption] = []
+    related: List[SymptomOption] = []
     for hpo_id, en_name, matched in picks:
         name, plain = mapping.get(hpo_id, (en_name, ""))
         if not _scrub_clarify(name) or not _scrub_clarify(plain):
             logger.warning("澄清候选被合规闸门剔除：%s（%s）", hpo_id, name)
             continue
-        options.append(
-            SymptomOption(
-                hpo_id=hpo_id, name=name, plain=plain, matched_text=matched
-            )
+        opt = SymptomOption(
+            hpo_id=hpo_id, name=name, plain=plain, matched_text=matched or ""
         )
+        if (matched or "").strip():
+            asserted.append(opt)
+        else:
+            related.append(opt)
 
-    if not options:
+    if not asserted and not related:
         raise ScreeningError(
             422, "HPO_NO_MATCH",
             "暂未匹配到标准表型术语，换个说法描述孩子的具体表现再试试。",
         )
-    if len(options) < _CLARIFY_MIN_OPTIONS:
-        logger.warning("澄清候选仅 %d 条，少于期望的 %d 条", len(options), _CLARIFY_MIN_OPTIONS)
+
+    # 勾选区只返回 related；已认定项写入 reply，供前端自动记入症状
+    if asserted:
+        noted = "、".join(
+            f"「{o.name}（{o.hpo_id}）」" for o in asserted
+        )
+        if related:
+            reply = (
+                f"已记下{noted}。"
+                "下面几条是和你说的情况相关、但尚未提到的表现，选出符合孩子的即可。"
+            )
+        else:
+            reply = (
+                f"已记下{noted}。"
+                "还可以继续补充孩子的其他表现，或直接生成信息整理单。"
+            )
+        log_lines.append(
+            "已认定 {} 条不进勾选：{}".format(
+                len(asserted),
+                "；".join(f"{o.hpo_id} ({o.name})" for o in asserted),
+            )
+        )
+
+    options = related
+    if len(options) < _CLARIFY_MIN_OPTIONS and options:
+        logger.warning(
+            "澄清 related 候选仅 %d 条，少于期望的 %d 条",
+            len(options),
+            _CLARIFY_MIN_OPTIONS,
+        )
 
     if not _scrub_clarify(reply):
         logger.warning("澄清引导语被合规闸门替换")
         reply = _SAFE_REPLY
 
     log_lines.append(
-        "最终候选 {} 条：{}".format(
+        "勾选候选 {} 条：{}".format(
             len(options),
-            "；".join(f"{o.hpo_id} ({o.name})" for o in options),
+            "；".join(f"{o.hpo_id} ({o.name})" for o in options) or "无",
         )
     )
     return ClarifyResponse(

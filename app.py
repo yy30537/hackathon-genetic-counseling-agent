@@ -649,11 +649,10 @@ def render_chat_panel(disabled: bool) -> None:
                 )
                 continue
             for o in options:
+                # 勾选区只展示 related；认定项已在回调里自动写入，此处永不默认勾选
                 key = f"chat_opt_{idx}_{o['hpo_id']}"
                 if key not in st.session_state:
-                    st.session_state[key] = bool(
-                        (o.get("matched_text") or "").strip()
-                    )
+                    st.session_state[key] = False
                 st.checkbox(
                     f"{o['name']}（{o['hpo_id']}）",
                     key=key,
@@ -708,10 +707,43 @@ def render_chat_panel(disabled: bool) -> None:
             steps=_CLARIFY_WAIT_STEPS,
         )
         if stage == "success":
+            raw_opts = payload.get("options") or []
+            # 兼容：若仍带回 matched_text 非空项，拆出自动写入、不进勾选
+            asserted = [
+                o for o in raw_opts
+                if (o.get("matched_text") or "").strip()
+            ]
+            related = [
+                o for o in raw_opts
+                if not (o.get("matched_text") or "").strip()
+            ]
+            # 后端 reply 中「已记下「名（HP:id）」」——认定项不在 options 里时由此解析
+            reply_text = payload.get("reply") or ""
+            for name, hid in re.findall(
+                r"「([^「」]+?)（(HP:\d{7})）」", reply_text
+            ):
+                if any(a.get("hpo_id") == hid for a in asserted):
+                    continue
+                asserted.append(
+                    {"hpo_id": hid, "name": name, "plain": name, "matched_text": name}
+                )
+            if asserted:
+                labeled = "、".join(
+                    f"{o['name']}（{o['hpo_id']}）" for o in asserted
+                )
+                prev = (st.session_state.get("symptoms") or "").strip()
+                addition = f"孩子还有这些表现：{labeled}。"
+                st.session_state.symptoms = (
+                    f"{prev}\n{addition}" if prev else addition
+                )
+                for o in asserted:
+                    hid = o.get("hpo_id") or ""
+                    if hid and hid not in st.session_state.picked_ids:
+                        st.session_state.picked_ids.append(hid)
             st.session_state.chat_msgs.append({
                 "role": "assistant",
-                "text": payload.get("reply", ""),
-                "options": payload.get("options", []),
+                "text": reply_text,
+                "options": related,
             })
             st.session_state.clarify_trace = payload.get("mcp_translation", "")
         elif (payload or {}).get("error_code") == "HPO_NO_MATCH":
