@@ -1091,6 +1091,14 @@ async def mcp_translate_symptoms(
         )
         log_lines.append(f"嵌入「{m.group(0)}」-> {hpo_id} ({name})")
 
+    # 聊天勾选已写入足够 HP:id 时，跳过 M3 抽词与 MCP，直接出报告
+    if len(terms) >= 2:
+        log_lines.append("嵌入 HPO≥2，跳过 M3 抽词与 MCP")
+        process = "已将白话/勾选描述标准化为 HPO 术语：{}。".format(
+            "；".join(log_lines)
+        )
+        return terms, process
+
     # 真 MCP：M3 抽英文检索词 → search_hpo_terms（会话不可用或失败则跳过）
     try:
         keywords, kw_logs = await _clarify_keywords(symptoms or "")
@@ -1351,7 +1359,7 @@ async def synthesize_report(
     hpo_terms: List[HpoTerm],
     chunks: List[Chunk],
 ) -> dict:
-    """把切片注入 system prompt，要求 M3 返回结构化 JSON。"""
+    """报告正文必须经 Minimax M3 生成；失败/禁词/结构不完整时才降级离线模板。"""
     if not chunks:
         return {
             "comparisons": [],
@@ -1367,44 +1375,37 @@ async def synthesize_report(
             _build_system_prompt(),
             _build_user_prompt(request, hpo_terms, chunks),
         )
+
+    offline = _enrich_comparisons(
+        _offline_synthesize(request, hpo_terms, chunks),
+        hpo_terms,
+        chunks,
+        request.symptoms,
+    )
+
     try:
+        logger.info("报告合成：调用 Minimax M3")
         report = await call_minimax(
             _build_system_prompt(),
             _build_user_prompt(request, hpo_terms, chunks),
         )
     except ScreeningError as e:
-        # 真实链路下 M3 不可达时降级为离线兜底
         if e.error_code == "MINIMAX_API_ERROR":
             logger.warning("M3 不可达，降级为离线合成：%s", e.error_message)
-            return _enrich_comparisons(
-                _offline_synthesize(request, hpo_terms, chunks),
-                hpo_terms,
-                chunks,
-                request.symptoms,
-            )
+            return offline
         raise
 
     report = _normalize_report(report)
     if not report["comparisons"] or not report["vus_reassurance"]:
         logger.warning("M3 报告结构不完整，改用离线合成")
-        return _enrich_comparisons(
-            _offline_synthesize(request, hpo_terms, chunks),
-            hpo_terms,
-            chunks,
-            request.symptoms,
-        )
+        return offline
 
     dirty = _report_banned_hits(report)
     if dirty:
         # 靠 prompt 祈使模型别说「确诊」不可靠，这里做结构性拦截：
         # 命中禁用词即整份丢弃，改用由桶 A/B 原文拼装的离线版本（不变量 I3 / AC5）。
         logger.warning("M3 报告命中禁用词 %s，改用离线合成", dirty)
-        return _enrich_comparisons(
-            _offline_synthesize(request, hpo_terms, chunks),
-            hpo_terms,
-            chunks,
-            request.symptoms,
-        )
+        return offline
     return _enrich_comparisons(report, hpo_terms, chunks, request.symptoms)
 
 
@@ -1897,8 +1898,8 @@ async def _clarify_collect(utterance: str, picked: List[str]) -> tuple:
     seeds = _interleave(groups)
     search_kws: List[ClarifyKw] = list(keywords)
 
-    # 首轮种子为空或存在未命中词时，做同轴 widen/narrow 梯子（不换轴）
-    if keywords and (not seeds or missed):
+    # 仅首轮完全无种子时才同轴重试（有种子则跳过，省一次 M3 + MCP）
+    if keywords and not seeds:
         alts, alt_logs = await _clarify_rephrase_misses(
             utterance, missed if missed else keywords
         )
@@ -1911,6 +1912,12 @@ async def _clarify_collect(utterance: str, picked: List[str]) -> tuple:
             if more_groups:
                 groups.extend(more_groups)
                 seeds = _interleave(groups)
+    elif missed and seeds:
+        log_lines.append(
+            "已有种子 {} 条，跳过同轴 miss 重试（未命中词 {} 个）".format(
+                len(seeds), len(missed)
+            )
+        )
 
     if not seeds:
         # MCP 不可用或全部无命中：退回规则表，仍能给出候选
@@ -1930,29 +1937,34 @@ async def _clarify_collect(utterance: str, picked: List[str]) -> tuple:
             return True
         return any(_hit_related_to_keyword(en, child_name) for en in kw_ens)
 
-    # 候选扩展：往下取细粒度子节点，叶子节点改取兄弟层
-    for hpo_id, _, _ in seeds[:4]:
-        text = await _mcp_call("get_hpo_children", {"id": hpo_id, "max": 8})
-        children = _parse_hpo_lines(text)
-        if not children:
-            parent_text = await _mcp_call("get_hpo_parents", {"id": hpo_id, "max": 3})
-            for parent_id, _pname in _parse_hpo_lines(parent_text):
-                sib_text = await _mcp_call(
-                    "get_hpo_children", {"id": parent_id, "max": 8}
-                )
-                children.extend(_parse_hpo_lines(sib_text))
-        for child_id, child_name in children:
-            if child_id in seen:
-                continue
-            if not _expand_related(child_name):
-                log_lines.append(
-                    f"丢弃无关扩展 {child_name}（{child_id}）"
-                )
-                continue
-            seen.add(child_id)
-            expanded.append((child_id, child_name, ""))
-    if expanded:
-        log_lines.append("层级扩展补充候选 {} 条".format(len(expanded)))
+    # 种子已够填满选项时跳过层级扩展，省多轮串行 MCP
+    if len(seeds) >= _CLARIFY_MAX_OPTIONS:
+        log_lines.append(
+            "种子已满 {} 条，跳过层级扩展".format(len(seeds))
+        )
+    else:
+        for hpo_id, _, _ in seeds[:2]:
+            text = await _mcp_call("get_hpo_children", {"id": hpo_id, "max": 8})
+            children = _parse_hpo_lines(text)
+            if not children:
+                parent_text = await _mcp_call("get_hpo_parents", {"id": hpo_id, "max": 3})
+                for parent_id, _pname in _parse_hpo_lines(parent_text):
+                    sib_text = await _mcp_call(
+                        "get_hpo_children", {"id": parent_id, "max": 8}
+                    )
+                    children.extend(_parse_hpo_lines(sib_text))
+            for child_id, child_name in children:
+                if child_id in seen:
+                    continue
+                if not _expand_related(child_name):
+                    log_lines.append(
+                        f"丢弃无关扩展 {child_name}（{child_id}）"
+                    )
+                    continue
+                seen.add(child_id)
+                expanded.append((child_id, child_name, ""))
+        if expanded:
+            log_lines.append("层级扩展补充候选 {} 条".format(len(expanded)))
 
     pool = [c for c in seeds + expanded if c[0] not in picked_set]
     return pool, log_lines
@@ -1979,77 +1991,23 @@ def _plain_has_meta_or_reask(plain: str) -> bool:
     return any(w in p for w in markers)
 
 
-async def _clarify_localize(utterance: str, picks: List[tuple]) -> tuple:
-    """M3 回填中文标准表型名。返回 (reply, {hpo_id: (name, plain)})。
+def _clarify_localize(utterance: str, picks: List[tuple]) -> tuple:
+    """模板回填标准表型名（不调 M3）。返回 (reply, {hpo_id: (name, plain)})。
 
-    plain 统一为标准表型短标签（与 name 同内容即可），禁止过程句/反问。
-    matched 非空仅用于前端默认勾选，不进入展示文案。M3 不可达时回落模板。
+    plain = 规则中文名或英文名；matched 非空仅用于前端默认勾选。
     """
+    del utterance  # 接口保留，便于日后按原话微调引导语
     all_asserted = bool(picks) and all((m or "").strip() for _, _, m in picks)
-    fallback_reply = (
+    reply = (
         "已把你说的表现对应到标准说法，请确认后加入症状描述。"
         if all_asserted
         else "谢谢你的描述。下面几条是和你说的情况相关的表现，选出符合孩子的，我帮你整理进症状描述。"
     )
-    # hpo_id -> (name, plain, matched)
     mapping: dict = {}
-    for hpo_id, en_name, matched in picks:
-        local = _RULE_ID_TO_NAME.get(hpo_id)
-        base = local or en_name
-        mapping[hpo_id] = (base, _option_plain(base), (matched or "").strip())
-
-    system = (
-        "你是把医学表型术语翻译成家长听得懂的标准中文表型名的翻译官。"
-        "严禁诊断、严禁定性、严禁提及任何疾病名称、基因名称、药物名称或剂量。"
-        "对每个 HPO 条目给出中文标准表型名 name，以及 plain。"
-        "硬约束：plain 必须等于或等同于该条目的短标准表型名（与 name 一致即可），"
-        "严禁出现「您提到」「整理为」「是否」「有没有」「有无」「是不是」等过程句或反问；"
-        "ASSERTED 与 RELATED 在 plain 上同一规则，差别只体现在 reply。"
-        "若条目全部为 ASSERTED，reply 说明已对应到标准说法请确认后加入；"
-        "若含 RELATED，reply 请家长选出符合孩子的表现。"
-        "reply 40 字以内，中性，不得暗示任何结论。"
-        '只返回严格 JSON：{"reply": "...", "items": [{"hpo_id": "HP:0000733", "name": "...", "plain": "..."}]}'
-    )
-    listing_lines = []
-    for hpo_id, en_name, matched in picks:
-        tag = "ASSERTED" if (matched or "").strip() else "RELATED"
-        span = (matched or "").strip() or "—"
-        listing_lines.append(f"{tag} | {hpo_id} = {en_name} | matched={span}")
-    listing = "\n".join(listing_lines)
-    try:
-        data = await call_minimax(
-            system,
-            f"家长原话：{utterance}\n待翻译的 HPO 条目：\n{listing}",
-            timeout=_CLARIFY_LLM_TIMEOUT,
-        )
-    except ScreeningError as e:
-        if e.error_code != "MINIMAX_API_ERROR":
-            raise
-        logger.warning("M3 回填不可达，使用模板问法：%s", e.error_message)
-        return fallback_reply, {k: (n, p) for k, (n, p, _) in mapping.items()}
-
-    reply = str(data.get("reply") or "").strip() or fallback_reply
-    for item in data.get("items") or []:
-        if not isinstance(item, dict):
-            continue
-        hpo_id = str(item.get("hpo_id") or "").strip()
-        if hpo_id not in mapping:
-            continue
-        name, fallback_plain, matched = mapping[hpo_id]
-        name = str(item.get("name") or "").strip() or name
-        plain = str(item.get("plain") or "").strip() or fallback_plain
-        # 过程话术 / 反问一律打回标准名短标签
-        if _plain_has_meta_or_reask(plain):
-            plain = _option_plain(name)
-        else:
-            plain = _option_plain(plain) or _option_plain(name)
-        mapping[hpo_id] = (name, plain, matched)
-
-    # 全部已断言时，若 reply 仍像在「请勾选相关表现」，改用陈述引导
-    if all_asserted and any(w in reply for w in ("有没有", "是否", "选出符合")):
-        reply = fallback_reply
-
-    return reply, {k: (n, p) for k, (n, p, _) in mapping.items()}
+    for hpo_id, en_name, _matched in picks:
+        base = _RULE_ID_TO_NAME.get(hpo_id) or en_name
+        mapping[hpo_id] = (base, _option_plain(base))
+    return reply, mapping
 
 
 # ---------- 澄清对话合规收口 ----------
@@ -2144,7 +2102,8 @@ async def clarify(payload: ClarifyRequest) -> ClarifyResponse:
             "暂未匹配到标准表型术语，换个说法描述孩子的具体表现再试试。",
         )
 
-    reply, mapping = await _clarify_localize(payload.utterance, picks)
+    reply, mapping = _clarify_localize(payload.utterance, picks)
+    log_lines.append("localize 使用模板（跳过 M3）")
 
     options: List[SymptomOption] = []
     for hpo_id, en_name, matched in picks:
