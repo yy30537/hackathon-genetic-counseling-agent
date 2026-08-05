@@ -36,16 +36,13 @@
 
 
 
-🔗 在线体验：【把作品的外网访问网址贴这里，让人能直接点开玩；没有就删掉这一行】
-
-> 本地跑通版本可用 `streamlit run app.py` + `uvicorn main:app --port 8000` 双进程启动，详见下文「怎么跑起来」。
+🔗 在线体验：
 
 ---
 
 ## 🛠️ 用到的技术 / AI 工具
 
 - **大模型**：Minimax M3（自然语言理解与生成）
-- **智能体编排**：Coze 智能体（按赛道要求）
 - **前端**：Streamlit（Python，零前端构建）
 - **后端**：FastAPI（Python，单端点 `POST /api/screen`）
 - **向量库**：ChromaDB + 中文开源向量模型（约 95MB，本地离线）
