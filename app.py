@@ -7,8 +7,10 @@ import html
 import io
 import json
 import re
+import threading
+import time
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Callable, Dict, List, Tuple
 
 import requests
 import streamlit as st
@@ -271,6 +273,116 @@ def call_clarify(utterance: str, picked: List[str]) -> Tuple[str, Dict[str, Any]
     except ValueError:
         body = {"error_code": "BAD_JSON", "error_message": f"HTTP {r.status_code}"}
     return "error", body
+
+
+# 等待示意：预计秒数 + 时间切片打勾（非后端真实遥测）
+_CLARIFY_WAIT_SEC = 45
+_REPORT_WAIT_SEC = 75
+_CLARIFY_WAIT_STEPS = [
+    "理解口语描述",
+    "检索标准表型（HPO）",
+    "整理可选表现",
+]
+_REPORT_WAIT_STEPS = [
+    "术语标准化（MCP）",
+    "知识检索（RAG）",
+    "报告合成（M3）",
+]
+
+
+def _wait_step_states(elapsed: float, estimate_sec: int, n: int, done: bool) -> List[str]:
+    """返回每步状态：pending / active / done。请求结束强制全 done。"""
+    if done or n <= 0:
+        return ["done"] * max(n, 0)
+    # 相对预计时长：约 15%/45%/75% 进入进行中，再各 +20% 打勾
+    start_fracs = [0.15, 0.45, 0.75]
+    done_fracs = [0.35, 0.65, 0.95]
+    frac = elapsed / max(estimate_sec, 1)
+    states: List[str] = []
+    for i in range(n):
+        sf = start_fracs[i] if i < len(start_fracs) else 0.15 + 0.3 * i
+        df = done_fracs[i] if i < len(done_fracs) else sf + 0.2
+        if frac >= df:
+            states.append("done")
+        elif frac >= sf:
+            states.append("active")
+        else:
+            states.append("pending")
+    return states
+
+
+def _wait_panel_html(
+    label: str,
+    estimate_sec: int,
+    elapsed: float,
+    steps: List[str],
+    done: bool,
+) -> str:
+    remaining = max(0, int(estimate_sec - elapsed))
+    if remaining > 0 and not done:
+        head = f"{html.escape(label)}（预计约 {remaining}s）"
+    else:
+        head = f"{html.escape(label)}（仍在处理，请稍候…）"
+    states = _wait_step_states(elapsed, estimate_sec, len(steps), done)
+    rows = []
+    mark = {"pending": "○", "active": "…", "done": "✓"}
+    for step, stt in zip(steps, states):
+        rows.append(
+            f'<div class="ced-step">'
+            f'<div class="ced-step-idx">{mark[stt]}</div>'
+            f'<div class="ced-step-txt">{html.escape(step)}</div>'
+            f"</div>"
+        )
+    return (
+        f'<div class="ced-card" style="margin:12px 0">'
+        f'<div class="ced-section-title" style="font-size:16px">{head}</div>'
+        f"{''.join(rows)}"
+        f'<div class="ced-note">流程示意，非实时遥测</div>'
+        f"</div>"
+    )
+
+
+def run_with_countdown(
+    fn: Callable[..., Any],
+    *args: Any,
+    label: str,
+    estimate_sec: int,
+    steps: List[str],
+) -> Any:
+    """后台执行 fn，前台每秒刷新倒计时与打勾步骤；返回 fn 的结果。"""
+    box: Dict[str, Any] = {"done": False, "value": None, "error": None}
+
+    def worker() -> None:
+        try:
+            box["value"] = fn(*args)
+        except Exception as e:  # noqa: BLE001 — 必须回传给主线程，避免挂起
+            box["error"] = e
+        finally:
+            box["done"] = True
+
+    thread = threading.Thread(target=worker, daemon=True)
+    thread.start()
+    placeholder = st.empty()
+    started = time.monotonic()
+    while not box["done"]:
+        elapsed = time.monotonic() - started
+        placeholder.markdown(
+            _wait_panel_html(label, estimate_sec, elapsed, steps, done=False),
+            unsafe_allow_html=True,
+        )
+        time.sleep(1)
+    # 收尾：全勾一帧再清空
+    placeholder.markdown(
+        _wait_panel_html(
+            label, estimate_sec, time.monotonic() - started, steps, done=True
+        ),
+        unsafe_allow_html=True,
+    )
+    time.sleep(0.35)
+    placeholder.empty()
+    if box["error"] is not None:
+        raise box["error"]
+    return box["value"]
 
 
 # ---------- 证据回溯（§5.2 算法） ----------
@@ -587,10 +699,14 @@ def render_chat_panel(disabled: bool) -> None:
         st.session_state.chat_msgs.append(
             {"role": "user", "text": utterance.strip(), "options": []}
         )
-        with st.spinner(""):
-            stage, payload = call_clarify(
-                utterance.strip(), st.session_state.picked_ids
-            )
+        stage, payload = run_with_countdown(
+            call_clarify,
+            utterance.strip(),
+            st.session_state.picked_ids,
+            label="正在对应标准表型…",
+            estimate_sec=_CLARIFY_WAIT_SEC,
+            steps=_CLARIFY_WAIT_STEPS,
+        )
         if stage == "success":
             st.session_state.chat_msgs.append({
                 "role": "assistant",
@@ -739,8 +855,14 @@ def render_intake_form(disabled: bool) -> None:
                 )
                 return
         st.session_state.stage = "loading"
-        with st.spinner(""):
-            stage, payload = call_backend(s, g)
+        stage, payload = run_with_countdown(
+            call_backend,
+            s,
+            g,
+            label="正在整理门诊比对单…",
+            estimate_sec=_REPORT_WAIT_SEC,
+            steps=_REPORT_WAIT_STEPS,
+        )
         st.session_state.stage = stage
         st.session_state.payload = payload
         st.rerun()
