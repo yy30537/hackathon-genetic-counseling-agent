@@ -8,7 +8,10 @@
     "scripts/*.py",
     ".cursor/rules/*.mdc",
     ".githooks/*",
-    ".cursorindexingignore"
+    ".cursorindexingignore",
+    "Dockerfile",
+    "start.sh",
+    ".dockerignore"
   ],
 
   "writable_via_confirm": [
